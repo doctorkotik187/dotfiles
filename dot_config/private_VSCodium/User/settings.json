@@ -16,5 +16,6 @@
     "window.restoreWindows": "none",
     "workbench.colorTheme": "Solarized Dark",
     "workbench.editor.showTabs": "single",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "terminal.integrated.stickyScroll.enabled": false
 }
