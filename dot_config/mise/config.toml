@@ -1,5 +1,6 @@
 [tools]
 babashka = "latest"
+chezmoi = "latest"
 clojure = "latest"
 delta = "latest"
 java = "latest"
