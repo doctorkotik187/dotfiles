@@ -1,0 +1,6 @@
+[tools]
+babashka = "latest"
+clojure = "latest"
+delta = "latest"
+java = "latest"
+ripgrep = "latest"
