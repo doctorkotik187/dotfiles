@@ -1,0 +1,20 @@
+{
+    "diffEditor.hideUnchangedRegions.enabled": true,
+    "diffEditor.ignoreTrimWhitespace": false,
+    "diffEditor.renderSideBySide": false,
+    "editor.cursorStyle": "block",
+    "editor.fontFamily": "'CaskaydiaMono NFM', 'Adwaita Mono', 'Droid Sans Mono', 'monospace', monospace",
+    "editor.fontSize": 14,
+    "editor.minimap.enabled": false,
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "git.autofetch": true,
+    "git.confirmSync": false,
+    "git.enableSmartCommit": true,
+    "terminal.integrated.enablePersistentSessions": false,
+    "terminal.integrated.persistentSessionReviveProcess": "never",
+    "window.restoreWindows": "none",
+    "workbench.colorTheme": "Solarized Dark",
+    "workbench.editor.showTabs": "single",
+    "workbench.startupEditor": "none"
+}
