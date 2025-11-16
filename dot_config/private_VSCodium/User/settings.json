@@ -6,6 +6,7 @@
     "editor.fontFamily": "'CaskaydiaMono NFM', 'Adwaita Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
+    "emacs-mcx.cursorMoveOnFindWidget": true,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "git.autofetch": true,
@@ -13,9 +14,12 @@
     "git.enableSmartCommit": true,
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.stickyScroll.enabled": false,
     "window.restoreWindows": "none",
-    "workbench.colorTheme": "Solarized Dark",
+    "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.editor.showTabs": "single",
     "workbench.startupEditor": "none",
-    "terminal.integrated.stickyScroll.enabled": false
+    "workbench.iconTheme": "catppuccin-macchiato",
+    "search.quickOpen.includeHistory": false,
+    "terminal.integrated.shellIntegration.history": 0
 }

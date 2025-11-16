@@ -13,4 +13,7 @@
  :command-palette/toggle ["mod+shift+p" "alt+x"]
  :go/search ["ctrl+x ctrl+b" "ctrl+x b"]
  :editor/escape-editing ["ctrl+g"]
- :graph/save ["ctrl+s"]}}
+ :graph/save ["ctrl+s"]
+ :editor/undo ["mod+z" "ctrl+/"]
+ :editor/redo ["mod+shift+z" "mod+y" "shift+ctrl+/"]
+ :window/close ["mod+w" "ctrl+x ctrl+c"]}}

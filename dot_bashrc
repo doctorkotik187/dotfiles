@@ -27,3 +27,9 @@ unset rc
 # my humble changes
 eval "$(mise activate bash)"
 export EDITOR="codium --wait"
+
+# disable bash history completely
+unset HISTFILE         # don't write history to disk
+export HISTSIZE=0      # don't keep in-memory history
+export HISTFILESIZE=0  # no saved entries
+set +o history         # turn off history recording entirely
