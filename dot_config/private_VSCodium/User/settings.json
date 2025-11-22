@@ -31,5 +31,9 @@
     "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.layoutControl.enabled": false,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "workbench.localHistory.enabled": false,
+    "workbench.editor.restoreViewState": false,
+    "files.enableTrash": false,
+    "git.discardUntrackedChangesToTrash": false
 }
