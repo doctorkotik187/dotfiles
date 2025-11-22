@@ -27,5 +27,10 @@
     "workbench.editor.limit.value": 7,
     "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "catppuccin-macchiato",
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "window.menuBarVisibility": "compact",
+    "window.commandCenter": false,
+    "workbench.editor.editorActionsLocation": "hidden",
+    "workbench.activityBar.location": "hidden",
+    "workbench.layoutControl.enabled": false
 }

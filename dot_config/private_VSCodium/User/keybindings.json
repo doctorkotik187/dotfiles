@@ -8,5 +8,9 @@
         "key": "ctrl+x ctrl+b",
         "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
         "when": "!terminalFocus"
+    },
+    {
+        "key": "ctrl+0",
+        "command": "workbench.action.toggleSidebarVisibility"
     }
 ]
