@@ -4,6 +4,7 @@
     "diffEditor.renderSideBySide": false,
     "editor.cursorStyle": "block",
     "editor.dragAndDrop": false,
+    "editor.dropIntoEditor.enabled": false,
     "editor.fontFamily": "'CaskaydiaMono NFM', 'Adwaita Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
@@ -24,7 +25,7 @@
     "workbench.commandPalette.preserveInput": true,
     "workbench.editor.limit.perEditorGroup": true,
     "workbench.editor.limit.value": 7,
-    "workbench.editor.showTabs": "single",
+    "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.startupEditor": "none"
 }
