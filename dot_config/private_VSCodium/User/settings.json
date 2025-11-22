@@ -3,6 +3,7 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "diffEditor.renderSideBySide": false,
     "editor.cursorStyle": "block",
+    "editor.dragAndDrop": false,
     "editor.fontFamily": "'CaskaydiaMono NFM', 'Adwaita Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
@@ -12,14 +13,14 @@
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.enableSmartCommit": true,
+    "search.quickOpen.includeHistory": false,
     "terminal.integrated.enablePersistentSessions": false,
     "terminal.integrated.persistentSessionReviveProcess": "never",
+    "terminal.integrated.shellIntegration.history": 0,
     "terminal.integrated.stickyScroll.enabled": false,
     "window.restoreWindows": "none",
     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.editor.showTabs": "single",
-    "workbench.startupEditor": "none",
     "workbench.iconTheme": "catppuccin-macchiato",
-    "search.quickOpen.includeHistory": false,
-    "terminal.integrated.shellIntegration.history": 0
+    "workbench.startupEditor": "none"
 }
