@@ -9,10 +9,12 @@
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
     "emacs-mcx.cursorMoveOnFindWidget": true,
+    "files.enableTrash": false,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "git.autofetch": true,
     "git.confirmSync": false,
+    "git.discardUntrackedChangesToTrash": false,
     "git.enableSmartCommit": true,
     "search.quickOpen.includeHistory": false,
     "terminal.integrated.enablePersistentSessions": false,
@@ -28,12 +30,10 @@
     "workbench.commandPalette.preserveInput": true,
     "workbench.editor.limit.perEditorGroup": true,
     "workbench.editor.limit.value": 7,
+    "workbench.editor.restoreViewState": false,
     "workbench.editor.showTabs": "none",
     "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.layoutControl.enabled": false,
-    "workbench.startupEditor": "none",
     "workbench.localHistory.enabled": false,
-    "workbench.editor.restoreViewState": false,
-    "files.enableTrash": false,
-    "git.discardUntrackedChangesToTrash": false
+    "workbench.startupEditor": "none"
 }
