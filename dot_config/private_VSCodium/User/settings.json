@@ -26,7 +26,6 @@
     "workbench.colorTheme": "Catppuccin Macchiato",
     "workbench.commandPalette.experimental.suggestCommands": true,
     "workbench.commandPalette.preserveInput": true,
-    "workbench.editor.editorActionsLocation": "hidden",
     "workbench.editor.limit.perEditorGroup": true,
     "workbench.editor.limit.value": 7,
     "workbench.editor.showTabs": "none",
