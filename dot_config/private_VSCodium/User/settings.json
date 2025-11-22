@@ -20,11 +20,11 @@
     "terminal.integrated.stickyScroll.enabled": false,
     "window.restoreWindows": "none",
     "workbench.colorTheme": "Catppuccin Macchiato",
+    "workbench.commandPalette.experimental.suggestCommands": true,
+    "workbench.commandPalette.preserveInput": true,
+    "workbench.editor.limit.perEditorGroup": true,
+    "workbench.editor.limit.value": 7,
     "workbench.editor.showTabs": "single",
     "workbench.iconTheme": "catppuccin-macchiato",
-    "workbench.startupEditor": "none",
-    "workbench.commandPalette.preserveInput": true,
-    "workbench.commandPalette.experimental.suggestCommands": true,
-    "workbench.editor.limit.perEditorGroup": true,
-    "workbench.editor.limit.value": 7
+    "workbench.startupEditor": "none"
 }
