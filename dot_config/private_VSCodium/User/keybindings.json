@@ -3,5 +3,10 @@
     {
         "key": "ctrl+shift+/",
         "command": "redo"
+    },
+    {
+        "key": "ctrl+x ctrl+b",
+        "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
+        "when": "!terminalFocus"
     }
 ]
