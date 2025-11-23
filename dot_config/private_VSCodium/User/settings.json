@@ -32,8 +32,28 @@
     "workbench.editor.limit.value": 7,
     "workbench.editor.restoreViewState": false,
     "workbench.editor.showTabs": "none",
-    "workbench.iconTheme": "catppuccin-macchiato",
     "workbench.layoutControl.enabled": false,
     "workbench.localHistory.enabled": false,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "editor.renderWhitespace": "boundary",
+    "editor.trimWhitespaceOnDelete": true,
+    "files.trimTrailingWhitespace": true,
+    "vsix.sources": {
+        "opn": {
+            "type": "marketplace",
+            "serviceUrl": "https://open-vsx.org/vscode/gallery",
+        },
+    },
+    "vsix.extensions": [
+        "github:zokugun/vscode-vsix-manager",
+        "github:zokugun/vscode-cron",
+        "opn:tuttieee.emacs-mcx",
+        "github:asciidoctor/asciidoctor-vscode",
+        "github:BetterThanTomorrow/calva",
+        "github:catppuccin/vscode",
+        "opn:kahole.magit",
+        "opn:myriad-dreamin.tinymist",
+    ],
+    "vsix.debug": true,
+    "update.showReleaseNotes": false,
 }

@@ -25,8 +25,9 @@ fi
 unset rc
 
 # my humble changes
-eval "$(mise activate bash)"
 export EDITOR="codium --wait"
+eval "$(mise activate bash)"
+eval "$(starship init bash)"
 
 # disable bash history completely
 unset HISTFILE         # don't write history to disk
