@@ -25,7 +25,7 @@
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.shellIntegration.history": 0,
   "terminal.integrated.stickyScroll.enabled": false,
-  "terminal.integrated.tabs.title": "${shellType}${separator}${sequence}",
+  "terminal.integrated.tabs.title": "term${separator}${sequence}",
   "update.showReleaseNotes": false,
   "vsix.debug": true,
   "vsix.extensions": [
