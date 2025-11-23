@@ -13,6 +13,14 @@
     },
     {
         "command": "workbench.action.toggleSidebarVisibility",
+        "key": "ctrl+c s"
+    },
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "ctrl+c ctrl+s"
+    },
+    {
+        "command": "workbench.action.toggleSidebarVisibility",
         "key": "ctrl+0"
     },
     {
@@ -30,5 +38,13 @@
     {
         "command": "workbench.action.createTerminalEditor",
         "key": "ctrl+c ctrl+t"
+    },
+    {
+        "command": "multiDiffEditor.goToFile",
+        "key": "ctrl+c f"
+    },
+    {
+        "command": "multiDiffEditor.goToFile",
+        "key": "ctrl+c ctrl+f"
     }
 ]
