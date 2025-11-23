@@ -8,10 +8,13 @@
     "editor.fontFamily": "'CaskaydiaMono NFM', 'Adwaita Mono', 'Droid Sans Mono', 'monospace', monospace",
     "editor.fontSize": 14,
     "editor.minimap.enabled": false,
+    "editor.renderWhitespace": "boundary",
+    "editor.trimWhitespaceOnDelete": true,
     "emacs-mcx.cursorMoveOnFindWidget": true,
     "files.enableTrash": false,
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "git.autofetch": true,
     "git.confirmSync": false,
     "git.discardUntrackedChangesToTrash": false,
@@ -21,6 +24,24 @@
     "terminal.integrated.persistentSessionReviveProcess": "never",
     "terminal.integrated.shellIntegration.history": 0,
     "terminal.integrated.stickyScroll.enabled": false,
+    "update.showReleaseNotes": false,
+    "vsix.debug": true,
+    "vsix.extensions": [
+        "github:zokugun/vscode-vsix-manager",
+        "github:zokugun/vscode-cron",
+        "opn:tuttieee.emacs-mcx",
+        "github:asciidoctor/asciidoctor-vscode",
+        "github:BetterThanTomorrow/calva",
+        "github:catppuccin/vscode",
+        "opn:kahole.magit",
+        "opn:myriad-dreamin.tinymist"
+    ],
+    "vsix.sources": {
+        "opn": {
+            "serviceUrl": "https://open-vsx.org/vscode/gallery",
+            "type": "marketplace"
+        }
+    },
     "window.commandCenter": false,
     "window.menuBarVisibility": "compact",
     "window.restoreWindows": "none",
@@ -34,26 +55,5 @@
     "workbench.editor.showTabs": "none",
     "workbench.layoutControl.enabled": false,
     "workbench.localHistory.enabled": false,
-    "workbench.startupEditor": "none",
-    "editor.renderWhitespace": "boundary",
-    "editor.trimWhitespaceOnDelete": true,
-    "files.trimTrailingWhitespace": true,
-    "vsix.sources": {
-        "opn": {
-            "type": "marketplace",
-            "serviceUrl": "https://open-vsx.org/vscode/gallery",
-        },
-    },
-    "vsix.extensions": [
-        "github:zokugun/vscode-vsix-manager",
-        "github:zokugun/vscode-cron",
-        "opn:tuttieee.emacs-mcx",
-        "github:asciidoctor/asciidoctor-vscode",
-        "github:BetterThanTomorrow/calva",
-        "github:catppuccin/vscode",
-        "opn:kahole.magit",
-        "opn:myriad-dreamin.tinymist",
-    ],
-    "vsix.debug": true,
-    "update.showReleaseNotes": false,
+    "workbench.startupEditor": "none"
 }
