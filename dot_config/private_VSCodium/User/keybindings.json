@@ -46,5 +46,9 @@
     {
         "command": "multiDiffEditor.goToFile",
         "key": "ctrl+c ctrl+f"
+    },
+    {
+        "command": "workbench.action.quit",
+        "key": "ctrl+x ctrl+c"
     }
 ]
