@@ -25,6 +25,7 @@
   "terminal.integrated.persistentSessionReviveProcess": "never",
   "terminal.integrated.shellIntegration.history": 0,
   "terminal.integrated.stickyScroll.enabled": false,
+  "terminal.integrated.tabs.title": "${shellType}${separator}${sequence}",
   "update.showReleaseNotes": false,
   "vsix.debug": true,
   "vsix.extensions": [
@@ -65,7 +66,7 @@
   "workbench.commandPalette.experimental.suggestCommands": true,
   "workbench.commandPalette.preserveInput": true,
   "workbench.editor.limit.perEditorGroup": true,
-  "workbench.editor.limit.value": 7,
+  "workbench.editor.limit.value": 9,
   "workbench.editor.restoreViewState": false,
   "workbench.editor.showTabs": "none",
   "workbench.layoutControl.enabled": false,
