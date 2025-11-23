@@ -9,6 +9,7 @@
   "editor.fontSize": 14,
   "editor.minimap.enabled": false,
   "editor.renderWhitespace": "boundary",
+  "editor.scrollbar.verticalScrollbarSize": 0,
   "editor.trimWhitespaceOnDelete": true,
   "emacs-mcx.cursorMoveOnFindWidget": true,
   "files.enableTrash": false,

@@ -1,21 +1,26 @@
-// Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+shift+/",
-        "command": "redo"
+        "command": "redo",
+        "key": "ctrl+shift+/"
     },
     {
-        "key": "ctrl+x ctrl+b",
         "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
-        "when": "!terminalFocus"
+        "key": "ctrl+x ctrl+b"
     },
     {
-        "key": "ctrl+0",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "command": "workbench.action.showAllEditorsByMostRecentlyUsed",
+        "key": "ctrl+x ctrl+b"
     },
     {
-        "key": "ctrl+x f",
+        "command": "workbench.action.toggleSidebarVisibility",
+        "key": "ctrl+0"
+    },
+    {
         "command": "workbench.action.quickOpen",
-        "when": "!terminalFocus"
+        "key": "ctrl+x f"
+    },
+    {
+        "command": "workbench.action.quickOpen",
+        "key": "ctrl+x ctrl+f"
     }
 ]
