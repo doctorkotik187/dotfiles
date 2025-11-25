@@ -58,7 +58,6 @@
       "type": "marketplace"
     }
   },
-  "window.commandCenter": false,
   "window.menuBarVisibility": "compact",
   "window.restoreWindows": "none",
   "workbench.activityBar.location": "hidden",
@@ -72,5 +71,6 @@
   "workbench.editor.showTabs": "none",
   "workbench.layoutControl.enabled": false,
   "workbench.localHistory.enabled": false,
-  "workbench.startupEditor": "none"
+  "workbench.startupEditor": "none",
+  "files.hotExit": "off"
 }
