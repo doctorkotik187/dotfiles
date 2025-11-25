@@ -13,6 +13,7 @@
   "editor.trimWhitespaceOnDelete": true,
   "emacs-mcx.cursorMoveOnFindWidget": true,
   "files.enableTrash": false,
+  "files.hotExit": "off",
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
   "files.trimTrailingWhitespace": true,
@@ -71,6 +72,5 @@
   "workbench.editor.showTabs": "none",
   "workbench.layoutControl.enabled": false,
   "workbench.localHistory.enabled": false,
-  "workbench.startupEditor": "none",
-  "files.hotExit": "off"
+  "workbench.startupEditor": "none"
 }
