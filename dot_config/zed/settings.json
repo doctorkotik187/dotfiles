@@ -1,85 +1,85 @@
 {
-  "disable_ai": true,
-  "git": {
-    "inline_blame": {
-      "enabled": false
-    },
-    "git_gutter": "hide"
-  },
   "agent": {
     "button": false,
     "model_parameters": []
   },
+  "auto_update": false,
+  "base_keymap": "Emacs",
+  "buffer_font_family": "CaskaydiaMono Nerd Font Mono",
+  "buffer_font_size": 14.0,
+  "buffer_line_height": "standard",
   "collaboration_panel": {
     "button": false
+  },
+  "cursor_shape": "block",
+  "disable_ai": true,
+  "drag_and_drop_selection": {
+    "enabled": false
+  },
+  "file_finder": {
+    "git_status": false
+  },
+  "git": {
+    "git_gutter": "hide",
+    "inline_blame": {
+      "enabled": false
+    }
   },
   "git_panel": {
     "button": false
   },
+  "gutter": {
+    "runnables": false
+  },
+  "icon_theme": {
+    "dark": "Catppuccin Macchiato",
+    "light": "Catppuccin Latte",
+    "mode": "system"
+  },
+  "inline_code_actions": false,
+  "on_last_window_closed": "quit_app",
   "outline_panel": {
-    "git_status": false
-  },
-  "project_panel": {
-    "git_status": false
-  },
-  "tab_bar": {
-    "show": false
-  },
-  "title_bar": {
-    "show_sign_in": false,
-    "show_user_picture": false,
-    "show_onboarding_banner": false,
-    "show_branch_icon": true
-  },
-  "file_finder": {
     "git_status": false
   },
   "prettier": {
     "allowed": true
   },
-  "show_completions_on_input": false,
-  "show_whitespaces": "boundary",
-  "toolbar": {
-    "agent_review": true
+  "project_panel": {
+    "git_status": false
   },
+  "redact_private_values": true,
+  "restore_on_startup": "none",
   "scrollbar": {
     "git_diff": false,
     "show": "never"
   },
-  "inline_code_actions": false,
-  "gutter": {
-    "runnables": false
-  },
-  "drag_and_drop_selection": {
-    "enabled": false
-  },
-  "cursor_shape": "block",
-  "buffer_line_height": "standard",
-  "buffer_font_family": "CaskaydiaMono Nerd Font Mono",
-  "auto_update": false,
-  "restore_on_startup": "none",
   "session": {
     "restore_unsaved_buffers": false
   },
-  "use_system_prompts": false,
-  "use_system_path_prompts": false,
-  "redact_private_values": true,
-  "when_closing_with_no_tabs": "keep_window_open",
-  "on_last_window_closed": "quit_app",
+  "show_completions_on_input": false,
+  "show_whitespaces": "boundary",
+  "tab_bar": {
+    "show": false
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "base_keymap": "Emacs",
-  "icon_theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
-  },
-  "buffer_font_size": 14.0,
   "theme": {
-    "mode": "system",
+    "dark": "Catppuccin Macchiato",
     "light": "Catppuccin Latte",
-    "dark": "Catppuccin Macchiato"
-  }
+    "mode": "system"
+  },
+  "title_bar": {
+    "show_branch_icon": true,
+    "show_onboarding_banner": false,
+    "show_sign_in": false,
+    "show_user_picture": false
+  },
+  "toolbar": {
+    "agent_review": true
+  },
+  "use_system_path_prompts": false,
+  "use_system_prompts": false,
+  "when_closing_with_no_tabs": "keep_window_open"
 }

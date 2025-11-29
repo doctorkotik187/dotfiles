@@ -1,14 +1,14 @@
 [
   {
-    "context": "Editor",
     "bindings": {
       "ctrl-y": "editor::Paste"
-    }
+    },
+    "context": "Editor"
   },
   {
-    "context": "Editor",
     "bindings": {
       "ctrl-k": "editor::CutToEndOfLine"
-    }
+    },
+    "context": "Editor"
   }
 ]
