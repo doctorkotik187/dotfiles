@@ -10,5 +10,11 @@
       "ctrl-k": "editor::CutToEndOfLine"
     },
     "context": "Editor"
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "alt-/": "editor::ShowCompletions"
+    }
   }
 ]
