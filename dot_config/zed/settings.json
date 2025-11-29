@@ -66,8 +66,8 @@
     "metrics": false
   },
   "theme": {
-    "dark": "Catppuccin Macchiato",
-    "light": "Catppuccin Latte",
+    "dark": "Gruvbox Dark",
+    "light": "Gruvbox Light",
     "mode": "system"
   },
   "title_bar": {
@@ -81,5 +81,6 @@
   },
   "use_system_path_prompts": false,
   "use_system_prompts": false,
-  "when_closing_with_no_tabs": "keep_window_open"
+  "when_closing_with_no_tabs": "keep_window_open",
+  "max_tabs": 9
 }
