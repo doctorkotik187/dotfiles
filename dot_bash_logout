@@ -1,2 +1,4 @@
-# ~/.bash_logout
-
+# Clear history on logout
+history -c
+history -w
+rm -f ~/.bash_history
