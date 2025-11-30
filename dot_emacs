@@ -1,16 +1,20 @@
+;; behavior
 (setq make-backup-files nil)
 (global-auto-revert-mode 1)
+(setq require-final-newline t)
+(setq-default show-trailing-whitespace t)
+(delete-selection-mode 1)
 
+;; disable stuff
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
-
-(setq inhibit-startup-screen t)
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
-
 (setq ring-bell-function 'ignore)
 (setq visible-bell nil)
+(setq inhibit-startup-screen t)
 
+;; visuals
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 (global-hl-line-mode 1)
 (global-display-line-numbers-mode 1)
 
