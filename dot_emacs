@@ -1,11 +1,13 @@
 ;; behavior
+(setq auto-save-default nil)
 (setq make-backup-files nil)
+(setq create-lockfiles nil)
 (global-auto-revert-mode 1)
 (setq require-final-newline t)
 (setq-default show-trailing-whitespace t)
 (delete-selection-mode 1)
 
-;; disable stuff
+;; disable visuals
 (menu-bar-mode -1)
 (tool-bar-mode -1)
 (scroll-bar-mode -1)
