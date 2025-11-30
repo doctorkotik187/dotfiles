@@ -25,6 +25,6 @@ fi
 unset rc
 
 # my humble changes
-export EDITOR="codium --wait"
+export EDITOR="nano"
 eval "$(mise activate bash)"
 eval "$(starship init bash)"
