@@ -1,0 +1,13 @@
+#:schema https://jj-vcs.github.io/jj/latest/config-schema.json
+
+[user]
+name = "doctorkotik187"
+email = "217476020+doctorkotik187@users.noreply.github.com"
+
+[signing]
+backend = "ssh"
+key = "/var/home/doctorkotik/.ssh/dk.pub"
+behavior = "own"
+
+[git]
+sign-on-push = true
