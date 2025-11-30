@@ -50,8 +50,10 @@
   "redact_private_values": true,
   "restore_on_startup": "none",
   "scrollbar": {
-    "git_diff": false,
-    "show": "never"
+    "axes": {
+      "vertical": false
+    },
+    "git_diff": false
   },
   "session": {
     "restore_unsaved_buffers": false
