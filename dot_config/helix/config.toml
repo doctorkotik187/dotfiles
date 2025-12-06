@@ -1,1 +1,23 @@
 theme = "tokyonight"
+
+[editor]
+color-modes = true
+cursorline = true
+popup-border = "all"
+line-number = "relative"
+insert-final-newline = true
+trim-final-newlines = true
+trim-trailing-whitespace = true
+
+[editor.cursor-shape]
+insert = "bar"
+
+[editor.whitespace.render]
+tab = "all"
+
+[keys.normal]
+"A-x" = "command_palette"
+[keys.insert]
+"A-x" = "command_palette"
+[keys.select]
+"A-x" = "command_palette"

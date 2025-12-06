@@ -11,10 +11,10 @@
 
 {:shortcuts {:editor/paste-text-in-one-block-at-point ["mod+shift+v" "ctrl+v"]
  :go/search ["ctrl+x ctrl+b" "ctrl+x b" "space b"]
- :ui/toggle-right-sidebar ["t r" "ctrl+`"]
- :command-palette/toggle ["mod+shift+p" "alt+x"]
+ :ui/toggle-right-sidebar ["ctrl+`" "ctrl+w v" "ctrl+w ctrl+w"]
+ :command-palette/toggle ["mod+shift+p" "alt+x" "space shift+/"]
  :editor/escape-editing ["ctrl+g"]
  :editor/redo ["mod+shift+z" "mod+y" "shift+ctrl+/"]
- :window/close ["mod+w" "ctrl+x ctrl+c"]
+ :window/close ["ctrl+x ctrl+c" "ctrl+w q"]
  :graph/save ["ctrl+s"]
  :editor/undo ["mod+z" "ctrl+/"]}}
