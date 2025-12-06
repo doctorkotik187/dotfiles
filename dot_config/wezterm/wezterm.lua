@@ -1,18 +1,18 @@
 local wezterm = require 'wezterm'
-local mux = wezterm.mux
 local config = wezterm.config_builder()
 
--- maximized windows
-wezterm.on('gui-startup', function(cmd)
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
-end)
+-- fix window buttons
+config.window_decorations = "INTEGRATED_BUTTONS|RESIZE"
 
 -- font
-config.font = wezterm.font 'BlexMono Nerd Font'
+config.font = wezterm.font 'BlexMono Nerd Font Medium'
 config.font_size = 10
 
 -- theme
 config.color_scheme = 'Tokyo Night'
+
+-- multiplexing
+config.unix_domains = {{ name = 'unix' }}
+config.default_gui_startup_args = { 'connect', 'unix' }
 
 return config
