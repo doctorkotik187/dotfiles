@@ -1,6 +1,10 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+-- size
+config.initial_cols = 190
+config.initial_rows = 40
+
 -- font
 config.font = wezterm.font 'BlexMono Nerd Font Medium'
 config.font_size = 10

@@ -1,13 +1,11 @@
 [user]
 	name = doctorkotik187
 	email = 217476020+doctorkotik187@users.noreply.github.com
-	signingkey = /var/home/doctorkotik/.ssh/dk.pub
+	signingkey = 91E5E1A6521E5404
 [core]
 	pager = delta
 [diff]
 	tool = delta
-[gpg]
-	format = ssh
 [commit]
 	gpgsign = true
 [tag]

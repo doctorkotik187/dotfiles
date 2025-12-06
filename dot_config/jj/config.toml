@@ -5,12 +5,9 @@ name = "doctorkotik187"
 email = "217476020+doctorkotik187@users.noreply.github.com"
 
 [signing]
-backend = "ssh"
-key = "/var/home/doctorkotik/.ssh/dk.pub"
+backend = "gpg"
+key = "91E5E1A6521E5404"
 behavior = "own"
-
-[git]
-sign-on-push = true
 
 [ui]
 editor = "hx"

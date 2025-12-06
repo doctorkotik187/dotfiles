@@ -10,6 +10,7 @@ $env.PATH ++= [
 mkdir ($nu.data-dir | path join "vendor/autoload")
 ^mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
 ^starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+^zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
 # helix
 $env.config.buffer_editor = "hx"
