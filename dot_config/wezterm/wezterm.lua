@@ -15,4 +15,7 @@ config.default_gui_startup_args = { 'connect', 'unix' }
 -- nushell
 config.default_prog = { '/home/linuxbrew/.linuxbrew/bin/nu' }
 
+-- distrobox
+config.launch_menu = {{ label = 'archbox', args = { 'distrobox-enter', 'archbox', '--', 'nu' }}}
+
 return config
