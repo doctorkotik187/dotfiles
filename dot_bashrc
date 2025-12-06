@@ -23,8 +23,3 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
-
-# my humble changes
-export EDITOR="nano"
-eval "$(mise activate bash)"
-eval "$(starship init bash)"
