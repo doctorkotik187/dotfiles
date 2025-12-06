@@ -6,13 +6,10 @@ $env.PATH ++= [
   '/var/home/linuxbrew/.linuxbrew/sbin'
 ]
 
-# mise
+# activate programs
 mkdir ($nu.data-dir | path join "vendor/autoload")
 ^mise activate nu | save -f ($nu.data-dir | path join "vendor/autoload/mise.nu")
-
-# starship
-mkdir ($nu.data-dir | path join "vendor/autoload")
-starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+^starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 
 # helix
 $env.config.buffer_editor = "hx"
