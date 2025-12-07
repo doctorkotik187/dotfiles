@@ -1,6 +1,15 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+-- stop clicking links!
+config.mouse_bindings = {
+  {
+    event = { Up = { streak = 1, button = 'Left' } },
+    mods = 'NONE',
+    action = wezterm.action.CompleteSelection 'ClipboardAndPrimarySelection',
+  },
+}
+
 -- size
 config.initial_cols = 190
 config.initial_rows = 40
