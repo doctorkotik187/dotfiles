@@ -11,8 +11,8 @@ config.mouse_bindings = {
 }
 
 -- size
-config.initial_cols = 190
-config.initial_rows = 40
+config.initial_cols = 120
+config.initial_rows = 30
 
 -- font
 config.font = wezterm.font 'BlexMono Nerd Font Medium'
