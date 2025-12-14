@@ -14,3 +14,6 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 
 # helix
 $env.config.buffer_editor = "hx"
+
+# hledger
+$env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
