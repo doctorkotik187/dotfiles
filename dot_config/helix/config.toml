@@ -4,7 +4,6 @@ theme = "tokyonight"
 color-modes = true
 cursorline = true
 popup-border = "all"
-line-number = "relative"
 insert-final-newline = true
 trim-final-newlines = true
 trim-trailing-whitespace = true
