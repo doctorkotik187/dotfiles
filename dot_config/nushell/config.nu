@@ -12,8 +12,7 @@ mkdir ($nu.data-dir | path join "vendor/autoload")
 ^starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
 ^zoxide init nushell | save -f ($nu.data-dir | path join "vendor/autoload/zoxide.nu")
 
-# helix
+# config programs
 $env.config.buffer_editor = "hx"
-
-# hledger
 $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
+def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } }  # "disable" previews in zellij
