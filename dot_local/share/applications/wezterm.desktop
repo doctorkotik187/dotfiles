@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=WezTerm
+Comment=GPU-accelerated terminal emulator
+Keywords=shell;prompt;command;commandline;cmd;
+Icon=utilities-terminal
+StartupWMClass=org.wezfurlong.wezterm
+TryExec=/home/linuxbrew/.linuxbrew/bin/wezterm
+Exec=/home/linuxbrew/.linuxbrew/bin/wezterm
+Type=Application
+Categories=System;TerminalEmulator;Utility;
+Terminal=false

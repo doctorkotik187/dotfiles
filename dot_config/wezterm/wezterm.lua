@@ -15,7 +15,7 @@ config.initial_cols = 120
 config.initial_rows = 30
 
 -- font
-config.font = wezterm.font 'BlexMono Nerd Font Medium'
+config.font = wezterm.font 'JetBrainsMono NFM Medium'
 config.font_size = 10
 
 -- theme
