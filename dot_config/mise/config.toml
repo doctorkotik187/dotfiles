@@ -2,6 +2,7 @@
 babashka = "latest"
 bat = "latest"
 bottom = "latest"
+carapace = "latest"
 chezmoi = "latest"
 clojure = "latest"
 delta = "latest"
