@@ -1,0 +1,105 @@
+# bbrew
+tap "valkyrie00/bbrew"
+brew "valkyrie00/bbrew/bbrew"
+
+# terminal
+tap "wezterm/wezterm-linuxbrew"
+brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
+
+# comfy cli tools
+brew "chezmoi"
+brew "nushell"
+brew "carapace"
+brew "zoxide"
+brew "bat"
+brew "git-delta"
+
+# misc compatibility tools
+brew "rlwrap"  # clojure's clj wants it
+brew "chafa"   # fallback for running yazi in zellij bug
+
+# file management
+brew "yazi"
+brew "midnight-commander"
+brew "gocryptfs"
+brew "syncthing"
+brew "trash-cli"
+brew "sevenzip"
+brew "tre-command"
+brew "eza"
+brew "fd"
+brew "fzf"
+brew "ripgrep"
+brew "ripgrep-all"
+flatpak "com.github.qarmin.czkawka"
+
+# programming & ops
+brew "mise"
+brew "zellij"
+brew "helix"
+brew "jj"
+brew "gh"
+brew "watchexec"
+brew "bacon"  # better version of cargo run
+flatpak "org.gnu.emacs"
+flatpak "org.kde.kate"
+
+# monitoring
+brew "bottom"
+brew "dust"
+
+# org & office
+brew "calcurse"
+brew "typst"
+flatpak "com.logseq.Logseq"
+flatpak "org.libreoffice.LibreOffice"
+flatpak "org.gnumeric.Gnumeric"
+flatpak "com.github.xournalpp.xournalpp"
+
+# finance
+brew "hledger"
+
+# photography
+flatpak "org.kde.digikam"
+
+# media consumption
+brew "yt-dlp"
+brew "cmus"
+flatpak "io.mpv.Mpv"
+flatpak "org.videolan.VLC"
+
+# media production
+flatpak "org.gimp.GIMP"
+flatpak "com.obsproject.Studio"
+flatpak "org.shotcut.Shotcut"
+
+# secrets
+flatpak "org.keepassxc.KeePassXC"
+flatpak "org.gnome.seahorse.Application"
+
+# communication & socials
+flatpak "com.rtosta.zapzap"      # whatsapp
+flatpak "dev.vencord.Vesktop"    # discord
+flatpak "org.telegram.desktop"   # telegram
+
+# reading & learning
+flatpak "com.calibre_ebook.calibre"
+flatpak "net.ankiweb.Anki"
+
+# web
+flatpak "io.github.ungoogled_software.ungoogled_chromium"
+flatpak "io.gitlab.librewolf-community"
+
+# fonts
+cask "font-blex-mono-nerd-font"
+cask "font-caskaydia-mono-nerd-font"
+cask "font-droid-sans-mono-nerd-font"
+cask "font-fira-code-nerd-font"
+cask "font-go-mono-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-maple-mono-nf"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-source-code-pro"
+cask "font-ubuntu-nerd-font"
+
+# SORT ME!
