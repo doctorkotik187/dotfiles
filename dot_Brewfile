@@ -77,7 +77,8 @@ flatpak "org.shotcut.Shotcut"
 flatpak "org.keepassxc.KeePassXC"
 flatpak "org.gnome.seahorse.Application"
 
-# communication & socials
+# email & messaging
+flatpak "org.mozilla.Thunderbird"
 flatpak "com.rtosta.zapzap"      # whatsapp
 flatpak "dev.vencord.Vesktop"    # discord
 flatpak "org.telegram.desktop"   # telegram
@@ -89,6 +90,34 @@ flatpak "net.ankiweb.Anki"
 # web
 flatpak "io.github.ungoogled_software.ungoogled_chromium"
 flatpak "io.gitlab.librewolf-community"
+
+# muh games
+flatpak "net.veloren.airshipper"
+
+# default bluefin & gnome apps
+flatpak "com.github.tchx84.Flatseal"
+flatpak "io.gitlab.adhami3310.Impression"
+flatpak "org.gnome.Firmware"
+flatpak "org.gnome.TextEditor"
+flatpak "com.mattjakeman.ExtensionManager"
+flatpak "io.missioncenter.MissionCenter"
+flatpak "org.gnome.Logs"
+flatpak "org.gnome.Weather"
+flatpak "page.tesk.Refine"
+flatpak "com.ranfdev.DistroShelf"
+flatpak "org.gnome.Loupe"
+flatpak "org.gnome.baobab"
+flatpak "io.github.flattool.Ignition"
+flatpak "org.gnome.Calculator"
+flatpak "org.gnome.NautilusPreviewer"
+flatpak "org.gnome.clocks"
+flatpak "io.github.flattool.Warehouse"
+flatpak "org.gnome.Calendar"
+flatpak "org.gnome.Papers"
+flatpak "org.gnome.font-viewer"
+flatpak "io.github.kolunmi.Bazaar"
+flatpak "org.gnome.FileRoller"
+flatpak "org.gnome.SimpleScan"
 
 # fonts
 cask "font-blex-mono-nerd-font"
