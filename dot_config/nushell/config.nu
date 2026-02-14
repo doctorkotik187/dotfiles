@@ -4,7 +4,6 @@ $env.config.show_banner = false
 $env.PATH ++= [
   "/var/home/linuxbrew/.linuxbrew/bin"
   "/var/home/linuxbrew/.linuxbrew/sbin"
-  "~/.local/share/mise/shims"
 ]
 
 # activate programs
