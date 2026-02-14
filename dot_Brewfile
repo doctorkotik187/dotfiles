@@ -40,7 +40,6 @@ brew "helix"
 brew "jj"
 brew "gh"
 brew "watchexec"
-brew "bacon"  # better version of cargo run
 flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
 
