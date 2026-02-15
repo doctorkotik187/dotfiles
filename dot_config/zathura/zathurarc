@@ -1,3 +1,5 @@
+set selection-clipboard clipboard
+
 # Catppuccin Mocha Theme (https://github.com/catppuccin/zathura)
 
 set default-fg                rgba(205,214,244,1)
