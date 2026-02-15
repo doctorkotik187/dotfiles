@@ -9,8 +9,6 @@ brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
 # comfy cli tools
 brew "chezmoi"
 brew "nushell"
-brew "carapace"
-brew "zoxide"
 brew "bat"
 brew "git-delta"
 
