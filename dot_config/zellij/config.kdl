@@ -168,8 +168,8 @@ keybinds clear-defaults=true {
         bind "Alt o" { MoveTab "right"; }
         bind "Alt p" { TogglePaneInGroup; }
         bind "Alt Shift p" { ToggleGroupMarking; }
-        bind "Alt Shift up" { HalfPageScrollUp; }
-        bind "Alt Shift down" { HalfPageScrollDown; }
+        bind "Alt Shift up" { ScrollUp; }
+        bind "Alt Shift down" { ScrollDown; }
     }
     shared_except "locked" "renametab" "renamepane" {
         bind "Ctrl g" { SwitchToMode "locked"; }
