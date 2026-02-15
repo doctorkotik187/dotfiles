@@ -35,7 +35,6 @@ flatpak "com.github.qarmin.czkawka"
 # programming & ops
 brew "mise"
 brew "zellij"
-brew "helix"
 brew "jj"
 brew "gh"
 brew "watchexec"
