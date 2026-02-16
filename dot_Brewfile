@@ -59,9 +59,12 @@ brew "hledger"
 # photography
 flatpak "org.kde.digikam"
 
-# media consumption
+# multimedia
 brew "yt-dlp"
 brew "cmus"
+brew "moc"
+brew "yewtube"
+brew "streamlink"
 flatpak "io.mpv.Mpv"
 flatpak "org.videolan.VLC"
 
@@ -70,7 +73,8 @@ flatpak "org.gimp.GIMP"
 flatpak "com.obsproject.Studio"
 flatpak "org.shotcut.Shotcut"
 
-# secrets
+# security & cryptography
+brew "sequoia-sq"
 flatpak "org.keepassxc.KeePassXC"
 flatpak "org.gnome.seahorse.Application"
 
@@ -92,6 +96,7 @@ flatpak "io.gitlab.librewolf-community"
 flatpak "net.veloren.airshipper"
 
 # default bluefin & gnome apps
+flatpak "it.mijorus.smile"
 flatpak "com.github.tchx84.Flatseal"
 flatpak "io.gitlab.adhami3310.Impression"
 flatpak "org.gnome.Firmware"
