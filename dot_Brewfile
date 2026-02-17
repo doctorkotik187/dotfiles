@@ -33,7 +33,10 @@ brew "ripgrep-all"
 flatpak "com.github.qarmin.czkawka"
 
 # programming & ops
+brew "rust"
+cargo "feedr"
 brew "mise"
+brew "helix"
 brew "zellij"
 brew "jj"
 brew "gh"
