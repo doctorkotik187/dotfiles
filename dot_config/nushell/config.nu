@@ -19,4 +19,4 @@ mkdir $AUTOLOAD_DIR
 $env.config.buffer_editor = "hx"
 $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } }  # "disable" previews in zellij
-alias bb = brew bundle --global  # ~/.Brewfile
+alias brewb = brew bundle --global  # alias for `brew bundle --global` (~/.Brewfile)

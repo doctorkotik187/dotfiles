@@ -7,12 +7,10 @@ popup-border = "all"
 insert-final-newline = true
 trim-final-newlines = true
 trim-trailing-whitespace = true
-
-[editor.cursor-shape]
-insert = "bar"
-
-[editor.whitespace.render]
-tab = "all"
+rainbow-brackets = true
+cursor-shape.insert = "bar"
+whitespace.render.tab = "all"
+buffer-picker.start-position = "previous"
 
 [keys.normal]
 "A-x" = "command_palette"

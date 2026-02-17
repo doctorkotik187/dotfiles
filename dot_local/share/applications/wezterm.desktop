@@ -2,7 +2,7 @@
 Name=WezTerm
 Comment=GPU-accelerated terminal emulator
 Keywords=shell;prompt;command;commandline;cmd;
-Icon=utilities-terminal
+Icon=~/.local/share/icons/wezterm.png;utilities-terminal
 StartupWMClass=org.wezfurlong.wezterm
 TryExec=/home/linuxbrew/.linuxbrew/bin/wezterm
 Exec=/home/linuxbrew/.linuxbrew/bin/wezterm
