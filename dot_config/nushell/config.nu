@@ -16,7 +16,8 @@ mkdir $AUTOLOAD_DIR
 ^carapace _carapace nushell | save -f ($AUTOLOAD_DIR | path join "carapace.nu")
 
 # config programs
-$env.config.buffer_editor = "hx"
+$env.config.buffer_editor = "/var/home/linuxbrew/.linuxbrew/bin/hx"
+alias hx = /var/home/linuxbrew/.linuxbrew/bin/hx
 $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } }  # "disable" previews in zellij
 alias brewb = brew bundle --global  # alias for `brew bundle --global` (~/.Brewfile)

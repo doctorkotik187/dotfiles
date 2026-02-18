@@ -15,10 +15,10 @@ config.initial_cols = 120
 config.initial_rows = 30
 
 -- font
-config.font = wezterm.font 'JetBrainsMono NFM Medium'
+config.font = wezterm.font 'Maple Mono NF Medium'
 config.font_size = 10
 
 -- theme
-config.color_scheme = 'Tokyo Night'
+config.color_scheme = 'nord'
 
 return config

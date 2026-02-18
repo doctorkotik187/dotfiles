@@ -13,4 +13,4 @@ behavior = "drop"
 sign-on-push = true
 
 [ui]
-editor = "hx"
+editor = "/var/home/linuxbrew/.linuxbrew/bin/hx"

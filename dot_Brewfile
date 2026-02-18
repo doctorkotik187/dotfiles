@@ -1,9 +1,5 @@
-# bbrew
-tap "valkyrie00/bbrew"
+# absolute core
 brew "valkyrie00/bbrew/bbrew"
-
-# terminal
-tap "wezterm/wezterm-linuxbrew"
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
 
 # comfy cli tools
@@ -41,6 +37,7 @@ brew "zellij"
 brew "jj"
 brew "gh"
 brew "watchexec"
+brew "clojure-lsp/brew/clojure-lsp-native"
 flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
 
@@ -48,9 +45,10 @@ flatpak "org.kde.kate"
 brew "bottom"
 brew "dust"
 
-# org & office
+# org & docs
 brew "calcurse"
 brew "typst"
+brew "glow"  # markdown on cli
 flatpak "com.logseq.Logseq"
 flatpak "org.libreoffice.LibreOffice"
 flatpak "org.gnumeric.Gnumeric"
