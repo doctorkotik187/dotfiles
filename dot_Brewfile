@@ -77,13 +77,14 @@ flatpak "org.keepassxc.KeePassXC"
 flatpak "org.gnome.seahorse.Application"
 
 # email & messaging
-brew "weechat"                   # matrix
 flatpak "com.rtosta.zapzap"      # whatsapp
 flatpak "dev.vencord.Vesktop"    # discord
 flatpak "org.telegram.desktop"   # telegram
+flatpak "org.gnome.Fractal"      # matrix
 flatpak "org.mozilla.Thunderbird"
 
 # reading & learning
+flatpak "org.gabmus.gfeeds"
 flatpak "com.calibre_ebook.calibre"
 flatpak "net.ankiweb.Anki"
 
