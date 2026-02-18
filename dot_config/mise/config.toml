@@ -1,7 +1,9 @@
 [tools]
 carapace = "latest"
 "cargo:bacon" = "latest"
+"cargo:feedr" = "latest"
 "cargo:loco" = "latest"
+"cargo:matrix-commander" = "latest"
 "cargo:sea-orm-cli" = "latest"
 clojure = "latest"
 fastfetch = "latest"

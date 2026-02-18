@@ -11,6 +11,3 @@ behavior = "drop"
 
 [git]
 sign-on-push = true
-
-[ui]
-editor = "/var/home/linuxbrew/.linuxbrew/bin/hx"

@@ -29,8 +29,6 @@ brew "ripgrep-all"
 flatpak "com.github.qarmin.czkawka"
 
 # programming & ops
-brew "rust"
-cargo "feedr"
 brew "mise"
 brew "helix", args: ["HEAD"]
 brew "zellij"
