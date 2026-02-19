@@ -2,7 +2,9 @@
 Name=WezTerm
 Comment=GPU-accelerated terminal emulator
 Keywords=shell;prompt;command;commandline;cmd;
+# Fallback icon.
 # Icon=utilities-terminal
+# Download `~/.local/share/icons/hicolor/scalable/apps/wezterm.svg` from wezterm repo.
 Icon=wezterm
 StartupWMClass=org.wezfurlong.wezterm
 TryExec=/home/linuxbrew/.linuxbrew/bin/wezterm

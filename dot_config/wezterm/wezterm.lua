@@ -11,8 +11,8 @@ config.mouse_bindings = {
 }
 
 -- size
-config.initial_cols = 120
-config.initial_rows = 30
+-- config.initial_cols = 120
+-- config.initial_rows = 30
 
 -- font
 config.font = wezterm.font 'Maple Mono NF Medium'
@@ -20,5 +20,6 @@ config.font_size = 10
 
 -- theme
 config.color_scheme = 'nord'
+config.use_fancy_tab_bar = false
 
 return config
