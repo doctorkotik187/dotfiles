@@ -30,6 +30,7 @@ flatpak "com.github.qarmin.czkawka"
 
 # programming & ops
 brew "mise"
+brew "micro"
 brew "helix", args: ["HEAD"]
 brew "zellij"
 brew "jj"

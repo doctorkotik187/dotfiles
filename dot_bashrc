@@ -27,7 +27,7 @@ unset rc
 # MY CHANGES
 # compatibility with nushell
 eval "$(mise activate bash)"
-export EDITOR="/var/home/linuxbrew/.linuxbrew/bin/hx"
+export EDITOR="micro"
 
 # clear history on start, because I use nushell
 history -c && history -w
