@@ -48,6 +48,8 @@ brew "dust"
 brew "calcurse"
 brew "typst"
 brew "glow"  # markdown on cli
+brew "libqalculate"
+flatpak "io.github.Qalculate"
 flatpak "com.logseq.Logseq"
 flatpak "org.libreoffice.LibreOffice"
 flatpak "org.gnumeric.Gnumeric"

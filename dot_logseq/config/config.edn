@@ -11,7 +11,7 @@
 
 {:shortcuts {:editor/paste-text-in-one-block-at-point ["mod+shift+v" "ctrl+v"]
  :go/search ["ctrl+x ctrl+b" "ctrl+x b" "space b" "space /"]
- :ui/toggle-right-sidebar ["ctrl+`" "ctrl+w v" "ctrl+w ctrl+w"]
+ :ui/toggle-right-sidebar ["ctrl+`" "ctrl+w v" "ctrl+w ctrl+w" "space w"]
  :command-palette/toggle ["mod+shift+p" "alt+x" "space shift+/"]
  :editor/escape-editing ["ctrl+g"]
  :editor/redo ["mod+shift+z" "mod+y" "shift+ctrl+/"]
