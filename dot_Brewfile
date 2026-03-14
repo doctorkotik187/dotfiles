@@ -40,9 +40,10 @@ brew "clojure-lsp/brew/clojure-lsp-native"
 flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
 
-# monitoring
+# monitoring & network
 brew "bottom"
 brew "dust"
+brew "nmap"
 
 # org & docs
 brew "calcurse"
@@ -58,9 +59,6 @@ flatpak "com.github.xournalpp.xournalpp"
 # finance
 brew "hledger"
 
-# photography
-flatpak "org.kde.digikam"
-
 # multimedia
 brew "yt-dlp"
 brew "cmus"
@@ -68,8 +66,8 @@ brew "yewtube"
 brew "streamlink"
 flatpak "io.mpv.Mpv"
 flatpak "org.videolan.VLC"
-
-# media production
+flatpak "org.kde.digikam"
+flatpak "fr.handbrake.ghb"
 flatpak "org.gimp.GIMP"
 flatpak "com.obsproject.Studio"
 flatpak "org.shotcut.Shotcut"
@@ -90,6 +88,7 @@ flatpak "org.mozilla.Thunderbird"
 flatpak "org.gabmus.gfeeds"
 flatpak "com.calibre_ebook.calibre"
 flatpak "net.ankiweb.Anki"
+flatpak "org.kde.CrowTranslate"
 
 # web
 flatpak "io.github.ungoogled_software.ungoogled_chromium"
