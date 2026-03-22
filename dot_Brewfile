@@ -91,8 +91,8 @@ flatpak "net.ankiweb.Anki"
 flatpak "org.kde.CrowTranslate"
 
 # web
-flatpak "io.github.ungoogled_software.ungoogled_chromium"
-flatpak "io.gitlab.librewolf-community"
+flatpak "org.chromium.Chromium"         # it just works
+flatpak "io.gitlab.librewolf-community" # privacy & security
 
 # muh games
 flatpak "net.veloren.airshipper"

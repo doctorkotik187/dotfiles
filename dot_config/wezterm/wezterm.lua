@@ -19,7 +19,9 @@ config.font = wezterm.font 'Maple Mono NF Medium'
 config.font_size = 10
 
 -- theme
-config.color_scheme = 'nord'
+config.color_scheme = 'Catppuccin Latte'        -- light
+-- config.color_scheme = 'Catppuccin Macchiato' -- dark
+
 config.use_fancy_tab_bar = false
 
 return config
