@@ -15,8 +15,8 @@ config.initial_cols = 120
 config.initial_rows = 30
 
 -- font
-config.font = wezterm.font 'Maple Mono NF Medium'
-config.font_size = 10
+config.font = wezterm.font 'Source Han Code JP M'
+config.font_size = 9.5
 
 -- theme
 config.color_scheme = 'Catppuccin Latte'        -- light

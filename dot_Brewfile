@@ -134,5 +134,8 @@ cask "font-maple-mono-nf"
 cask "font-sauce-code-pro-nerd-font"
 cask "font-source-code-pro"
 cask "font-ubuntu-nerd-font"
+cask "font-noto-sans-cjk"
+cask "font-noto-sans-mono-cjk-jp"
+cask "font-source-han-code-jp"
 
 # SORT ME!
