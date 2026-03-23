@@ -19,8 +19,8 @@ config.font = wezterm.font 'Source Han Code JP M'
 config.font_size = 9.5
 
 -- theme
--- config.color_scheme = 'Catppuccin Latte'     -- light
-config.color_scheme = 'Catppuccin Macchiato' -- dark
+config.color_scheme = 'Catppuccin Latte'     -- light
+-- config.color_scheme = 'Catppuccin Macchiato' -- dark
 
 config.use_fancy_tab_bar = false
 
