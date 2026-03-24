@@ -62,7 +62,7 @@ brew "hledger"
 # multimedia
 brew "yt-dlp"
 brew "cmus"
-brew "yewtube"
+brew "yewtube" # yt
 brew "streamlink"
 flatpak "io.mpv.Mpv"
 flatpak "org.videolan.VLC"
@@ -137,5 +137,11 @@ cask "font-ubuntu-nerd-font"
 cask "font-noto-sans-cjk"
 cask "font-noto-sans-mono-cjk-jp"
 cask "font-source-han-code-jp"
+cask "font-m-plus-1"
+cask "font-m-plus-1-code"
+cask "font-m-plus-1p"
+cask "font-m-plus-2"
+cask "font-m-plus-rounded-1c"
 
-# SORT ME!
+# ============================================
+# ! === SORT ME === !

@@ -15,8 +15,8 @@ config.initial_cols = 120
 config.initial_rows = 30
 
 -- font
-config.font = wezterm.font 'Source Han Code JP M'
-config.font_size = 9.5
+config.font = wezterm.font('M PLUS 1 Code', { weight = 'Medium' })
+config.font_size = 11
 
 -- theme
 config.color_scheme = 'Catppuccin Latte'     -- light
