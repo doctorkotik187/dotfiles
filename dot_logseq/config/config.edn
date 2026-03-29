@@ -10,7 +10,7 @@
 ;;                :ui/toggle-brackets "t b"}}
 
 {:shortcuts {:editor/paste-text-in-one-block-at-point ["mod+shift+v" "ctrl+v"]
- :go/search ["ctrl+x ctrl+b" "ctrl+x b" "space b" "space /"]
+ :go/search ["ctrl+x ctrl+b" "ctrl+x b" "space b" "space /" "space f"]
  :ui/toggle-right-sidebar ["ctrl+`" "ctrl+w v" "ctrl+w ctrl+w" "space w"]
  :command-palette/toggle ["mod+shift+p" "alt+x" "space shift+/"]
  :editor/escape-editing ["ctrl+g"]

@@ -44,6 +44,7 @@ flatpak "org.kde.kate"
 brew "bottom"
 brew "dust"
 brew "nmap"
+brew "wego"
 
 # org & docs
 brew "calcurse"
@@ -93,9 +94,6 @@ flatpak "org.kde.CrowTranslate"
 # web
 flatpak "org.chromium.Chromium"         # it just works
 flatpak "io.gitlab.librewolf-community" # privacy & security
-
-# muh games
-flatpak "net.veloren.airshipper"
 
 # default bluefin & gnome apps
 flatpak "it.mijorus.smile"
