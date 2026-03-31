@@ -44,7 +44,6 @@ flatpak "org.kde.kate"
 brew "bottom"
 brew "dust"
 brew "nmap"
-brew "wego"
 
 # org & docs
 brew "calcurse"
