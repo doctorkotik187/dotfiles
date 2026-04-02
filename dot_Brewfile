@@ -55,6 +55,8 @@ flatpak "com.logseq.Logseq"
 flatpak "org.libreoffice.LibreOffice"
 flatpak "org.gnumeric.Gnumeric"
 flatpak "com.github.xournalpp.xournalpp"
+flatpak "org.kde.okular"
+flatpak "com.github.ahrm.sioyek"
 
 # finance
 brew "hledger"
@@ -89,6 +91,7 @@ flatpak "org.gabmus.gfeeds"
 flatpak "com.calibre_ebook.calibre"
 flatpak "net.ankiweb.Anki"
 flatpak "org.kde.CrowTranslate"
+flatpak "io.github.xiaoyifang.goldendict_ng"
 
 # web
 flatpak "org.chromium.Chromium"         # it just works

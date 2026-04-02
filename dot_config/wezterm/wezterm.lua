@@ -19,8 +19,8 @@ config.font = wezterm.font('M PLUS 1 Code', { weight = 'Medium' })
 config.font_size = 11
 
 -- theme
-config.color_scheme = 'Catppuccin Latte'     -- light
--- config.color_scheme = 'Catppuccin Macchiato' -- dark
+-- config.color_scheme = 'Catppuccin Latte'     -- light
+config.color_scheme = 'Catppuccin Macchiato' -- dark
 
 config.use_fancy_tab_bar = false
 
