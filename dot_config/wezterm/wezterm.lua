@@ -16,7 +16,7 @@ config.initial_rows = 30
 
 -- font
 config.font = wezterm.font('M PLUS 1 Code', { weight = 'Medium' })
-config.font_size = 11
+config.font_size = 10
 
 -- theme
 -- config.color_scheme = 'Catppuccin Latte'     -- light

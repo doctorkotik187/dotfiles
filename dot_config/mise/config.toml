@@ -1,4 +1,5 @@
 [tools]
+babashka = { version = "latest", exe = "bb" }
 carapace = "latest"
 "cargo:bacon" = "latest"
 "cargo:loco" = "latest"
