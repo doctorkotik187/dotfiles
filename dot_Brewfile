@@ -62,6 +62,7 @@ flatpak "com.github.ahrm.sioyek"
 
 # finance
 brew "hledger"
+flatpak "org.getmonero.Monero"
 
 # multimedia
 brew "yt-dlp"
@@ -89,7 +90,7 @@ flatpak "org.gnome.Fractal"      # matrix
 flatpak "org.mozilla.Thunderbird"
 
 # reading & learning
-flatpak "org.gabmus.gfeeds"
+flatpak "io.gitlab.news_flash.NewsFlash"
 flatpak "com.calibre_ebook.calibre"
 flatpak "net.ankiweb.Anki"
 flatpak "org.kde.CrowTranslate"
