@@ -20,11 +20,11 @@ brew "syncthing"
 brew "trash-cli"
 brew "sevenzip"
 brew "tre-command"
-brew "eza"
-brew "fd"
-brew "sd"
+brew "eza"     # better ls
+brew "fd"      # better find
+brew "sd"      # better sed
 brew "fzf"
-brew "ripgrep"
+brew "ripgrep" # better grep
 brew "ripgrep-all"
 flatpak "com.github.qarmin.czkawka"
 
@@ -38,6 +38,7 @@ brew "gh"
 brew "watchexec"
 tap "borkdude/brew"
 brew "babashka/brew/neil"
+brew "weavejester/brew/cljfmt"
 brew "clojure-lsp/brew/clojure-lsp-native"
 flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
@@ -65,6 +66,8 @@ brew "hledger"
 flatpak "org.getmonero.Monero"
 
 # multimedia
+brew "viu"
+brew "feh"
 brew "yt-dlp"
 brew "cmus"
 brew "yewtube" # yt
