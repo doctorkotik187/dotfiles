@@ -36,6 +36,7 @@ brew "zellij"
 brew "jj"
 brew "gh"
 brew "watchexec"
+brew "podman-compose"
 tap "borkdude/brew"
 brew "babashka/brew/neil"
 brew "weavejester/brew/cljfmt"
@@ -47,6 +48,7 @@ flatpak "org.kde.kate"
 brew "bottom"
 brew "dust"
 brew "nmap"
+flatpak "org.gnome.Connections"
 
 # org & docs
 brew "calcurse"
@@ -98,6 +100,9 @@ flatpak "com.calibre_ebook.calibre"
 flatpak "net.ankiweb.Anki"
 flatpak "org.kde.CrowTranslate"
 flatpak "io.github.xiaoyifang.goldendict_ng"
+
+# games
+flatpak "com.valvesoftware.Steam"
 
 # web
 flatpak "org.chromium.Chromium"         # it just works
