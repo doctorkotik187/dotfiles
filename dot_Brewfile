@@ -29,6 +29,8 @@ brew "ripgrep-all"
 flatpak "com.github.qarmin.czkawka"
 
 # programming & ops
+tap "borkdude/brew"
+brew "babashka/brew/neil"
 brew "mise"
 brew "micro"
 brew "helix", args: ["HEAD"]
@@ -37,12 +39,13 @@ brew "jj"
 brew "gh"
 brew "watchexec"
 brew "podman-compose"
-tap "borkdude/brew"
-brew "babashka/brew/neil"
 brew "weavejester/brew/cljfmt"
 brew "clojure-lsp/brew/clojure-lsp-native"
 flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
+
+# ai
+brew "anomalyco/tap/opencode"
 
 # monitoring & network
 brew "bottom"
@@ -101,8 +104,9 @@ flatpak "net.ankiweb.Anki"
 flatpak "org.kde.CrowTranslate"
 flatpak "io.github.xiaoyifang.goldendict_ng"
 
-# games
+# gaming
 flatpak "com.valvesoftware.Steam"
+flatpak "org.freedesktop.Piper"
 
 # web
 flatpak "org.chromium.Chromium"         # it just works
