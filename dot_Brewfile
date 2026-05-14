@@ -45,7 +45,7 @@ flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
 
 # ai
-brew "anomalyco/tap/opencode"
+brew "charmbracelet/tap/crush"
 
 # monitoring & network
 brew "bottom"
@@ -77,6 +77,7 @@ brew "yt-dlp"
 brew "cmus"
 brew "yewtube" # yt
 brew "streamlink"
+brew "mpv"
 flatpak "io.mpv.Mpv"
 flatpak "org.videolan.VLC"
 flatpak "org.kde.digikam"
@@ -101,7 +102,6 @@ flatpak "org.mozilla.Thunderbird"
 flatpak "io.gitlab.news_flash.NewsFlash"
 flatpak "com.calibre_ebook.calibre"
 flatpak "net.ankiweb.Anki"
-flatpak "org.kde.CrowTranslate"
 flatpak "io.github.xiaoyifang.goldendict_ng"
 
 # gaming
