@@ -1,31 +1,30 @@
 # absolute core
 brew "valkyrie00/bbrew/bbrew"
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
-
-# comfy cli tools
+brew "helix", args: ["HEAD"]
 brew "chezmoi"
 brew "nushell"
-brew "bat"
-brew "git-delta"
+brew "zellij"
 
 # misc compatibility tools
-brew "rlwrap"  # clojure's clj wants it
-brew "chafa"   # fallback for running yazi in zellij bug
+brew "rlwrap" # clojure's clj wants it
+brew "chafa"  # fallback for running yazi in zellij bug
 
 # file management
+brew "tre-command" # better tree
+brew "bat"         # better cat
+brew "eza"         # better ls
+brew "fd"          # better find
+brew "sd"          # better sed
+brew "ripgrep"     # better grep
+brew "ripgrep-all" # ripgrep also inside pdfs, etc.
 brew "yazi"
 brew "midnight-commander"
 brew "gocryptfs"
 brew "syncthing"
 brew "trash-cli"
 brew "sevenzip"
-brew "tre-command"
-brew "eza"     # better ls
-brew "fd"      # better find
-brew "sd"      # better sed
 brew "fzf"
-brew "ripgrep" # better grep
-brew "ripgrep-all"
 flatpak "com.github.qarmin.czkawka"
 
 # programming & ops
@@ -33,10 +32,9 @@ tap "borkdude/brew"
 brew "babashka/brew/neil"
 brew "mise"
 brew "micro"
-brew "helix", args: ["HEAD"]
-brew "zellij"
 brew "jj"
 brew "gh"
+brew "git-delta"
 brew "watchexec"
 brew "podman-compose"
 brew "weavejester/brew/cljfmt"
@@ -45,7 +43,7 @@ flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
 
 # ai
-brew "charmbracelet/tap/crush"
+brew "aider"
 
 # monitoring & network
 brew "bottom"
@@ -56,7 +54,7 @@ flatpak "org.gnome.Connections"
 # org & docs
 brew "calcurse"
 brew "typst"
-brew "glow"  # markdown on cli
+brew "glow" # markdown on cli
 brew "libqalculate"
 flatpak "io.github.Qalculate"
 flatpak "com.logseq.Logseq"
