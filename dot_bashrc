@@ -25,6 +25,8 @@ fi
 unset rc
 
 # MY CHANGES
+export DO_NOT_TRACK=1 # for crush.ai but also maybe others
+
 # compatibility with nushell
 eval "$(mise activate bash)"
 export EDITOR="micro"

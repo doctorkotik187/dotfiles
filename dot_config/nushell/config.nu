@@ -19,5 +19,8 @@ mkdir $AUTOLOAD_DIR
 $env.EDITOR = "/var/home/linuxbrew/.linuxbrew/bin/hx"
 alias hx = /var/home/linuxbrew/.linuxbrew/bin/hx
 $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
-def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } }  # "disable" previews in zellij
-alias brewb = brew bundle --global --verbose  # alias for `brew bundle --global` (~/.Brewfile)
+def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } } # "disable" previews in zellij
+alias brewb = brew bundle --global --verbose # alias for `brew bundle --global` (~/.Brewfile)
+
+# other
+$env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
