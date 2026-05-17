@@ -22,5 +22,8 @@ $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } } # "disable" previews in zellij
 alias brewb = brew bundle --global --verbose # alias for `brew bundle --global` (~/.Brewfile)
 
+# ai
+$env.GEMINI_API_KEY = (chezmoi secret keyring get --service=gemini --user=apikey)
+
 # other
 $env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
