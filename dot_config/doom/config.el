@@ -7,4 +7,5 @@
 (global-auto-revert-mode 1)
 (add-hook! prog-mode (auto-highlight-symbol-mode 1))
 
+(map! "M-`" nil) ; unlock in zellij
 (map! "M-g c" #'avy-goto-char)
