@@ -44,6 +44,7 @@ flatpak "org.kde.kate"
 
 # ai
 brew "aider"
+brew "charmbracelet/tap/crush"
 
 # monitoring & network
 brew "bottom"

@@ -1,5 +1,5 @@
 # theme = "catppuccin_latte"     # light
-theme = "catppuccin_macchiato" # dark
+theme = "dracula"                # dark
 
 [editor]
 color-modes = true
