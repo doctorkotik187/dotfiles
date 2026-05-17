@@ -5,6 +5,7 @@ $env.PATH ++= [
   "/var/home/linuxbrew/.linuxbrew/bin"
   "/var/home/linuxbrew/.linuxbrew/sbin"
   "~/.local/share/mise/shims"
+  "~/.config/emacs/bin"
 ]
 
 # activate programs
@@ -16,11 +17,14 @@ mkdir $AUTOLOAD_DIR
 ^carapace _carapace nushell | save -f ($AUTOLOAD_DIR | path join "carapace.nu")
 
 # config programs
-$env.EDITOR = "/var/home/linuxbrew/.linuxbrew/bin/hx"
+$env.EDITOR = "emacs -nw"
+alias e = emacs -nw
 alias hx = /var/home/linuxbrew/.linuxbrew/bin/hx
-$env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } } # "disable" previews in zellij
-alias brewb = brew bundle --global --verbose # alias for `brew bundle --global` (~/.Brewfile)
+alias brewb = brew bundle --global # alias for `brew bundle --global` (~/.Brewfile)
+
+# finance
+$env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 
 # git compatibility
 git config --global user.name (jj config get user.name)

@@ -29,7 +29,7 @@ export DO_NOT_TRACK=1 # for crush.ai but also maybe others
 
 # compatibility with nushell
 eval "$(mise activate bash)"
-export EDITOR="micro"
+export EDITOR="emacs -nw"
 
 # clear history on start, because I use nushell
 history -c && history -w

@@ -2,6 +2,7 @@
 brew "valkyrie00/bbrew/bbrew"
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
 brew "helix", args: ["HEAD"]
+brew "emacs"
 brew "chezmoi"
 brew "nushell"
 brew "zellij"
@@ -39,7 +40,6 @@ brew "watchexec"
 brew "podman-compose"
 brew "weavejester/brew/cljfmt"
 brew "clojure-lsp/brew/clojure-lsp-native"
-flatpak "org.gnu.emacs"
 flatpak "org.kde.kate"
 
 # ai
