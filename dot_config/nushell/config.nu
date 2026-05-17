@@ -22,6 +22,13 @@ $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } } # "disable" previews in zellij
 alias brewb = brew bundle --global --verbose # alias for `brew bundle --global` (~/.Brewfile)
 
+# git compatibility
+git config --global user.name (jj config get user.name)
+git config --global user.email (jj config get user.email)
+git config --global gpg.format (jj config get signing.backend)
+git config --global user.signingkey (jj config get signing.key)
+git config --global commit.gpgsign (jj config get git.sign-on-push)
+
 # ai
 $env.GEMINI_API_KEY = (chezmoi secret keyring get --service=gemini --user=apikey)
 
