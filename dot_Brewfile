@@ -156,6 +156,5 @@ cask "font-m-plus-1-code"
 cask "font-m-plus-1p"
 cask "font-m-plus-2"
 cask "font-m-plus-rounded-1c"
+cask "font-inter"
 
-# ============================================
-# ! === SORT ME === !

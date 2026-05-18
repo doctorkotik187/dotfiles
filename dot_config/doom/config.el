@@ -2,9 +2,9 @@
 
 (setq doom-theme 'doom-dracula)
 
+(global-auto-revert-mode 1)
 (setq isearch-lazy-count t)
 (setq-default show-trailing-whitespace t)
-(global-auto-revert-mode 1)
 (add-hook! prog-mode (auto-highlight-symbol-mode 1))
 
 (map! "M-`" nil) ; unlock in zellij
