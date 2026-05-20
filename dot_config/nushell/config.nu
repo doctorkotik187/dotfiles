@@ -36,6 +36,7 @@ git config --global commit.gpgsign (jj config get git.sign-on-push)
 # ai (secret-tool store --label="AI <Service> API Key" service <service> username api-key)
 $env.GEMINI_API_KEY = (secret-tool lookup service gemini username api-key)
 $env.OPENROUTER_API_KEY = (secret-tool lookup service openrouter username api-key)
+$env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
 
 # other
 $env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
