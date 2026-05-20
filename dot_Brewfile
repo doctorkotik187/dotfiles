@@ -1,114 +1,114 @@
-# absolute core
+# core
+brew "chezmoi"
+brew "emacs"
+brew "mg"
+brew "nushell"
 brew "valkyrie00/bbrew/bbrew"
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
-brew "emacs"
-brew "chezmoi"
-brew "nushell"
 brew "zellij"
+brew "zile"
 
-# misc compatibility tools
-brew "rlwrap" # clojure's clj wants it
-brew "chafa"  # fallback for running yazi in zellij bug
-
-# file management
-brew "tre-command" # better tree
-brew "bat"         # better cat
-brew "eza"         # better ls
-brew "fd"          # better find
-brew "sd"          # better sed
-brew "ripgrep"     # better grep
-brew "ripgrep-all" # ripgrep also inside pdfs, etc.
-brew "yazi"
-brew "midnight-commander"
+# cli tools
+brew "bat"
+brew "chafa" # fallback for running yazi in zellij bug
+brew "eza"
+brew "fd"
+brew "fzf"
 brew "gocryptfs"
+brew "midnight-commander"
+brew "rlwrap" # clojure's clj wants it
+brew "ripgrep"
+brew "ripgrep-all" # ripgrep also inside pdfs, etc.
+brew "sd"
+brew "sevenzip"
 brew "syncthing"
 brew "trash-cli"
-brew "sevenzip"
-brew "fzf"
+brew "tre-command"
+brew "yazi"
 flatpak "com.github.qarmin.czkawka"
 
-# programming & ops
+# development
 tap "borkdude/brew"
 brew "babashka/brew/neil"
-brew "mise"
-brew "micro"
-brew "jj"
+brew "clojure-lsp/brew/clojure-lsp-native"
 brew "gh"
 brew "git-delta"
-brew "watchexec"
+brew "jj"
+brew "micro"
+brew "mise"
 brew "podman-compose"
+brew "watchexec"
 brew "weavejester/brew/cljfmt"
-brew "clojure-lsp/brew/clojure-lsp-native"
 flatpak "org.kde.kate"
 
-# ai
+# ai & automation
 brew "aider"
 brew "charmbracelet/tap/crush"
 
-# monitoring & network
+# system & monitoring
 brew "bottom"
 brew "dust"
 brew "nmap"
 flatpak "org.gnome.Connections"
 
-# org & docs
+# office & documents
 brew "calcurse"
-brew "typst"
 brew "glow" # markdown on cli
 brew "libqalculate"
-flatpak "io.github.Qalculate"
-flatpak "com.logseq.Logseq"
-flatpak "org.libreoffice.LibreOffice"
-flatpak "org.gnumeric.Gnumeric"
-flatpak "com.github.xournalpp.xournalpp"
-flatpak "org.kde.okular"
+brew "typst"
 flatpak "com.github.ahrm.sioyek"
+flatpak "com.github.xournalpp.xournalpp"
+flatpak "com.logseq.Logseq"
+flatpak "io.github.Qalculate"
+flatpak "org.gnumeric.Gnumeric"
+flatpak "org.kde.okular"
+flatpak "org.libreoffice.LibreOffice"
 
 # finance
 brew "hledger"
 flatpak "org.getmonero.Monero"
 
-# multimedia
-brew "viu"
-brew "feh"
-brew "yt-dlp"
+# media & graphics
 brew "cmus"
-brew "yewtube" # yt
-brew "streamlink"
+brew "feh"
 brew "mpv"
-flatpak "io.mpv.Mpv"
-flatpak "org.videolan.VLC"
-flatpak "org.kde.digikam"
-flatpak "fr.handbrake.ghb"
-flatpak "org.gimp.GIMP"
+brew "streamlink"
+brew "viu"
+brew "yewtube" # yt
+brew "yt-dlp"
 flatpak "com.obsproject.Studio"
+flatpak "fr.handbrake.ghb"
+flatpak "io.mpv.Mpv"
+flatpak "org.gimp.GIMP"
+flatpak "org.kde.digikam"
 flatpak "org.shotcut.Shotcut"
+flatpak "org.videolan.VLC"
 
 # security & cryptography
 brew "sequoia-sq"
-flatpak "org.keepassxc.KeePassXC"
 flatpak "org.gnome.seahorse.Application"
+flatpak "org.keepassxc.KeePassXC"
 
-# email & messaging
+# communication
 flatpak "com.rtosta.zapzap"      # whatsapp
 flatpak "dev.vencord.Vesktop"    # discord
-flatpak "org.telegram.desktop"   # telegram
 flatpak "org.gnome.Fractal"      # matrix
 flatpak "org.mozilla.Thunderbird"
+flatpak "org.telegram.desktop"   # telegram
 
 # reading & learning
-flatpak "io.gitlab.news_flash.NewsFlash"
 flatpak "com.calibre_ebook.calibre"
-flatpak "net.ankiweb.Anki"
 flatpak "io.github.xiaoyifang.goldendict_ng"
+flatpak "io.gitlab.news_flash.NewsFlash"
+flatpak "net.ankiweb.Anki"
 
 # gaming
 flatpak "com.valvesoftware.Steam"
 flatpak "org.freedesktop.Piper"
 
-# web
-flatpak "org.chromium.Chromium"         # it just works
+# web browsers
 flatpak "io.gitlab.librewolf-community" # privacy & security
+flatpak "org.chromium.Chromium" # it just works
 
 # default bluefin & gnome apps
 flatpak "it.mijorus.smile"
@@ -142,18 +142,17 @@ cask "font-caskaydia-mono-nerd-font"
 cask "font-droid-sans-mono-nerd-font"
 cask "font-fira-code-nerd-font"
 cask "font-go-mono-nerd-font"
+cask "font-inter"
 cask "font-jetbrains-mono-nerd-font"
-cask "font-maple-mono-nf"
-cask "font-sauce-code-pro-nerd-font"
-cask "font-source-code-pro"
-cask "font-ubuntu-nerd-font"
-cask "font-noto-sans-cjk"
-cask "font-noto-sans-mono-cjk-jp"
-cask "font-source-han-code-jp"
 cask "font-m-plus-1"
 cask "font-m-plus-1-code"
 cask "font-m-plus-1p"
 cask "font-m-plus-2"
 cask "font-m-plus-rounded-1c"
-cask "font-inter"
-
+cask "font-maple-mono-nf"
+cask "font-noto-sans-cjk"
+cask "font-noto-sans-mono-cjk-jp"
+cask "font-sauce-code-pro-nerd-font"
+cask "font-source-code-pro"
+cask "font-source-han-code-jp"
+cask "font-ubuntu-nerd-font"
