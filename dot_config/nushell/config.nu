@@ -33,8 +33,9 @@ git config --global gpg.format (jj config get signing.backend)
 git config --global user.signingkey (jj config get signing.key)
 git config --global commit.gpgsign (jj config get git.sign-on-push)
 
-# ai
-$env.GEMINI_API_KEY = (chezmoi secret keyring get --service=gemini --user=apikey)
+# ai (secret-tool store --label="AI <Service> API Key" service <service> username api-key)
+$env.GEMINI_API_KEY = (secret-tool lookup service gemini username api-key)
+$env.OPENROUTER_API_KEY = (secret-tool lookup service openrouter username api-key)
 
 # other
 $env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
