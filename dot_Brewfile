@@ -1,7 +1,6 @@
 # absolute core
 brew "valkyrie00/bbrew/bbrew"
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
-brew "helix", args: ["HEAD"]
 brew "emacs"
 brew "chezmoi"
 brew "nushell"
