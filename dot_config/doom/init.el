@@ -14,7 +14,7 @@
        doom                ; what makes DOOM look the way it does
        dashboard           ; a nifty splash screen for Emacs
        hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       (modeline +light)   ; snazzy, Atom-inspired modeline, plus API
+       modeline            ; snazzy, Atom-inspired modeline, plus API
        nav-flash           ; blink cursor line after big motions
        ophints             ; highlight the region an operation acts on
        (popup +defaults)   ; tame sudden yet inevitable temporary windows
@@ -26,20 +26,20 @@
        ;;zen               ; distraction-free coding or writing
 
        :editor
-       file-templates      ; auto-snippets for empty files
-       fold                ; (nigh) universal code folding
-       ;;(format +onsave)  ; automated prettiness
-       multiple-cursors    ; editing in many places at once
-       ;;rotate-text       ; cycle region at point between text candidates
-       snippets            ; my elves. They type so I don't have to
-       (whitespace +guess +trim) ; a butler for your whitespace
-       ;;word-wrap         ; soft wrapping with language-aware indent
+       file-templates                   ; auto-snippets for empty files
+       fold                             ; (nigh) universal code folding
+       (format +onsave +lsp)            ; automated prettiness
+       multiple-cursors                 ; editing in many places at once
+       ;;rotate-text                    ; cycle region at point between text candidates
+       snippets                         ; my elves. They type so I don't have to
+       (whitespace +guess +trim)        ; a butler for your whitespace
+       word-wrap                        ; soft wrapping with language-aware indent
 
        :emacs
        (dired +dirvish +icons) ; making dired pretty [functional]
        electric                ; smarter, keyword-based electric-indent
        ;;eww                   ; the internet is gross
-       ;;ibuffer               ; interactive buffer management
+       (ibuffer +icons)        ; interactive buffer management
        ;;tramp                 ; remote files at your arthritic fingertips
        undo                    ; persistent, smarter undo for your inevitable mistakes
        vc                      ; version-control and Emacs, sitting in a tree
@@ -70,7 +70,7 @@
 
        :os
        ;;(:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
-       (tty +osc)                               ; improve the terminal Emacs experience
+       tty                                      ; improve the terminal Emacs experience
 
        :lang
        ;;ada               ; In strong typing we (blindly) trust
@@ -128,7 +128,7 @@
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
        ;;(ruby +rails)     ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       ;(rust +lsp)        ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+                                        ;(rust +lsp)        ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
