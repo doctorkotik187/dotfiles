@@ -22,6 +22,7 @@ config.font_size = 10
 -- config.color_scheme = 'Catppuccin Latte'     -- light
 config.color_scheme = 'Dracula (Official)'      -- dark
 
+config.default_cursor_style = 'BlinkingBlock'
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 

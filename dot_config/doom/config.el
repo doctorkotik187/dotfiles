@@ -3,6 +3,7 @@
 ;; --- visuals ---
 (setq doom-theme 'doom-dracula)
 (setq-default show-trailing-whitespace t)
+(blink-cursor-mode 1)
 
 (use-package! auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
 

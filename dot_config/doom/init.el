@@ -12,7 +12,7 @@
 
        :ui
        doom                ; what makes DOOM look the way it does
-       dashboard           ; a nifty splash screen for Emacs
+       ;;dashboard         ; a nifty splash screen for Emacs
        hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
        modeline            ; snazzy, Atom-inspired modeline, plus API
        nav-flash           ; blink cursor line after big motions
@@ -60,13 +60,13 @@
        ;;debugger          ; stepping through code, to help you add bugs
        ;;direnv
        docker
-       editorconfig        ; let someone else argue about tabs vs spaces
-       ;;ein               ; tame Jupyter notebooks with emacs
-       (eval +overlay)     ; run code, run (also, repls)
-       lookup              ; navigate your code and its documentation
-       (lsp +eglot)        ; M-x vscode
-       ;;terraform         ; infrastructure as code
-       tree-sitter         ; syntax and parsing, sitting in a tree...
+       editorconfig           ; let someone else argue about tabs vs spaces
+       ;;ein                  ; tame Jupyter notebooks with emacs
+       (eval +overlay)        ; run code, run (also, repls)
+       lookup                 ; navigate your code and its documentation
+       (lsp +eglot +booster)  ; M-x vscode
+       ;;terraform            ; infrastructure as code
+       tree-sitter            ; syntax and parsing, sitting in a tree...
 
        :os
        ;;(:if (featurep :system 'macos) macos)  ; improve compatibility with macOS
