@@ -13,8 +13,8 @@
 
 ;; --- keybindings ---
 (map! "C-x C-u" #'undo
-      "C-x C-h" #'help-command
-      "C-x C-f" #'find-file
+      "C-x C-h" #'mark-whole-buffer
+      "C-x f"   #'find-file
       "C-x C-o" #'other-window
       "M-`" nil
       "M-g c" #'avy-goto-char)
