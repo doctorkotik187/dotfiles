@@ -40,3 +40,11 @@ $env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
 
 # other
 $env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
+
+# custom commands
+
+# delete emacs cache and nushell history
+def clean-cache [] {
+    history --clear; print "Nushell history cleared."
+    rm -rfv ~/.config/emacs/.local/cache; print "Emacs cache deleted."
+}

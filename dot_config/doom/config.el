@@ -20,6 +20,3 @@
       "M-`"     nil
       "M-g c"   #'avy-goto-char)
 
-;; --- streamer mode ---
-(recentf-mode -1)       ; do not remember recently opened files
-(savehist-mode -1)      ; do not persist minibuffer/search/kill-ring history

@@ -6,3 +6,4 @@
 (package! vc-jj)
 (package! jjdescription)
 (package! typst-ts-mode)
+(package! kdl-mode)
