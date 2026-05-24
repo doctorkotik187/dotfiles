@@ -1,4 +1,4 @@
-# core
+# CORE
 brew "chezmoi"
 brew "emacs"
 brew "mg"
@@ -8,15 +8,13 @@ brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
 brew "zellij"
 brew "zile"
 
-# cli tools
+# CLI TOOLS
 brew "bat"
-brew "chafa" # fallback for running yazi in zellij bug
 brew "eza"
 brew "fd"
 brew "fzf"
 brew "gocryptfs"
 brew "midnight-commander"
-brew "rlwrap" # clojure's clj wants it
 brew "ripgrep"
 brew "ripgrep-all" # ripgrep also inside pdfs, etc.
 brew "sd"
@@ -27,31 +25,34 @@ brew "tre-command"
 brew "yazi"
 flatpak "com.github.qarmin.czkawka"
 
-# development
-tap "borkdude/brew"
-brew "babashka/brew/neil"
-brew "clojure-lsp/brew/clojure-lsp-native"
+# DEVELOPMENT
 brew "gh"
 brew "git-delta"
 brew "jj"
-brew "micro"
 brew "mise"
 brew "podman-compose"
 brew "watchexec"
-brew "weavejester/brew/cljfmt"
 flatpak "org.kde.kate"
 
-# ai & automation
+# RANDOM DEPENDENCIES
+tap "borkdude/brew"
+brew "babashka/brew/neil"                  # clojure project manager
+brew "clojure-lsp/brew/clojure-lsp-native" # clojure lsp (was needed my helix, back then, I keep it)
+brew "weavejester/brew/cljfmt"             # clojure formatter
+brew "rlwrap"                              # clojure's clj wants it
+brew "chafa"                               # fallback for running yazi in zellij bug
+
+# AI & AUTOMATION
 brew "aider"
 brew "charmbracelet/tap/crush"
 
-# system & monitoring
+# SYSTEM & MONITORING
 brew "bottom"
 brew "dust"
 brew "nmap"
 flatpak "org.gnome.Connections"
 
-# office & documents
+# OFFICE & DOCUMENTS
 brew "calcurse"
 brew "glow" # markdown on cli
 brew "libqalculate"
@@ -64,11 +65,11 @@ flatpak "org.gnumeric.Gnumeric"
 flatpak "org.kde.okular"
 flatpak "org.libreoffice.LibreOffice"
 
-# finance
+# FINANCE
 brew "hledger"
 flatpak "org.getmonero.Monero"
 
-# media & graphics
+# MEDIA & GRAPHICS
 brew "cmus"
 brew "feh"
 brew "mpv"
@@ -84,33 +85,33 @@ flatpak "org.kde.digikam"
 flatpak "org.shotcut.Shotcut"
 flatpak "org.videolan.VLC"
 
-# security & cryptography
+# SECURITY & CRYPTOGRAPHY
 brew "sequoia-sq"
 flatpak "org.gnome.seahorse.Application"
 flatpak "org.keepassxc.KeePassXC"
 
-# communication
+# COMMUNICATION
 flatpak "com.rtosta.zapzap"      # whatsapp
 flatpak "dev.vencord.Vesktop"    # discord
 flatpak "org.gnome.Fractal"      # matrix
 flatpak "org.mozilla.Thunderbird"
 flatpak "org.telegram.desktop"   # telegram
 
-# reading & learning
+# READING & LEARNING
 flatpak "com.calibre_ebook.calibre"
 flatpak "io.github.xiaoyifang.goldendict_ng"
 flatpak "io.gitlab.news_flash.NewsFlash"
 flatpak "net.ankiweb.Anki"
 
-# gaming
+# GAMING
 flatpak "com.valvesoftware.Steam"
 flatpak "org.freedesktop.Piper"
 
-# web browsers
+# WEB BROWSERS
 flatpak "io.gitlab.librewolf-community" # privacy & security
 flatpak "org.chromium.Chromium" # it just works
 
-# default bluefin & gnome apps
+# DEFAULT BLUEFIN & GNOME APPS
 flatpak "it.mijorus.smile"
 flatpak "com.github.tchx84.Flatseal"
 flatpak "io.gitlab.adhami3310.Impression"
@@ -136,7 +137,7 @@ flatpak "io.github.kolunmi.Bazaar"
 flatpak "org.gnome.FileRoller"
 flatpak "org.gnome.SimpleScan"
 
-# fonts
+# FONTS
 cask "font-blex-mono-nerd-font"
 cask "font-caskaydia-mono-nerd-font"
 cask "font-droid-sans-mono-nerd-font"

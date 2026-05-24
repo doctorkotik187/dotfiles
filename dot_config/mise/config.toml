@@ -1,24 +1,27 @@
 [tools]
 
-# CLI TOOLS
-carapace = "latest"
-fastfetch = "latest"
-starship = "latest"
-usql = "latest"
-zoxide = "latest"
+# RUST
+rust = "latest"
+"cargo:bacon" = "latest"
+"cargo:loco" = "latest"
+"cargo:sea-orm-cli" = "latest"
 
 # JVM
 java = "latest"
 babashka = { version = "latest", exe = "bb" }
 clojure = "latest"
 
-# RUST & TOOLS
-rust = "latest"
-"cargo:bacon" = "latest"
-"cargo:loco" = "latest"
-"cargo:sea-orm-cli" = "latest"
-"cargo:emacs-lsp-booster" = "latest"
+# OTHER LANGUAGES
+python = "latest"
+
+# CLI TOOLS
+carapace = "latest"
+fastfetch = "latest"
+starship = "latest"
+usql = "latest"
+zoxide = "latest"
 "cargo:weathr" = "latest"
 
-# OTHER
-python = "latest"
+# RANDOM DEPENDECIES
+"cargo:emacs-lsp-booster" = "latest"
+"cargo:justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }

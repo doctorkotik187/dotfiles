@@ -1,18 +1,18 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; --- visuals ---
+;; --- VISUALS ---
 (setq doom-theme 'doom-dracula)
 (setq-default show-trailing-whitespace t)
 (blink-cursor-mode 1)
 
 (use-package! auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
 
-;; --- behavior ---
+;; --- BEHAVIOR ---
 (global-auto-revert-mode 1)
 (setq confirm-kill-emacs nil)
 (setq isearch-lazy-count t)
 
-;; --- keybindings ---
+;; --- KEYBINDINGS ---
 (map! "C-x C-u" #'undo
       "C-x C-h" #'mark-whole-buffer
       "C-x f"   #'find-file

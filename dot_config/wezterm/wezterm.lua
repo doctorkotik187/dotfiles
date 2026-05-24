@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- stop clicking links!
+-- STOP CLICKING LINKS!
 config.mouse_bindings = {
   {
     event = { Up = { streak = 1, button = 'Left' } },
@@ -10,15 +10,15 @@ config.mouse_bindings = {
   },
 }
 
--- size
+-- SIZE
 config.initial_cols = 120
 config.initial_rows = 30
 
--- font
+-- FONT
 config.font = wezterm.font('M PLUS 1 Code', { weight = 'Medium' })
 config.font_size = 10
 
--- theme
+-- THEME & VISUALS
 -- config.color_scheme = 'Catppuccin Latte'     -- light
 config.color_scheme = 'Dracula (Official)'      -- dark
 
