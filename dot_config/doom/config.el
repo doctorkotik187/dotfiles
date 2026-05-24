@@ -17,5 +17,9 @@
       "C-x C-h" #'mark-whole-buffer
       "C-x f"   #'find-file
       "C-x C-o" #'other-window
-      "M-`" nil
-      "M-g c" #'avy-goto-char)
+      "M-`"     nil
+      "M-g c"   #'avy-goto-char)
+
+;; --- streamer mode ---
+(recentf-mode -1)       ; do not remember recently opened files
+(savehist-mode -1)      ; do not persist minibuffer/search/kill-ring history

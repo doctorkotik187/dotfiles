@@ -1,15 +1,24 @@
 [tools]
-babashka = { version = "latest", exe = "bb" }
+
+# CLI TOOLS
 carapace = "latest"
+fastfetch = "latest"
+starship = "latest"
+usql = "latest"
+zoxide = "latest"
+
+# JVM
+java = "latest"
+babashka = { version = "latest", exe = "bb" }
+clojure = "latest"
+
+# RUST & TOOLS
+rust = "latest"
 "cargo:bacon" = "latest"
 "cargo:loco" = "latest"
 "cargo:sea-orm-cli" = "latest"
 "cargo:emacs-lsp-booster" = "latest"
 "cargo:weathr" = "latest"
-clojure = "latest"
-fastfetch = "latest"
-java = "latest"
-rust = "latest"
-starship = "latest"
-usql = "latest"
-zoxide = "latest"
+
+# OTHER
+python = "latest"
