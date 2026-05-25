@@ -18,11 +18,6 @@ mkdir $AUTOLOAD_DIR
 
 # CONFIG PROGRAMS
 $env.EDITOR = "emacs -nw"
-alias e = emacs -nw
-def yazi [] { with-env { TERM: "xterm-kitty" } { ^yazi } } # "disable" previews for zellij
-alias brewb = brew bundle --global # alias for `brew bundle --global` (~/.Brewfile)
-
-# FINANCE
 $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 
 # GIT COMPATIBILITY
@@ -40,9 +35,37 @@ $env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
 # OTHER
 $env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
 
+# ALIASES
+
+alias e = emacs -nw # Alias for `emacs -nw`.
+alias brewb = brew bundle --global --verbose # Alias for `brew bundle --global` (~/.Brewfile).
+
 # CUSTOM COMMANDS
-# delete emacs cache and nushell history
+
+# Delete Emacs cache and Nushell history.
 def clean-cache [] {
     history --clear; print "Nushell history cleared."
-    rm -rfv ~/.config/emacs/.local/cache; print "Emacs cache deleted."
+    rm -rfv ~/.config/emacs/.local/cache/*; print "Emacs cache deleted."
+}
+
+# "Disable" previews for zellij.
+def yz [] {
+    with-env { TERM: "xterm-kitty" } { ^yazi }
+}
+
+# Brew bundle install and cleanup in one command.
+def brewb-sync [] {
+    print "=== INSTALL ==="
+    brew bundle --global --verbose install
+    print "=== CLEANUP ==="
+    brew bundle --global --verbose cleanup --force
+    brew autoremove; brew cleanup
+}
+
+# Mise install and prune in one command.
+def mise-sync [] {
+    print "=== INSTALL ==="
+    mise install
+    print "=== CLEANUP ==="
+    mise prune --yes
 }

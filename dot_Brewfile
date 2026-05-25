@@ -34,13 +34,22 @@ brew "podman-compose"
 brew "watchexec"
 flatpak "org.kde.kate"
 
-# RANDOM DEPENDENCIES
+# RANDOM DEPENDENCIES (MOSTLY FOR DOOM DOCTOR)
 tap "borkdude/brew"
-brew "babashka/brew/neil"                  # clojure project manager
-brew "clojure-lsp/brew/clojure-lsp-native" # clojure lsp (was needed my helix, back then, I keep it)
-brew "weavejester/brew/cljfmt"             # clojure formatter
-brew "rlwrap"                              # clojure's clj wants it
-brew "chafa"                               # fallback for running yazi in zellij bug
+brew "babashka/brew/neil"                   # clojure project manager
+brew "clojure-lsp/brew/clojure-lsp-native"  # clojure lsp
+brew "weavejester/brew/cljfmt"              # clojure formatter
+brew "rlwrap"                               # clojure's clj wants it
+brew "chafa"                                # fallback for running yazi in zellij bug
+brew "ledger"                               # just for doomemacs doctor
+brew "markdownlint-cli2"                    # markdown linter
+brew "prettier"                             # multi-purpose code formatter
+brew "ty"                                   # extremely fast Python type checker
+brew "shfmt"                                # autoformat shell script source code
+brew "shellcheck"                           # static analysis and lint tool, for (ba)sh scripts
+brew "tidy-html5"                           # granddaddy of HTML tools, with support for modern standards
+brew "stylelint"                            # Modern CSS linter
+brew "js-beautify"                          # JavaScript, CSS and HTML unobfuscator and beautifier
 
 # AI & AUTOMATION
 brew "aider"
@@ -57,6 +66,7 @@ brew "calcurse"
 brew "glow" # markdown on cli
 brew "libqalculate"
 brew "typst"
+brew "pandoc"
 flatpak "com.github.ahrm.sioyek"
 flatpak "com.github.xournalpp.xournalpp"
 flatpak "com.logseq.Logseq"

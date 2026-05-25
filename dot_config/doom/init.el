@@ -11,19 +11,20 @@
        (vertico +icons)                   ; the search engine of the future
 
        :ui
-       doom                ; what makes DOOM look the way it does
-       ;;dashboard         ; a nifty splash screen for Emacs
-       hl-todo             ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
-       modeline            ; snazzy, Atom-inspired modeline, plus API
-       nav-flash           ; blink cursor line after big motions
-       ophints             ; highlight the region an operation acts on
-       (popup +defaults)   ; tame sudden yet inevitable temporary windows
-       treemacs            ; a project drawer, like neotree but cooler
-       (vc-gutter +pretty) ; vcs diff in the fringe
-       vi-tilde-fringe     ; fringe tildes to mark beyond EOB
-       ;;unicode           ; extended unicode support for various languages
-       ;;workspaces        ; tab emulation, persistence & separate workspaces
-       ;;zen               ; distraction-free coding or writing
+       doom                             ; what makes DOOM look the way it does
+       dashboard                        ; a nifty splash screen for Emacs
+       hl-todo                          ; highlight TODO/FIXME/NOTE/DEPRECATED/HACK/REVIEW
+       modeline                         ; snazzy, Atom-inspired modeline, plus API
+       nav-flash                        ; blink cursor line after big motions
+       ophints                          ; highlight the region an operation acts on
+       (popup +defaults)                ; tame sudden yet inevitable temporary windows
+       treemacs                         ; a project drawer, like neotree but cooler
+       (vc-gutter +pretty)              ; vcs diff in the fringe
+       vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
+       (window-select +numbers)         ; visually switch windows
+       ;;unicode                        ; extended unicode support for various languages
+       ;;workspaces                     ; tab emulation, persistence & separate workspaces
+       ;;zen                            ; distraction-free coding or writing
 
        :editor
        parinfer                         ; edit lisp like it's python
@@ -102,17 +103,17 @@
        ;;(haskell +lsp)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
-       json                ; At least it ain't XML
+       (json +tree-sitter) ; At least it ain't XML
        ;;janet             ; Fun fact: Janet is me!
        ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
-       javascript          ; all(hope(abandon(ye(who(enter(here))))))
+       (javascript +tree-sitter) ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
        ;;kotlin            ; a better, slicker Java(Script)
        ;;latex             ; writing papers in Emacs has never been so fun
        ;;lean              ; for folks with too much to prove
        ledger              ; be audit you can be
-       lua                 ; one-based indices? one-based indices
-       markdown            ; writing docs for people to ignore
+       (lua +tree-sitter)  ; one-based indices? one-based indices
+       (markdown +tree-sitter +grip) ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;;nix               ; I hereby declare "nix geht mehr!"
        ;;ocaml             ; an objective camel
@@ -122,14 +123,14 @@
        ;;plantuml          ; diagrams for confusing people more
        ;;graphviz          ; diagrams for confusing yourself even more
        ;;purescript        ; javascript, but functional
-       (python +lsp +tree-sitter) ; beautiful is better than ugly
+       (python +lsp +tree-sitter +uv) ; beautiful is better than ugly
        ;;qt                ; the 'cutest' gui framework ever
        ;;racket            ; a DSL for DSLs
        ;;raku              ; the artist formerly known as perl6
        ;;rest              ; Emacs as a REST client
        ;;rst               ; ReST in peace
-       ruby                ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       (rust +lsp)         ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+       (ruby +lsp +tree-sitter +rails) ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
+       (rust +lsp +tree-sitter) ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
        ;;scala             ; java, but good
        ;;(scheme +guile)   ; a fully conniving family of lisps
        sh                  ; she sells {ba,z,fi}sh shells on the C xor
@@ -137,8 +138,8 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       web                 ; the tubes
-       yaml                ; JSON, but readable
+       (web +tree-sitter)  ; the tubes
+       (yaml +tree-sitter) ; JSON, but readable
        ;;zig               ; C, but simpler
 
        :email

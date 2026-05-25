@@ -11,8 +11,15 @@ java = "latest"
 babashka = { version = "latest", exe = "bb" }
 clojure = "latest"
 
-# OTHER LANGUAGES
+# PYTHON
 python = "latest"
+uv = "latest"
+
+# RUBY
+ruby = "latest"
+
+# GO
+go = "latest"
 
 # CLI TOOLS
 carapace = "latest"
@@ -22,6 +29,11 @@ usql = "latest"
 zoxide = "latest"
 "cargo:weathr" = "latest"
 
-# RANDOM DEPENDECIES
+# RANDOM DEPENDECIES (MOSTLY FOR DOOM DOCTOR)
 "cargo:emacs-lsp-booster" = "latest"
 "cargo:justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }
+"go:github.com/jessfraz/dockfmt" = "latest"
+"go:github.com/chrishrb/go-grip" = "latest"
+"pipx:pyflakes" = "latest"
+black = "latest"
+# SORT ME
