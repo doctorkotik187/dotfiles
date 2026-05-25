@@ -1,8 +1,7 @@
 [tools]
-
-# ═══════════════════════════════════════
+# ==========================================
 #  RUNTIMES
-# ═══════════════════════════════════════
+# ==========================================
 clojure = "latest"                                      # jvm lisp
 go = "latest"                                           # golang
 java = "latest"                                         # jvm (clojure needs this)
@@ -11,9 +10,9 @@ python = "latest"                                       # python interpreter + v
 ruby = "latest"                                         # ruby interpreter + gems
 rust = "latest"                                         # rust toolchain + cargo
 
-# ═══════════════════════════════════════
+# ==========================================
 #  TOOLS YOU USE
-# ═══════════════════════════════════════
+# ==========================================
 "cargo:bacon" = "latest"                                # rust code checker (watch + check)
 "cargo:loco" = "latest"                                 # rust web framework cli (Rails-like)
 "cargo:sea-orm-cli" = "latest"                          # seaorm migration cli
@@ -23,9 +22,9 @@ fastfetch = "latest"                                    # system info (neofetch 
 starship = "latest"                                     # cross-shell prompt theme
 zoxide = "latest"                                       # smarter cd (jump to frequent dirs)
 
-# ═══════════════════════════════════════
+# ==========================================
 #  DOOM DOCTOR DEPS (background cruft)
-# ═══════════════════════════════════════
+# ==========================================
 "cargo:emacs-lsp-booster" = "latest"                    # speeds up lsp-mode in emacs
 "cargo:https://github.com/justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }  # parinfer backend for emacs (not on crates.io, needs full url)
 "go:github.com/chrishrb/go-grip" = "latest"             # github flavored markdown preview server

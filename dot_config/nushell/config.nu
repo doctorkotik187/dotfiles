@@ -1,6 +1,9 @@
-$env.config.show_banner = false
+# -- CORE SETUP ---------------------------------------------
 
-# PATH
+$env.config.show_banner = false   # disable nushell startup banner
+
+# -- PATH ---------------------------------------------------
+
 $env.PATH ++= [
   "/var/home/linuxbrew/.linuxbrew/bin"
   "/var/home/linuxbrew/.linuxbrew/sbin"
@@ -8,7 +11,8 @@ $env.PATH ++= [
   "~/.config/emacs/bin"
 ]
 
-# ACTIVATE PROGRAMS
+# -- ACTIVATE PROGRAMS --------------------------------------
+
 const AUTOLOAD_DIR = ($nu.data-dir | path join "vendor/autoload")
 mkdir $AUTOLOAD_DIR
 ^mise activate nu | save -f ($AUTOLOAD_DIR | path join "mise.nu")
@@ -16,44 +20,50 @@ mkdir $AUTOLOAD_DIR
 ^zoxide init nushell | save -f ($AUTOLOAD_DIR | path join "zoxide.nu")
 ^carapace _carapace nushell | save -f ($AUTOLOAD_DIR | path join "carapace.nu")
 
-# CONFIG PROGRAMS
+# -- CONFIG -------------------------------------------------
+
 $env.EDITOR = "emacs -nw"
 $env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 
-# GIT COMPATIBILITY
+# -- GIT COMPATIBILITY --------------------------------------
+
 git config --global user.name (jj config get user.name)
 git config --global user.email (jj config get user.email)
 git config --global gpg.format (jj config get signing.backend)
 git config --global user.signingkey (jj config get signing.key)
 git config --global commit.gpgsign (jj config get git.sign-on-push)
 
-# AI (secret-tool store --label="AI <Service> API Key" service <service> username api-key)
+# -- AI (secret-tool store) ---------------------------------
+# API keys stored in gnome-keyring via secret-tool
+# usage: secret-tool store --label="AI <Service> API Key" service <service> username api-key
+
 $env.GEMINI_API_KEY = (secret-tool lookup service gemini username api-key)
 $env.OPENROUTER_API_KEY = (secret-tool lookup service openrouter username api-key)
 $env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
 
-# OTHER
-$env.DO_NOT_TRACK = 1 # for crush.ai but also maybe others
+# -- OTHER --------------------------------------------------
 
-# ALIASES
+$env.DO_NOT_TRACK = 1   # respected by crush.ai and others
 
-alias e = emacs -nw # Alias for `emacs -nw`.
-alias brewb = brew bundle --global --verbose # Alias for `brew bundle --global` (~/.Brewfile).
+# -- ALIASES ------------------------------------------------
 
-# CUSTOM COMMANDS
+alias e     = emacs -nw                               # launch emacs in terminal
+alias brewb = brew bundle --global --verbose          # preview brewfile changes
 
-# Delete Emacs cache and Nushell history.
+# -- CUSTOM COMMANDS ----------------------------------------
+
+# delete emacs cache and nushell history
 def clean-cache [] {
     history --clear; print "Nushell history cleared."
     rm -rfv ~/.config/emacs/.local/cache/*; print "Emacs cache deleted."
 }
 
-# "Disable" previews for zellij.
+# "disable" previews for yazi (workaround for zellij rendering bug)
 def yz [] {
     with-env { TERM: "xterm-kitty" } { ^yazi }
 }
 
-# Brew bundle install and cleanup in one command.
+# brew bundle install + cleanup in one command
 def brewb-sync [] {
     print "=== INSTALL ==="
     brew bundle --global --verbose install
@@ -62,7 +72,7 @@ def brewb-sync [] {
     brew autoremove; brew cleanup
 }
 
-# Mise install and prune in one command.
+# mise install + prune (remove unused tools) in one command
 def mise-sync [] {
     print "=== INSTALL ==="
     mise install
