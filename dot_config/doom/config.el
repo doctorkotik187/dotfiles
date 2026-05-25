@@ -11,6 +11,7 @@
 (doom-auto-revert-mode 1)
 (setq confirm-kill-emacs nil)
 (setq isearch-lazy-count t)
+(setq treesit-auto-install-grammar 'always)
 
 ;; --- KEYBINDINGS ---
 (map! "C-x C-u" #'undo

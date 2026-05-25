@@ -10,3 +10,5 @@
 (package! jjdescription)
 (package! typst-ts-mode)
 (package! kdl-mode)
+(package! nushell-mode)
+(package! nushell-ts-mode)

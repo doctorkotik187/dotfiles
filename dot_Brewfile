@@ -57,7 +57,7 @@ brew "tidy-html5"                           # html linter & formatter (doom emac
 #  AI & AUTOMATION
 # =========================================================
 brew "aider"                               # ai pair programming in terminal
-brew "charmbracelet/tap/crush"             # ai terminal assistant (this tool)
+brew "charmbracelet/tap/crush"             # ai terminal assistant
 
 # =========================================================
 #  SYSTEM & MONITORING
