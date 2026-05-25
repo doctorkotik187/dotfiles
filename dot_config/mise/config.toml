@@ -1,39 +1,42 @@
 [tools]
 
-# RUST
-rust = "latest"
-"cargo:bacon" = "latest"
-"cargo:loco" = "latest"
-"cargo:sea-orm-cli" = "latest"
+# ═══════════════════════════════════════
+#  RUNTIMES
+# ═══════════════════════════════════════
+clojure = "latest"                                      # jvm lisp
+go = "latest"                                           # golang
+java = "latest"                                         # jvm (clojure needs this)
+node = "latest"                                         # javascript runtime (needed for npm tools)
+python = "latest"                                       # python interpreter + venvs
+ruby = "latest"                                         # ruby interpreter + gems
+rust = "latest"                                         # rust toolchain + cargo
 
-# JVM
-java = "latest"
-babashka = { version = "latest", exe = "bb" }
-clojure = "latest"
+# ═══════════════════════════════════════
+#  TOOLS YOU USE
+# ═══════════════════════════════════════
+"cargo:bacon" = "latest"                                # rust code checker (watch + check)
+"cargo:loco" = "latest"                                 # rust web framework cli (Rails-like)
+"cargo:sea-orm-cli" = "latest"                          # seaorm migration cli
+"cargo:weathr" = "latest"                               # terminal weather app
+carapace = "latest"                                     # multi-shell completion generator
+fastfetch = "latest"                                    # system info (neofetch alternative)
+starship = "latest"                                     # cross-shell prompt theme
+zoxide = "latest"                                       # smarter cd (jump to frequent dirs)
 
-# PYTHON
-python = "latest"
-uv = "latest"
-
-# RUBY
-ruby = "latest"
-
-# GO
-go = "latest"
-
-# CLI TOOLS
-carapace = "latest"
-fastfetch = "latest"
-starship = "latest"
-usql = "latest"
-zoxide = "latest"
-"cargo:weathr" = "latest"
-
-# RANDOM DEPENDECIES (MOSTLY FOR DOOM DOCTOR)
-"cargo:emacs-lsp-booster" = "latest"
-"cargo:justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }
-"go:github.com/jessfraz/dockfmt" = "latest"
-"go:github.com/chrishrb/go-grip" = "latest"
-"pipx:pyflakes" = "latest"
-black = "latest"
-# SORT ME
+# ═══════════════════════════════════════
+#  DOOM DOCTOR DEPS (background cruft)
+# ═══════════════════════════════════════
+"cargo:emacs-lsp-booster" = "latest"                    # speeds up lsp-mode in emacs
+"cargo:https://github.com/justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }  # parinfer backend for emacs (not on crates.io, needs full url)
+"go:github.com/chrishrb/go-grip" = "latest"             # github flavored markdown preview server
+"go:github.com/jessfraz/dockfmt" = "latest"             # dockerfile formatter
+"npm:js-beautify" = "latest"                            # js / html / css beautifier
+"npm:stylelint" = "latest"                              # css / scss linter
+"pipx:pyflakes" = "latest"                              # python static analysis linter
+black = "latest"                                        # python code formatter (opinionated)
+markdownlint-cli2 = "latest"                            # markdown linter / style checker
+prettier = "latest"                                     # multi-format code formatter (js, ts, json, yaml, etc.)
+shfmt = "latest"                                        # shell script formatter (bash, sh, dash)
+shellcheck = "latest"                                   # shell script static analysis linter
+ty = "latest"                                           # extremely fast python type checker (by astral)
+uv = "latest"                                           # fast python package manager (Astral)

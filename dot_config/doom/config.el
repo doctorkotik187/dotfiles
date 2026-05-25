@@ -8,7 +8,7 @@
 (use-package! auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
 
 ;; --- BEHAVIOR ---
-(global-auto-revert-mode 1)
+(doom-auto-revert-mode 1)
 (setq confirm-kill-emacs nil)
 (setq isearch-lazy-count t)
 

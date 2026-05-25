@@ -1,169 +1,200 @@
-# CORE
-brew "chezmoi"
-brew "emacs"
-brew "mg"
-brew "nushell"
-brew "valkyrie00/bbrew/bbrew"
-brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]
-brew "zellij"
-brew "zile"
+# ═══════════════════════════════════════
+#  CORE
+# ═══════════════════════════════════════
+brew "chezmoi"                                            # dotfiles manager
+brew "emacs"                                              # text editor (doom emacs)
+brew "mg"                                                 # micro emacs (lightweight emacs clone)
+brew "nushell"                                            # modern shell with structured data
+brew "valkyrie00/bbrew/bbrew"                             # android backup tool (blackberry)
+brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]  # gpu terminal emulator
+brew "zellij"                                             # terminal multiplexer (tiling)
+brew "zile"                                               # minimal emacs clone (lightest)
 
-# CLI TOOLS
-brew "bat"
-brew "eza"
-brew "fd"
-brew "fzf"
-brew "gocryptfs"
-brew "midnight-commander"
-brew "ripgrep"
-brew "ripgrep-all" # ripgrep also inside pdfs, etc.
-brew "sd"
-brew "sevenzip"
-brew "syncthing"
-brew "trash-cli"
-brew "tre-command"
-brew "yazi"
-flatpak "com.github.qarmin.czkawka"
+# ═══════════════════════════════════════
+#  CLI TOOLS
+# ═══════════════════════════════════════
+brew "bat"                                 # cat with syntax highlighting + git integration
+brew "eza"                                 # modern ls replacement (colors, icons, git)
+brew "fd"                                  # fast find replacement
+brew "fzf"                                 # fuzzy finder (used by zellij, yazi, etc.)
+brew "gocryptfs"                           # encrypted filesystem (nested encryption)
+brew "midnight-commander"                  # orthodox file manager (mc)
+brew "ripgrep"                             # fast grep replacement (core search tool)
+brew "ripgrep-all"                         # ripgrep for pdfs, archives, etc.
+brew "sd"                                  # intuitive find & replace (sed alternative)
+brew "sevenzip"                            # 7zip extractor
+brew "syncthing"                           # decentralized file sync
+brew "trash-cli"                           # trash files from cli
+brew "tre-command"                         # tree with git integration + fuzzy filter
+brew "yazi"                                # terminal file manager
+flatpak "com.github.qarmin.czkawka"        # duplicate file finder
 
-# DEVELOPMENT
-brew "gh"
-brew "git-delta"
-brew "jj"
-brew "mise"
-brew "podman-compose"
-brew "watchexec"
-flatpak "org.kde.kate"
+# ═══════════════════════════════════════
+#  DEVELOPMENT
+# ═══════════════════════════════════════
+brew "gh"                                  # github cli
+brew "git-delta"                           # syntax-highlighting git pager/diff
+brew "jj"                                  # jujutsus vc, alternative to git
+brew "mise"                                # dev tool manager & sdk version manager
+brew "podman-compose"                      # docker-compose for podman
+brew "xo/xo/usql"                          # universal sql cli client
+brew "watchexec"                           # watch files and run commands on change
+flatpak "org.kde.kate"                     # kde text editor
 
-# RANDOM DEPENDENCIES (MOSTLY FOR DOOM DOCTOR)
-tap "borkdude/brew"
-brew "babashka/brew/neil"                   # clojure project manager
-brew "clojure-lsp/brew/clojure-lsp-native"  # clojure lsp
-brew "weavejester/brew/cljfmt"              # clojure formatter
-brew "rlwrap"                               # clojure's clj wants it
-brew "chafa"                                # fallback for running yazi in zellij bug
-brew "ledger"                               # just for doomemacs doctor
-brew "markdownlint-cli2"                    # markdown linter
-brew "prettier"                             # multi-purpose code formatter
-brew "ty"                                   # extremely fast Python type checker
-brew "shfmt"                                # autoformat shell script source code
-brew "shellcheck"                           # static analysis and lint tool, for (ba)sh scripts
-brew "tidy-html5"                           # granddaddy of HTML tools, with support for modern standards
-brew "stylelint"                            # Modern CSS linter
-brew "js-beautify"                          # JavaScript, CSS and HTML unobfuscator and beautifier
+# ═══════════════════════════════════════
+#  MISSING IN MISE (brew-only deps)
+# ═══════════════════════════════════════
+brew "borkdude/brew/babashka"               # clojure shell scripting
+brew "babashka/brew/neil"                   # clojure project scaffolding tool
+brew "clojure-lsp/brew/clojure-lsp-native"  # clojure language server
+brew "weavejester/brew/cljfmt"              # clojure code formatter
+brew "rlwrap"                               # adds readline to clojure's clj repl
+brew "chafa"                                # terminal image/video viewer (yazi fallback for zellij bug)
+brew "tidy-html5"                           # html linter & formatter (doom emacs dep)
 
-# AI & AUTOMATION
-brew "aider"
-brew "charmbracelet/tap/crush"
+# ═══════════════════════════════════════
+#  AI & AUTOMATION
+# ═══════════════════════════════════════
+brew "aider"                               # ai pair programming in terminal
+brew "charmbracelet/tap/crush"             # ai terminal assistant (this tool)
 
-# SYSTEM & MONITORING
-brew "bottom"
-brew "dust"
-brew "nmap"
-flatpak "org.gnome.Connections"
+# ═══════════════════════════════════════
+#  SYSTEM & MONITORING
+# ═══════════════════════════════════════
+brew "bottom"                              # system monitor (top alternative)
+brew "dust"                                # disk usage analyzer (du alternative)
+brew "nmap"                                # network scanner
+flatpak "org.gnome.Connections"            # remote desktop client
 
-# OFFICE & DOCUMENTS
-brew "calcurse"
-brew "glow" # markdown on cli
-brew "libqalculate"
-brew "typst"
-brew "pandoc"
-flatpak "com.github.ahrm.sioyek"
-flatpak "com.github.xournalpp.xournalpp"
-flatpak "com.logseq.Logseq"
-flatpak "io.github.Qalculate"
-flatpak "org.gnumeric.Gnumeric"
-flatpak "org.kde.okular"
-flatpak "org.libreoffice.LibreOffice"
+# ═══════════════════════════════════════
+#  OFFICE & DOCUMENTS
+# ═══════════════════════════════════════
+brew "calcurse"                            # calendar & todo in terminal
+brew "glow"                                # markdown reader for terminal
+brew "libqalculate"                        # calculation library (backend for qalc)
+brew "typst"                               # modern typesetting engine (latex alternative)
+brew "pandoc"                              # universal document converter
+flatpak "com.github.ahrm.sioyek"           # pdf reader (vim keybindings)
+flatpak "com.github.xournalpp.xournalpp"   # pdf annotator / handwriting
+flatpak "com.logseq.Logseq"                # knowledge base (outliner, markdown)
+flatpak "io.github.Qalculate"              # desktop calculator (gui)
+flatpak "org.gnumeric.Gnumeric"            # spreadsheet (excel alternative)
+flatpak "org.kde.okular"                   # universal document viewer
+flatpak "org.libreoffice.LibreOffice"      # office suite
 
-# FINANCE
-brew "hledger"
-flatpak "org.getmonero.Monero"
+# ═══════════════════════════════════════
+#  FINANCE
+# ═══════════════════════════════════════
+brew "hledger"                             # plain-text accounting (cli)
+brew "ledger"                              # plain-text accounting (original, doom emacs dep)
+flatpak "org.getmonero.Monero"             # monero wallet
 
-# MEDIA & GRAPHICS
-brew "cmus"
-brew "feh"
-brew "mpv"
-brew "streamlink"
-brew "viu"
-brew "yewtube" # yt
-brew "yt-dlp"
-flatpak "com.obsproject.Studio"
-flatpak "fr.handbrake.ghb"
-flatpak "io.mpv.Mpv"
-flatpak "org.gimp.GIMP"
-flatpak "org.kde.digikam"
-flatpak "org.shotcut.Shotcut"
-flatpak "org.videolan.VLC"
+# ═══════════════════════════════════════
+#  MEDIA & GRAPHICS
+# ═══════════════════════════════════════
+brew "cmus"                                # terminal music player
+brew "feh"                                 # lightweight image viewer
+brew "mpv"                                 # media player
+brew "streamlink"                          # extract streams from websites
+brew "viu"                                 # terminal image viewer
+brew "yewtube"                             # youtube frontend (exe: yt)
+brew "yt-dlp"                              # youtube/video downloader
+flatpak "com.obsproject.Studio"            # streaming & recording
+flatpak "fr.handbrake.ghb"                 # video transcoder
+flatpak "io.mpv.Mpv"                       # media player (flatpak)
+flatpak "org.gimp.GIMP"                    # image editor
+flatpak "org.kde.digikam"                  # photo manager
+flatpak "org.shotcut.Shotcut"              # video editor
+flatpak "org.videolan.VLC"                 # media player
 
-# SECURITY & CRYPTOGRAPHY
-brew "sequoia-sq"
-flatpak "org.gnome.seahorse.Application"
-flatpak "org.keepassxc.KeePassXC"
+# ═══════════════════════════════════════
+#  SECURITY & CRYPTOGRAPHY
+# ═══════════════════════════════════════
+brew "sequoia-sq"                          # openpgp toolkit (gpg alternative, modern rust impl)
+flatpak "org.gnome.seahorse.Application"   # key manager (manage ssh & gpg keys)
+flatpak "org.keepassxc.KeePassXC"          # password manager
 
-# COMMUNICATION
-flatpak "com.rtosta.zapzap"      # whatsapp
-flatpak "dev.vencord.Vesktop"    # discord
-flatpak "org.gnome.Fractal"      # matrix
-flatpak "org.mozilla.Thunderbird"
-flatpak "org.telegram.desktop"   # telegram
+# ═══════════════════════════════════════
+#  COMMUNICATION
+# ═══════════════════════════════════════
+flatpak "com.rtosta.zapzap"                # whatsapp client
+flatpak "dev.vencord.Vesktop"              # discord client (with vencord plugins)
+flatpak "org.gnome.Fractal"                # matrix client
+flatpak "org.mozilla.Thunderbird"          # email client
+flatpak "org.telegram.desktop"             # telegram client
 
-# READING & LEARNING
-flatpak "com.calibre_ebook.calibre"
-flatpak "io.github.xiaoyifang.goldendict_ng"
-flatpak "io.gitlab.news_flash.NewsFlash"
-flatpak "net.ankiweb.Anki"
+# ═══════════════════════════════════════
+#  READING & LEARNING
+# ═══════════════════════════════════════
+flatpak "com.calibre_ebook.calibre"        # ebook manager & converter
+flatpak "io.github.xiaoyifang.goldendict_ng"  # dictionary / offline wikipedia
+flatpak "io.gitlab.news_flash.NewsFlash"   # rss feed reader
+flatpak "net.ankiweb.Anki"                 # spaced repetition flashcards
 
-# GAMING
-flatpak "com.valvesoftware.Steam"
-flatpak "org.freedesktop.Piper"
+# ═══════════════════════════════════════
+#  GAMING
+# ═══════════════════════════════════════
+flatpak "com.valvesoftware.Steam"          # gaming platform
+flatpak "org.freedesktop.Piper"            # mouse config tool for logitech
 
-# WEB BROWSERS
-flatpak "io.gitlab.librewolf-community" # privacy & security
-flatpak "org.chromium.Chromium" # it just works
+# ═══════════════════════════════════════
+#  WEB BROWSERS
+# ═══════════════════════════════════════
+flatpak "io.gitlab.librewolf-community"    # firefox fork (privacy hardened)
+flatpak "org.chromium.Chromium"            # "it just works" browser
 
-# DEFAULT BLUEFIN & GNOME APPS
-flatpak "it.mijorus.smile"
-flatpak "com.github.tchx84.Flatseal"
-flatpak "io.gitlab.adhami3310.Impression"
-flatpak "org.gnome.Firmware"
-flatpak "org.gnome.TextEditor"
-flatpak "com.mattjakeman.ExtensionManager"
-flatpak "io.missioncenter.MissionCenter"
-flatpak "org.gnome.Logs"
-flatpak "org.gnome.Weather"
-flatpak "page.tesk.Refine"
-flatpak "com.ranfdev.DistroShelf"
-flatpak "org.gnome.Loupe"
-flatpak "org.gnome.baobab"
-flatpak "io.github.flattool.Ignition"
-flatpak "org.gnome.Calculator"
-flatpak "org.gnome.NautilusPreviewer"
-flatpak "org.gnome.clocks"
-flatpak "io.github.flattool.Warehouse"
-flatpak "org.gnome.Calendar"
-flatpak "org.gnome.Papers"
-flatpak "org.gnome.font-viewer"
-flatpak "io.github.kolunmi.Bazaar"
-flatpak "org.gnome.FileRoller"
-flatpak "org.gnome.SimpleScan"
+# ═══════════════════════════════════════
+#  DEFAULT BLUEFIN & GNOME APPS
+# ═══════════════════════════════════════
+flatpak "it.mijorus.smile"                        # emoji picker extension
+flatpak "com.github.tchx84.Flatseal"              # flatpak permission manager
+flatpak "io.gitlab.adhami3310.Impression"         # os installer (image writer)
+flatpak "org.gnome.Firmware"                      # firmware updater
+flatpak "org.gnome.TextEditor"                    # simple text editor
+flatpak "com.mattjakeman.ExtensionManager"        # gnome extension manager
+flatpak "io.missioncenter.MissionCenter"          # system monitor gui
+flatpak "org.gnome.Logs"                          # system logs viewer
+flatpak "org.gnome.Weather"                       # weather app
+flatpak "page.tesk.Refine"                        # inspect accessibility tree
+flatpak "com.ranfdev.DistroShelf"                 # quickly access distrobox
+flatpak "org.gnome.Loupe"                         # image viewer
+flatpak "org.gnome.baobab"                        # disk usage analyzer gui
+flatpak "io.github.flattool.Ignition"             # create bootable usb
+flatpak "org.gnome.Calculator"                    # calculator
+flatpak "org.gnome.NautilusPreviewer"             # quick look / spacebar preview
+flatpak "org.gnome.clocks"                        # clocks & alarms
+flatpak "io.github.flattool.Warehouse"            # manage flatpak remnants
+flatpak "org.gnome.Calendar"                      # calendar
+flatpak "org.gnome.Papers"                        # document viewer (new okular)
+flatpak "org.gnome.font-viewer"                   # preview fonts
+flatpak "io.github.kolunmi.Bazaar"                # search for flatpaks
+flatpak "org.gnome.FileRoller"                    # archive manager
+flatpak "org.gnome.SimpleScan"                    # document scanner
 
-# FONTS
-cask "font-blex-mono-nerd-font"
-cask "font-caskaydia-mono-nerd-font"
-cask "font-droid-sans-mono-nerd-font"
-cask "font-fira-code-nerd-font"
-cask "font-go-mono-nerd-font"
-cask "font-inter"
-cask "font-jetbrains-mono-nerd-font"
-cask "font-m-plus-1"
-cask "font-m-plus-1-code"
-cask "font-m-plus-1p"
-cask "font-m-plus-2"
-cask "font-m-plus-rounded-1c"
-cask "font-maple-mono-nf"
-cask "font-noto-sans-cjk"
-cask "font-noto-sans-mono-cjk-jp"
-cask "font-sauce-code-pro-nerd-font"
-cask "font-source-code-pro"
-cask "font-source-han-code-jp"
-cask "font-ubuntu-nerd-font"
+# ═══════════════════════════════════════
+#  FONTS
+# ═══════════════════════════════════════
+# monospace (for code, terminal, editor)
+cask "font-fira-code-nerd-font"        # ligatures + nerd icons (vibe coding classic)
+cask "font-jetbrains-mono-nerd-font"   # ligatures + nerd icons (modern, readable)
+cask "font-blex-mono-nerd-font"        # legible, wide, popular
+cask "font-caskaydia-mono-nerd-font"   # ligatures + nerd icons (operator mono vibe)
+cask "font-droid-sans-mono-nerd-font"  # clean, neutral, roboto-adjacent
+cask "font-go-mono-nerd-font"          # golang-adjacent, clean & simple
+cask "font-maple-mono-nf"              # cute, rounded, exotic but readable
+cask "font-sauce-code-pro-nerd-font"   # clean, simple, pragmatic
+cask "font-source-code-pro"            # adobe source, ligature-like feel, plain
+cask "font-ubuntu-nerd-font"           # ubuntu web vibe, geometric
+
+# proportional / headings
+cask "font-inter"                      # modern, clean, great for headings
+
+# japanese / cjk
+cask "font-m-plus-1"                   # sans, light & airy
+cask "font-m-plus-1-code"              # monospace variant of m+
+cask "font-m-plus-1p"                  # proportional variant with high legibility
+cask "font-m-plus-2"                   # rounder, heavier variant
+cask "font-m-plus-rounded-1c"          # rounded, softer feel
+cask "font-noto-sans-cjk"              # google noto, covers all cjk scripts
+cask "font-noto-sans-mono-cjk-jp"      # monospace cjk (for terminal code)
+cask "font-source-han-code-jp"         # adobe source han, japanese serif-ish code font
