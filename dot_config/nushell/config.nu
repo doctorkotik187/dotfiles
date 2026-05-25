@@ -88,12 +88,12 @@ def doom-sync [] {
     doom gc
 }
 
-# update everything (bluefin, homebrew, mise, doom)
+# update everything (bluefin, flatpak, homebrew, mise, doom)
 def update-everything [] {
     print "=== UJUST UPDATE ==="
     ujust update
     print "=== MISE UPDATE ==="
     mise upgrade
     print "=== DOOM UPDATE ==="
-    doom upgrade
+    doom upgrade --force
 }

@@ -4,46 +4,47 @@
 # =========================================================
 brew "chezmoi"                                            # dotfiles manager
 brew "emacs"                                              # text editor (doom emacs)
-brew "mg"                                                 # micro emacs (lightweight emacs clone)
+brew "mg"                                                 # micro emacs (openbsd team)
 brew "nushell"                                            # modern shell with structured data
-brew "valkyrie00/bbrew/bbrew"                             # android backup tool (blackberry)
+brew "valkyrie00/bbrew/bbrew"                             # bold brew (brew tui)
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]  # gpu terminal emulator
 brew "zellij"                                             # terminal multiplexer (tiling)
-brew "zile"                                               # minimal emacs clone (lightest)
+brew "zile"                                               # minimal emacs clone (fsf team)
+brew "mise"                                               # dev tool manager & sdk version manager
+brew "fzf"                                                # fuzzy finder (used by zellij, yazi, etc.)
+brew "gocryptfs"                                          # encrypted filesystem (nested encryption)
+brew "gh"                                                 # github cli
+brew "jj"                                                 # jujutsu vc, alternative to git
+brew "syncthing"                                          # decentralized file sync
 
 # =========================================================
-#  CLI TOOLS
+#  GENERAL TOOLS
+# =========================================================
+brew "midnight-commander"                                 # orthodox file manager (mc)
+brew "sevenzip"                                           # 7zip extractor
+brew "trash-cli"                                          # trash files from cli (nushell can do it natively)
+brew "watchexec"                                          # watch files and run commands on change
+brew "yazi"                                               # terminal file manager
+flatpak "com.github.qarmin.czkawka"                       # duplicate file finder
+flatpak "org.kde.kate"                                    # kde text editor
+
+# =========================================================
+#  MODERN REPLACEMENTS (rust/go rewrites of classic tools)
 # =========================================================
 brew "bat"                                 # cat with syntax highlighting + git integration
+brew "bottom"                              # system monitor (top alternative)
+brew "dust"                                # disk usage analyzer (du alternative)
 brew "eza"                                 # modern ls replacement (colors, icons, git)
 brew "fd"                                  # fast find replacement
-brew "fzf"                                 # fuzzy finder (used by zellij, yazi, etc.)
-brew "gocryptfs"                           # encrypted filesystem (nested encryption)
-brew "midnight-commander"                  # orthodox file manager (mc)
+brew "git-delta"                           # syntax-highlighting git pager/diff
 brew "ripgrep"                             # fast grep replacement (core search tool)
 brew "ripgrep-all"                         # ripgrep for pdfs, archives, etc.
 brew "sd"                                  # intuitive find & replace (sed alternative)
-brew "sevenzip"                            # 7zip extractor
-brew "syncthing"                           # decentralized file sync
-brew "trash-cli"                           # trash files from cli
+brew "sequoia-sq"                          # openpgp toolkit (gpg alternative, modern rust impl)
 brew "tre-command"                         # tree with git integration + fuzzy filter
-brew "yazi"                                # terminal file manager
-flatpak "com.github.qarmin.czkawka"        # duplicate file finder
 
 # =========================================================
-#  DEVELOPMENT
-# =========================================================
-brew "gh"                                  # github cli
-brew "git-delta"                           # syntax-highlighting git pager/diff
-brew "jj"                                  # jujutsus vc, alternative to git
-brew "mise"                                # dev tool manager & sdk version manager
-brew "podman-compose"                      # docker-compose for podman
-brew "xo/xo/usql"                          # universal sql cli client
-brew "watchexec"                           # watch files and run commands on change
-flatpak "org.kde.kate"                     # kde text editor
-
-# =========================================================
-#  MISSING IN MISE (brew-only deps)
+#  DEV TOOLS MISSING IN MISE (brew-only deps)
 # =========================================================
 brew "borkdude/brew/babashka"               # clojure shell scripting
 brew "babashka/brew/neil"                   # clojure project scaffolding tool
@@ -54,18 +55,16 @@ brew "chafa"                                # terminal image/video viewer (yazi 
 brew "tidy-html5"                           # html linter & formatter (doom emacs dep)
 
 # =========================================================
-#  AI & AUTOMATION
+#  NETWORK
+# =========================================================
+brew "nmap"                                 # network scanner
+flatpak "org.gnome.Connections"             # remote desktop client
+
+# =========================================================
+#  AI
 # =========================================================
 brew "aider"                               # ai pair programming in terminal
 brew "charmbracelet/tap/crush"             # ai terminal assistant
-
-# =========================================================
-#  SYSTEM & MONITORING
-# =========================================================
-brew "bottom"                              # system monitor (top alternative)
-brew "dust"                                # disk usage analyzer (du alternative)
-brew "nmap"                                # network scanner
-flatpak "org.gnome.Connections"            # remote desktop client
 
 # =========================================================
 #  OFFICE & DOCUMENTS
@@ -111,7 +110,6 @@ flatpak "org.videolan.VLC"                 # media player
 # =========================================================
 #  SECURITY & CRYPTOGRAPHY
 # =========================================================
-brew "sequoia-sq"                          # openpgp toolkit (gpg alternative, modern rust impl)
 flatpak "org.gnome.seahorse.Application"   # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"          # password manager
 
