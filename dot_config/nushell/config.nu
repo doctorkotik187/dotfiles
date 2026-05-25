@@ -63,19 +63,37 @@ def yz [] {
     with-env { TERM: "xterm-kitty" } { ^yazi }
 }
 
-# brew bundle install + cleanup in one command
+# brew bundle install + cleanup
 def brewb-sync [] {
-    print "=== INSTALL ==="
+    print "=== BREW BUNDLE INSTALL ==="
     brew bundle --global --verbose install
-    print "=== CLEANUP ==="
+    print "=== BREW BUNDLE CLEANUP ==="
     brew bundle --global --verbose cleanup --force
     brew autoremove; brew cleanup
 }
 
-# mise install + prune (remove unused tools) in one command
+# mise install + prune
 def mise-sync [] {
-    print "=== INSTALL ==="
+    print "=== MISE INSTALL ==="
     mise install
-    print "=== CLEANUP ==="
+    print "=== MISE CLEANUP ==="
     mise prune --yes
+}
+
+# doom sync + garbage collect
+def doom-sync [] {
+    print "=== DOOM SYNC ==="
+    doom sync
+    print "=== DOOM CLEANUP ==="
+    doom gc
+}
+
+# update everything (bluefin, homebrew, mise, doom)
+def update-everything [] {
+    print "=== UJUST UPDATE ==="
+    ujust update
+    print "=== MISE UPDATE ==="
+    mise upgrade
+    print "=== DOOM UPDATE ==="
+    doom upgrade
 }
