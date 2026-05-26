@@ -1,6 +1,6 @@
 # -- CORE SETUP ---------------------------------------------
 
-$env.config.show_banner = false   # disable nushell startup banner
+$env.config.show_banner = false
 
 # -- PATH ---------------------------------------------------
 

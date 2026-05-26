@@ -2,22 +2,30 @@
 
 ;; --- VISUALS ---
 (setq doom-theme 'doom-dracula)
-(setq-default show-trailing-whitespace t)
-(blink-cursor-mode 1)
 
-(use-package! auto-highlight-symbol :hook (prog-mode . auto-highlight-symbol-mode))
+(add-hook! 'prog-mode-hook
+  (setq-local show-trailing-whitespace t))
+
+(use-package! auto-highlight-symbol
+  :hook (prog-mode . auto-highlight-symbol-mode))
 
 ;; --- BEHAVIOR ---
 (doom-auto-revert-mode 1)
-(setq confirm-kill-emacs nil)
-(setq isearch-lazy-count t)
-(setq treesit-auto-install-grammar 'always)
+
+(setq confirm-kill-emacs nil
+      isearch-lazy-count t
+      treesit-auto-install-grammar 'always)
+
+(after! (corfu corfu-terminal)
+  (setq corfu-auto-prefix 3
+        corfu-auto-delay 0.9
+        corfu-preselect 'prompt))
 
 ;; --- KEYBINDINGS ---
-(map! "C-x C-u" #'undo
-      "C-x C-h" #'mark-whole-buffer
-      "C-x f"   #'find-file
-      "C-x C-o" #'other-window
-      "M-`"     nil                  ; used by zellij for unlock / lock
-      "M-g c"   #'avy-goto-char)
-
+(map!
+ "M-`"          nil                  ; used by zellij for unlock / lock
+ "M-g c"        #'avy-goto-char
+ "C-x f"        #'find-file
+ "C-x C-o"      #'other-window
+ "C-x C-u"      #'undo
+ "C-x C-h"      #'mark-whole-buffer)
