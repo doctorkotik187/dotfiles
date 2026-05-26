@@ -47,6 +47,7 @@ brew "tre-command"                         # tree with git integration + fuzzy f
 #  DEV TOOLS MISSING IN MISE (brew-only deps)
 # =========================================================
 brew "borkdude/brew/babashka"               # clojure shell scripting
+brew "borkdude/brew/clj-kondo"              # linter for clojure code that sparks joy
 brew "babashka/brew/neil"                   # clojure project scaffolding tool
 brew "clojure-lsp/brew/clojure-lsp-native"  # clojure language server
 brew "weavejester/brew/cljfmt"              # clojure code formatter
