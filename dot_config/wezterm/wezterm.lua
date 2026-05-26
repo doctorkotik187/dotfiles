@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
--- -- MOUSE ---------------------------------------------------
+---- MOUSE ---------------------------------------------------
 
 -- stop mouse clicks from auto-opening urls
 config.mouse_bindings = {
@@ -12,17 +12,17 @@ config.mouse_bindings = {
   },
 }
 
--- -- WINDOW --------------------------------------------------
+---- WINDOW --------------------------------------------------
 
 config.initial_cols = 120
 config.initial_rows = 30
 
--- -- FONT ----------------------------------------------------
+---- FONT ----------------------------------------------------
 
 config.font = wezterm.font('M PLUS 1 Code', { weight = 'Medium' })
 config.font_size = 10
 
--- -- THEME & VISUALS -----------------------------------------
+---- THEME & VISUALS -----------------------------------------
 
 -- config.color_scheme = 'Catppuccin Latte'     -- light
 config.color_scheme = 'Dracula (Official)'      -- dark
