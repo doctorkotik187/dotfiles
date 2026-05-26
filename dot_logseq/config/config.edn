@@ -5,5 +5,5 @@
              :editor/escape-editing ["mod+g"]
              :editor/redo ["mod+shift+z" "mod+y" "mod+shift+/"]
              :window/close ["mod+x mod+c"]
-             :graph/save ["mod+s" "mod+s c"]
+             :graph/save ["mod+s" "mod+x s"]
              :editor/undo ["mod+z" "mod+/" "mod+x u"]}}
