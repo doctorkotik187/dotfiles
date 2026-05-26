@@ -88,6 +88,13 @@ def doom-sync [] {
     doom gc
 }
 
+# run all sync commands to ensure consistency after dotfiles changes
+def sync-everything [] {
+    brewb-sync
+    mise-sync
+    doom-sync
+}
+
 # update everything (bluefin, flatpak, homebrew, mise, doom)
 def update-everything [] {
     print "=== UJUST UPDATE ==="
@@ -96,4 +103,24 @@ def update-everything [] {
     mise upgrade
     print "=== DOOM UPDATE ==="
     doom upgrade --force
+}
+
+# check for syncthing conflicts in ~/0-doctorkotik
+def check-conflicts [] {
+    let conflicts = (glob "~/0-doctorkotik/**/*conflict*")
+    if ($conflicts | length) > 0 {
+        print $"WARNING: ($conflicts | length) syncthing conflict files found:"
+        print $conflicts
+        exit 1
+    } else {
+        print "No syncthing conflicts found."
+    }
+}
+
+# weekly upkeep: check conflicts, sync, then update
+def weekly-upkeep [] {
+    check-conflicts
+    sync-everything
+    update-everything
+    print "=== WEEKLY UPKEEP COMPLETE ==="
 }
