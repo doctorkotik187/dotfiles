@@ -13,14 +13,14 @@ rust = "latest"                                         # rust toolchain + cargo
 # ==========================================
 #  TOOLS I ACTUALLY USE (nushell deps)
 # ==========================================
+fastfetch = "latest"                                    # system info (neofetch alternative)
+usql = "latest"                                         # universal sql cli client (brew compiles with go and fails)
+uv = "latest"                                           # fast python package manager (Astral)
 "cargo:bacon" = "latest"                                # rust code checker (watch + check)
 "cargo:loco" = "latest"                                 # rust web framework cli (Rails-like)
 "cargo:sea-orm-cli" = "latest"                          # seaorm migration cli
 "cargo:weathr" = "latest"                               # terminal weather app
 "pipx:podman-compose" = "latest"                        # docker-compose for podman
-fastfetch = "latest"                                    # system info (neofetch alternative)
-usql = "latest"                                         # universal sql cli client (brew compiles with go and fails)
-uv = "latest"                                           # fast python package manager (Astral)
 
 # ==========================================
 #  NUSHELL DEPENDENCIES
@@ -32,6 +32,13 @@ zoxide = "latest"                                       # smarter cd (jump to fr
 # ==========================================
 #  DOOM DOCTOR DEPS & CO. (background cruft)
 # ==========================================
+black = "latest"                                        # python code formatter (opinionated)
+markdownlint-cli2 = "latest"                            # markdown linter / style checker
+prettier = "latest"                                     # multi-format code formatter (js, ts, json, yaml, etc.)
+pipenv = "latest"                                       # python development workflow for humans
+shfmt = "latest"                                        # shell script formatter (bash, sh, dash)
+shellcheck = "latest"                                   # shell script static analysis linter
+ty = "latest"                                           # extremely fast python type checker (by astral)
 "cargo:emacs-lsp-booster" = "latest"                    # speeds up lsp-mode in emacs
 "cargo:https://github.com/justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }  # parinfer backend for emacs (not on crates.io, needs full url)
 "go:github.com/chrishrb/go-grip" = "latest"             # github flavored markdown preview server
@@ -39,9 +46,6 @@ zoxide = "latest"                                       # smarter cd (jump to fr
 "npm:js-beautify" = "latest"                            # js / html / css beautifier
 "npm:stylelint" = "latest"                              # css / scss linter
 "pipx:pyflakes" = "latest"                              # python static analysis linter
-black = "latest"                                        # python code formatter (opinionated)
-markdownlint-cli2 = "latest"                            # markdown linter / style checker
-prettier = "latest"                                     # multi-format code formatter (js, ts, json, yaml, etc.)
-shfmt = "latest"                                        # shell script formatter (bash, sh, dash)
-shellcheck = "latest"                                   # shell script static analysis linter
-ty = "latest"                                           # extremely fast python type checker (by astral)
+"pipx:isort" = "latest"                                 # python utility / library to sort imports
+"pipx:nose" = "latest"                                  # nose is nicer testing for python
+"pipx:pytest" = "latest"                                # python pytest framework makes it easy to write small tests

@@ -18,6 +18,6 @@
       "C-x C-h" #'mark-whole-buffer
       "C-x f"   #'find-file
       "C-x C-o" #'other-window
-      "M-`"     nil
+      "M-`"     nil                  ; used by zellij for unlock / lock
       "M-g c"   #'avy-goto-char)
 
