@@ -120,7 +120,7 @@ flatpak "org.keepassxc.KeePassXC"          # password manager
 flatpak "com.rtosta.zapzap"                # whatsapp client
 flatpak "dev.vencord.Vesktop"              # discord client (with vencord plugins)
 flatpak "org.gnome.Fractal"                # matrix client
-flatpak "org.mozilla.Thunderbird"          # email client
+flatpak "org.mozilla.thunderbird_esr"      # email client
 flatpak "org.telegram.desktop"             # telegram client
 
 # =========================================================

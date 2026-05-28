@@ -11,6 +11,7 @@
 
 ;; --- BEHAVIOR ---
 (doom-auto-revert-mode 1)
+(delete-selection-mode 1)
 
 (setq confirm-kill-emacs nil
       isearch-lazy-count t
