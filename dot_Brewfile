@@ -103,6 +103,7 @@ brew "yt-dlp"                              # youtube/video downloader
 flatpak "com.obsproject.Studio"            # streaming & recording
 flatpak "fr.handbrake.ghb"                 # video transcoder
 flatpak "io.mpv.Mpv"                       # media player (flatpak)
+flatpak "org.kde.gwenview"                 # image viewer (where thrashing always works)
 flatpak "org.gimp.GIMP"                    # image editor
 flatpak "org.kde.digikam"                  # photo manager
 flatpak "org.shotcut.Shotcut"              # video editor

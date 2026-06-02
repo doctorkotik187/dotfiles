@@ -23,7 +23,6 @@ mkdir $AUTOLOAD_DIR
 # -- CONFIG -------------------------------------------------
 
 $env.EDITOR = "emacs -nw"
-$env.LEDGER_FILE = "~/mount/dk.dec/finance/hledger/2025-2020.journal"
 
 # -- GIT COMPATIBILITY --------------------------------------
 
