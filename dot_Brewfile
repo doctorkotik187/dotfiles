@@ -88,6 +88,7 @@ flatpak "org.libreoffice.LibreOffice"      # office suite
 # =========================================================
 brew "hledger"                             # plain-text accounting (cli)
 brew "ledger"                              # plain-text accounting (original, doom emacs dep)
+flatpak "com.cakewallet.CakeWallet"        # universal crypto wallet
 flatpak "org.getmonero.Monero"             # monero wallet
 
 # =========================================================
@@ -100,6 +101,7 @@ brew "streamlink"                          # extract streams from websites
 brew "viu"                                 # terminal image viewer
 brew "yewtube"                             # youtube frontend (exe: yt)
 brew "yt-dlp"                              # youtube/video downloader
+flatpak "com.github.neithern.g4music"      # music player
 flatpak "com.obsproject.Studio"            # streaming & recording
 flatpak "fr.handbrake.ghb"                 # video transcoder
 flatpak "io.mpv.Mpv"                       # media player (flatpak)

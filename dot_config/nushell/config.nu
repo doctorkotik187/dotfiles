@@ -69,6 +69,7 @@ def brewb-sync [] {
     print "=== BREW BUNDLE CLEANUP ==="
     brew bundle --global --verbose cleanup --force
     brew autoremove; brew cleanup
+    flatpak uninstall --delete-data --unused -y
 }
 
 # mise install + prune
