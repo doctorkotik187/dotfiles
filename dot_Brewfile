@@ -15,6 +15,7 @@ brew "fzf"                                                # fuzzy finder (used b
 brew "gocryptfs"                                          # encrypted filesystem (nested encryption)
 brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
+brew "lazyjj"                                             # tui for jj
 brew "syncthing"                                          # decentralized file sync
 
 # =========================================================

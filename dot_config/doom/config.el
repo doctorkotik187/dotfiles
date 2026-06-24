@@ -23,10 +23,4 @@
         corfu-preselect 'prompt))
 
 ;; --- KEYBINDINGS ---
-(map!
- "M-`"          nil                  ; used by zellij for unlock / lock
- "M-g c"        #'avy-goto-char
- "C-x f"        #'find-file
- "C-x C-o"      #'other-window
- "C-x C-u"      #'undo
- "C-x C-h"      #'mark-whole-buffer)
+(map! "M-`" nil) ; used by zellij for unlock / lock

@@ -19,7 +19,7 @@
        ophints                          ; highlight the region an operation acts on
        (popup +defaults)                ; tame sudden yet inevitable temporary windows
        treemacs                         ; a project drawer, like neotree but cooler
-       (vc-gutter +pretty)              ; vcs diff in the fringe
+       vc-gutter                        ; vcs diff in the fringe
        vi-tilde-fringe                  ; fringe tildes to mark beyond EOB
        (window-select +numbers)         ; visually switch windows
        ;;unicode                        ; extended unicode support for various languages
@@ -27,7 +27,9 @@
        ;;zen                            ; distraction-free coding or writing
 
        :editor
-       parinfer                         ; edit lisp like it's python
+       (evil +everywhere)               ; hehe xd
+       lispy                            ; teach vim how to edit lisp structurally
+       ;;parinfer                       ; edit lisp like it's python (mostly annoying)
        file-templates                   ; auto-snippets for empty files
        fold                             ; (nigh) universal code folding
        (format +lsp)                    ; automated prettiness

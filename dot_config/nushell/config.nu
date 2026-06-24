@@ -46,8 +46,10 @@ $env.DO_NOT_TRACK = 1   # respected by crush.ai and others
 
 # -- ALIASES ------------------------------------------------
 
-alias e     = emacs -nw                               # launch emacs in terminal
-alias brewb = brew bundle --global --verbose          # preview brewfile changes
+alias "e"     = emacs -nw                               # launch emacs in terminal
+alias "brewb" = brew bundle --global --verbose          # preview brewfile changes
+alias "jjst"  = jj status                               # common jj typo
+alias "jj sq" = jj squash                               # shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
 
