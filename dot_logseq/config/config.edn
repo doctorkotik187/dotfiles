@@ -1,9 +1,7 @@
 {:shortcuts {:editor/paste-text-in-one-block-at-point ["mod+shift+v" "ctrl+v"]
-             :go/search ["mod+x mod+b" "mod+x b" "mod+x mod+f" "mod+x f"]
-             :ui/toggle-right-sidebar ["mod+`" "mod+x 3"]
-             :command-palette/toggle ["mod+shift+p" "alt+x"]
+             :go/search ["space f f" "space p f" "space b b" "space p b" "space ." "space space"]
+             :ui/toggle-right-sidebar ["mod+w v" "space w v"]
+             :command-palette/toggle ["mod+shift+p" "alt+x" "space :"]
              :editor/escape-editing ["mod+g"]
-             :editor/redo ["mod+shift+z" "mod+y" "mod+shift+/"]
-             :window/close ["mod+x mod+c"]
-             :graph/save ["mod+s"]
-             :editor/undo ["mod+z" "mod+/" "mod+x u"]}}
+             :window/close ["space q q"]
+             :graph/save ["mod+s" "space f s"]}}
