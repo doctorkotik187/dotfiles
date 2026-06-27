@@ -10,13 +10,14 @@
   :hook (prog-mode . auto-highlight-symbol-mode))
 
 ;; --- BEHAVIOR ---
-(doom-auto-revert-mode 1)
-(delete-selection-mode 1)
 
+;; GENERAL
+(doom-auto-revert-mode 1)
 (setq confirm-kill-emacs nil
       isearch-lazy-count t
       treesit-auto-install-grammar 'always)
 
+;; AUTOCOMPLETE
 (after! (corfu corfu-terminal)
   (setq corfu-auto-prefix 3
         corfu-auto-delay 0.9
