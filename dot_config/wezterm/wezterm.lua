@@ -25,7 +25,7 @@ config.font_size = 10
 ---- THEME & VISUALS -----------------------------------------
 
 -- config.color_scheme = 'Catppuccin Latte'     -- light
-config.color_scheme = 'Dracula (Official)'      -- dark
+config.color_scheme = 'Catppuccin Macchiato'    -- dark
 
 config.use_fancy_tab_bar = false                 -- minimal tab bar
 config.hide_tab_bar_if_only_one_tab = true       -- hide tab bar when only one tab

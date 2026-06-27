@@ -2,6 +2,7 @@
 ;;; $DOOMDIR/packages.el
 
 ;; --- VISUALS ---
+(package! catppuccin-theme)
 (package! auto-highlight-symbol)
 (package! rainbow-delimiters)
 

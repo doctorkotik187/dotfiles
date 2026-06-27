@@ -1,10 +1,14 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
 ;; --- VISUALS ---
-(setq doom-theme 'doom-dracula)
+(setq catppuccin-flavor 'macchiato
+      doom-theme 'catppuccin)
 
 (add-hook! 'prog-mode-hook
   (setq-local show-trailing-whitespace t))
+
+(use-package! rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
 
 (use-package! auto-highlight-symbol
   :hook (prog-mode . auto-highlight-symbol-mode))
