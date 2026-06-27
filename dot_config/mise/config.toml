@@ -40,7 +40,6 @@ shfmt = "latest"                                        # shell script formatter
 shellcheck = "latest"                                   # shell script static analysis linter
 ty = "latest"                                           # extremely fast python type checker (by astral)
 "cargo:emacs-lsp-booster" = "latest"                    # speeds up lsp-mode in emacs
-"cargo:https://github.com/justinbarclay/parinfer-rust-emacs" = { version = "latest", locked = false }  # parinfer backend for emacs (not on crates.io, needs full url)
 "go:github.com/chrishrb/go-grip" = "latest"             # github flavored markdown preview server
 "go:github.com/jessfraz/dockfmt" = "latest"             # dockerfile formatter
 "npm:js-beautify" = "latest"                            # js / html / css beautifier

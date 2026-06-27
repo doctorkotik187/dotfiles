@@ -43,6 +43,8 @@ brew "ripgrep-all"                         # ripgrep for pdfs, archives, etc.
 brew "sd"                                  # intuitive find & replace (sed alternative)
 brew "sequoia-sq"                          # openpgp toolkit (gpg alternative, modern rust impl)
 brew "tre-command"                         # tree with git integration + fuzzy filter
+brew "lazysql"                             # tui for sql dbs
+brew "lazymake"                            # tui for make
 
 # =========================================================
 #  DEV TOOLS MISSING IN MISE (brew-only deps)
@@ -60,6 +62,7 @@ brew "tidy-html5"                           # html linter & formatter (doom emac
 #  NETWORK
 # =========================================================
 brew "nmap"                                 # network scanner
+brew "lazyssh"                              # tui for ssh
 flatpak "org.gnome.Connections"             # remote desktop client
 
 # =========================================================
