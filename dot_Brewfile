@@ -123,6 +123,7 @@ flatpak "org.kde.digikam"                                 # photo manager
 flatpak "org.shotcut.Shotcut"                             # video editor
 flatpak "org.videolan.VLC"                                # media player
 flatpak "org.gnome.Snapshot"                              # simple webcam pictures
+flatpak "be.alexandervanhee.gradia"                       # annotation support for default gnome screenshot tool
 
 # =========================================================
 #  SECURITY & CRYPTOGRAPHY
