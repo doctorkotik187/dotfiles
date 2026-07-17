@@ -24,14 +24,6 @@ mkdir $AUTOLOAD_DIR
 
 $env.EDITOR = "emacs -nw"
 
-# -- GIT COMPATIBILITY --------------------------------------
-
-git config --global user.name (jj config get user.name)
-git config --global user.email (jj config get user.email)
-git config --global gpg.format (jj config get signing.backend)
-git config --global user.signingkey (jj config get signing.key)
-git config --global commit.gpgsign (jj config get git.sign-on-push)
-
 # -- AI (secret-tool store) ---------------------------------
 # API keys stored in gnome-keyring via secret-tool
 # usage: secret-tool store --label="AI <Service> API Key" service <service> username api-key
@@ -52,6 +44,8 @@ alias "jjst"  = jj status                               # common jj typo
 alias "jj sq" = jj squash                               # shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
+# One-off maintenance/setup tasks live in ~/.justfile (`just --list`).
+# Only true interactive-shell helpers stay here.
 
 # delete emacs cache and nushell history
 def clean-cache [] {
@@ -62,67 +56,4 @@ def clean-cache [] {
 # "disable" previews for yazi (workaround for zellij rendering bug)
 def yz [] {
     with-env { TERM: "xterm-kitty" } { ^yazi }
-}
-
-# brew bundle install + cleanup
-def brewb-sync [] {
-    print "=== BREW BUNDLE INSTALL ==="
-    brew bundle --global --verbose install
-    print "=== BREW BUNDLE CLEANUP ==="
-    brew bundle --global --verbose cleanup --force
-    brew autoremove; brew cleanup
-    flatpak uninstall --delete-data --unused -y
-}
-
-# mise install + prune
-def mise-sync [] {
-    print "=== MISE INSTALL ==="
-    mise install
-    print "=== MISE CLEANUP ==="
-    mise prune --yes
-}
-
-# doom sync + garbage collect
-def doom-sync [] {
-    print "=== DOOM SYNC ==="
-    doom sync
-    print "=== DOOM CLEANUP ==="
-    doom gc
-}
-
-# run all sync commands to ensure consistency after dotfiles changes
-def sync-everything [] {
-    brewb-sync
-    mise-sync
-    doom-sync
-}
-
-# update everything (bluefin, flatpak, homebrew, mise, doom)
-def update-everything [] {
-    print "=== UJUST UPDATE ==="
-    ujust update
-    print "=== MISE UPDATE ==="
-    mise upgrade
-    print "=== DOOM UPDATE ==="
-    doom upgrade --force
-}
-
-# check for syncthing conflicts in ~/0-doctorkotik
-def check-conflicts [] {
-    let conflicts = (glob "~/0-doctorkotik/**/*conflict*")
-    if ($conflicts | length) > 0 {
-        print $"WARNING: ($conflicts | length) syncthing conflict files found:"
-        print $conflicts
-        exit 1
-    } else {
-        print "No syncthing conflicts found."
-    }
-}
-
-# weekly upkeep: check conflicts, sync, then update
-def weekly-upkeep [] {
-    check-conflicts
-    sync-everything
-    update-everything
-    print "=== WEEKLY UPKEEP COMPLETE ==="
 }

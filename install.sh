@@ -24,4 +24,7 @@ fi
 echo "Applying dotfiles with chezmoi..."
 chezmoi apply
 
-echo "Done!"
+echo "Installing brew bundle packages (just, fd, etc)..."
+brew bundle --global --verbose install
+
+echo "Done! Run 'just --list' to see available maintenance commands."

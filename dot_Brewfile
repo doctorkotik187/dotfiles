@@ -3,6 +3,7 @@
 #  CORE
 # =========================================================
 brew "chezmoi"                                            # dotfiles manager
+brew "just"                                               # better `make`
 brew "emacs"                                              # text editor (doom emacs)
 brew "neovim"                                             # the other text editor
 brew "nushell"                                            # modern shell with structured data
@@ -128,6 +129,7 @@ flatpak "be.alexandervanhee.gradia"                       # annotation support f
 # =========================================================
 #  SECURITY & CRYPTOGRAPHY
 # =========================================================
+brew "solo2-cli"                                          # cli to update and use solo 2 security keys
 flatpak "org.gnome.seahorse.Application"                  # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"                         # password manager
 

@@ -1,0 +1,66 @@
+# -- SYSTEM SETUP (one-off, per machine) ---------------------------------
+
+colemak:
+    sudo localectl set-x11-keymap us pc105 colemak
+    sudo localectl set-keymap us-colemak
+
+# -- GIT/JJ COMPAT --------------------------------------------------------
+
+git-sync:
+    git config --global user.name "$(jj config get user.name)"
+    git config --global user.email "$(jj config get user.email)"
+    git config --global gpg.format "$(jj config get signing.backend)"
+    git config --global user.signingkey "$(jj config get signing.key)"
+    git config --global commit.gpgsign "$(jj config get git.sign-on-push)"
+
+# -- MAINTENANCE ----------------------------------------------------------
+
+brewb-sync:
+    echo "=== BREW BUNDLE INSTALL ==="
+    brew bundle --global --verbose install
+    echo "=== BREW BUNDLE CLEANUP ==="
+    brew bundle --global --verbose cleanup --force
+    brew autoremove
+    brew cleanup
+    flatpak uninstall --delete-data --unused -y
+
+mise-sync:
+    echo "=== MISE INSTALL ==="
+    mise install
+    echo "=== MISE CLEANUP ==="
+    mise prune --yes
+
+doom-sync:
+    echo "=== DOOM SYNC ==="
+    doom sync
+    echo "=== DOOM CLEANUP ==="
+    doom gc
+
+sync-everything: brewb-sync mise-sync doom-sync
+
+update-everything:
+    echo "=== UJUST UPDATE ==="
+    ujust update
+    echo "=== MISE UPDATE ==="
+    mise upgrade
+    echo "=== DOOM UPDATE ==="
+    doom upgrade --force
+
+check-conflicts:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [ ! -d ~/0-doctorkotik ]; then
+        echo "~/0-doctorkotik doesn't exist yet, skipping conflict check."
+        exit 0
+    fi
+    conflicts=$(fd -i "conflict" ~/0-doctorkotik)
+    if [ -n "$conflicts" ]; then
+        echo "WARNING: syncthing conflict files found:"
+        echo "$conflicts"
+        exit 1
+    else
+        echo "No syncthing conflicts found."
+    fi
+
+weekly-upkeep: check-conflicts sync-everything update-everything
+    echo "=== WEEKLY UPKEEP COMPLETE ==="
