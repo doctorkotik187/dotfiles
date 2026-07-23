@@ -6,10 +6,12 @@
 (package! auto-highlight-symbol)
 (package! rainbow-delimiters)
 
-;; --- NEW TECH ---
+;; --- FILE MODES ---
 (package! vc-jj)
 (package! jjdescription)
-(package! typst-ts-mode)
 (package! kdl-mode)
-(package! nushell-mode)
+
+;; --- TREESITTER MODES ---
+(package! just-ts-mode)
+(package! typst-ts-mode)
 (package! nushell-ts-mode)

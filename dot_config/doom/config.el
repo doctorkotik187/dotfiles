@@ -29,3 +29,26 @@
 
 ;; --- KEYBINDINGS ---
 (map! "M-`" nil) ; used by zellij for unlock / lock
+
+;; --- NEW TREESITTER MODES ---
+(use-package! just-ts-mode
+  :mode "Justfile\\'"
+  :config
+  (unless (treesit-language-available-p 'just)
+    (just-ts-mode-install-grammar)))
+
+(use-package! typst-ts-mode
+  :mode "\\.typ\\'"
+  :config
+  (add-to-list 'treesit-language-source-alist
+               '(typst "https://github.com/uben0/tree-sitter-typst"))
+  (unless (treesit-language-available-p 'typst)
+    (treesit-install-language-grammar 'typst)))
+
+(use-package! nushell-ts-mode
+  :mode "\\.nu\\'"
+  :config
+  (add-to-list 'treesit-language-source-alist
+               '(nu "https://github.com/nushell/tree-sitter-nu"))
+  (unless (treesit-language-available-p 'nu)
+    (treesit-install-language-grammar 'nu)))
