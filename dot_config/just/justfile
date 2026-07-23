@@ -15,7 +15,7 @@ git-sync:
 
 # -- MAINTENANCE ----------------------------------------------------------
 
-brewb-sync:
+brewbg-sync:
     echo "=== BREW BUNDLE INSTALL ==="
     brew bundle --global --verbose install
     echo "=== BREW BUNDLE CLEANUP ==="
@@ -36,7 +36,7 @@ doom-sync:
     echo "=== DOOM CLEANUP ==="
     doom gc
 
-sync-everything: brewb-sync mise-sync doom-sync
+sync-everything: brewbg-sync mise-sync doom-sync
 
 update-everything:
     echo "=== UJUST UPDATE ==="
