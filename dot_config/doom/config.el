@@ -32,7 +32,7 @@
 
 ;; --- NEW TREESITTER MODES ---
 (use-package! just-ts-mode
-  :mode "\\`[Jj]ustfile\\'"
+  :mode "/[Jj]ustfile\\'"
   :config
   (unless (treesit-language-available-p 'just)
     (just-ts-mode-install-grammar)))
