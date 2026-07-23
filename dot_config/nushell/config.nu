@@ -45,8 +45,7 @@ alias "jjst"   = jj status                               # common jj typo
 alias "jj sq"  = jj squash                               # shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
-# One-off maintenance/setup tasks live in ~/.justfile (`just --list`).
-# Only true interactive-shell helpers stay here.
+# Only true interactive-shell helpers stay here, rest is in justfile.
 
 # delete emacs cache and nushell history
 def clean-cache [] {
