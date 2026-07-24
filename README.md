@@ -6,7 +6,7 @@ managed with [chezmoi](https://www.chezmoi.io/) (symlink mode).
 ## Setup
 
 ```bash
-brew install chezmoi just
+brew install chezmoi just nushell
 chezmoi init doctorkotik187 --ssh --apply
 ```
 

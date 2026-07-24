@@ -1,3 +1,5 @@
+doom := env("HOME") + "/.config/emacs/bin/doom"
+
 # -- SYSTEM SETUP (one-off, per machine) ---------------------------------
 
 colemak:
@@ -32,9 +34,9 @@ mise-sync:
 
 doom-sync:
     echo "=== DOOM SYNC ==="
-    doom sync
+    {{doom}} sync
     echo "=== DOOM CLEANUP ==="
-    doom gc
+    {{doom}} gc
 
 sync-everything: brewbg-sync mise-sync doom-sync
 
@@ -44,7 +46,7 @@ update-everything:
     echo "=== MISE UPDATE ==="
     mise upgrade
     echo "=== DOOM UPDATE ==="
-    doom upgrade --force
+    {{doom}} upgrade --force
 
 check-conflicts:
     #!/usr/bin/env bash

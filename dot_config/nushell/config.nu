@@ -3,7 +3,6 @@
 $env.PATH ++= [
   "/var/home/linuxbrew/.linuxbrew/bin"
   "/var/home/linuxbrew/.linuxbrew/sbin"
-  "~/.local/share/mise/shims"
   "~/.config/emacs/bin"
 ]
 
