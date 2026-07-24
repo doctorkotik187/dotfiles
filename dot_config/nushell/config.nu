@@ -1,7 +1,3 @@
-# -- CORE SETUP ---------------------------------------------
-
-$env.config.show_banner = false
-
 # -- PATH ---------------------------------------------------
 
 $env.PATH ++= [
@@ -20,8 +16,11 @@ mkdir $AUTOLOAD_DIR
 ^zoxide init nushell | save -f ($AUTOLOAD_DIR | path join "zoxide.nu")
 ^carapace _carapace nushell | save -f ($AUTOLOAD_DIR | path join "carapace.nu")
 
-# -- CONFIG -------------------------------------------------
+# -- VARIABLES -----------------------------------------------
 
+$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
+$env.DO_NOT_TRACK = 1                                           # respected by crush.ai and others
+$env.config.show_banner = false
 $env.EDITOR = "emacs -nw"
 
 # -- AI (secret-tool store) ---------------------------------
@@ -32,17 +31,13 @@ $env.GEMINI_API_KEY = (secret-tool lookup service gemini username api-key)
 $env.OPENROUTER_API_KEY = (secret-tool lookup service openrouter username api-key)
 $env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
 
-# -- OTHER --------------------------------------------------
-
-$env.DO_NOT_TRACK = 1   # respected by crush.ai and others
-
 # -- ALIASES ------------------------------------------------
 
-alias "e"      = emacs -nw                               # launch emacs in terminal
-alias "brewbg" = brew bundle --global --verbose          # use global brew bundle file ~/.Brewfile
-alias "justg"  = just --global-justfile                  # use global just file ~/.config/just/justfile
-alias "jjst"   = jj status                               # common jj typo
-alias "jj sq"  = jj squash                               # shortcut
+alias "e"      = emacs -nw                                      # launch emacs in terminal
+alias "brewbg" = brew bundle --global --verbose                 # use global brew bundle file ~/.Brewfile
+alias "justg"  = just --global-justfile                         # use global just file ~/.config/just/justfile
+alias "jjst"   = jj status                                      # common jj typo
+alias "jj sq"  = jj squash                                      # shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
 # Only true interactive-shell helpers stay here, rest is in justfile.
