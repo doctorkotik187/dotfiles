@@ -130,6 +130,7 @@ flatpak "be.alexandervanhee.gradia"                       # annotation support f
 #  SECURITY & CRYPTOGRAPHY
 # =========================================================
 brew "solo2-cli"                                          # cli to update and use solo 2 security keys
+brew "libfido2"                                           # cli to manage fido keys in general
 flatpak "org.gnome.seahorse.Application"                  # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"                         # password manager
 

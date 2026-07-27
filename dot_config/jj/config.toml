@@ -6,7 +6,7 @@ email = "217476020+doctorkotik187@users.noreply.github.com"
 
 [signing]
 backend = "ssh"
-key = "/var/home/doctorkotik/.ssh/dk.pub"
+key = "/var/home/doctorkotik/.ssh/dk-solo-black.pub"
 behavior = "drop"
 
 [git]
