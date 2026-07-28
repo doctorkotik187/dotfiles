@@ -8,7 +8,7 @@ colemak:
 
 # -- GIT/JJ COMPAT --------------------------------------------------------
 
-git-sync:
+git-import-jj-config:
     git config --global user.name "$(jj config get user.name)"
     git config --global user.email "$(jj config get user.email)"
     git config --global gpg.format "$(jj config get signing.backend)"
@@ -81,5 +81,5 @@ chezmoi-check:
         echo "No chezmoi drift detected."
     fi
 
-weekly-upkeep: syncthing-conflict-check chezmoi-check sync-everything update-everything
+weekly-upkeep: syncthing-conflict-check chezmoi-check git-import-jj-config sync-everything update-everything
     echo "=== WEEKLY UPKEEP COMPLETE ==="

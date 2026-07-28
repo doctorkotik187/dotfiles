@@ -8,7 +8,7 @@ brew "emacs"                                              # text editor (doom em
 brew "neovim"                                             # the other text editor
 brew "nushell"                                            # modern shell with structured data
 brew "valkyrie00/bbrew/bbrew", trusted: true              # bold brew (brew tui)
-brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]  # gpu terminal emulator
+brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"], trusted: true  # gpu terminal emulator
 brew "zellij"                                             # terminal multiplexer (tiling)
 brew "mise"                                               # dev tool manager & sdk version manager
 brew "fzf"                                                # fuzzy finder (used by zellij, yazi, etc.)
@@ -51,11 +51,11 @@ flatpak "io.missioncenter.MissionCenter"                  # system monitor gui
 # =========================================================
 #  DEV TOOLS MISSING IN MISE (brew-only deps)
 # =========================================================
-brew "borkdude/brew/babashka"                             # clojure shell scripting
-brew "borkdude/brew/clj-kondo"                            # linter for clojure code that sparks joy
-brew "babashka/brew/neil"                                 # clojure project scaffolding tool
-brew "clojure-lsp/brew/clojure-lsp-native"                # clojure language server
-brew "weavejester/brew/cljfmt"                            # clojure code formatter
+brew "borkdude/brew/babashka", trusted: true              # clojure shell scripting
+brew "borkdude/brew/clj-kondo", trusted: true             # linter for clojure code that sparks joy
+brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
+brew "clojure-lsp/brew/clojure-lsp-native", trusted: true # clojure language server
+brew "weavejester/brew/cljfmt", trusted: true             # clojure code formatter
 brew "rlwrap"                                             # adds readline to clojure's clj repl
 brew "chafa"                                              # terminal image/video viewer (yazi fallback for zellij bug)
 brew "tidy-html5"                                         # html linter & formatter (doom emacs dep)
@@ -71,7 +71,7 @@ flatpak "org.gnome.Connections"                           # remote desktop clien
 #  AI
 # =========================================================
 brew "aider"                                              # ai pair programming in terminal
-brew "charmbracelet/tap/crush"                            # ai terminal assistant
+brew "charmbracelet/tap/crush", trusted: true             # ai terminal assistant
 
 # =========================================================
 #  OFFICE & DOCUMENTS

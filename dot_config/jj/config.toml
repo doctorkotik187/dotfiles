@@ -6,11 +6,11 @@ email = "217476020+doctorkotik187@users.noreply.github.com"
 
 [signing]
 backend = "ssh"
-key = "/var/home/doctorkotik/.ssh/dk-solo-black.pub"
-behavior = "drop"
+key = "~/.ssh/dk-sign.pub"
+behavior = "own"
 
 [git]
-sign-on-push = true
+sign-on-push = true  # with behavior = "own", mostly useless, used to set gitconfig -> gpgsign = true
 
 [lazyjj]
 layout-percent = 25
