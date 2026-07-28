@@ -16,7 +16,6 @@ rust = "latest"                                         # rust toolchain + cargo
 fastfetch = "latest"                                    # system info (neofetch alternative)
 usql = "latest"                                         # universal sql cli client (brew compiles with go and fails)
 uv = "latest"                                           # fast python package manager (Astral)
-"cargo:bacon" = "latest"                                # rust code checker (watch + check)
 "cargo:loco" = "latest"                                 # rust web framework cli (Rails-like)
 "cargo:sea-orm-cli" = "latest"                          # seaorm migration cli
 "cargo:weathr" = "latest"                               # terminal weather app

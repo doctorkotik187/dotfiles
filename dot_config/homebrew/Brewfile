@@ -4,6 +4,7 @@
 # =========================================================
 brew "chezmoi"                                            # dotfiles manager
 brew "just"                                               # better `make`
+brew "gum"                                                # tool for glamorous shell scripts
 brew "emacs"                                              # text editor (doom emacs)
 brew "neovim"                                             # the other text editor
 brew "nushell"                                            # modern shell with structured data
@@ -47,6 +48,7 @@ flatpak "org.gnome.NautilusPreviewer"                     # quick look / spaceba
 flatpak "org.gnome.baobab"                                # disk usage analyzer gui
 flatpak "org.gnome.Logs"                                  # system logs viewer
 flatpak "io.missioncenter.MissionCenter"                  # system monitor gui
+flatpak "it.mijorus.smile"                                # emoji picker
 
 # =========================================================
 #  DEV TOOLS MISSING IN MISE (brew-only deps)
@@ -59,6 +61,7 @@ brew "weavejester/brew/cljfmt", trusted: true             # clojure code formatt
 brew "rlwrap"                                             # adds readline to clojure's clj repl
 brew "chafa"                                              # terminal image/video viewer (yazi fallback for zellij bug)
 brew "tidy-html5"                                         # html linter & formatter (doom emacs dep)
+brew "bacon"                                              # background rust code check
 
 # =========================================================
 #  NETWORK

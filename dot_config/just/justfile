@@ -1,12 +1,45 @@
-doom := env("HOME") + "/.config/emacs/bin/doom"
+# -- VARIABLES -----------------------------------------------------------
 
-# -- SYSTEM SETUP (one-off, per machine) ---------------------------------
+doom := env("HOME") + "/.config/emacs/bin/doom"
+dk_enc := env("HOME") + "/0-doctorkotik/0-core/3-RESOURCES/program-data/dk.enc"
+dk_mnt := env("HOME") + "/mount/dk.dec"
+btrbk_dir := env("HOME") + "/0-doctorkotik/0-core/3-RESOURCES/program-data/btrbk"
+btrbk_bin := btrbk_dir + "/bin/btrbk"
+
+# -- SETUP (one-off, per machine) -----------------------------------------
 
 colemak:
     sudo localectl set-x11-keymap us pc105 colemak
     sudo localectl set-keymap us-colemak
 
-# -- GIT/JJ COMPAT --------------------------------------------------------
+# -- USAGE -----------------------------------------------------------------
+
+gocryptfs-mount:
+    mkdir -p {{dk_mnt}}
+    if mountpoint -q {{dk_mnt}}; then \
+        echo "Already mounted at {{dk_mnt}}"; \
+    else \
+        gocryptfs {{dk_enc}} {{dk_mnt}}; \
+    fi
+
+gocryptfs-unmount:
+    fusermount -u {{dk_mnt}}
+
+btrbk-backup:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    config=$(gum choose --header "Which drive?" \
+        "full-pinkbike" "full-whiteghost" "full-mechatoshiba" "core-orangeman")
+    action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
+        "run" "resume")
+    if gum confirm "Run btrbk -c ${config}.conf ${action}?"; then
+        sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf "$action"
+        sync
+    else
+        echo "Aborted."
+    fi
+
+# -- MAINTENANCE ----------------------------------------------------------
 
 git-import-jj-config:
     git config --global user.name "$(jj config get user.name)"
@@ -14,8 +47,6 @@ git-import-jj-config:
     git config --global gpg.format "$(jj config get signing.backend)"
     git config --global user.signingkey "$(jj config get signing.key)"
     git config --global commit.gpgsign "$(jj config get git.sign-on-push)"
-
-# -- MAINTENANCE ----------------------------------------------------------
 
 brewbg-sync:
     echo "=== BREW BUNDLE INSTALL ==="
