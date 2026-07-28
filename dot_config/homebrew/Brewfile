@@ -7,12 +7,11 @@ brew "just"                                               # better `make`
 brew "emacs"                                              # text editor (doom emacs)
 brew "neovim"                                             # the other text editor
 brew "nushell"                                            # modern shell with structured data
-brew "valkyrie00/bbrew/bbrew"                             # bold brew (brew tui)
+brew "valkyrie00/bbrew/bbrew", trusted: true              # bold brew (brew tui)
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"]  # gpu terminal emulator
 brew "zellij"                                             # terminal multiplexer (tiling)
 brew "mise"                                               # dev tool manager & sdk version manager
 brew "fzf"                                                # fuzzy finder (used by zellij, yazi, etc.)
-brew "gocryptfs"                                          # encrypted filesystem (nested encryption)
 brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
 brew "lazyjj"                                             # tui for jj
@@ -131,6 +130,8 @@ flatpak "be.alexandervanhee.gradia"                       # annotation support f
 # =========================================================
 brew "solo2-cli"                                          # cli to update and use solo 2 security keys
 brew "libfido2"                                           # cli to manage fido keys in general
+brew "gocryptfs"                                          # encrypted userspace filesystem
+brew "age"                                                # simple, modern, secure file encryption
 flatpak "org.gnome.seahorse.Application"                  # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"                         # password manager
 
