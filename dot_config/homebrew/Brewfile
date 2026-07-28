@@ -199,9 +199,10 @@ cask "font-ubuntu-nerd-font"                              # ubuntu web vibe, geo
 # proportional
 cask "font-inter"                                         # modern, clean, great for headings
 
-# cjk
+# japanese
 cask "font-m-plus-1-code"                                 # monospace variant of m+
 cask "font-m-plus-2"                                      # rounder, heavier variant
 cask "font-m-plus-rounded-1c"                             # rounded, softer feel
-cask "font-noto-sans-cjk"                                 # google noto, covers all cjk scripts
+cask "font-noto-sans-cjk-jp"                              # google noto sans japanese
+cask "font-noto-serif-cjk-jp"                             # google noto serif japanese
 cask "font-source-han-code-jp"                            # adobe source han, japanese serif-ish code font
