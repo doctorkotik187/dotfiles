@@ -48,7 +48,7 @@ update-everything:
     echo "=== DOOM UPDATE ==="
     {{doom}} upgrade --force
 
-check-conflicts:
+syncthing-conflict-check:
     #!/usr/bin/env bash
     set -euo pipefail
     if [ ! -d ~/0-doctorkotik ]; then
@@ -64,5 +64,22 @@ check-conflicts:
         echo "No syncthing conflicts found."
     fi
 
-weekly-upkeep: check-conflicts sync-everything update-everything
+chezmoi-check:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    drift=$(chezmoi status)
+    if [ -n "$drift" ]; then
+        echo "WARNING: chezmoi source state has drifted from your dotfiles:"
+        echo "$drift"
+        echo ""
+        echo "To resolve:"
+        echo "  chezmoi diff     # see what changed"
+        echo "  chezmoi re-add   # pull your local edits into the source state"
+        echo "  chezmoi apply    # OR push the source state out to your files instead"
+        exit 1
+    else
+        echo "No chezmoi drift detected."
+    fi
+
+weekly-upkeep: syncthing-conflict-check chezmoi-check sync-everything update-everything
     echo "=== WEEKLY UPKEEP COMPLETE ==="
