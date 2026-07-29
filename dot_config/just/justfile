@@ -14,6 +14,25 @@ colemak:
     sudo localectl set-x11-keymap us pc105 colemak
     sudo localectl set-keymap us-colemak
 
+secrets-deploy:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    echo "Deploy 'Drop on Disk' group to:"
+    echo "     ~/.config/chezmoi/key.txt"
+    echo "     ~/.ssh/dk-sign"
+    echo "     ~/.ssh/dk-sign.pub"
+    read -rp "Press Enter once done ... "
+    chmod -v 600 ~/.config/chezmoi/key.txt ~/.ssh/dk-sign
+
+ssh-import-from-solokey:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    read -rp "Plug in a Solokey, then press Enter ... "
+    ssh-keygen -K
+
+new-machine-setup: colemak secrets-deploy ssh-import-from-solokey
+    echo "=== NEW MACHINE SETUP COMPLETE ==="
+
 # -- USAGE -----------------------------------------------------------------
 
 kagi-decrypt:
