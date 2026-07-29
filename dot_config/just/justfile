@@ -42,11 +42,24 @@ btrbk-backup:
 # -- MAINTENANCE ----------------------------------------------------------
 
 git-import-jj-config:
+    #!/usr/bin/env bash
+    set -euo pipefail
     git config --global user.name "$(jj config get user.name)"
     git config --global user.email "$(jj config get user.email)"
-    git config --global gpg.format "$(jj config get signing.backend)"
-    git config --global user.signingkey "$(jj config get signing.key)"
-    git config --global commit.gpgsign "$(jj config get git.sign-on-push)"
+
+    backend=$(jj config get signing.backend 2>/dev/null || echo "")
+    case "$backend" in
+        gpg)   git config --global gpg.format openpgp ;;
+        gpgsm) git config --global gpg.format x509 ;;
+        ssh)   git config --global gpg.format ssh ;;
+        "")    echo "No jj signing backend set, skipping gpg.format" ;;
+        *)     echo "Unknown jj signing backend '$backend', skipping" ;;
+    esac
+
+    if [ -n "$backend" ]; then
+        git config --global user.signingkey "$(jj config get signing.key)"
+        git config --global commit.gpgsign true
+    fi
 
 brewbg-sync:
     echo "=== BREW BUNDLE INSTALL ==="

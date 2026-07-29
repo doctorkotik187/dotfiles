@@ -9,8 +9,5 @@ backend = "ssh"
 key = "~/.ssh/dk-sign.pub"
 behavior = "own"
 
-[git]
-sign-on-push = true  # with behavior = "own", mostly useless, used to set gitconfig -> gpgsign = true
-
 [lazyjj]
 layout-percent = 25
