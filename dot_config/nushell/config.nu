@@ -39,12 +39,12 @@ alias "jjst"   = jj status                                      # common jj typo
 alias "jj sq"  = jj squash                                      # shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
-# Only true interactive-shell helpers stay here, rest is in justfile.
+# Only nushell helpers stay here, rest is in justfile.
 
-# delete emacs cache and nushell history
 def clean-cache [] {
     history --clear; print "Nushell history cleared."
     rm -rfv ~/.config/emacs/.local/cache/*; print "Emacs cache deleted."
+    rm -v ~/.local/share/zoxide/db.zo; print "Zoxide history deleted."
 }
 
 # "disable" previews for yazi (workaround for zellij rendering bug)

@@ -11,15 +11,16 @@ ruby = "latest"                                         # ruby interpreter + gem
 rust = "latest"                                         # rust toolchain + cargo
 
 # ==========================================
-#  TOOLS I ACTUALLY USE (nushell deps)
+#  TOOLS I ACTUALLY USE
 # ==========================================
 fastfetch = "latest"                                    # system info (neofetch alternative)
 usql = "latest"                                         # universal sql cli client (brew compiles with go and fails)
 uv = "latest"                                           # fast python package manager (Astral)
 "cargo:loco" = "latest"                                 # rust web framework cli (Rails-like)
 "cargo:sea-orm-cli" = "latest"                          # seaorm migration cli
-"cargo:weathr" = "latest"                               # terminal weather app
+"github:Veirt/weathr" = "latest"                        # terminal weather app
 "pipx:podman-compose" = "latest"                        # docker-compose for podman
+"github:olastor/age-plugin-fido2-hmac" = "latest"       # use age with solokey
 
 # ==========================================
 #  NUSHELL DEPENDENCIES
@@ -38,9 +39,9 @@ pipenv = "latest"                                       # python development wor
 shfmt = "latest"                                        # shell script formatter (bash, sh, dash)
 shellcheck = "latest"                                   # shell script static analysis linter
 ty = "latest"                                           # extremely fast python type checker (by astral)
-"cargo:emacs-lsp-booster" = "latest"                    # speeds up lsp-mode in emacs
-"go:github.com/chrishrb/go-grip" = "latest"             # github flavored markdown preview server
-"go:github.com/jessfraz/dockfmt" = "latest"             # dockerfile formatter
+"github:blahgeek/emacs-lsp-booster" = "latest"          # speeds up lsp-mode in emacs
+"github:chrishrb/go-grip" = "latest"                    # github flavored markdown preview server
+"github:jessfraz/dockfmt" = "latest"                    # dockerfile formatter
 "npm:js-beautify" = "latest"                            # js / html / css beautifier
 "npm:stylelint" = "latest"                              # css / scss linter
 "pipx:pyflakes" = "latest"                              # python static analysis linter

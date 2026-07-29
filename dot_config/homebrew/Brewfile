@@ -30,7 +30,6 @@ brew "git-delta"                                          # syntax-highlighting 
 brew "ripgrep"                                            # fast grep replacement (core search tool)
 brew "ripgrep-all"                                        # ripgrep for pdfs, archives, etc.
 brew "sd"                                                 # intuitive find & replace (sed alternative)
-brew "sequoia-sq"                                         # openpgp toolkit (gpg alternative, modern rust impl)
 brew "tre-command"                                        # tree with git integration + fuzzy filter
 brew "lazysql"                                            # tui for sql dbs
 brew "lazymake"                                           # tui for make
@@ -135,6 +134,7 @@ brew "solo2-cli"                                          # cli to update and us
 brew "libfido2"                                           # cli to manage fido keys in general
 brew "gocryptfs"                                          # encrypted userspace filesystem
 brew "age"                                                # simple, modern, secure file encryption
+brew "sequoia-sq"                                         # openpgp toolkit (gpg alternative, modern rust impl)
 flatpak "org.gnome.seahorse.Application"                  # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"                         # password manager
 
