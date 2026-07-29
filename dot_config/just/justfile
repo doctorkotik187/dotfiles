@@ -154,3 +154,25 @@ chezmoi-check:
 
 weekly-upkeep: syncthing-conflict-check chezmoi-check git-import-jj-config sync-everything update-everything
     echo "=== WEEKLY UPKEEP COMPLETE ==="
+
+# -- RECOVERY -------------------------------------------------------------
+
+mount-backup-disk-using-solokey:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    lsblk -f
+    echo ""
+    read -rp "Partition to unlock (e.g. /dev/sda1): " dev
+    read -rp "Name (e.g. backup1): " name
+    sudo cryptsetup open "$dev" "$name"
+    sudo mkdir -p /mnt/"$name"
+    sudo mount /dev/mapper/"$name" /mnt/"$name"
+
+unmount-backup-disk:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    lsblk -f
+    echo ""
+    read -rp "Name to unmount (e.g. backup1): " name
+    sudo umount /mnt/"$name"
+    sudo cryptsetup close "$name"
