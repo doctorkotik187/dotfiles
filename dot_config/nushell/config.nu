@@ -1,8 +1,6 @@
 # -- PATH ---------------------------------------------------
 
 $env.PATH ++= [
-  "/var/home/linuxbrew/.linuxbrew/bin"
-  "/var/home/linuxbrew/.linuxbrew/sbin"
   "~/.config/emacs/bin"
 ]
 
