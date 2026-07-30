@@ -15,6 +15,7 @@ mkdir $AUTOLOAD_DIR
 
 # -- VARIABLES -----------------------------------------------
 
+$env.SHELL_ICON = "󰟆"                                           # for starship
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
 $env.DO_NOT_TRACK = 1                                           # respected by crush.ai and others
 $env.config.show_banner = false

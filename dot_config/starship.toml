@@ -1,0 +1,6 @@
+format = "$env_var$directory$character"
+
+[env_var.SHELL_ICON]
+variable = "SHELL_ICON"
+format = "[$env_value]($style) "
+style = "bold yellow"
