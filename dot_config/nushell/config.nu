@@ -33,7 +33,7 @@ $env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
 # -- ALIASES ------------------------------------------------
 
 alias "e"      = emacs -nw                                      # launch emacs in terminal
-alias "brewbg" = brew bundle --global --verbose                 # use global brew bundle file ~/.Brewfile
+alias "brewbg" = brew bundle --global                           # use global brew bundle file ~/.Brewfile
 alias "justg"  = just --global-justfile                         # use global just file ~/.config/just/justfile
 alias "jjst"   = jj status                                      # common jj typo
 alias "jj sq"  = jj squash                                      # shortcut

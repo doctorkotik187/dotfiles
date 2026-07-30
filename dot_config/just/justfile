@@ -89,12 +89,10 @@ git-import-jj-config:
     fi
 
 brewbg-sync:
-    echo "=== BREW BUNDLE INSTALL ==="
-    brew bundle --global --verbose install
-    echo "=== BREW BUNDLE CLEANUP ==="
-    brew bundle --global --verbose cleanup --force
+    echo "=== BREW BUNDLE SYNC ==="
+    brew bundle cleanup --global --install --zap
     brew autoremove
-    brew cleanup
+    brew cleanup --scrub --prune=all
     flatpak uninstall --delete-data --unused -y
 
 mise-sync:
