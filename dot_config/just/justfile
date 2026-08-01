@@ -54,16 +54,26 @@ gocryptfs-mount:
 gocryptfs-unmount:
     fusermount -u {{dk_mnt}}
 
-
 # -- MAINTENANCE ----------------------------------------------------------
+
+btrfs-status target='/etc':
+    #!/usr/bin/env bash
+    set -euo pipefail
+    echo "=== btrfs filesystem usage: {{target}} ==="
+    sudo btrfs filesystem usage -T "{{target}}"
+    echo ""
+    echo "=== device error counters (should all read 0) ==="
+    sudo btrfs device stats "{{target}}"
 
 laptop-btrfs-scrub:
     #!/usr/bin/env bash
     set -euo pipefail
+    just --global-justfile btrfs-status /etc
+    echo ""
     if gum confirm "Scrub laptop filesystem?"; then
-        sudo btrfs scrub start -B {{dk_core}}
+        sudo btrfs scrub start -B /etc
         echo ""
-        sudo btrfs scrub status {{dk_core}}
+        sudo btrfs scrub status /etc
     else
         echo "Aborted."
     fi
@@ -73,12 +83,22 @@ btrbk-backup:
     set -euo pipefail
     config=$(gum choose --header "Which drive?" \
         "full-pinkbike" "full-whiteghost" "full-mechatoshiba" "core-orangeman")
+    target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
+
+    echo "=== btrbk stats: ${config}.conf ==="
+    sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf stats
+    echo ""
+    echo "=== btrbk usage: ${config}.conf ==="
+    sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf usage
+    echo ""
+    just --global-justfile btrfs-status "$target"
+    echo ""
+
     action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
         "run" "resume")
     if gum confirm "Run btrbk -c ${config}.conf ${action}?"; then
         sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf "$action"
         sync
-        target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
         if gum confirm --default=false "Also scrub target ($target) while it's mounted?"; then
             sudo btrfs scrub start -B "$target"
             echo ""
