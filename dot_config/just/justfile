@@ -110,7 +110,7 @@ git-import-jj-config:
 
 brewbg-sync:
     echo "=== BREW BUNDLE SYNC ==="
-    brew bundle cleanup --global --install --zap
+    brew bundle cleanup --global --install
     brew autoremove
     brew cleanup --scrub --prune=all
     flatpak uninstall --delete-data --unused -y
