@@ -195,17 +195,19 @@ cask "font-blex-mono-nerd-font"                           # legible, wide, popul
 cask "font-caskaydia-mono-nerd-font"                      # ligatures + nerd icons (operator mono vibe)
 cask "font-droid-sans-mono-nerd-font"                     # clean, neutral, roboto-adjacent
 cask "font-go-mono-nerd-font"                             # golang-adjacent, clean & simple
-cask "font-maple-mono-nf-cn"                              # cute, rounded, exotic but readable
 cask "font-sauce-code-pro-nerd-font"                      # clean, simple, pragmatic
 cask "font-ubuntu-nerd-font"                              # ubuntu web vibe, geometric
+
+# monospace & japanese
+cask "font-m-plus-1-code"                                 # monospace variant of m+
+cask "font-maple-mono-nf-cn"                              # cute, rounded, exotic but readable
+cask "font-source-han-code-jp"                            # adobe source han, japanese serif-ish code font
 
 # proportional
 cask "font-inter"                                         # modern, clean, great for headings
 
 # japanese
-cask "font-m-plus-1-code"                                 # monospace variant of m+
 cask "font-m-plus-2"                                      # rounder, heavier variant
 cask "font-m-plus-rounded-1c"                             # rounded, softer feel
 cask "font-noto-sans-cjk-jp"                              # google noto sans japanese
 cask "font-noto-serif-cjk-jp"                             # google noto serif japanese
-cask "font-source-han-code-jp"                            # adobe source han, japanese serif-ish code font
