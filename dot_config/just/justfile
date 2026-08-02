@@ -61,7 +61,6 @@ btrfs-status target='/etc':
     set -euo pipefail
     echo "=== btrfs filesystem usage: {{target}} ==="
     sudo btrfs filesystem usage -T "{{target}}"
-    echo ""
     echo "=== device error counters (should all read 0) ==="
     sudo btrfs device stats "{{target}}"
 
@@ -69,10 +68,8 @@ laptop-btrfs-scrub:
     #!/usr/bin/env bash
     set -euo pipefail
     just --global-justfile btrfs-status /etc
-    echo ""
     if gum confirm "Scrub laptop filesystem?"; then
         sudo btrfs scrub start -B /etc
-        echo ""
         sudo btrfs scrub status /etc
     else
         echo "Aborted."
@@ -87,12 +84,9 @@ btrbk-backup:
 
     echo "=== btrbk stats: ${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf stats
-    echo ""
     echo "=== btrbk usage: ${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf usage
-    echo ""
     just --global-justfile btrfs-status "$target"
-    echo ""
 
     action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
         "run" "resume")
@@ -101,7 +95,6 @@ btrbk-backup:
         sync
         if gum confirm --default=false "Also scrub target ($target) while it's mounted?"; then
             sudo btrfs scrub start -B "$target"
-            echo ""
             sudo btrfs scrub status "$target"
         fi
     else
@@ -180,7 +173,6 @@ chezmoi-check:
     if [ -n "$drift" ]; then
         echo "WARNING: chezmoi source state has drifted from your dotfiles:"
         echo "$drift"
-        echo ""
         echo "To resolve:"
         echo "  chezmoi diff     # see what changed"
         echo "  chezmoi re-add   # pull your local edits into the source state"
@@ -199,7 +191,6 @@ mount-backup-disk-using-solokey:
     #!/usr/bin/env bash
     set -euo pipefail
     lsblk -f
-    echo ""
     read -rp "Partition to unlock (e.g. /dev/sda1): " dev
     read -rp "Name (e.g. backup1): " name
     sudo cryptsetup open "$dev" "$name"
@@ -210,7 +201,6 @@ unmount-backup-disk:
     #!/usr/bin/env bash
     set -euo pipefail
     lsblk -f
-    echo ""
     read -rp "Name to unmount (e.g. backup1): " name
     sudo umount /mnt/"$name"
     sudo cryptsetup close "$name"
