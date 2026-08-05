@@ -1,50 +1,71 @@
 [tools]
-# ==========================================
-#  RUNTIMES
-# ==========================================
-clojure = "latest"                                      # jvm lisp
-go = "latest"                                           # golang
-java = "latest"                                         # jvm (clojure needs this)
-node = "latest"                                         # javascript runtime (needed for npm tools)
-python = "latest"                                       # python interpreter + venvs
-ruby = "latest"                                         # ruby interpreter + gems
-rust = "latest"                                         # rust toolchain + cargo
 
-# ==========================================
-#  TOOLS I ACTUALLY USE
-# ==========================================
-fastfetch = "latest"                                    # system info (neofetch alternative)
-usql = "latest"                                         # universal sql cli client (brew compiles with go and fails)
-uv = "latest"                                           # fast python package manager (Astral)
-"cargo:loco" = "latest"                                 # rust web framework cli (Rails-like)
-"cargo:sea-orm-cli" = "latest"                          # seaorm migration cli
-"github:Veirt/weathr" = "latest"                        # terminal weather app
-"pipx:podman-compose" = "latest"                        # docker-compose for podman
-"github:olastor/age-plugin-fido2-hmac" = "latest"       # use age with solokey
-
-# ==========================================
+# ================================================
 #  NUSHELL DEPENDENCIES
-# ==========================================
-carapace = "latest"                                     # multi-shell completion generator
-starship = "latest"                                     # cross-shell prompt theme
-zoxide = "latest"                                       # smarter cd (jump to frequent dirs)
+# ================================================
 
-# ==========================================
-#  DOOM DOCTOR DEPS & CO. (background cruft)
-# ==========================================
-black = "latest"                                        # python code formatter (opinionated)
-markdownlint-cli2 = "latest"                            # markdown linter / style checker
-prettier = "latest"                                     # multi-format code formatter (js, ts, json, yaml, etc.)
-pipenv = "latest"                                       # python development workflow for humans
-shfmt = "latest"                                        # shell script formatter (bash, sh, dash)
-shellcheck = "latest"                                   # shell script static analysis linter
-ty = "latest"                                           # extremely fast python type checker (by astral)
-"github:blahgeek/emacs-lsp-booster" = "latest"          # speeds up lsp-mode in emacs
-"github:chrishrb/go-grip" = "latest"                    # github flavored markdown preview server
-"github:jessfraz/dockfmt" = "latest"                    # dockerfile formatter
-"npm:js-beautify" = "latest"                            # js / html / css beautifier
-"npm:stylelint" = "latest"                              # css / scss linter
-"pipx:pyflakes" = "latest"                              # python static analysis linter
-"pipx:isort" = "latest"                                 # python utility / library to sort imports
-"pipx:nose" = "latest"                                  # nose is nicer testing for python
-"pipx:pytest" = "latest"                                # python pytest framework makes it easy to write small tests
+starship                                = "latest"  # cross-shell prompt theme
+zoxide                                  = "latest"  # smarter cd (jump to frequent dirs)
+carapace                                = "latest"  # multi-shell completion generator
+
+# ================================================
+#  CLI APPS I ACTUALLY USE
+# ================================================
+
+fastfetch                               = "latest"  # system info (want this also in archbox)
+usql                                    = "latest"  # universal sql cli client (brew compiles with go and fails)
+"github:Veirt/weathr"                   = "latest"  # terminal weather app
+"github:Wraient/curd"                   = "latest"  # uwu
+"github:olastor/age-plugin-fido2-hmac"  = "latest"  # use age with solokey
+
+# ================================================
+#  LANGUAGE RUNTIMES
+# ================================================
+
+clojure                                 = "latest"  # jvm lisp
+go                                      = "latest"  # golang
+java                                    = "latest"  # jvm (clojure needs this)
+node                                    = "latest"  # javascript runtime (needed for npm tools)
+python                                  = "latest"  # python interpreter + venvs
+ruby                                    = "latest"  # ruby interpreter + gems
+rust                                    = "latest"  # rust toolchain + cargo
+
+# ================================================
+#  LANGUAGE & FRAMEWORK SPECIFIC TOOLS
+# ================================================
+
+# python
+uv                                      = "latest"  # fast python package manager (by Astral)
+ruff                                    = "latest"  # fast python linter + formatter (by Astral)
+ty                                      = "latest"  # extremely fast python type checker (by Astral)
+
+# rust
+"cargo:loco"                            = "latest"  # rust web framework cli (Rails-like)
+"github:SeaQL/sea-orm"                  = "latest"  # seaorm migration cli
+
+# oci
+"pipx:podman-compose"                   = "latest"  # docker-compose for podman
+
+# clojure
+"babashka"                              = "latest"  # clojure shell scripting
+"clj-kondo"                             = "latest"  # linter for clojure code that sparks joy
+"github:clojure-lsp/clojure-lsp"        = "latest"  # clojure language server
+"github:weavejester/cljfmt"             = "latest"  # clojure code formatter
+
+# ================================================
+#  MAKE DOOM DOCTOR HAPPY :)
+# ================================================
+
+black                                   = "latest"  # python code formatter (opinionated)
+markdownlint-cli2                       = "latest"  # markdown linter / style checker
+prettier                                = "latest"  # multi-format code formatter (js, ts, json, yaml, etc.)
+pipenv                                  = "latest"  # python development workflow for humans
+shfmt                                   = "latest"  # shell script formatter (bash, sh, dash)
+shellcheck                              = "latest"  # shell script static analysis linter
+"github:blahgeek/emacs-lsp-booster"     = "latest"  # speeds up lsp-mode in emacs
+"github:chrishrb/go-grip"               = "latest"  # github flavored markdown preview server
+"npm:js-beautify"                       = "latest"  # js / html / css beautifier
+"npm:stylelint"                         = "latest"  # css / scss linter
+"pipx:pyflakes"                         = "latest"  # python static analysis linter
+"pipx:isort"                            = "latest"  # python utility / library to sort imports
+"pipx:pytest"                           = "latest"  # python pytest framework makes it easy to write small tests

@@ -46,7 +46,7 @@ def clean-cache [] {
     rm -v ~/.local/share/zoxide/db.zo; print "Zoxide history deleted."
 }
 
-# "disable" previews for yazi (workaround for zellij rendering bug)
+# "fallback" previews for yazi (workaround for zellij rendering bug) using Überzug++ or Chafa
 def yz [] {
     with-env { TERM: "xterm-kitty" } { ^yazi }
 }

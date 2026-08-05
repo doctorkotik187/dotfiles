@@ -1,17 +1,19 @@
 # -*- mode: ruby -*-
+
 # =========================================================
 #  CORE
 # =========================================================
+
 brew "chezmoi"                                            # dotfiles manager
+brew "mise"                                               # dev tool manager & sdk version manager
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
 brew "emacs"                                              # text editor (doom emacs)
 brew "neovim"                                             # the other text editor
 brew "nushell"                                            # modern shell with structured data
-brew "valkyrie00/bbrew/bbrew", trusted: true              # bold brew (brew tui)
+brew "bbrew"                                              # bold brew (brew tui)
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"], trusted: true  # gpu terminal emulator
 brew "zellij"                                             # terminal multiplexer (tiling)
-brew "mise"                                               # dev tool manager & sdk version manager
 brew "fzf"                                                # fuzzy finder (used by zellij, yazi, etc.)
 brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
@@ -21,6 +23,7 @@ brew "syncthing"                                          # decentralized file s
 # =========================================================
 #  GENERAL TOOLS
 # =========================================================
+
 brew "bat"                                                # cat with syntax highlighting + git integration
 brew "bottom"                                             # system monitor (top alternative)
 brew "dust"                                               # disk usage analyzer (du alternative)
@@ -50,21 +53,9 @@ flatpak "io.missioncenter.MissionCenter"                  # system monitor gui
 flatpak "it.mijorus.smile"                                # emoji picker
 
 # =========================================================
-#  DEV TOOLS MISSING IN MISE (brew-only deps)
-# =========================================================
-brew "borkdude/brew/babashka", trusted: true              # clojure shell scripting
-brew "borkdude/brew/clj-kondo", trusted: true             # linter for clojure code that sparks joy
-brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
-brew "clojure-lsp/brew/clojure-lsp-native", trusted: true # clojure language server
-brew "weavejester/brew/cljfmt", trusted: true             # clojure code formatter
-brew "rlwrap"                                             # adds readline to clojure's clj repl
-brew "chafa"                                              # terminal image/video viewer (yazi fallback for zellij bug)
-brew "tidy-html5"                                         # html linter & formatter (doom emacs dep)
-brew "bacon"                                              # background rust code check
-
-# =========================================================
 #  NETWORK
 # =========================================================
+
 brew "nmap"                                               # network scanner
 brew "lazyssh"                                            # tui for ssh
 flatpak "org.gnome.Connections"                           # remote desktop client
@@ -72,12 +63,14 @@ flatpak "org.gnome.Connections"                           # remote desktop clien
 # =========================================================
 #  AI
 # =========================================================
+
 brew "aider"                                              # ai pair programming in terminal
 brew "charmbracelet/tap/crush", trusted: true             # ai terminal assistant
 
 # =========================================================
 #  OFFICE & DOCUMENTS
 # =========================================================
+
 brew "calcurse"                                           # calendar & todo in terminal
 brew "glow"                                               # markdown reader for terminal
 brew "libqalculate"                                       # calculation library (backend for qalc)
@@ -99,6 +92,7 @@ flatpak "org.gnome.Weather"                               # weather app
 # =========================================================
 #  FINANCE
 # =========================================================
+
 brew "hledger"                                            # plain-text accounting (cli)
 brew "ledger"                                             # plain-text accounting (original, doom emacs dep)
 flatpak "com.cakewallet.CakeWallet"                       # universal crypto wallet
@@ -107,6 +101,7 @@ flatpak "org.getmonero.Monero"                            # monero wallet
 # =========================================================
 #  MEDIA & GRAPHICS
 # =========================================================
+
 brew "cmus"                                               # terminal music player
 brew "feh"                                                # lightweight image viewer
 brew "mpv"                                                # media player
@@ -130,6 +125,7 @@ flatpak "be.alexandervanhee.gradia"                       # annotation support f
 # =========================================================
 #  SECURITY & CRYPTOGRAPHY
 # =========================================================
+
 brew "solo2-cli"                                          # cli to update and use solo 2 security keys
 brew "libfido2"                                           # cli to manage fido keys in general
 brew "gocryptfs"                                          # encrypted userspace filesystem
@@ -141,6 +137,7 @@ flatpak "org.keepassxc.KeePassXC"                         # password manager
 # =========================================================
 #  COMMUNICATION
 # =========================================================
+
 flatpak "com.rtosta.zapzap"                               # whatsapp client
 flatpak "dev.vencord.Vesktop"                             # discord client (with vencord plugins)
 flatpak "org.gnome.Fractal"                               # matrix client
@@ -150,6 +147,7 @@ flatpak "org.telegram.desktop"                            # telegram client
 # =========================================================
 #  READING & LEARNING
 # =========================================================
+
 flatpak "com.calibre_ebook.calibre"                       # ebook manager & converter
 flatpak "io.github.xiaoyifang.goldendict_ng"              # dictionary / offline wikipedia
 flatpak "io.gitlab.news_flash.NewsFlash"                  # rss feed reader
@@ -158,18 +156,21 @@ flatpak "net.ankiweb.Anki"                                # spaced repetition fl
 # =========================================================
 #  GAMING
 # =========================================================
+
 flatpak "com.valvesoftware.Steam"                         # gaming platform
 flatpak "org.freedesktop.Piper"                           # mouse config tool for logitech
 
 # =========================================================
 #  WEB BROWSERS
 # =========================================================
+
 flatpak "io.gitlab.librewolf-community"                   # firefox fork (privacy hardened)
 flatpak "org.chromium.Chromium"                           # "it just works" browser
 
 # =========================================================
 #  CORE BLUEFIN & GNOME APPS
 # =========================================================
+
 flatpak "org.gnome.Firmware"                              # firmware updater
 flatpak "com.mattjakeman.ExtensionManager"                # gnome extension manager
 flatpak "page.tesk.Refine"                                # additional gnome tweaks
@@ -179,6 +180,7 @@ flatpak "io.github.flattool.Ignition"                     # startup-apps manager
 # =========================================================
 #  FLATPAK MANAGEMENT
 # =========================================================
+
 flatpak "io.github.kolunmi.Bazaar"                        # search for flatpaks
 flatpak "io.github.flattool.Warehouse"                    # manage flatpak remnants
 flatpak "com.github.tchx84.Flatseal"                      # flatpak permission manager
@@ -186,6 +188,7 @@ flatpak "com.github.tchx84.Flatseal"                      # flatpak permission m
 # =========================================================
 #  FONTS
 # =========================================================
+
 flatpak "org.gnome.font-viewer"                           # preview fonts
 
 # monospace
@@ -211,3 +214,20 @@ cask "font-m-plus-2"                                      # rounder, heavier var
 cask "font-m-plus-rounded-1c"                             # rounded, softer feel
 cask "font-noto-sans-cjk-jp"                              # google noto sans japanese
 cask "font-noto-serif-cjk-jp"                             # google noto serif japanese
+
+# =========================================================
+#  DEV TOOLS NOT SUPPORTED BY MISE
+# =========================================================
+
+brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
+brew "bacon"                                              # background rust code check
+
+# =========================================================
+#  DEPENDENCIES ONLY
+# =========================================================
+
+brew "rofi"                                               # application launcher (used by curd, etc.)
+brew "jstkdng/programs/ueberzugpp", trusted: true         # draw images on terminals (used by curd, yazi, etc.)
+brew "chafa"                                              # terminal image/video viewer (yazi fallback for zellij bug)
+brew "rlwrap"                                             # adds readline to clojure's clj repl
+brew "tidy-html5"                                         # html linter & formatter (doom emacs dep)
