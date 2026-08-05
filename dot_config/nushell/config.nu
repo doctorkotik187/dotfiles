@@ -8,17 +8,17 @@ $env.PATH ++= [
 
 const AUTOLOAD_DIR = ($nu.data-dir | path join "vendor/autoload")
 mkdir $AUTOLOAD_DIR
-^mise activate nu | save -f ($AUTOLOAD_DIR | path join "mise.nu")
-^starship init nu | save -f ($AUTOLOAD_DIR | path join "starship.nu")
-^zoxide init nushell | save -f ($AUTOLOAD_DIR | path join "zoxide.nu")
-^carapace _carapace nushell | save -f ($AUTOLOAD_DIR | path join "carapace.nu")
+mise activate nu | save -f ($AUTOLOAD_DIR | path join "mise.nu")
+starship init nu | save -f ($AUTOLOAD_DIR | path join "starship.nu")
+zoxide init nushell | save -f ($AUTOLOAD_DIR | path join "zoxide.nu")
+carapace _carapace nushell | save -f ($AUTOLOAD_DIR | path join "carapace.nu")
 
 # -- VARIABLES -----------------------------------------------
 
-$env.SHELL_ICON = "󰟆"                                           # for starship
-$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")
-$env.DO_NOT_TRACK = 1                                           # respected by crush.ai and others
 $env.config.show_banner = false
+$env.SHELL_ICON = "󰟆"                                           # for starship
+$env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")        # for brew bundle file
+$env.DO_NOT_TRACK = 1                                           # respected by crush.ai and others
 $env.EDITOR = "emacs -nw"
 
 # -- AI (secret-tool store) ---------------------------------
@@ -48,5 +48,5 @@ def clean-cache [] {
 
 # "fallback" previews for yazi (workaround for zellij rendering bug) using Überzug++ or Chafa
 def yz [] {
-    with-env { TERM: "xterm-kitty" } { ^yazi }
+    with-env { TERM: "xterm-kitty" } { yazi }
 }

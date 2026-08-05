@@ -24,13 +24,12 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 
-# MY CHANGES
-export SHELL_ICON=""                   # for starship
-export XDG_CONFIG_HOME="$HOME/.config"
-export DO_NOT_TRACK=1                   # for crush.ai but also maybe others
-
-# compatibility with nushell
+# MY CHANGES (keep compatibility with nushell)
 eval "$(mise activate bash)"
+
+export SHELL_ICON=""                   # for starship
+export XDG_CONFIG_HOME="$HOME/.config"  # for brew bundle file
+export DO_NOT_TRACK=1                   # for crush.ai but also maybe others
 export EDITOR="emacs -nw"
 
 # clear history on start, because I use nushell
