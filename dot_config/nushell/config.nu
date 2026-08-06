@@ -46,7 +46,14 @@ def clean-cache [] {
     rm -v ~/.local/share/zoxide/db.zo; print "Zoxide history deleted."
 }
 
-# "fallback" previews for yazi (workaround for zellij rendering bug) using Überzug++ or Chafa
-def yz [] {
+# "fallback" previews for yazi (workaround for zellij rendering bug) using chafa
+def yazellij [] {
     with-env { TERM: "xterm-kitty" } { yazi }
+}
+
+# curd reshuffles config randomly every time -> sort config on quit
+def curd [...args] {
+    try { ^curd ...$args } catch { }
+    let conf = ($env.HOME | path join ".config/curd/curd.conf")
+    open $conf | lines | compact --empty | sort | save --force $conf
 }
