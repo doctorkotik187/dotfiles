@@ -226,8 +226,6 @@ brew "bacon"                                              # background rust code
 #  DEPENDENCIES ONLY
 # =========================================================
 
-brew "rofi"                                               # application launcher (used by curd, etc.)
-brew "jstkdng/programs/ueberzugpp", trusted: true         # draw images on terminals (used by curd, yazi, etc.)
 brew "chafa"                                              # terminal image/video viewer (yazi fallback for zellij bug)
 brew "rlwrap"                                             # adds readline to clojure's clj repl
 brew "tidy-html5"                                         # html linter & formatter (doom emacs dep)
