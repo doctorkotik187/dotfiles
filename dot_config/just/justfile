@@ -76,8 +76,6 @@ laptop-btrfs-scrub:
     echo ""
     if gum confirm "Scrub laptop filesystem?"; then
         sudo btrfs scrub start -B /etc
-        echo ""
-        sudo btrfs scrub status /etc
     else
         echo "Aborted."
     fi
@@ -86,7 +84,7 @@ btrbk-backup:
     #!/usr/bin/env bash
     set -euo pipefail
     config=$(gum choose --header "Which drive?" \
-        "full-pinkbike" "full-whiteghost" "full-mechatoshiba" "core-orangeman")
+        "full-pocketjuice" "core-orangeman" "full-whiteghost" "full-pinkbike")
     target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
 
     echo "=== btrbk stats: ${config}.conf ==="
@@ -105,8 +103,6 @@ btrbk-backup:
         sync
         if gum confirm --default=false "Also scrub target ($target) while it's mounted?"; then
             sudo btrfs scrub start -B "$target"
-            echo ""
-            sudo btrfs scrub status "$target"
         fi
     else
         echo "Aborted."

@@ -44,7 +44,7 @@ brew "yazi"                                               # terminal file manage
 flatpak "com.github.qarmin.czkawka"                       # duplicate file finder
 flatpak "org.kde.kate"                                    # kde text editor
 flatpak "org.gnome.TextEditor"                            # simple text editor
-flatpak "io.gitlab.adhami3310.Impression"                 # os image writer
+flatpak "org.kde.isoimagewriter"                          # os image writer
 flatpak "org.gnome.FileRoller"                            # archive manager
 flatpak "org.gnome.NautilusPreviewer"                     # quick look / spacebar preview
 flatpak "org.gnome.baobab"                                # disk usage analyzer gui

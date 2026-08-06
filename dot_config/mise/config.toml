@@ -4,7 +4,7 @@
 #  NUSHELL DEPENDENCIES
 # ================================================
 
-starship                                = "latest"  # cross-shell prompt theme
+starship                                = "latest"  # cross-shell prompt
 zoxide                                  = "latest"  # smarter cd (jump to frequent dirs)
 carapace                                = "latest"  # multi-shell completion generator
 
