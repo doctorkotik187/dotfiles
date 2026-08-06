@@ -50,7 +50,9 @@ gocryptfs-mount:
     if mountpoint -q {{dk_mnt}}; then
         echo "Already mounted at {{dk_mnt}}"
     else
+        echo "Mounting {{dk_enc}} -> {{dk_mnt}}"
         gocryptfs {{dk_enc}} {{dk_mnt}}
+        echo "Mounted successfully at {{dk_mnt}}"
     fi
 
 gocryptfs-unmount:
