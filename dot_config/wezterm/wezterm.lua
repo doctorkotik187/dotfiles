@@ -19,8 +19,8 @@ config.initial_rows = 30
 
 ---- FONT ----------------------------------------------------
 
-config.font = wezterm.font('M PLUS 1 Code', { weight = 'Medium' })
-config.font_size = 10
+config.font = wezterm.font('Maple Mono NF CN', { weight = 'Medium' })
+config.font_size = 9
 
 ---- THEME & VISUALS -----------------------------------------
 
