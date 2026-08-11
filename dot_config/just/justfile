@@ -66,15 +66,15 @@ btrfs-status target='/etc':
     echo "=== btrfs filesystem usage: {{target}} ==="
     sudo btrfs filesystem usage -T "{{target}}"
     echo ""
-    echo "=== device error counters (should all read 0) ==="
+    echo "=== device error counters (should all read 0): {{target}} ==="
     sudo btrfs device stats "{{target}}"
 
-laptop-btrfs-scrub:
+computer-btrfs-scrub:
     #!/usr/bin/env bash
     set -euo pipefail
     just --global-justfile btrfs-status /etc
     echo ""
-    if gum confirm "Scrub laptop filesystem?"; then
+    if gum confirm "Scrub computer filesystem?"; then
         sudo btrfs scrub start -B /etc
     else
         echo "Aborted."
@@ -146,6 +146,8 @@ doom-sync:
     {{doom}} sync
     echo "=== DOOM CLEANUP ==="
     {{doom}} gc
+    echo "=== DOOM DOCTOR ==="
+    {{doom}} doctor
 
 sync-everything: brewbg-sync mise-sync doom-sync
 
