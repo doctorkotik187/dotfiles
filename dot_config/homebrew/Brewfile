@@ -58,6 +58,7 @@ flatpak "it.mijorus.smile"                                # emoji picker
 
 brew "nmap"                                               # network scanner
 brew "lazyssh"                                            # tui for ssh
+brew "hcloud"                                             # cli for for hetzner cloud
 flatpak "org.gnome.Connections"                           # remote desktop client
 
 # =========================================================
@@ -102,11 +103,12 @@ flatpak "org.getmonero.Monero"                            # monero wallet
 #  MEDIA & GRAPHICS
 # =========================================================
 
-brew "cmus"                                               # terminal music player
 brew "feh"                                                # lightweight image viewer
+brew "viu"                                                # terminal image viewer
+brew "pngquant"                                           # image shrinking
+brew "cmus"                                               # terminal music player
 brew "mpv"                                                # media player
 brew "streamlink"                                         # extract streams from websites
-brew "viu"                                                # terminal image viewer
 brew "yewtube"                                            # youtube frontend (exe: yt)
 brew "yt-dlp"                                             # youtube/video downloader
 flatpak "com.github.neithern.g4music"                     # music player
@@ -213,6 +215,7 @@ cask "font-source-han-code-jp"                            # adobe source han, ja
 #  DEV TOOLS NOT SUPPORTED BY MISE
 # =========================================================
 
+brew "borkdude/brew/babashka", trusted: true              # clojure shell scripting (neil dependency)
 brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
 brew "bacon"                                              # background rust code check
 

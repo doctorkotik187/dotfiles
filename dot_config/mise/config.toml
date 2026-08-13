@@ -41,13 +41,12 @@ ty                                      = "latest"  # extremely fast python type
 
 # rust
 "cargo:loco"                            = "latest"  # rust web framework cli (Rails-like)
-"github:SeaQL/sea-orm"                  = "latest"  # seaorm migration cli
+"cargo:sea-orm-cli"                     = "latest"  # seaorm migration cli
 
 # oci
 "pipx:podman-compose"                   = "latest"  # docker-compose for podman
 
 # clojure
-"babashka"                              = "latest"  # clojure shell scripting
 "clj-kondo"                             = "latest"  # linter for clojure code that sparks joy
 "github:clojure-lsp/clojure-lsp"        = "latest"  # clojure language server
 "github:weavejester/cljfmt"             = "latest"  # clojure code formatter

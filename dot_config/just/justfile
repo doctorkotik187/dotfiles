@@ -10,6 +10,11 @@ kagi_enc := dk_core + "/3-RESOURCES/program-data/old-places/kagi.age"
 kagi_tmp := "/dev/shm/kagi"
 doom := env("HOME") + "/.config/emacs/bin/doom"
 
+# -- ALWAYS CHOOSE BY DEFAULT ---------------------------------------------
+
+default:
+    @just --global-justfile --choose
+
 # -- SETUP (one-off, per machine) -----------------------------------------
 
 colemak:
