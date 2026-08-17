@@ -89,7 +89,7 @@ btrbk-backup:
     #!/usr/bin/env bash
     set -euo pipefail
     config=$(gum choose --header "Which drive?" \
-        "full-pocketjuice" "core-orangeman" "full-whiteghost" "full-pinkbike")
+        "full-pocketjuice" "full-microsdeeznuts" "full-whiteghost" "full-pinkbike")
     target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
 
     echo "=== btrbk stats: ${config}.conf ==="

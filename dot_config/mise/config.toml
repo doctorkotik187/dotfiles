@@ -17,6 +17,7 @@ usql                                    = "latest"  # universal sql cli client (
 "github:Veirt/weathr"                   = "latest"  # terminal weather app
 "github:Wraient/curd"                   = "latest"  # uwu
 "github:olastor/age-plugin-fido2-hmac"  = "latest"  # use age with solokey
+"github:Universal-Debloater-Alliance/universal-android-debloater-next-generation" = "latest"  # debloat android with computer
 
 # ================================================
 #  LANGUAGE RUNTIMES
@@ -33,6 +34,9 @@ rust                                    = "latest"  # rust toolchain + cargo
 # ================================================
 #  LANGUAGE & FRAMEWORK SPECIFIC TOOLS
 # ================================================
+
+# clojure
+babashka                                = "latest"  # clojure shell scripting
 
 # python
 uv                                      = "latest"  # fast python package manager (by Astral)

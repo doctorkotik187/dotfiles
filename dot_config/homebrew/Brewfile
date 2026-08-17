@@ -78,13 +78,14 @@ brew "libqalculate"                                       # calculation library 
 brew "typst"                                              # modern typesetting engine (latex alternative)
 brew "pandoc"                                             # universal document converter
 flatpak "com.github.ahrm.sioyek"                          # pdf reader (vim keybindings)
+flatpak "org.pwmt.zathura"                                # pdf reader (vim keybindings)
 flatpak "org.gnome.Papers"                                # document viewer
 flatpak "com.github.xournalpp.xournalpp"                  # pdf annotator / handwriting
 flatpak "com.logseq.Logseq"                               # knowledge base (outliner, markdown)
 flatpak "io.github.Qalculate"                             # desktop calculator (gui)
 flatpak "org.gnumeric.Gnumeric"                           # spreadsheet (excel alternative)
 flatpak "org.kde.okular"                                  # universal document viewer
-flatpak "org.libreoffice.LibreOffice"                     # office suite
+flatpak "org.onlyoffice.desktopeditors"                   # office suite
 flatpak "org.gnome.Calculator"                            # calculator
 flatpak "org.gnome.Calendar"                              # calendar
 flatpak "org.gnome.clocks"                                # clocks & alarms
@@ -141,10 +142,11 @@ flatpak "org.keepassxc.KeePassXC"                         # password manager
 # =========================================================
 
 flatpak "com.rtosta.zapzap"                               # whatsapp client
-flatpak "dev.vencord.Vesktop"                             # discord client (with vencord plugins)
+flatpak "org.telegram.desktop"                            # telegram client
+flatpak "org.signal.Signal"                               # signal client
+flatpak "dev.vencord.Vesktop"                             # discord client
 flatpak "org.gnome.Fractal"                               # matrix client
 flatpak "org.mozilla.thunderbird_esr"                     # email client
-flatpak "org.telegram.desktop"                            # telegram client
 
 # =========================================================
 #  READING & LEARNING
@@ -215,7 +217,7 @@ cask "font-source-han-code-jp"                            # adobe source han, ja
 #  DEV TOOLS NOT SUPPORTED BY MISE
 # =========================================================
 
-brew "borkdude/brew/babashka", trusted: true              # clojure shell scripting (neil dependency)
+brew "borkdude/brew/babashka", trusted: true              # already installed in mise, but neil dependency, so enable `trusted` explicitly
 brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
 brew "bacon"                                              # background rust code check
 
