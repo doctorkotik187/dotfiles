@@ -35,9 +35,6 @@ rust                                    = "latest"  # rust toolchain + cargo
 #  LANGUAGE & FRAMEWORK SPECIFIC TOOLS
 # ================================================
 
-# clojure
-babashka                                = "latest"  # clojure shell scripting
-
 # python
 uv                                      = "latest"  # fast python package manager (by Astral)
 ruff                                    = "latest"  # fast python linter + formatter (by Astral)
