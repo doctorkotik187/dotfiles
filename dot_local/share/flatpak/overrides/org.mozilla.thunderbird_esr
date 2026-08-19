@@ -1,2 +1,2 @@
 [Context]
-filesystems=/home/doctorkotik/0-doctorkotik/0-core/3-RESOURCES/program-data/telegram-bot:ro;/home/linuxbrew/.linuxbrew/bin:ro
+filesystems=/home/doctorkotik/0-doctorkotik/0-core/3-RESOURCES/program-data/telegram-bot:ro;/home/linuxbrew/.linuxbrew:ro
