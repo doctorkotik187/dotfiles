@@ -205,13 +205,10 @@ cask "font-noto-sans-cjk-jp"                              # google noto sans jap
 cask "font-noto-serif-cjk-jp"                             # google noto serif japanese
 
 # monospace japanese + nerd font
+cask "font-m+-nerd-font"                                  # soft, geometric, quietly minimalist
 cask "font-maple-mono-nf-cn"                              # cute, rounded, exotic but readable
 cask "font-udev-gothic-nf"                                # clean, neutral, JetBrains-based, hugely popular in JP dev circles
 cask "font-hackgen-nerd"                                  # Hack-based, JP-native, actively maintained
-
-# monospace japanese (no nerd font)
-cask "font-m-plus-1-code"                                 # monospace variant of m+
-cask "font-source-han-code-jp"                            # adobe source han, japanese serif-ish code font
 
 # =========================================================
 #  DEV TOOLS NOT SUPPORTED BY MISE
