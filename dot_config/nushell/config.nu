@@ -25,9 +25,9 @@ $env.EDITOR = "emacs -nw"
 # API keys stored in gnome-keyring via secret-tool
 # usage: secret-tool store --label="AI <Service> API Key" service <service> username api-key
 
-$env.GEMINI_API_KEY = (secret-tool lookup service gemini username api-key)
-$env.OPENROUTER_API_KEY = (secret-tool lookup service openrouter username api-key)
-$env.GROQ_API_KEY = (secret-tool lookup service groq username api-key)
+$env.GEMINI_API_KEY = (try { secret-tool lookup service gemini username api-key } catch { "" })
+$env.OPENROUTER_API_KEY = (try { secret-tool lookup service openrouter username api-key } catch { "" })
+$env.GROQ_API_KEY = (try { secret-tool lookup service groq username api-key } catch { "" })
 
 # -- ALIASES ------------------------------------------------
 
