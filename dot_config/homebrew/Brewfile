@@ -199,13 +199,12 @@ flatpak "org.gnome.font-viewer"                           # preview fonts
 cask "font-inter"                                         # modern, clean, great for headings
 
 # proportional japanese
-cask "font-m-plus-2"                                      # rounder, heavier variant
 cask "font-m-plus-rounded-1c"                             # rounded, softer feel
 cask "font-noto-sans-cjk-jp"                              # google noto sans japanese
 cask "font-noto-serif-cjk-jp"                             # google noto serif japanese
 
 # monospace japanese + nerd font
-cask "font-m+-nerd-font"                                  # soft, geometric, quietly minimalist
+cask "font-m+-nerd-font"                                  # soft, geometric, quietly minimalist (propo included)
 cask "font-maple-mono-nf-cn"                              # cute, rounded, exotic but readable
 cask "font-udev-gothic-nf"                                # clean, neutral, JetBrains-based, hugely popular in JP dev circles
 cask "font-hackgen-nerd"                                  # Hack-based, JP-native, actively maintained
