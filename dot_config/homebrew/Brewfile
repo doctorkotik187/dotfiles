@@ -5,12 +5,16 @@
 # =========================================================
 
 brew "chezmoi"                                            # dotfiles manager
+brew "nushell"                                            # modern shell with structured data
 brew "mise"                                               # dev tool manager & sdk version manager
+brew "starship"                                           # cross-shell prompt
+brew "zoxide"                                             # smarter cd (jump to frequent dirs)
+brew "carapace"                                           # multi-shell completion generator
+brew "fastfetch"                                          # system info
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
 brew "emacs"                                              # text editor (doom emacs)
 brew "neovim"                                             # the other text editor
-brew "nushell"                                            # modern shell with structured data
 brew "bbrew"                                              # bold brew (brew tui)
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"], trusted: true  # gpu terminal emulator
 brew "zellij"                                             # terminal multiplexer (tiling)
