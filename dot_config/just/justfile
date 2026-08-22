@@ -15,14 +15,19 @@ doom := env("HOME") + "/.config/emacs/bin/doom"
 
 [private]
 default:
-    @just --global-justfile --choose
+    @echo "Doctorkotik's justfile — available recipes:"
+    @just --global-justfile --list --unsorted --list-heading ''
 
 # -- SETUP (one-off, per machine) -----------------------------------------
 
+[group('Setup')]
+[doc('Remap keyboard to Colemak (X11)')]
 colemak:
     sudo localectl set-x11-keymap us pc105 colemak
     sudo localectl set-keymap us-colemak
 
+[group('Setup')]
+[doc('Prompt to drop encryption keys on disk, then lock down their permissions')]
 secrets-deploy:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -34,6 +39,8 @@ secrets-deploy:
     chmod -v 600 ~/.config/chezmoi/key.txt ~/.ssh/dk-sign
     echo "Secrets deployed."
 
+[group('Setup')]
+[doc('Import an SSH key from a plugged-in Solokey/FIDO2 device')]
 ssh-import-from-solokey:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -41,17 +48,25 @@ ssh-import-from-solokey:
     ssh-keygen -K
     echo "SSH key imported from Solokey."
 
+[group('Setup')]
+[doc('Run the full one-off setup sequence for a freshly installed machine')]
 new-machine-setup: colemak secrets-deploy ssh-import-from-solokey
     echo "=== NEW MACHINE SETUP COMPLETE ==="
 
 # -- USAGE -----------------------------------------------------------------
 
+[group('Usage')]
+[doc('Decrypt the Kagi secret (via Solokey FIDO2) to a tmpfs scratch file')]
 kagi-decrypt:
     age -d -j fido2-hmac -o {{kagi_tmp}} {{kagi_enc}}
 
+[group('Usage')]
+[doc('Delete the decrypted Kagi scratch file')]
 kagi-delete:
     rm -fv {{kagi_tmp}}
 
+[group('Usage')]
+[doc('Mount the encrypted doctorkotik vault with gocryptfs')]
 gocryptfs-mount:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -64,11 +79,15 @@ gocryptfs-mount:
         echo "Mounted successfully at {{dk_mnt}}"
     fi
 
+[group('Usage')]
+[doc('Unmount the encrypted doctorkotik vault')]
 gocryptfs-unmount:
     fusermount -u {{dk_mnt}}
 
 # -- UPKEEP -----------------------------------------------------------
 
+[group('Upkeep')]
+[doc('Check the doctorkotik dir for unresolved Syncthing conflict files')]
 syncthing-conflict-check:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -85,6 +104,8 @@ syncthing-conflict-check:
         echo "=== NO SYNCTHING CONFLICTS FOUND ==="
     fi
 
+[group('Upkeep')]
+[doc('Check for chezmoi source-state drift against the live dotfiles')]
 chezmoi-check:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -102,6 +123,8 @@ chezmoi-check:
         echo "=== NO CHEZMOI DRIFT DETECTED ==="
     fi
 
+[group('Upkeep')]
+[doc('Copy user/email/signing config from jj into global git config')]
 git-import-jj-config:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -123,6 +146,8 @@ git-import-jj-config:
     fi
     echo "=== GIT CONFIG IMPORTED FROM JJ ==="
 
+[group('Upkeep')]
+[doc('Reinstall brew bundle, sync mise tools, and sync/doctor Doom Emacs')]
 sync-everything:
     brew bundle cleanup --global --install
     mise install
@@ -130,11 +155,15 @@ sync-everything:
     {{doom}} sync
     {{doom}} doctor
 
+[group('Upkeep')]
+[doc('Update system (bootc/flatpak/brew via ujust), mise tools, and Doom Emacs')]
 update-everything:
     ujust update
     mise upgrade
     {{doom}} upgrade --force
 
+[group('Upkeep')]
+[doc('Clean up brew, flatpak, mise, and Doom Emacs caches')]
 clean-cache:
     brew autoremove
     brew cleanup --scrub --prune=all
@@ -142,11 +171,15 @@ clean-cache:
     mise cache prune
     {{doom}} gc
 
+[group('Upkeep')]
+[doc('Run the full weekly upkeep routine: checks, sync, update, cleanup')]
 weekly-upkeep: syncthing-conflict-check chezmoi-check git-import-jj-config sync-everything update-everything clean-cache
     echo "=== WEEKLY UPKEEP COMPLETE ==="
 
 # -- DISK MAINTENANCE -------------------------------------------------
 
+[group('Disk Maintenance')]
+[doc('Show btrfs usage and device error counters for a mount point')]
 btrfs-status target='/etc':
     #!/usr/bin/env bash
     set -euo pipefail
@@ -156,6 +189,8 @@ btrfs-status target='/etc':
     echo "=== device error counters (should all read 0): {{target}} ==="
     sudo btrfs device stats "{{target}}"
 
+[group('Disk Maintenance')]
+[doc('Show status, then confirm and run a btrfs scrub on the root filesystem')]
 computer-btrfs-scrub:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -168,6 +203,8 @@ computer-btrfs-scrub:
         echo "Aborted."
     fi
 
+[group('Disk Maintenance')]
+[doc('Interactively pick a btrbk target drive, review it, and run a backup')]
 btrbk-backup:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -200,6 +237,8 @@ btrbk-backup:
 
 # -- RECOVERY -------------------------------------------------------------
 
+[group('Recovery')]
+[doc('Unlock and mount a LUKS backup drive by device path, via Solokey')]
 mount-backup-disk-using-solokey:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -212,6 +251,8 @@ mount-backup-disk-using-solokey:
     sudo mount /dev/mapper/"$name" /mnt/"$name"
     echo "Mounted at /mnt/$name"
 
+[group('Recovery')]
+[doc('Unmount and close a previously unlocked LUKS backup drive')]
 unmount-backup-disk:
     #!/usr/bin/env bash
     set -euo pipefail
