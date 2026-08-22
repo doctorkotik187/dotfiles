@@ -1,6 +1,7 @@
 # -- VARIABLES -----------------------------------------------------------
 
-dk_core := env("HOME") + "/0-doctorkotik/0-core"
+dk_root := env("HOME") + "/0-doctorkotik"
+dk_core := dk_root + "/0-core"
 
 dk_enc := dk_core + "/3-RESOURCES/program-data/dk.enc"
 dk_mnt := env("HOME") + "/mount/dk.dec"
@@ -12,6 +13,7 @@ doom := env("HOME") + "/.config/emacs/bin/doom"
 
 # -- ALWAYS CHOOSE BY DEFAULT ---------------------------------------------
 
+[private]
 default:
     @just --global-justfile --choose
 
@@ -30,12 +32,14 @@ secrets-deploy:
     echo "     ~/.ssh/dk-sign.pub"
     read -rp "Press Enter once done ... "
     chmod -v 600 ~/.config/chezmoi/key.txt ~/.ssh/dk-sign
+    echo "Secrets deployed."
 
 ssh-import-from-solokey:
     #!/usr/bin/env bash
     set -euo pipefail
     read -rp "Plug in a Solokey, then press Enter ... "
     ssh-keygen -K
+    echo "SSH key imported from Solokey."
 
 new-machine-setup: colemak secrets-deploy ssh-import-from-solokey
     echo "=== NEW MACHINE SETUP COMPLETE ==="
@@ -63,7 +67,85 @@ gocryptfs-mount:
 gocryptfs-unmount:
     fusermount -u {{dk_mnt}}
 
-# -- MAINTENANCE ----------------------------------------------------------
+# -- UPKEEP -----------------------------------------------------------
+
+syncthing-conflict-check:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    if [ ! -d {{dk_root}} ]; then
+        echo "{{dk_root}} doesn't exist yet, skipping conflict check."
+        exit 0
+    fi
+    conflicts=$(fd -i "conflict" {{dk_root}})
+    if [ -n "$conflicts" ]; then
+        echo "WARNING: syncthing conflict files found:"
+        echo "$conflicts"
+        exit 1
+    else
+        echo "=== NO SYNCTHING CONFLICTS FOUND ==="
+    fi
+
+chezmoi-check:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    drift=$(chezmoi status)
+    if [ -n "$drift" ]; then
+        echo "WARNING: chezmoi source state has drifted from your dotfiles:"
+        echo "$drift"
+        echo ""
+        echo "To resolve:"
+        echo "  chezmoi diff     # see what changed"
+        echo "  chezmoi re-add   # pull your local edits into the source state"
+        echo "  chezmoi apply    # OR push the source state out to your files instead"
+        exit 1
+    else
+        echo "=== NO CHEZMOI DRIFT DETECTED ==="
+    fi
+
+git-import-jj-config:
+    #!/usr/bin/env bash
+    set -euo pipefail
+    git config --global user.name "$(jj config get user.name)"
+    git config --global user.email "$(jj config get user.email)"
+
+    backend=$(jj config get signing.backend 2>/dev/null || echo "")
+    case "$backend" in
+        gpg)   git config --global gpg.format openpgp ;;
+        gpgsm) git config --global gpg.format x509 ;;
+        ssh)   git config --global gpg.format ssh ;;
+        "")    echo "No jj signing backend set, skipping gpg.format" ;;
+        *)     echo "Unknown jj signing backend '$backend', skipping" ;;
+    esac
+
+    if [ -n "$backend" ]; then
+        git config --global user.signingkey "$(jj config get signing.key)"
+        git config --global commit.gpgsign true
+    fi
+    echo "=== GIT CONFIG IMPORTED FROM JJ ==="
+
+sync-everything:
+    brew bundle cleanup --global --install
+    mise install
+    mise prune --yes
+    {{doom}} sync
+    {{doom}} doctor
+
+update-everything:
+    ujust update
+    mise upgrade
+    {{doom}} upgrade --force
+
+clean-cache:
+    brew autoremove
+    brew cleanup --scrub --prune=all
+    flatpak uninstall --delete-data --unused -y
+    mise cache prune
+    {{doom}} gc
+
+weekly-upkeep: syncthing-conflict-check chezmoi-check git-import-jj-config sync-everything update-everything clean-cache
+    echo "=== WEEKLY UPKEEP COMPLETE ==="
+
+# -- DISK MAINTENANCE -------------------------------------------------
 
 btrfs-status target='/etc':
     #!/usr/bin/env bash
@@ -81,6 +163,7 @@ computer-btrfs-scrub:
     echo ""
     if gum confirm "Scrub computer filesystem?"; then
         sudo btrfs scrub start -B /etc
+        echo "Scrub complete."
     else
         echo "Aborted."
     fi
@@ -106,99 +189,14 @@ btrbk-backup:
     if gum confirm "Run btrbk -c ${config}.conf ${action}?"; then
         sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf "$action"
         sync
+        echo "=== BACKUP COMPLETE ==="
         if gum confirm --default=false "Also scrub target ($target) while it's mounted?"; then
             sudo btrfs scrub start -B "$target"
+            echo "Scrub complete."
         fi
     else
         echo "Aborted."
     fi
-
-git-import-jj-config:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    git config --global user.name "$(jj config get user.name)"
-    git config --global user.email "$(jj config get user.email)"
-
-    backend=$(jj config get signing.backend 2>/dev/null || echo "")
-    case "$backend" in
-        gpg)   git config --global gpg.format openpgp ;;
-        gpgsm) git config --global gpg.format x509 ;;
-        ssh)   git config --global gpg.format ssh ;;
-        "")    echo "No jj signing backend set, skipping gpg.format" ;;
-        *)     echo "Unknown jj signing backend '$backend', skipping" ;;
-    esac
-
-    if [ -n "$backend" ]; then
-        git config --global user.signingkey "$(jj config get signing.key)"
-        git config --global commit.gpgsign true
-    fi
-
-brewbg-sync:
-    echo "=== BREW BUNDLE SYNC ==="
-    brew bundle cleanup --global --install
-    brew autoremove
-    brew cleanup --scrub --prune=all
-    flatpak uninstall --delete-data --unused -y
-
-mise-sync:
-    echo "=== MISE INSTALL ==="
-    mise install
-    echo "=== MISE CLEANUP ==="
-    mise prune --yes
-
-doom-sync:
-    echo "=== DOOM SYNC ==="
-    {{doom}} sync
-    echo "=== DOOM CLEANUP ==="
-    {{doom}} gc
-    echo "=== DOOM DOCTOR ==="
-    {{doom}} doctor
-
-sync-everything: brewbg-sync mise-sync doom-sync
-
-update-everything:
-    echo "=== UJUST UPDATE ==="
-    ujust update
-    echo "=== MISE UPDATE ==="
-    mise upgrade
-    echo "=== DOOM UPDATE ==="
-    {{doom}} upgrade --force
-
-syncthing-conflict-check:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    if [ ! -d ~/0-doctorkotik ]; then
-        echo "~/0-doctorkotik doesn't exist yet, skipping conflict check."
-        exit 0
-    fi
-    conflicts=$(fd -i "conflict" ~/0-doctorkotik)
-    if [ -n "$conflicts" ]; then
-        echo "WARNING: syncthing conflict files found:"
-        echo "$conflicts"
-        exit 1
-    else
-        echo "No syncthing conflicts found."
-    fi
-
-chezmoi-check:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    drift=$(chezmoi status)
-    if [ -n "$drift" ]; then
-        echo "WARNING: chezmoi source state has drifted from your dotfiles:"
-        echo "$drift"
-        echo ""
-        echo "To resolve:"
-        echo "  chezmoi diff     # see what changed"
-        echo "  chezmoi re-add   # pull your local edits into the source state"
-        echo "  chezmoi apply    # OR push the source state out to your files instead"
-        exit 1
-    else
-        echo "No chezmoi drift detected."
-    fi
-
-weekly-upkeep: syncthing-conflict-check chezmoi-check git-import-jj-config sync-everything update-everything
-    echo "=== WEEKLY UPKEEP COMPLETE ==="
 
 # -- RECOVERY -------------------------------------------------------------
 
@@ -212,6 +210,7 @@ mount-backup-disk-using-solokey:
     sudo cryptsetup open "$dev" "$name"
     sudo mkdir -p /mnt/"$name"
     sudo mount /dev/mapper/"$name" /mnt/"$name"
+    echo "Mounted at /mnt/$name"
 
 unmount-backup-disk:
     #!/usr/bin/env bash
@@ -221,3 +220,4 @@ unmount-backup-disk:
     read -rp "Name to unmount (e.g. backup1): " name
     sudo umount /mnt/"$name"
     sudo cryptsetup close "$name"
+    echo "Unmounted and closed $name"

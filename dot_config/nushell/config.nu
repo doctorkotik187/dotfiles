@@ -40,7 +40,7 @@ alias "jj sq"  = jj squash                                      # shortcut
 # -- CUSTOM COMMANDS ----------------------------------------
 # Only nushell helpers stay here, rest is in justfile.
 
-def clean-cache [] {
+def clear-history [] {
     history --clear; print "Nushell history cleared."
     rm -rfv ~/.config/emacs/.local/cache/*; print "Emacs cache deleted."
     rm -v ~/.local/share/zoxide/db.zo; print "Zoxide history deleted."
