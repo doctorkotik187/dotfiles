@@ -29,8 +29,6 @@ brew "syncthing"                                          # decentralized file s
 # =========================================================
 
 brew "bat"                                                # cat with syntax highlighting + git integration
-brew "bottom"                                             # system monitor (top alternative)
-brew "dust"                                               # disk usage analyzer (du alternative)
 brew "eza"                                                # modern ls replacement (colors, icons, git)
 brew "fd"                                                 # fast find replacement
 brew "git-delta"                                          # syntax-highlighting git pager/diff
@@ -57,9 +55,19 @@ flatpak "io.missioncenter.MissionCenter"                  # system monitor gui
 flatpak "it.mijorus.smile"                                # emoji picker
 
 # =========================================================
-#  NETWORK
+#  CONTAINERS
 # =========================================================
 
+brew "podman-tui"                                         # podman terminal user interface
+brew "podman-compose"                                     # alternative to docker-compose using podman
+
+# =========================================================
+#  NETWORK & MONITORING
+# =========================================================
+
+brew "bottom"                                             # system monitor (top alternative)
+brew "dust"                                               # disk usage analyzer (du alternative)
+brew "dysk"                                               # utility to get information on filesystems, like df but better
 brew "nmap"                                               # network scanner
 brew "lazyssh"                                            # tui for ssh
 brew "hcloud"                                             # cli for for hetzner cloud
