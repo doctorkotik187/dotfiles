@@ -5,15 +5,16 @@
 # =========================================================
 
 brew "chezmoi"                                            # dotfiles manager
-brew "nushell"                                            # modern shell with structured data
-brew "mise"                                               # dev tool manager & sdk version manager
+brew "neovim"                                             # the only text editor
+brew "herdr"                                              # the only multiplexer
+brew "nushell"                                            # the only shell
+brew "mise"                                               # brew's right hand and sdk goat
 brew "starship"                                           # cross-shell prompt
 brew "zoxide"                                             # smarter cd (jump to frequent dirs)
 brew "carapace"                                           # multi-shell completion generator
 brew "fastfetch"                                          # system info
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
-brew "neovim"                                             # the other text editor
 brew "bbrew"                                              # bold brew (brew tui)
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"], trusted: true  # gpu terminal emulator
 brew "fzf"                                                # fuzzy finder (used by yazi, etc.)
@@ -21,6 +22,7 @@ brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
 brew "lazyjj"                                             # tui for jj
 brew "syncthing"                                          # decentralized file sync
+brew "wl-clipboard"                                       # command-line copy/paste utilities for wayland
 flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
 
 # =========================================================

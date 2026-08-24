@@ -20,11 +20,6 @@ default:
 # -- SETUP (one-off, per machine) -----------------------------------------
 
 [group('Setup')]
-[doc('Enable user services')]
-enable-services:
-    brew services start herdr
-
-[group('Setup')]
 [doc('Remap keyboard to Colemak (Display Manager, TTY)')]
 colemak:
     sudo localectl set-x11-keymap us pc105 colemak
@@ -54,7 +49,7 @@ ssh-import-from-solokey:
 
 [group('Setup')]
 [doc('Run the full one-off setup sequence for a freshly installed machine')]
-new-machine-setup: weekly-upkeep enable-services colemak secrets-deploy ssh-import-from-solokey
+new-machine-setup: weekly-upkeep colemak secrets-deploy ssh-import-from-solokey
     echo "=== NEW MACHINE SETUP COMPLETE ==="
 
 # -- USAGE -----------------------------------------------------------------
