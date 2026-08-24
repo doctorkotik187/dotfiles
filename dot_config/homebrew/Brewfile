@@ -23,6 +23,7 @@ brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
 brew "lazyjj"                                             # tui for jj
 brew "syncthing"                                          # decentralized file sync
+flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
 
 # =========================================================
 #  GENERAL TOOLS
@@ -44,8 +45,6 @@ brew "trash-cli"                                          # trash files from cli
 brew "watchexec"                                          # watch files and run commands on change
 brew "yazi"                                               # terminal file manager
 flatpak "com.github.qarmin.czkawka"                       # duplicate file finder
-flatpak "org.kde.kate"                                    # kde text editor
-flatpak "org.gnome.TextEditor"                            # simple text editor
 flatpak "org.kde.isoimagewriter"                          # os image writer
 flatpak "org.gnome.FileRoller"                            # archive manager
 flatpak "org.gnome.NautilusPreviewer"                     # quick look / spacebar preview
@@ -121,9 +120,8 @@ brew "viu"                                                # terminal image viewe
 brew "pngquant"                                           # image shrinking
 brew "cmus"                                               # terminal music player
 brew "mpv"                                                # media player
-brew "streamlink"                                         # extract streams from websites
-brew "yewtube"                                            # youtube frontend (exe: yt)
-brew "yt-dlp"                                             # youtube/video downloader
+brew "streamlink"                                         # play steams in mpv
+brew "yt-dlp"                                             # media downloader
 flatpak "com.github.neithern.g4music"                     # music player
 flatpak "com.obsproject.Studio"                           # streaming & recording
 flatpak "fr.handbrake.ghb"                                # video transcoder

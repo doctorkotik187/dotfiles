@@ -32,6 +32,7 @@ $env.GROQ_API_KEY = (try { secret-tool lookup service groq username api-key } ca
 # -- ALIASES ------------------------------------------------
 
 alias "e"      = emacs -nw                                      # launch emacs in terminal
+alias "kate"   = flatpak run org.kde.kate                       # open kate from terminal
 alias "brewbg" = brew bundle --global                           # use global brew bundle file ~/.config/homebrew/Brewfile
 alias "justg"  = just --global-justfile                         # use global just file ~/.config/just/justfile
 alias "jjst"   = jj status                                      # common jj typo
