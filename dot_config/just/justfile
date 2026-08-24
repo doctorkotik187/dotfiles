@@ -49,7 +49,7 @@ ssh-import-from-solokey:
 
 [group('Setup')]
 [doc('Run the full one-off setup sequence for a freshly installed machine')]
-new-machine-setup: weekly-upkeep colemak secrets-deploy ssh-import-from-solokey
+new-machine-setup: sync-everything colemak secrets-deploy ssh-import-from-solokey
     echo "=== NEW MACHINE SETUP COMPLETE ==="
 
 # -- USAGE -----------------------------------------------------------------
@@ -104,25 +104,6 @@ syncthing-conflict-check:
     fi
 
 [group('Upkeep')]
-[doc('Check for chezmoi source-state drift against the live dotfiles')]
-chezmoi-check:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    drift=$(chezmoi status)
-    if [ -n "$drift" ]; then
-        echo "WARNING: chezmoi source state has drifted from your dotfiles:"
-        echo "$drift"
-        echo ""
-        echo "To resolve:"
-        echo "  chezmoi diff     # see what changed"
-        echo "  chezmoi re-add   # pull your local edits into the source state"
-        echo "  chezmoi apply    # OR push the source state out to your files instead"
-        exit 1
-    else
-        echo "=== NO CHEZMOI DRIFT DETECTED ==="
-    fi
-
-[group('Upkeep')]
 [doc('Copy user/email/signing config from jj into global git config')]
 git-import-jj-config:
     #!/usr/bin/env bash
@@ -146,17 +127,20 @@ git-import-jj-config:
     echo "=== GIT CONFIG IMPORTED FROM JJ ==="
 
 [group('Upkeep')]
-[doc('Sync brew bundle & mise')]
+[doc('Chezmoi apply, sync brew bundle & mise tools, then import jj config into git config')]
 sync-everything:
+    chezmoi apply
     brew bundle cleanup --global --install
     mise install
     mise prune --yes
+    just --global-justfile git-import-jj-config
 
 [group('Upkeep')]
-[doc('Update system (bootc/flatpak/brew via ujust) and mise tools')]
+[doc('Update system (bootc/flatpak/brew via ujust), mise tools and lazyvim')]
 update-everything:
     ujust update
     mise upgrade
+    nvim --headless "+Lazy! sync" +qa
 
 [group('Upkeep')]
 [doc('Clean up brew, flatpak and mise')]
@@ -168,7 +152,7 @@ clean-cache:
 
 [group('Upkeep')]
 [doc('Run the full weekly upkeep routine: checks, sync, update, cleanup')]
-weekly-upkeep: syncthing-conflict-check chezmoi-check git-import-jj-config sync-everything update-everything clean-cache
+weekly-upkeep: syncthing-conflict-check sync-everything update-everything clean-cache
     echo "=== WEEKLY UPKEEP COMPLETE ==="
 
 # -- DISK MAINTENANCE -------------------------------------------------
@@ -186,10 +170,9 @@ btrfs-status target='/etc':
 
 [group('Disk Maintenance')]
 [doc('Show status, then confirm and run a btrfs scrub on the root filesystem')]
-computer-btrfs-scrub:
+computer-btrfs-scrub: btrfs-status
     #!/usr/bin/env bash
     set -euo pipefail
-    just --global-justfile btrfs-status /etc
     echo ""
     if gum confirm "Scrub computer filesystem?"; then
         sudo btrfs scrub start -B /etc

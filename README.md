@@ -1,6 +1,7 @@
 # Doctor Kotik's Dotfiles 😼
 
-Personal dotfiles for a [Universal Blue Bluefin](https://projectbluefin.io/) machine,
+Personal dotfiles for a [Universal Blue Bluefin](https://projectbluefin.io/)
+or general [Universal Blue](https://universal-blue.org/) machine,
 managed with [chezmoi](https://www.chezmoi.io/) (symlink mode).
 
 ## Setup

@@ -1,5 +1,3 @@
-# -*- mode: ruby -*-
-
 # =========================================================
 #  CORE
 # =========================================================
@@ -16,7 +14,6 @@ brew "fastfetch"                                          # system info
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
 brew "bbrew"                                              # bold brew (brew tui)
-brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"], trusted: true  # gpu terminal emulator
 brew "fzf"                                                # fuzzy finder (used by yazi, etc.)
 brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
@@ -222,7 +219,6 @@ cask "font-hackgen-nerd"                                  # Hack-based, JP-nativ
 #  DEV TOOLS & DEPS NOT SUPPORTED BY MISE
 # =========================================================
 
-brew "borkdude/brew/babashka", trusted: true              # clojure scripting (neil dependency)
+brew "borkdude/brew/babashka", trusted: true              # use mise version, just to enable trust for neil dependency
 brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
-brew "bacon"                                              # background rust code check
-brew "rlwrap"                                             # adds readline to clojure's clj repl
+brew "rlwrap"                                             # generally useful on cli (e.g. for clj repl)

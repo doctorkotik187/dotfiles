@@ -1,32 +1,5 @@
 {
   "$schema": "https://charm.land/crush.json",
-  "providers": {
-    "ollama": {
-      "name": "Ollama (memedeck)",
-      "base_url": "http://localhost:11434/v1/",
-      "type": "openai-compat",
-      "models": [
-        {
-          "name": "Qwen 2.5 Coder 7B",
-          "id": "qwen2.5-coder:7b-instruct-q4_K_M",
-          "context_window": 16384,
-          "default_max_tokens": 1024
-        },
-        {
-          "name": "DeepSeek Coder V2 16B Lite",
-          "id": "deepseek-coder-v2:16b-lite-instruct-q4_K_M",
-          "context_window": 16384,
-          "default_max_tokens": 1024
-        },
-        {
-          "name": "Qwen 2.5 Coder 3B",
-          "id": "qwen2.5-coder:3b-instruct-q4_K_M",
-          "context_window": 8192,
-          "default_max_tokens": 1024
-        }
-      ]
-    }
-  },
   "options": {
     "disable_metrics": true,
     "debug": false

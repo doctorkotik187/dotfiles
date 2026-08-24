@@ -11,21 +11,13 @@ mouse_capture = false
 name = "catppuccin"
 
 [keys]
-focus_pane_left  = "alt+left"
-focus_pane_down  = "alt+down"
 focus_pane_up    = "alt+up"
+focus_pane_down  = "alt+down"
+focus_pane_left  = "alt+left"
 focus_pane_right = "alt+right"
 previous_tab     = "alt+shift+left"
 next_tab         = "alt+shift+right"
 switch_tab       = "alt+1..9"
-
-[[keys.command]]
-key     = "prefix+space"
-type    = "popup"
-command = "nu"
-width   = "90%"
-height  = "90%"
-description = "scratch nushell popup"
 
 [[keys.command]]
 key     = "prefix+y"

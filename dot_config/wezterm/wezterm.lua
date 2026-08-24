@@ -12,6 +12,14 @@ config.mouse_bindings = {
 	},
 }
 
+---- KEYBINDS ------------------------------------------------
+
+-- mostly for herdr
+config.keys = {
+	{ key = "UpArrow", mods = "ALT|SHIFT", action = wezterm.action.SendKey({ key = "PageUp" }) },
+	{ key = "DownArrow", mods = "ALT|SHIFT", action = wezterm.action.SendKey({ key = "PageDown" }) },
+}
+
 ---- WINDOW --------------------------------------------------
 
 config.initial_cols = 120
@@ -24,10 +32,10 @@ config.font_size = 9
 
 ---- THEME & VISUALS -----------------------------------------
 
--- config.color_scheme = "Catppuccin Latte"     -- light
-config.color_scheme = "Catppuccin Macchiato" -- dark
+-- config.color_scheme = "Catppuccin Latte"
+config.color_scheme = "Catppuccin Macchiato"
 
-config.use_fancy_tab_bar = false -- minimal tab bar
-config.hide_tab_bar_if_only_one_tab = true -- hide tab bar when only one tab
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
 
 return config
