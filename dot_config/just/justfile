@@ -9,7 +9,6 @@ btrbk_dir := dk_core + "/3-RESOURCES/program-data/btrbk"
 btrbk_bin := btrbk_dir + "/bin/btrbk"
 kagi_enc := dk_core + "/3-RESOURCES/program-data/old-places/kagi.age"
 kagi_tmp := "/dev/shm/kagi"
-doom := env("HOME") + "/.config/emacs/bin/doom"
 
 # -- ALWAYS CHOOSE BY DEFAULT ---------------------------------------------
 
@@ -152,29 +151,25 @@ git-import-jj-config:
     echo "=== GIT CONFIG IMPORTED FROM JJ ==="
 
 [group('Upkeep')]
-[doc('Reinstall brew bundle, sync mise tools, and sync/doctor Doom Emacs')]
+[doc('Sync brew bundle & mise')]
 sync-everything:
     brew bundle cleanup --global --install
     mise install
     mise prune --yes
-    {{doom}} sync
-    {{doom}} doctor
 
 [group('Upkeep')]
-[doc('Update system (bootc/flatpak/brew via ujust), mise tools, and Doom Emacs')]
+[doc('Update system (bootc/flatpak/brew via ujust) and mise tools')]
 update-everything:
     ujust update
     mise upgrade
-    {{doom}} upgrade --force
 
 [group('Upkeep')]
-[doc('Clean up brew, flatpak, mise, and Doom Emacs caches')]
+[doc('Clean up brew, flatpak and mise')]
 clean-cache:
     brew autoremove
     brew cleanup --scrub --prune=all
     flatpak uninstall --delete-data --unused -y
     mise cache prune
-    {{doom}} gc
 
 [group('Upkeep')]
 [doc('Run the full weekly upkeep routine: checks, sync, update, cleanup')]

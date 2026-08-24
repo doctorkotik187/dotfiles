@@ -30,7 +30,7 @@ eval "$(mise activate bash)"
 export SHELL_ICON=""                   # for starship
 export XDG_CONFIG_HOME="$HOME/.config"  # for brew bundle file
 export DO_NOT_TRACK=1                   # for crush.ai but also maybe others
-export EDITOR="emacs -nw"
+export EDITOR="nvim"
 
 # clear history on start, because I use nushell
 history -c && history -w

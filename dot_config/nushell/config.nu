@@ -1,9 +1,3 @@
-# -- PATH ---------------------------------------------------
-
-$env.PATH ++= [
-  "~/.config/emacs/bin"
-]
-
 # -- ACTIVATE PROGRAMS --------------------------------------
 
 const AUTOLOAD_DIR = ($nu.data-dir | path join "vendor/autoload")
@@ -19,7 +13,7 @@ $env.config.show_banner = false
 $env.SHELL_ICON = "󰟆"                                           # for starship
 $env.XDG_CONFIG_HOME = ($env.HOME | path join ".config")        # for brew bundle file
 $env.DO_NOT_TRACK = 1                                           # respected by crush.ai and others
-$env.EDITOR = "emacs -nw"
+$env.EDITOR = "nvim"
 
 # -- AI (secret-tool store) ---------------------------------
 # API keys stored in gnome-keyring via secret-tool
@@ -31,7 +25,6 @@ $env.GROQ_API_KEY = (try { secret-tool lookup service groq username api-key } ca
 
 # -- ALIASES ------------------------------------------------
 
-alias "e"      = emacs -nw                                      # launch emacs in terminal
 alias "kate"   = flatpak run org.kde.kate                       # open kate from terminal
 alias "brewbg" = brew bundle --global                           # use global brew bundle file ~/.config/homebrew/Brewfile
 alias "justg"  = just --global-justfile                         # use global just file ~/.config/just/justfile
@@ -43,13 +36,7 @@ alias "jj sq"  = jj squash                                      # shortcut
 
 def clear-history [] {
     history --clear; print "Nushell history cleared."
-    rm -rfv ~/.config/emacs/.local/cache/*; print "Emacs cache deleted."
     rm -v ~/.local/share/zoxide/db.zo; print "Zoxide history deleted."
-}
-
-# "fallback" previews for yazi (workaround for zellij rendering bug) using chafa
-def yazellij [] {
-    with-env { TERM: "xterm-kitty" } { yazi }
 }
 
 # curd reshuffles config randomly every time -> sort config on quit

@@ -13,12 +13,10 @@ brew "carapace"                                           # multi-shell completi
 brew "fastfetch"                                          # system info
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
-brew "emacs"                                              # text editor (doom emacs)
 brew "neovim"                                             # the other text editor
 brew "bbrew"                                              # bold brew (brew tui)
 brew "wezterm/wezterm-linuxbrew/wezterm", args: ["HEAD"], trusted: true  # gpu terminal emulator
-brew "zellij"                                             # terminal multiplexer (tiling)
-brew "fzf"                                                # fuzzy finder (used by zellij, yazi, etc.)
+brew "fzf"                                                # fuzzy finder (used by yazi, etc.)
 brew "gh"                                                 # github cli
 brew "jj"                                                 # jujutsu vc, alternative to git
 brew "lazyjj"                                             # tui for jj
@@ -107,7 +105,6 @@ flatpak "org.gnome.Weather"                               # weather app
 # =========================================================
 
 brew "hledger"                                            # plain-text accounting (cli)
-brew "ledger"                                             # plain-text accounting (original, doom emacs dep)
 flatpak "com.cakewallet.CakeWallet"                       # universal crypto wallet
 flatpak "org.getmonero.Monero"                            # monero wallet
 
@@ -220,17 +217,10 @@ cask "font-udev-gothic-nf"                                # clean, neutral, JetB
 cask "font-hackgen-nerd"                                  # Hack-based, JP-native, actively maintained
 
 # =========================================================
-#  DEV TOOLS NOT SUPPORTED BY MISE
+#  DEV TOOLS & DEPS NOT SUPPORTED BY MISE
 # =========================================================
 
 brew "borkdude/brew/babashka", trusted: true              # clojure scripting (neil dependency)
 brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
 brew "bacon"                                              # background rust code check
-
-# =========================================================
-#  DEPENDENCIES ONLY
-# =========================================================
-
-brew "chafa"                                              # terminal image/video viewer (yazi fallback for zellij bug)
 brew "rlwrap"                                             # adds readline to clojure's clj repl
-brew "tidy-html5"                                         # html linter & formatter (doom emacs dep)

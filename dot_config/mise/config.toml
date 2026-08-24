@@ -39,21 +39,3 @@ ty                                      = "latest"  # extremely fast python type
 clj-kondo                               = "latest"  # linter for clojure code that sparks joy
 "github:clojure-lsp/clojure-lsp"        = "latest"  # clojure language server
 "github:weavejester/cljfmt"             = "latest"  # clojure code formatter
-
-# ================================================
-#  MAKE DOOM DOCTOR HAPPY :)
-# ================================================
-
-black                                   = "latest"  # python code formatter (opinionated)
-markdownlint-cli2                       = "latest"  # markdown linter / style checker
-prettier                                = "latest"  # multi-format code formatter (js, ts, json, yaml, etc.)
-pipenv                                  = "latest"  # python development workflow for humans
-shfmt                                   = "latest"  # shell script formatter (bash, sh, dash)
-shellcheck                              = "latest"  # shell script static analysis linter
-"github:blahgeek/emacs-lsp-booster"     = "latest"  # speeds up lsp-mode in emacs
-"github:chrishrb/go-grip"               = "latest"  # github flavored markdown preview server
-"npm:js-beautify"                       = "latest"  # js / html / css beautifier
-"npm:stylelint"                         = "latest"  # css / scss linter
-"pipx:pyflakes"                         = "latest"  # python static analysis linter
-"pipx:isort"                            = "latest"  # python utility / library to sort imports
-"pipx:pytest"                           = "latest"  # python pytest framework makes it easy to write small tests
