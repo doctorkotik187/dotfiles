@@ -50,7 +50,7 @@ ssh-import-from-solokey:
 [group('Setup')]
 [doc('Run the full one-off setup sequence for a freshly installed machine')]
 new-machine-setup: sync-everything colemak secrets-deploy ssh-import-from-solokey
-    echo "=== NEW MACHINE SETUP COMPLETE ==="
+    @echo "=== NEW MACHINE SETUP COMPLETE ==="
 
 # -- USAGE -----------------------------------------------------------------
 
@@ -153,7 +153,7 @@ clean-cache:
 [group('Upkeep')]
 [doc('Run the full weekly upkeep routine: checks, sync, update, cleanup')]
 weekly-upkeep: syncthing-conflict-check sync-everything update-everything clean-cache
-    echo "=== WEEKLY UPKEEP COMPLETE ==="
+    @echo "=== WEEKLY UPKEEP COMPLETE ==="
 
 # -- DISK MAINTENANCE -------------------------------------------------
 

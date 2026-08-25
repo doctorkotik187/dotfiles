@@ -13,4 +13,4 @@ behavior = "drop"
 sign-on-push = true
 
 [lazyjj]
-layout-percent = 25
+layout-percent = 20
