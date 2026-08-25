@@ -96,7 +96,7 @@ flatpak "org.pwmt.zathura"                                # pdf reader (vim keyb
 flatpak "org.gnome.Papers"                                # pdf reader (gnome default)
 flatpak "org.kde.okular"                                  # pdf reader (kde default)
 flatpak "com.github.xournalpp.xournalpp"                  # pdf annotator / handwriting
-flatpak "com.logseq.Logseq"                               # gtd & knowledge base
+flatpak "com.logseq.Logseq"                               # gtd-style org workflow & knowledge base
 flatpak "io.github.Qalculate"                             # desktop calculator (gtk)
 flatpak "org.gnumeric.Gnumeric"                           # spreadsheet (excel alternative)
 flatpak "org.onlyoffice.desktopeditors"                   # office suite
@@ -145,7 +145,8 @@ brew "solo2-cli"                                          # cli to update and us
 brew "libfido2"                                           # cli to manage fido keys in general
 brew "gocryptfs"                                          # encrypted userspace filesystem
 brew "age"                                                # simple, modern, secure file encryption
-brew "sequoia-sq"                                         # openpgp toolkit (gpg alternative, modern rust impl)
+brew "sequoia-sq"                                         # openpgp toolkit (gpg alternative, modern rust)
+brew "sigsum-go"                                          # transparency-log signing & proof verification
 flatpak "org.gnome.seahorse.Application"                  # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"                         # password manager
 

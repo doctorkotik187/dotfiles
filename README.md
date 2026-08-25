@@ -16,3 +16,8 @@ chezmoi init doctorkotik187 --ssh --apply
 ```bash
 just -g --choose
 ```
+
+## Logseq GTD-Style Graph Configuration
+
+I keep it separately in this [Github Gist](https://gist.github.com/doctorkotik187/b69009f1667d2264f8d743e4e4cae8e7).
+

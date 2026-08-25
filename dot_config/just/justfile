@@ -55,13 +55,13 @@ new-machine-setup: sync-everything colemak secrets-deploy ssh-import-from-soloke
 # -- USAGE -----------------------------------------------------------------
 
 [group('Usage')]
-[doc('Decrypt the Kagi secret (via Solokey FIDO2) to a tmpfs scratch file')]
+[doc('Decrypt kagi (via Solokey FIDO2) to a tmpfs file')]
 kagi-decrypt:
     age -d -j fido2-hmac -o {{kagi_tmp}} {{kagi_enc}}
 
 [group('Usage')]
-[doc('Delete the decrypted Kagi scratch file')]
-kagi-delete:
+[doc('Delete the decrypted kagi temp file')]
+kagi-remove:
     rm -fv {{kagi_tmp}}
 
 [group('Usage')]
