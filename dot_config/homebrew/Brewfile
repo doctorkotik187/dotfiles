@@ -222,3 +222,11 @@ cask "font-hackgen-nerd"                                  # Hack-based, JP-nativ
 brew "borkdude/brew/babashka", trusted: true              # use mise version, just to enable trust for neil dependency
 brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
 brew "rlwrap"                                             # generally useful on cli (e.g. for clj repl)
+
+# =========================================================
+#  LAZYVIM HEALTH GOOD
+# =========================================================
+
+brew "lazygit"                                            # tui for git
+brew "ast-grep"                                           # structural/ast-aware code search
+brew "mermaid-cli"                                        # mermaid diagrams inline

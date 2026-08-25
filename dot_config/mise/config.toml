@@ -15,13 +15,14 @@ usql                                    = "latest"  # universal sql cli client (
 #  LANGUAGE RUNTIMES
 # ================================================
 
-clojure                                 = "latest"  # jvm lisp
-go                                      = "latest"  # golang
-java                                    = "latest"  # jvm (clojure needs this)
-node                                    = "latest"  # javascript runtime (needed for npm tools)
-python                                  = "latest"  # python interpreter + venvs
-ruby                                    = "latest"  # ruby interpreter + gems
-rust                                    = "latest"  # rust toolchain + cargo
+clojure                                 = "latest"
+go                                      = "latest"
+java                                    = "latest"
+node                                    = "latest"
+python                                  = "latest"
+ruby                                    = "latest"
+rust                                    = "latest"
+lua                                     = "latest"
 
 # ================================================
 #  LANGUAGE & FRAMEWORK SPECIFIC TOOLS
