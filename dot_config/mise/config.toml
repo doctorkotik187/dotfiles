@@ -5,7 +5,7 @@
 # ================================================
 
 usql                                    = "latest"  # universal sql cli client (brew compiles with go and fails)
-"github:wezterm/wezterm" = { version = "nightly", asset_pattern = "wezterm-nightly.Ubuntu24.04.tar.xz" }  # brew tap installs old AppImage even with HEAD
+"github:wezterm/wezterm" = { version = "nightly", asset_pattern = "wezterm-nightly.Ubuntu26.04.tar.xz" }  # brew tap installs old AppImage even with HEAD
 "github:Veirt/weathr"                   = "latest"  # terminal weather app
 "github:Wraient/curd"                   = "latest"  # uwu
 "github:olastor/age-plugin-fido2-hmac"  = "latest"  # use age with solokey

@@ -10,45 +10,48 @@ brew "mise"                                               # brew's right hand an
 brew "starship"                                           # cross-shell prompt
 brew "zoxide"                                             # smarter cd (jump to frequent dirs)
 brew "carapace"                                           # multi-shell completion generator
-brew "fastfetch"                                          # system info
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
 brew "bbrew"                                              # bold brew (brew tui)
-brew "fzf"                                                # fuzzy finder (used by yazi, etc.)
-brew "gh"                                                 # github cli
-brew "jj"                                                 # jujutsu vc, alternative to git
-brew "lazyjj"                                             # tui for jj
 brew "syncthing"                                          # decentralized file sync
 brew "wl-clipboard"                                       # command-line copy/paste utilities for wayland
 flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
 
 # =========================================================
-#  GENERAL TOOLS
+#  VERSION CONTROL
+# =========================================================
+
+brew "gh"                                                 # github cli
+brew "jj"                                                 # jujutsu vc, alternative to git
+brew "lazyjj"                                             # tui for jj
+brew "lazygit"                                            # tui for git
+brew "git-delta"                                          # better diff
+
+# =========================================================
+#  SEARCH & FIND & REPLACE
+# =========================================================
+
+brew "fd"                                                 # fast find replacement
+brew "ripgrep"                                            # fast grep replacement (core search tool)
+brew "ripgrep-all"                                        # ripgrep for pdfs, archives, etc.
+brew "fzf"                                                # fuzzy finder (used by yazi, etc.)
+brew "sd"                                                 # intuitive find & replace (sed alternative)
+
+# =========================================================
+#  LIST & VIEW & MANAGE & CLEAN FILES
 # =========================================================
 
 brew "bat"                                                # cat with syntax highlighting + git integration
 brew "eza"                                                # modern ls replacement (colors, icons, git)
-brew "fd"                                                 # fast find replacement
-brew "git-delta"                                          # syntax-highlighting git pager/diff
-brew "ripgrep"                                            # fast grep replacement (core search tool)
-brew "ripgrep-all"                                        # ripgrep for pdfs, archives, etc.
-brew "sd"                                                 # intuitive find & replace (sed alternative)
 brew "tre-command"                                        # tree with git integration + fuzzy filter
-brew "lazysql"                                            # tui for sql dbs
-brew "lazymake"                                           # tui for make
 brew "midnight-commander"                                 # orthodox file manager (mc)
 brew "sevenzip"                                           # 7zip extractor
 brew "trash-cli"                                          # trash files from cli (nushell can do it natively)
 brew "watchexec"                                          # watch files and run commands on change
 brew "yazi"                                               # terminal file manager
 flatpak "com.github.qarmin.czkawka"                       # duplicate file finder
-flatpak "org.kde.isoimagewriter"                          # os image writer
 flatpak "org.gnome.FileRoller"                            # archive manager
-flatpak "org.gnome.NautilusPreviewer"                     # quick look / spacebar preview
-flatpak "org.gnome.baobab"                                # disk usage analyzer gui
 flatpak "org.gnome.Logs"                                  # system logs viewer
-flatpak "io.missioncenter.MissionCenter"                  # system monitor gui
-flatpak "it.mijorus.smile"                                # emoji picker
 
 # =========================================================
 #  CONTAINERS
@@ -61,13 +64,16 @@ brew "podman-compose"                                     # alternative to docke
 #  NETWORK & MONITORING
 # =========================================================
 
+brew "fastfetch"                                          # system info
 brew "bottom"                                             # system monitor (top alternative)
 brew "dust"                                               # disk usage analyzer (du alternative)
 brew "dysk"                                               # utility to get information on filesystems, like df but better
 brew "nmap"                                               # network scanner
 brew "lazyssh"                                            # tui for ssh
 brew "hcloud"                                             # cli for for hetzner cloud
+flatpak "io.missioncenter.MissionCenter"                  # system monitor gui
 flatpak "org.gnome.Connections"                           # remote desktop client
+flatpak "org.gnome.baobab"                                # disk usage analyzer gui
 
 # =========================================================
 #  AI
@@ -80,7 +86,7 @@ brew "charmbracelet/tap/crush", trusted: true             # ai terminal assistan
 #  OFFICE & DOCUMENTS
 # =========================================================
 
-brew "calcurse"                                           # calendar & todo in terminal
+brew "calcurse"                                           # calendar in terminal
 brew "glow"                                               # markdown reader for terminal
 brew "libqalculate"                                       # calculation library (backend for qalc)
 brew "typst"                                              # modern typesetting engine (latex alternative)
@@ -129,7 +135,7 @@ flatpak "org.kde.digikam"                                 # photo manager
 flatpak "org.shotcut.Shotcut"                             # video editor
 flatpak "org.videolan.VLC"                                # media player
 flatpak "org.gnome.Snapshot"                              # simple webcam pictures
-flatpak "be.alexandervanhee.gradia"                       # annotation support for default gnome screenshot tool
+flatpak "be.alexandervanhee.gradia"                       # annotate screenshots (put on Ctrl+Print)
 
 # =========================================================
 #  SECURITY & CRYPTOGRAPHY
@@ -153,6 +159,7 @@ flatpak "org.signal.Signal"                               # signal client
 flatpak "dev.vencord.Vesktop"                             # discord client
 flatpak "org.gnome.Fractal"                               # matrix client
 flatpak "org.mozilla.thunderbird_esr"                     # email client
+flatpak "eu.betterbird.Betterbird"                        # thunderbird but better
 
 # =========================================================
 #  READING & LEARNING
@@ -174,18 +181,8 @@ flatpak "org.freedesktop.Piper"                           # mouse config tool fo
 #  WEB BROWSERS
 # =========================================================
 
-flatpak "io.gitlab.librewolf-community"                   # firefox fork (privacy hardened)
+flatpak "io.gitlab.librewolf-community"                   # firefox but better
 flatpak "org.chromium.Chromium"                           # "it just works" browser
-
-# =========================================================
-#  CORE BLUEFIN & GNOME APPS
-# =========================================================
-
-flatpak "org.gnome.Firmware"                              # firmware updater
-flatpak "com.mattjakeman.ExtensionManager"                # gnome extension manager
-flatpak "page.tesk.Refine"                                # additional gnome tweaks
-flatpak "com.ranfdev.DistroShelf"                         # quickly access distrobox
-flatpak "io.github.flattool.Ignition"                     # startup-apps manager
 
 # =========================================================
 #  FLATPAK MANAGEMENT
@@ -194,6 +191,30 @@ flatpak "io.github.flattool.Ignition"                     # startup-apps manager
 flatpak "io.github.kolunmi.Bazaar"                        # search for flatpaks
 flatpak "io.github.flattool.Warehouse"                    # manage flatpak remnants
 flatpak "com.github.tchx84.Flatseal"                      # flatpak permission manager
+
+# =========================================================
+#  BLUEFIN & GNOME & MISC APPS
+# =========================================================
+
+flatpak "org.gnome.Firmware"                              # firmware updater
+flatpak "com.mattjakeman.ExtensionManager"                # gnome extension manager
+flatpak "page.tesk.Refine"                                # additional gnome tweaks
+flatpak "com.ranfdev.DistroShelf"                         # quickly access distrobox
+flatpak "io.github.flattool.Ignition"                     # startup-apps manager
+flatpak "it.mijorus.smile"                                # emoji picker
+flatpak "org.kde.isoimagewriter"                          # os image writer
+
+# =========================================================
+#  DEV TOOLS (NOT IN MISE)
+# =========================================================
+
+brew "lazysql"                                            # tui for sql dbs
+brew "lazymake"                                           # tui for make
+brew "borkdude/brew/babashka", trusted: true              # use mise version, just to enable trust for neil dependency
+brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
+brew "rlwrap"                                             # generally useful on cli (e.g. for clj repl)
+brew "ast-grep"                                           # structural/ast-aware code search (lazyvim dependency)
+brew "mermaid-cli"                                        # mermaid diagrams inline (lazyvim dependency)
 
 # =========================================================
 #  FONTS
@@ -214,19 +235,3 @@ cask "font-m+-nerd-font"                                  # soft, geometric, qui
 cask "font-maple-mono-nf-cn"                              # cute, rounded, exotic but readable
 cask "font-udev-gothic-nf"                                # clean, neutral, JetBrains-based, hugely popular in JP dev circles
 cask "font-hackgen-nerd"                                  # Hack-based, JP-native, actively maintained
-
-# =========================================================
-#  DEV TOOLS & DEPS NOT SUPPORTED BY MISE
-# =========================================================
-
-brew "borkdude/brew/babashka", trusted: true              # use mise version, just to enable trust for neil dependency
-brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
-brew "rlwrap"                                             # generally useful on cli (e.g. for clj repl)
-
-# =========================================================
-#  LAZYVIM HEALTH GOOD
-# =========================================================
-
-brew "lazygit"                                            # tui for git
-brew "ast-grep"                                           # structural/ast-aware code search
-brew "mermaid-cli"                                        # mermaid diagrams inline
