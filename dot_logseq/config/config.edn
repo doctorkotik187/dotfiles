@@ -1,5 +1,5 @@
 {:shortcuts {:editor/paste-text-in-one-block-at-point ["mod+shift+v" "mod+v"]
-             :go/search ["space f f" "space f b" "space space"]
+             :go/search ["space f f" "space f b" "space space" "space /"]
              :ui/toggle-right-sidebar ["mod+w v" "space w v"]
              :command-palette/toggle ["mod+shift+p" "alt+x"]
              :window/close ["space q q"]

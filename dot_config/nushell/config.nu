@@ -30,6 +30,7 @@ alias "brewbg" = brew bundle --global                           # use global bre
 alias "justg"  = just --global-justfile                         # use global just file ~/.config/just/justfile
 alias "jjst"   = jj status                                      # common jj typo
 alias "jj sq"  = jj squash                                      # shortcut
+alias "ff"     = fastfetch                                      # shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
 # Only nushell helpers stay here, rest is in justfile.

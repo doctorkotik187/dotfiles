@@ -91,6 +91,9 @@ brew "glow"                                               # markdown reader for 
 brew "libqalculate"                                       # calculation library (backend for qalc)
 brew "typst"                                              # modern typesetting engine (latex alternative)
 brew "pandoc"                                             # universal document converter
+brew "tectonic"                                           # modernized tex/latex engine (for pandoc)
+brew "pngquant"                                           # image shrinking
+brew "img2pdf"                                            # image to pdf converter
 flatpak "com.github.ahrm.sioyek"                          # pdf reader (vim keybindings)
 flatpak "org.pwmt.zathura"                                # pdf reader (vim keybindings)
 flatpak "org.gnome.Papers"                                # pdf reader (gnome default)
@@ -119,11 +122,10 @@ flatpak "org.getmonero.Monero"                            # monero wallet
 
 brew "feh"                                                # lightweight image viewer
 brew "viu"                                                # terminal image viewer
-brew "pngquant"                                           # image shrinking
-brew "cmus"                                               # terminal music player
 brew "mpv"                                                # media player
 brew "streamlink"                                         # play steams in mpv
 brew "yt-dlp"                                             # media downloader
+brew "cava"                                               # cli audio visualizer
 flatpak "com.github.neithern.g4music"                     # music player
 flatpak "com.obsproject.Studio"                           # streaming & recording
 flatpak "fr.handbrake.ghb"                                # video transcoder
