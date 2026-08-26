@@ -189,19 +189,17 @@ btrbk-backup:
     config=$(gum choose --header "Which drive?" \
         "full-pocketjuice" "full-microsdeeznuts" "full-whiteghost" "full-pinkbike")
     target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
-
-    echo "=== btrbk stats: ${config}.conf ==="
+    echo "=== btrbk stats: {{btrbk_dir}}/${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf stats
     echo ""
-    echo "=== btrbk usage: ${config}.conf ==="
+    echo "=== btrbk usage: {{btrbk_dir}}/${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf usage
     echo ""
     just --global-justfile btrfs-status "$target"
     echo ""
-
     action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
         "run" "resume")
-    if gum confirm "Run btrbk -c ${config}.conf ${action}?"; then
+    if gum confirm "Run btrbk -c {{btrbk_dir}}/${config}.conf ${action}?"; then
         sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf "$action"
         sync
         echo "=== BACKUP COMPLETE ==="
