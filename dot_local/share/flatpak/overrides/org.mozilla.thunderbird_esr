@@ -1,2 +1,2 @@
 [Context]
-filesystems=~/0-doctorkotik/0-core/3-RESOURCES/program-data/telegram-bot:ro;~/.local/share/mise/installs/babashka/latest:ro
+filesystems=~/0-doctorkotik/0-core/3-RESOURCES/program-data/telegram-bot:ro;~/.local/share/mise/installs/babashka:ro
