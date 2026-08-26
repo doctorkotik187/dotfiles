@@ -86,7 +86,7 @@ gocryptfs-unmount:
 # -- UPKEEP -----------------------------------------------------------
 
 [group('Upkeep')]
-[doc('Check the doctorkotik dir for unresolved Syncthing conflict files')]
+[doc('Report any unresolved Syncthing conflict files under the doctorkotik dir')]
 syncthing-conflict-check:
     #!/usr/bin/env bash
     set -euo pipefail
@@ -98,7 +98,6 @@ syncthing-conflict-check:
     if [ -n "$conflicts" ]; then
         echo "WARNING: syncthing conflict files found:"
         echo "$conflicts"
-        exit 1
     else
         echo "=== NO SYNCTHING CONFLICTS FOUND ==="
     fi
@@ -127,13 +126,14 @@ git-import-jj-config:
     echo "=== GIT CONFIG IMPORTED FROM JJ ==="
 
 [group('Upkeep')]
-[doc('Chezmoi apply, sync brew bundle & mise tools, then import jj config into git config')]
+[doc('Chezmoi apply, sync brew bundle & mise tools, import jj config, then check for Syncthing conflicts')]
 sync-everything:
     chezmoi apply
     brew bundle cleanup --global --install
     mise install
     mise prune --yes
     just --global-justfile git-import-jj-config
+    just --global-justfile syncthing-conflict-check
 
 [group('Upkeep')]
 [doc('Update system (bootc/flatpak/brew via ujust), mise tools and lazyvim')]
@@ -151,8 +151,8 @@ clean-cache:
     mise cache prune
 
 [group('Upkeep')]
-[doc('Run the full weekly upkeep routine: checks, sync, update, cleanup')]
-weekly-upkeep: syncthing-conflict-check sync-everything update-everything clean-cache
+[doc('Run the full weekly upkeep routine: sync, update, cleanup, then optionally run a btrfs scrub')]
+weekly-upkeep: sync-everything update-everything clean-cache computer-btrfs-scrub
     @echo "=== WEEKLY UPKEEP COMPLETE ==="
 
 # -- DISK MAINTENANCE -------------------------------------------------
@@ -162,21 +162,24 @@ weekly-upkeep: syncthing-conflict-check sync-everything update-everything clean-
 btrfs-status target='/etc':
     #!/usr/bin/env bash
     set -euo pipefail
-    echo "=== btrfs filesystem usage: {{target}} ==="
+    echo "=== btrfs filesystem usage (needs sudo to read fs metadata): {{target}} ==="
     sudo btrfs filesystem usage -T "{{target}}"
     echo ""
-    echo "=== device error counters (should all read 0): {{target}} ==="
+    echo "=== device error counters (needs sudo, root-only), should all read 0: {{target}} ==="
     sudo btrfs device stats "{{target}}"
 
 [group('Disk Maintenance')]
 [doc('Show status, then confirm and run a btrfs scrub on the root filesystem')]
-computer-btrfs-scrub: btrfs-status
+computer-btrfs-scrub:
     #!/usr/bin/env bash
     set -euo pipefail
-    echo ""
-    if gum confirm "Scrub computer filesystem?"; then
+    if gum confirm --default=false "Run btrfs scrub on computer filesystem?"; then
+        just --global-justfile btrfs-status
+        echo ""
+        echo "Starting btrfs scrub (needs sudo to write to the filesystem) ..."
+        sudo -v
         sudo btrfs scrub start -B /etc
-        echo "Scrub complete."
+        echo "Btrfs scrub complete."
     else
         echo "Aborted."
     fi
@@ -189,10 +192,10 @@ btrbk-backup:
     config=$(gum choose --header "Which drive?" \
         "full-pocketjuice" "full-microsdeeznuts" "full-whiteghost" "full-pinkbike")
     target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
-    echo "=== btrbk stats: {{btrbk_dir}}/${config}.conf ==="
+    echo "=== btrbk stats (needs sudo to read snapshot metadata): {{btrbk_dir}}/${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf stats
     echo ""
-    echo "=== btrbk usage: {{btrbk_dir}}/${config}.conf ==="
+    echo "=== btrbk usage (needs sudo, same as above): {{btrbk_dir}}/${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf usage
     echo ""
     just --global-justfile btrfs-status "$target"
@@ -200,12 +203,14 @@ btrbk-backup:
     action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
         "run" "resume")
     if gum confirm "Run btrbk -c {{btrbk_dir}}/${config}.conf ${action}?"; then
+        echo "Running btrbk $action (needs sudo to create/send btrfs snapshots) ..."
         sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf "$action"
         sync
         echo "=== BACKUP COMPLETE ==="
-        if gum confirm --default=false "Also scrub target ($target) while it's mounted?"; then
+        if gum confirm --default=false "Also run btrfs scrub on target ($target) while it's mounted?"; then
+            echo "Starting btrfs scrub (needs sudo to write to the filesystem) ..."
             sudo btrfs scrub start -B "$target"
-            echo "Scrub complete."
+            echo "Btrfs scrub complete."
         fi
     else
         echo "Aborted."
@@ -222,8 +227,11 @@ mount-backup-disk-using-solokey:
     echo ""
     read -rp "Partition to unlock (e.g. /dev/sda1): " dev
     read -rp "Name (e.g. backup1): " name
+    echo "Unlocking $dev (needs sudo to open a LUKS mapping) ..."
     sudo cryptsetup open "$dev" "$name"
+    echo "Creating mount point (needs sudo to write under /mnt) ..."
     sudo mkdir -p /mnt/"$name"
+    echo "Mounting (needs sudo to mount filesystems) ..."
     sudo mount /dev/mapper/"$name" /mnt/"$name"
     echo "Mounted at /mnt/$name"
 
@@ -235,6 +243,8 @@ unmount-backup-disk:
     lsblk -f
     echo ""
     read -rp "Name to unmount (e.g. backup1): " name
+    echo "Unmounting (needs sudo to unmount filesystems) ..."
     sudo umount /mnt/"$name"
+    echo "Closing LUKS mapping (needs sudo) ..."
     sudo cryptsetup close "$name"
     echo "Unmounted and closed $name"
