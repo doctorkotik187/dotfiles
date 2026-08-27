@@ -126,7 +126,7 @@ git-import-jj-config:
     echo "=== GIT CONFIG IMPORTED FROM JJ ==="
 
 [group('Upkeep')]
-[doc('Chezmoi apply, sync brew bundle & mise tools, import jj config, then check for Syncthing conflicts')]
+[doc('Chezmoi apply, sync brew bundle & mise tools, import jj config, then check for syncthing conflicts')]
 sync-everything:
     chezmoi apply
     brew bundle cleanup --global --install
@@ -185,12 +185,14 @@ computer-btrfs-scrub:
     fi
 
 [group('Disk Maintenance')]
-[doc('Interactively pick a btrbk target drive, review it, and run a backup')]
+[doc('Interactively pick a btrbk target drive and action, review it, and run a backup')]
 btrbk-backup:
     #!/usr/bin/env bash
     set -euo pipefail
     config=$(gum choose --header "Which drive?" \
         "full-pocketjuice" "full-microsdeeznuts" "full-whiteghost" "full-pinkbike")
+    action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
+        "run" "resume")
     target=$(grep -E '^\s*target\s+' {{btrbk_dir}}/${config}.conf | awk '{print $2}' | head -1)
     echo "=== btrbk stats (needs sudo to read snapshot metadata): {{btrbk_dir}}/${config}.conf ==="
     sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf stats
@@ -200,8 +202,6 @@ btrbk-backup:
     echo ""
     just --global-justfile btrfs-status "$target"
     echo ""
-    action=$(gum choose --header "run (new snapshot) or resume (reuse last snapshot)?" \
-        "run" "resume")
     if gum confirm "Run btrbk -c {{btrbk_dir}}/${config}.conf ${action}?"; then
         echo "Running btrbk $action (needs sudo to create/send btrfs snapshots) ..."
         sudo {{btrbk_bin}} -c {{btrbk_dir}}/${config}.conf "$action"
