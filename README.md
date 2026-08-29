@@ -7,7 +7,7 @@ managed with [chezmoi](https://www.chezmoi.io/) (symlink mode).
 ## Setup
 
 ```bash
-brew install chezmoi just gum nushell age
+brew install chezmoi just gum nushell age fd
 chezmoi init doctorkotik187 --ssh --apply
 ```
 

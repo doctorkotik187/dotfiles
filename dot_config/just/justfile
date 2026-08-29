@@ -94,7 +94,7 @@ syncthing-conflict-check:
         echo "{{dk_root}} doesn't exist yet, skipping conflict check."
         exit 0
     fi
-    conflicts=$(fd -i "conflict" {{dk_root}})
+    conflicts=$(fd --hidden --no-ignore --ignore-case "conflict" {{dk_root}})
     if [ -n "$conflicts" ]; then
         echo "WARNING: syncthing conflict files found:"
         echo "$conflicts"
