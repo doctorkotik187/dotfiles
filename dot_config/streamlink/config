@@ -1,2 +1,2 @@
 player=mpv
-default-stream=720p,720p50,720p60,480p,best
+default-stream=720p,720p48,720p50,720p60,480p,best

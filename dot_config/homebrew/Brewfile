@@ -16,6 +16,7 @@ brew "bbrew"                                              # bold brew (brew tui)
 brew "syncthing"                                          # decentralized file sync
 brew "wl-clipboard"                                       # command-line copy/paste utilities for wayland
 flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
+flatpak "org.localsend.localsend_app"                     # share files to nearby devices
 
 # =========================================================
 #  VERSION CONTROL
@@ -157,7 +158,7 @@ flatpak "org.keepassxc.KeePassXC"                         # password manager
 # =========================================================
 
 flatpak "com.rtosta.zapzap"                               # whatsapp client
-flatpak "org.telegram.desktop"                            # telegram client
+flatpak "it.belloworld.mercurygram"                       # telegram client
 flatpak "org.signal.Signal"                               # signal client
 flatpak "dev.vencord.Vesktop"                             # discord client
 flatpak "org.gnome.Fractal"                               # matrix client

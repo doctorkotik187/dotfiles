@@ -25,12 +25,12 @@ $env.GROQ_API_KEY = (try { secret-tool lookup service groq username api-key } ca
 
 # -- ALIASES ------------------------------------------------
 
-alias "kate"   = flatpak run org.kde.kate                       # open kate from terminal
+alias "kate"   = flatpak run org.kde.kate                       # kate flatpak shortcut
 alias "brewbg" = brew bundle --global                           # use global brew bundle file ~/.config/homebrew/Brewfile
 alias "justg"  = just --global-justfile                         # use global just file ~/.config/just/justfile
-alias "jjst"   = jj status                                      # common jj typo
-alias "jj sq"  = jj squash                                      # shortcut
-alias "ff"     = fastfetch                                      # shortcut
+alias "jjst"   = jj status                                      # `jj status` common jj typo
+alias "jj sq"  = jj squash                                      # `jj squash` shortcut
+alias "ff"     = fastfetch                                      # `fastfetch` shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
 # Only nushell helpers stay here, rest is in justfile.
