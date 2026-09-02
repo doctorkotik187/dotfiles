@@ -3,8 +3,6 @@
 dk_root := env("HOME") + "/0-doctorkotik"
 dk_core := dk_root + "/0-core"
 
-dk_enc := dk_core + "/3-RESOURCES/program-data/dk.enc"
-dk_mnt := env("HOME") + "/mount/dk.dec"
 btrbk_dir := dk_core + "/3-RESOURCES/program-data/btrbk"
 btrbk_bin := btrbk_dir + "/bin/btrbk"
 kagi_enc := dk_core + "/3-RESOURCES/program-data/old-places/kagi.age"
@@ -64,25 +62,6 @@ kagi-decrypt:
 kagi-remove:
     rm -fv {{kagi_tmp}}
 
-[group('Usage')]
-[doc('Mount the encrypted doctorkotik vault with gocryptfs')]
-gocryptfs-mount:
-    #!/usr/bin/env bash
-    set -euo pipefail
-    mkdir -p {{dk_mnt}}
-    if mountpoint -q {{dk_mnt}}; then
-        echo "Already mounted at {{dk_mnt}}"
-    else
-        echo "Mounting {{dk_enc}} -> {{dk_mnt}}"
-        gocryptfs {{dk_enc}} {{dk_mnt}}
-        echo "Mounted successfully at {{dk_mnt}}"
-    fi
-
-[group('Usage')]
-[doc('Unmount the encrypted doctorkotik vault')]
-gocryptfs-unmount:
-    fusermount -u {{dk_mnt}}
-
 # -- UPKEEP -----------------------------------------------------------
 
 [group('Upkeep')]
@@ -98,6 +77,7 @@ syncthing-conflict-check:
     if [ -n "$conflicts" ]; then
         echo "WARNING: syncthing conflict files found:"
         echo "$conflicts"
+        exit 1
     else
         echo "=== NO SYNCTHING CONFLICTS FOUND ==="
     fi

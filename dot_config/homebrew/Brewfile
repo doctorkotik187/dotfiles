@@ -13,10 +13,7 @@ brew "carapace"                                           # multi-shell completi
 brew "just"                                               # better `make`
 brew "gum"                                                # tool for glamorous shell scripts
 brew "bbrew"                                              # bold brew (brew tui)
-brew "syncthing"                                          # decentralized file sync
-brew "wl-clipboard"                                       # command-line copy/paste utilities for wayland
 flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
-flatpak "org.localsend.localsend_app"                     # share files to nearby devices
 
 # =========================================================
 #  VERSION CONTROL
@@ -53,6 +50,13 @@ brew "yazi"                                               # terminal file manage
 flatpak "com.github.qarmin.czkawka"                       # duplicate file finder
 flatpak "org.gnome.FileRoller"                            # archive manager
 flatpak "org.gnome.Logs"                                  # system logs viewer
+
+# =========================================================
+#  FILE SYNC & TRANSFER
+# =========================================================
+
+brew "syncthing"                                          # decentralized file sync
+flatpak "org.localsend.localsend_app"                     # share files to nearby devices
 
 # =========================================================
 #  CONTAINERS
@@ -146,10 +150,11 @@ flatpak "be.alexandervanhee.gradia"                       # annotate screenshots
 
 brew "solo2-cli"                                          # cli to update and use solo 2 security keys
 brew "libfido2"                                           # cli to manage fido keys in general
-brew "gocryptfs"                                          # encrypted userspace filesystem
 brew "age"                                                # simple, modern, secure file encryption
 brew "sequoia-sq"                                         # openpgp toolkit (gpg alternative, modern rust)
 brew "sigsum-go"                                          # transparency-log signing & proof verification
+brew "gocryptfs"                                          # encrypted userspace filesystem
+flatpak "io.github.mhogomchungu.sirikali"                 # gui to gocryptfs and others
 flatpak "org.gnome.seahorse.Application"                  # key manager (manage ssh & gpg keys)
 flatpak "org.keepassxc.KeePassXC"                         # password manager
 
@@ -217,6 +222,7 @@ brew "lazymake"                                           # tui for make
 brew "borkdude/brew/babashka", trusted: true              # use mise version, just to enable trust for neil dependency
 brew "babashka/brew/neil", trusted: true                  # clojure project scaffolding tool
 brew "rlwrap"                                             # generally useful on cli (e.g. for clj repl)
+brew "wl-clipboard"                                       # command-line copy/paste utilities for wayland
 brew "ast-grep"                                           # structural/ast-aware code search (lazyvim dependency)
 brew "mermaid-cli"                                        # mermaid diagrams inline (lazyvim dependency)
 
