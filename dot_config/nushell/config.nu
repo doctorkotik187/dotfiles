@@ -31,6 +31,7 @@ alias "justg"  = just --global-justfile                         # use global jus
 alias "jjst"   = jj status                                      # `jj status` common jj typo
 alias "jj sq"  = jj squash                                      # `jj squash` shortcut
 alias "ff"     = fastfetch                                      # `fastfetch` shortcut
+alias "yt-a"   = yt-dlp -f 249 -x --audio-format opus --restrict-filenames  # `yt-dlp` audio shortcut
 
 # -- CUSTOM COMMANDS ----------------------------------------
 # Only nushell helpers stay here, rest is in justfile.

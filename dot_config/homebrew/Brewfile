@@ -47,8 +47,10 @@ brew "sevenzip"                                           # 7zip extractor
 brew "trash-cli"                                          # trash files from cli (nushell can do it natively)
 brew "watchexec"                                          # watch files and run commands on change
 brew "yazi"                                               # terminal file manager
+brew "ouch"                                               # cli archive manager
+flatpak "org.gnome.FileRoller"                            # simple archive manager
+flatpak "io.github.peazip.PeaZip"                         # powerful archive manager
 flatpak "com.github.qarmin.czkawka"                       # duplicate file finder
-flatpak "org.gnome.FileRoller"                            # archive manager
 flatpak "org.gnome.Logs"                                  # system logs viewer
 
 # =========================================================
@@ -135,12 +137,13 @@ flatpak "com.github.neithern.g4music"                     # music player
 flatpak "com.obsproject.Studio"                           # streaming & recording
 flatpak "fr.handbrake.ghb"                                # video transcoder
 flatpak "io.mpv.Mpv"                                      # media player (flatpak)
+flatpak "org.videolan.VLC"                                # media player
+flatpak "com.github.geigi.cozy"                           # audiobook player
 flatpak "org.kde.gwenview"                                # image viewer (where thrashing always works)
 flatpak "org.gnome.Loupe"                                 # image viewer
 flatpak "org.gimp.GIMP"                                   # image editor
 flatpak "org.kde.digikam"                                 # photo manager
 flatpak "org.shotcut.Shotcut"                             # video editor
-flatpak "org.videolan.VLC"                                # media player
 flatpak "org.gnome.Snapshot"                              # simple webcam pictures
 flatpak "be.alexandervanhee.gradia"                       # annotate screenshots (put on Ctrl+Print)
 

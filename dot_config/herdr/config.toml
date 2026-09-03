@@ -5,6 +5,7 @@ default_shell = "nu"
 
 [ui]
 mouse_capture = false
+sidebar_start_collapsed = true
 
 [theme]
 # name = "catppuccin-latte"
