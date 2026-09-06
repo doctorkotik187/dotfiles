@@ -1,19 +1,30 @@
 # =========================================================
-#  CORE
+#  BOOTSTRAP CORE TOOLS
 # =========================================================
 
 brew "chezmoi"                                            # dotfiles manager
-brew "neovim"                                             # the only text editor
+brew "just"                                               # better `make`
+brew "gum"                                                # tool for glamorous shell scripts
 brew "herdr"                                              # the only multiplexer
+brew "neovim"                                             # the only text editor
+flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
+
+# =========================================================
+#  NUSHELL & FRIENDS
+# =========================================================
+
 brew "nushell"                                            # the only shell
-brew "mise"                                               # brew's right hand and sdk goat
 brew "starship"                                           # cross-shell prompt
 brew "zoxide"                                             # smarter cd (jump to frequent dirs)
 brew "carapace"                                           # multi-shell completion generator
-brew "just"                                               # better `make`
-brew "gum"                                                # tool for glamorous shell scripts
+
+# =========================================================
+#  PACKAGE MANAGERS
+# =========================================================
+
 brew "bbrew"                                              # bold brew (brew tui)
-flatpak "org.kde.kate"                                    # fallback clicky clicky text editor
+brew "mise"                                               # brew's right hand and sdk goat
+brew "soar"                                               # brew's left hand and appimage goat
 
 # =========================================================
 #  VERSION CONTROL
