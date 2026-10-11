@@ -25,11 +25,8 @@ org.gnumeric.Gnumeric
 io.github.Qalculate
 org.gnome.Calculator
 com.github.qarmin.czkawka
-org.gnome.Logs
 org.localsend.localsend_app
-io.missioncenter.MissionCenter
 org.gnome.Connections
-org.gnome.baobab
 org.gnome.Calendar
 org.gnome.clocks
 org.gnome.Weather
@@ -62,7 +59,6 @@ be.alexandervanhee.gradia
 org.kde.isoimagewriter
 
 # Security & Crypto
-org.getmonero.Monero
 io.github.mhogomchungu.sirikali
 org.gnome.seahorse.Application
 org.keepassxc.KeePassXC
@@ -73,11 +69,9 @@ it.belloworld.mercurygram
 org.signal.Signal
 dev.vencord.Vesktop
 org.gnome.Fractal
-org.mozilla.thunderbird_esr
 eu.betterbird.Betterbird
 
 # Browsers, Gaming & App Store
 io.gitlab.librewolf-community
 org.chromium.Chromium
 com.valvesoftware.Steam
-io.github.kolunmi.Bazaar
