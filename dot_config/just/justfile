@@ -23,8 +23,6 @@ smolvm-rebuild:
     smolvm machine create --name smolbaby -s "$HOME/.config/smolvm/Smolfile"
     smolvm machine start --name smolbaby
 
-# Personal only ############################################
-
 # Setup (one-off, per machine) ###########################
 
 [group('Setup')]
