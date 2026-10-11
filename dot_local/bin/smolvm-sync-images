@@ -1,0 +1,115 @@
+#!/usr/bin/env bash
+# Tool: smolvm-sync-images
+# Description: Synchronize container images referenced in docker-compose files from host to smolbaby VM via stdin.
+set -euo pipefail
+
+TARGET="${1:-.}"
+VM_NAME="smolbaby"
+
+# 1. Locate compose file(s)
+compose_files=()
+if [ -f "$TARGET" ]; then
+  compose_files=("$TARGET")
+elif [ -d "$TARGET" ]; then
+  # Direct match for common locations first
+  for cand in \
+    "$TARGET/docker-compose.yaml" \
+    "$TARGET/docker-compose.yml" \
+    "$TARGET/compose.yaml" \
+    "$TARGET/compose.yml" \
+    "$TARGET/docker/docker-compose.yaml" \
+    "$TARGET/docker/docker-compose.yml" \
+    "$TARGET/specification/integration/docker-compose.yaml" \
+    "$TARGET/specification/integration/docker-compose.yml"; do
+    if [ -f "$cand" ]; then
+      compose_files=("$cand")
+      break
+    fi
+  done
+
+  # Fallback: search recursively if standard locations did not match
+  if [ ${#compose_files[@]} -eq 0 ]; then
+    while IFS= read -r f; do
+      [ -n "$f" ] && compose_files+=("$f")
+    done < <(find "$TARGET" -maxdepth 4 -type f \( -name "*compose*.yaml" -o -name "*compose*.yml" \) 2>/dev/null | sort)
+  fi
+else
+  echo "Error: Target '$TARGET' is not a valid file or directory." >&2
+  exit 1
+fi
+
+if [ ${#compose_files[@]} -eq 0 ]; then
+  echo "Error: No docker-compose files found in '$TARGET'." >&2
+  exit 1
+fi
+
+# 2. Extract image references (exclude services with local `build:` definition)
+all_images=()
+for cf in "${compose_files[@]}"; do
+  echo "==> Parsing compose file: $cf"
+  while IFS= read -r img; do
+    [ -n "$img" ] && all_images+=("$img")
+  done < <(yq -r '.. | .services? // . | .[]? | select(has("image") and (has("build") | not)) | .image' "$cf" 2>/dev/null || true)
+done
+
+# De-duplicate image list
+if [ ${#all_images[@]} -eq 0 ]; then
+  echo "No remote container images found to sync."
+  exit 0
+fi
+
+mapfile -t unique_images < <(printf '%s\n' "${all_images[@]}" | sort -u)
+
+echo "Found ${#unique_images[@]} container image(s):"
+for img in "${unique_images[@]}"; do
+  echo "  - $img"
+done
+echo ""
+
+# 3. Ensure target VM is running
+if ! smolvm machine list 2>/dev/null | grep -q "${VM_NAME}.*running"; then
+  echo "--> Target machine '${VM_NAME}' is not running. Starting it..."
+  smolvm machine start --name "$VM_NAME"
+fi
+
+# 4. Sync images idempotently
+synced_count=0
+skipped_count=0
+
+for img in "${unique_images[@]}"; do
+  echo -n "--> Checking '$img' in ${VM_NAME}... "
+  if smolvm machine exec --name "$VM_NAME" -- podman image exists "$img" 2>/dev/null; then
+    echo "✓ already loaded, skipping."
+    skipped_count=$((skipped_count + 1))
+    continue
+  fi
+
+  echo "missing."
+
+  # Check / pull on host
+  if ! podman image exists "$img" 2>/dev/null; then
+    echo "    ⬇ [host] Pulling '$img' with host credentials..."
+    if ! podman pull "$img" 2>/dev/null; then
+      # Handle Docker Hub short names without domain (e.g. apache/kafka:4.3.0)
+      if [[ "$img" != *"/"* ]] || [[ "$img" != *"."*/* ]]; then
+        echo "    ↳ Retrying with docker.io prefix: 'docker.io/$img'..."
+        podman pull "docker.io/$img"
+        podman tag "docker.io/$img" "$img" 2>/dev/null || true
+      else
+        podman pull "$img"
+      fi
+    fi
+  fi
+
+  # Stream directly from host into guest VM stdin
+  echo "    🚀 [stream] Transferring '$img' host -> ${VM_NAME}..."
+  podman save "$img" | smolvm machine exec -i --name "$VM_NAME" -- podman load
+  # Ensure exact image tag exists in guest (podman load on short-names can prepend localhost/)
+  smolvm machine exec --name "$VM_NAME" -- podman image exists "$img" 2>/dev/null || \
+    smolvm machine exec --name "$VM_NAME" -- podman tag "localhost/$img" "$img" 2>/dev/null || true
+  echo "    ✓ Successfully loaded '$img' into ${VM_NAME}."
+  synced_count=$((synced_count + 1))
+done
+
+echo ""
+echo "==> Sync complete: ${synced_count} synced, ${skipped_count} skipped."

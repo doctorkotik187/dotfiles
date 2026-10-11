@@ -1,0 +1,4 @@
+# Tool: soar (https://github.com/pkgforge/soar) — Package manager for standalone binary packages
+
+[packages]
+uad-ng = "*"

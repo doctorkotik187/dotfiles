@@ -1,36 +1,43 @@
-# .bashrc
+# vim: set ft=bash :
 
-# Source global definitions
+# If not running interactively, don't do anything
+[[ $- != *i* ]] && return
+
+# Source global definitions on Fedora
 if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
+  . /etc/bashrc
 fi
 
-# User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
-export PATH
-
-# Uncomment the following line if you don't like systemctl's auto-paging feature:
-# export SYSTEMD_PAGER=
-
-# User specific aliases and functions
-if [ -d ~/.bashrc.d ]; then
-    for rc in ~/.bashrc.d/*; do
-        if [ -f "$rc" ]; then
-            . "$rc"
-        fi
-    done
-fi
-unset rc
-
-# MY CHANGES (keep compatibility with nushell)
-eval "$(mise activate bash)"
-
-export SHELL_ICON=""                   # for starship
-export XDG_CONFIG_HOME="$HOME/.config"  # for brew bundle file
-export DO_NOT_TRACK=1                   # for crush.ai but also maybe others
+# Core ####################################################
 export EDITOR="nvim"
+export IGNOREEOF=9  # Ctrl+D quits only after 9 times
 
-# clear history on start, because I use nushell
-history -c && history -w
+# Tools ###################################################
+export PATH="$HOME/.local/bin:$HOME/.local/share/soar/bin:$PATH"
+eval "$(mise activate bash)"
+export STARSHIP_LOG="error"
+eval "$(starship init bash)"
+eval "$(zoxide init bash)"
+export SMOLVM_MACHINE_NAME="smolbaby"
+export FZF_DEFAULT_OPTS="
+	--color=fg:#908caa,bg:#232136,hl:#ea9a97
+	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+	--color=border:#44415a,header:#3e8fb0,gutter:#232136
+	--color=spinner:#f6c177,info:#9ccfd8
+	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
+
+if [ ! -f "$HOME/.omp/agent/extensions/herdr-omp-agent-state.ts" ] && command -v herdr >/dev/null 2>&1; then
+  herdr integration install omp >/dev/null 2>&1 || true
+fi
+
+# Aliases #################################################
+alias nv='nvim'
+alias gst='git status'
+alias lg='lazygit'
+alias ff='fastfetch'
+alias ll='eza -al'
+alias justg='just --global-justfile'
+alias yt-a='yt-dlp -f 249 -x --audio-format opus --restrict-filenames'
+alias kate='flatpak run org.kde.kate'
+alias vm='smolvm machine start >/dev/null 2>&1; smolvm machine exec -i -t -- bash -l'
+

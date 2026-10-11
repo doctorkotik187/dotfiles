@@ -1,0 +1,29 @@
+# vim: set ft=config :
+# Tool: tig (https://github.com/jonas/tig) — Text-mode interface for Git
+
+# Delta ------------------------------------------------------
+bind main   D >sh -c "git show %(commit) --color=always | delta"
+bind main   S >sh -c "git show %(commit) --color=always | delta --side-by-side"
+bind diff   D >sh -c "git show %(commit) --color=always | delta"
+bind diff   S >sh -c "git show %(commit) --color=always | delta --side-by-side"
+bind stage  D >sh -c "git diff HEAD -- %(file) --color=always | delta"
+bind stage  S >sh -c "git diff HEAD -- %(file) --color=always | delta --side-by-side"
+bind status D >sh -c "git diff HEAD -- %(file) --color=always | delta"
+bind status S >sh -c "git diff HEAD -- %(file) --color=always | delta --side-by-side"
+
+# Rose Pine Moon -----------------------------------------
+set git-colors = no
+color   cursor            7 4
+color   search-result     7 5 bold
+color   line-number       default default dim
+color   title-focus       7 4 bold
+color   title-blur        default default dim
+color   diff-header       3 default
+color   diff-index        2 default
+color   diff-chunk        5 default
+color   "Reported-by:"    4 default
+color   tree.date         2 default bold
+color   author            1 default
+color   date              default default dim
+color   status.section    5 default
+color   status.header     2 default
