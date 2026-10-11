@@ -23,11 +23,6 @@ smolvm-rebuild:
     smolvm machine create --name smolbaby -s "$HOME/.config/smolvm/Smolfile"
     smolvm machine start --name smolbaby
 
-[group('SmolVM')]
-[doc('Sync container images from docker-compose file or project dir into smolbaby VM')]
-smolvm-sync-images TARGET=".":
-    smolvm-sync-images "{{ TARGET }}"
-
 # Personal only ############################################
 
 # Setup (one-off, per machine) ###########################
