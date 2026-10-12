@@ -87,6 +87,7 @@ yt-dlp                                                        = "latest"  # medi
 xh                                                            = "latest"  # friendly and fast tool for sending http requests
 websocat                                                      = "latest"  # netcat for websockets
 ffmpeg                                                        = "latest"  # media swiss army knife
+mpv                                                           = "latest"  # based video player
 oxipng                                                        = "latest"  # multithreaded png optimizer
 "github:Wraient/curd"                                         = "latest"  # uwu
 "github:fathyb/carbonyl"                                      = "latest"  # cli web browser

@@ -56,7 +56,6 @@ org.gimp.GIMP
 org.kde.digikam
 org.shotcut.Shotcut
 be.alexandervanhee.gradia
-org.kde.isoimagewriter
 
 # Security & Crypto
 io.github.mhogomchungu.sirikali
