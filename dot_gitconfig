@@ -3,9 +3,6 @@
 [gpg]
   format = ssh
 
-[gpg "ssh"]
-  defaultKeyCommand = ssh-add -L
-
 [commit]
   gpgsign = true
 
@@ -36,4 +33,5 @@
 [user]
   name = doctorkotik187
   email = 217476020+doctorkotik187@users.noreply.github.com
+  signingkey = ~/.ssh/dk-sign.pub
 

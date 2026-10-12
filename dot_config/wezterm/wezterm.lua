@@ -23,7 +23,7 @@ config.keys = {
 }
 
 -- Font ###################################################
-config.font = wezterm.font("Maple Mono NF CN", { weight = "Medium" })
+config.font = wezterm.font("JetBrainsMono NF", { weight = "Medium" })
 config.font_size = 9
 
 -- Visuals ################################################

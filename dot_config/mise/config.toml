@@ -31,6 +31,7 @@ dua                                                           = "latest"  # disk
 yazi                                                          = "latest"  # file manager for people allergic to GUIs
 7zip                                                          = "latest"  # the one archive tool to rule them all
 gocryptfs                                                     = "latest"  # encrypted filesystem, for your trust issues
+restic                                                        = "latest"  # based backups
 "aqua:ouch-org/ouch"                                          = "latest"  # decompress anything without memorizing 20 flag combos
 "aqua:Canop/dysk"                                             = "latest"  # mounted disks and free space with filesystem info
 
