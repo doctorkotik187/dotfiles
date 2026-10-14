@@ -1,7 +1,7 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
 [settings]
-auto_update=true
+auto_update = true
 
 [tools]
 # CLI APPS ################################################
@@ -36,7 +36,7 @@ restic                                                        = "latest"  # base
 "aqua:Canop/dysk"                                             = "latest"  # mounted disks and free space with filesystem info
 
 # Git & Version Control ---------------------------------------
-jj                                                            = "latest"  # jujutsu, in case we need to do a risky git operation
+jj                                                            = "latest"  # old friend, in case we need to do a risky git operation
 gh                                                            = "latest"  # github cli, for avoiding the website
 lazygit                                                       = "latest"  # git tui, for avoiding git
 delta                                                         = "latest"  # git diff pager that makes diffs look intentional
@@ -49,6 +49,7 @@ actionlint                                                    = "latest"  # stat
 chezmoi                                                       = "latest"  # dotfiles manager, the reason this file exists
 difftastic                                                    = "latest"  # structural syntax-aware diff tool
 zizmor                                                        = "latest"  # static analysis tool for github actions
+onefetch                                                      = "latest"  # git repo fetcher, turns project stats into ascii flex
 "aqua:tummychow/git-absorb"                                   = "latest"  # git commit --fixup made easy
 
 # System & Monitoring ------------------------------------------
@@ -68,6 +69,7 @@ podman-tui                                                    = "latest"  # term
 marp-cli                                                      = "latest"  # presentations with markdown
 pandoc                                                        = "latest"  # document converter, the universal translator
 typst                                                         = "latest"  # typesetting without LaTeX's decade-long learning curve
+"github:tectonic-typesetting/tectonic"                        = "latest"  # modern tex/latex engine
 glow                                                          = "latest"  # markdown reader, for people who read READMEs
 jq                                                            = "latest"  # json processor, the duct tape of the terminal
 yq                                                            = "latest"  # yq is jq's yaml-flavored sibling
@@ -78,24 +80,30 @@ markdownlint-cli2                                             = "latest"  # mark
 taplo                                                         = "latest"  # toml toolkit, formatter, and linter
 yamlfmt                                                       = "latest"  # extensible yaml formatter
 usql                                                          = "latest"  # universal sql cli client
+"aqua:jorgerojas26/lazysql"                                   = "latest"  # cross-platform database tui
 sqlite                                                        = "latest"  # the database, that is just a file
 postgres                                                      = "latest"  # relational database management system
 just                                                          = "latest"  # task runner, make without the whitespace trauma
 
 # Media, network & API -------------------------------------------
-yt-dlp                                                        = "latest"  # media downloader, allegedly for archival purposes
 xh                                                            = "latest"  # friendly and fast tool for sending http requests
 websocat                                                      = "latest"  # netcat for websockets
-ffmpeg                                                        = "latest"  # media swiss army knife
-mpv                                                           = "latest"  # based video player
 oxipng                                                        = "latest"  # multithreaded png optimizer
+"github:atanunq/viu"                                          = "latest"  # terminal image viewer
 "github:Wraient/curd"                                         = "latest"  # uwu
 "github:fathyb/carbonyl"                                      = "latest"  # cli web browser
 
 # Security & Crypto ----------------------------------------------
 age                                                           = "latest"  # file encryption without a PhD requirement
 osv-scanner                                                   = "latest"  # vulnerability scanner using google osv database
+cosign                                                        = "latest"  # container signing and verification using sigstore
 "github:olastor/age-plugin-fido2-hmac"                        = "latest"  # use age with solokey
+"cargo:solo2"                                                 = "latest"  # cli to update and use solo 2 security keys
+"go:sigsum.org/sigsum-go/cmd/sigsum-key"                      = "latest"  # sigsum key management cli
+"go:sigsum.org/sigsum-go/cmd/sigsum-policy"                   = "latest"  # sigsum trust policy cli
+"go:sigsum.org/sigsum-go/cmd/sigsum-submit"                   = "latest"  # sigsum submit signed checksum to log
+"go:sigsum.org/sigsum-go/cmd/sigsum-verify"                   = "latest"  # sigsum proof and signature verification cli
+"go:sigsum.org/sigsum-go/cmd/sigsum-monitor"                  = "latest"  # sigsum transparency log monitor
 
 # AI agents & Isolation -----------------------------------------
 oh-my-pi                                                      = { version = "latest", rename_exe = "omp" }  # pi with batteries included

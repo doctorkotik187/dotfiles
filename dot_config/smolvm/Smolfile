@@ -14,7 +14,7 @@ block_io = "async"
 ssh_agent = true
 
 [secrets]
-AI_API_TOKEN = { from_env = "AI_API_TOKEN" }
+WOVEY_API_TOKEN = { from_env = "WOVEY_API_TOKEN" }
 GITHUB_TOKEN = { from_env = "BYPASS_GITHUB_TOKEN" }  # bypass github api limits
 
 [dev]
@@ -46,10 +46,10 @@ volumes = [
 
 init = [
   # Packages & base tools
-  "dnf install -y git tig qalculate which rlwrap podman skopeo file xxd patch bind-utils traceroute rsync lsof procps-ng tree @c-development readline-devel openssl-devel libffi-devel sqlite-devel zlib-ng-compat-devel libicu-devel chezmoi zstd iproute iputils util-linux sudo hostname strace gdb socat tcpdump pv patchelf alsa-lib at-spi2-atk atk cairo libXdamage libXfixes nspr nss pango netcat iptables nftables net-tools wget curl mtr iperf3 ethtool conntrack-tools android-tools pulseaudio-libs libglvnd-glx && dnf clean all",
+  "dnf install -y git tig git-lfs feh qalculate which rlwrap podman skopeo fuse-overlayfs file xxd patch bind-utils traceroute rsync lsof procps-ng tree @c-development readline-devel openssl-devel libffi-devel sqlite-devel bzip2-devel xz-devel zlib-ng-compat-devel libicu-devel chezmoi zstd iproute iputils util-linux sudo hostname strace gdb socat tcpdump pv patchelf alsa-lib at-spi2-atk atk cairo libXdamage libXfixes nspr nss pango cups-libs libXcomposite libXrandr libxkbcommon mesa-libgbm dejavu-sans-fonts google-noto-sans-cjk-vf-fonts netcat iptables nftables net-tools wget curl mtr iperf3 ethtool conntrack-tools android-tools pulseaudio-libs libglvnd-glx cava calcurse pngquant nmap mc fido2-tools sequoia-sq && dnf clean all",
 
   # Hostname & user identity
-  "ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && echo 'smolbaby' > /etc/hostname && (hostname smolbaby 2>/dev/null || true)",
+  "ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && echo 'LANG=en_US.UTF-8' > /etc/locale.conf && echo 'smolbaby' > /etc/hostname && (hostname smolbaby 2>/dev/null || true)",
   "id -u dk >/dev/null 2>&1 || (useradd -M -s /bin/bash -u 1000 dk && echo 'dk ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/dk && chown dk:dk /home/dk /home/dk/.local /home/dk/.local/share)",
 
   # Rootless Podman (SUID for subuids/crun; mode 0666 /dev/net/tun for pasta)
