@@ -2,32 +2,32 @@
 
 git:
   diffRenderers:
-    - command: delta --dark --paging=never
-    - command: delta --dark --paging=never --side-by-side
+    - command: delta --paging=never --syntax-theme=none
+    - command: delta --paging=never --syntax-theme=none --side-by-side
 
 gui:
   showFileTree: false
   # Rose Pine Theme
   theme:
     activeBorderColor:
-      - "#3e8fb0"
+      - "#31748f"
       - bold
     inactiveBorderColor:
       - "#6e6a86"
     searchingActiveBorderColor:
-      - "#ea9a97"
+      - "#ebbcba"
       - bold
     optionsTextColor:
       - "#9ccfd8"
     selectedLineBgColor:
-      - "#3e8fb0"
+      - "#31748f"
     inactiveViewSelectedLineBgColor:
-      - "#393552"
+      - "#26233a"
       - bold
     cherryPickedCommitFgColor:
-      - "#2a273f"
+      - "#1f1d2e"
     cherryPickedCommitBgColor:
-      - "#ea9a97"
+      - "#ebbcba"
     markedBaseCommitFgColor:
       - "#9ccfd8"
     markedBaseCommitBgColor:

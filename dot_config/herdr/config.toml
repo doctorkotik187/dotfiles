@@ -24,7 +24,6 @@ status_indicators   = "symbols"
 host_cursor         = "native"
 prompt_new_tab_name = false
 show_agent_labels_on_pane_borders = true
-accent              = "#FF007F"
 
 [ui.toast]
 delivery           = "herdr"

@@ -21,5 +21,6 @@
   "web:defaulturl": "http://localhost:3000",
   "widget:showhelp": false,
   "window:nativetitlebar": false,
-  "window:reducedmotion": true
+  "window:reducedmotion": true,
+  "window:savelastwindow": true
 }

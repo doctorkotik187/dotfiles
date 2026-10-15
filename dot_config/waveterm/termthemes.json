@@ -4,7 +4,7 @@
     "display:order": 7,
     "black": "#26233a",
     "red": "#eb6f92",
-    "green": "#3e8fb0",
+    "green": "#31748f",
     "yellow": "#f6c177",
     "blue": "#9ccfd8",
     "magenta": "#c4a7e7",
@@ -22,6 +22,6 @@
     "cmdtext": "#e0def4",
     "foreground": "#e0def4",
     "background": "#191724",
-    "cursor": "#f6c177"
+    "cursor": "#eb6f92"
   }
 }

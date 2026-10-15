@@ -17,11 +17,33 @@
 
 # Tool: delta (https://github.com/dandavison/delta) — Syntax-highlighting pager for git diffs
 [delta]
-  dark = true
-  syntax-theme = Catppuccin Mocha
+  features = rose-pine
+  true-color = always
   navigate = true
   line-numbers = true
   side-by-side = false
+
+[delta "rose-pine"]
+  dark = true
+  file-style = "#9ccfd8" bold ul
+  file-decoration-style = "#2a2838"
+  commit-decoration-style = "#2a2838"
+  hunk-header-decoration-style = "#e0def4" box
+  hunk-header-line-number-style = "#6e6a86"
+  hunk-header-style = line-number syntax bold
+  line-numbers-left-style = "#6e6a86"
+  line-numbers-minus-style = "#eb6f92"
+  line-numbers-plus-style = "#31748f"
+  line-numbers-right-style = "#c4a7e7"
+  line-numbers-zero-style = "#6e6a86"
+  minus-emph-style = syntax bold "#82435b"
+  minus-style = syntax "#4e2d40"
+  plus-emph-style = syntax bold "#2e5872"
+  plus-style = syntax "#1f2e3f"
+  whitespace-error-style = "#2a2538"
+
+[delta "dark"]
+  features = rose-pine
 
 [merge]
   conflictStyle = zdiff3

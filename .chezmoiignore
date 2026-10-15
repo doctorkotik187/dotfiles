@@ -3,4 +3,5 @@ README.md
 .bashrc.local
 .config/just/justfile.local
 .docker/config.json
+.local/bin/smolvm-sync-images
 {{- end }}
