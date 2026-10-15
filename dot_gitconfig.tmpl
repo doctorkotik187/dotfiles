@@ -7,7 +7,7 @@
   gpgsign = true
 
 [tag]
-  gpgsign = true
+  gpgSign = true
 
 [core]
   pager = delta
@@ -29,9 +29,7 @@
 [diff]
   colorMoved = default
 
-# Personal only ############################################
 [user]
-  name = doctorkotik187
-  email = 217476020+doctorkotik187@users.noreply.github.com
-  signingkey = ~/.ssh/dk-git-sign.pub
-
+  name = {{ .user.name }}
+  email = {{ .user.email }}
+  signingkey = {{ .user.signingkey }}

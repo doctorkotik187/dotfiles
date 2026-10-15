@@ -1,0 +1,77 @@
+# vim: set ft=just :
+
+# Variables ##############################################
+
+dk_root := env("HOME") / "0-doctorkotik"
+kagi_enc := dk_root / "0-core/3-RESOURCES/program-data/old-places/kagi.age"
+kagi_tmp := "/dev/shm/kagi"
+
+# Setup (one-off, per machine) ###########################
+
+[group('Setup')]
+[doc('Prompt to drop encryption keys on disk, then lock down their permissions')]
+secrets-deploy:
+    #!/bin/sh
+    set -eu
+    echo "Deploy 'Drop on Disk' group to:"
+    echo "     ~/.config/chezmoi/key.txt"
+    echo "     ~/.ssh/dk-sign"
+    echo "     ~/.ssh/dk-sign.pub"
+    printf "Press Enter once done ... "
+    read -r _
+    chmod -v 600 ~/.config/chezmoi/key.txt ~/.ssh/dk-sign
+    echo "Secrets deployed."
+
+[group('Setup')]
+[doc('Import an SSH key from a plugged-in Solokey/FIDO2 device')]
+ssh-import-from-solokey:
+    #!/bin/sh
+    set -eu
+    printf "Plug in a Solokey, then press Enter ... "
+    read -r _
+    ssh-keygen -K
+    echo "SSH key imported from Solokey."
+
+[group('Setup')]
+[doc('Install Flatpak applications defined in ~/.config/flatpak/flatpaks.txt')]
+install-flatpaks:
+    flatpak remote-add --user --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+    grep -vE '^(#|[[:space:]]*$)' ~/.config/flatpak/flatpaks.txt | xargs flatpak install -y --user flathub
+
+# Usage ##################################################
+
+[group('Usage')]
+[doc('Decrypt kagi (via Solokey FIDO2) to a tmpfs file')]
+kagi-decrypt:
+    age -d -j fido2-hmac -o {{ kagi_tmp }} {{ kagi_enc }}
+
+[group('Usage')]
+[doc('Delete the decrypted kagi temp file')]
+kagi-remove:
+    rm -fv {{ kagi_tmp }}
+
+# Upkeep #################################################
+
+[group('Upkeep')]
+[doc('Report any unresolved Syncthing conflict files under the doctorkotik dir')]
+syncthing-conflict-check:
+    #!/bin/sh
+    set -eu
+    if [ ! -d "{{ dk_root }}" ]; then
+        echo "{{ dk_root }} doesn't exist yet, skipping conflict check."
+        exit 0
+    fi
+    conflicts=$(fd --hidden --no-ignore --ignore-case "conflict" "{{ dk_root }}")
+    if [ -n "$conflicts" ]; then
+        echo "WARNING: syncthing conflict files found:"
+        echo "$conflicts"
+        exit 1
+    else
+        echo "=== NO SYNCTHING CONFLICTS FOUND ==="
+    fi
+
+[group('Upkeep')]
+[doc('Check for Syncthing conflicts and update the system')]
+update: syncthing-conflict-check update-tools
+    rpm-ostree upgrade
+    flatpak update -y

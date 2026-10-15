@@ -14,7 +14,7 @@ block_io = "async"
 ssh_agent = true
 
 [secrets]
-WOVEY_API_TOKEN = { from_env = "WOVEY_API_TOKEN" }
+AI_API_TOKEN = { from_env = "AI_API_TOKEN" }
 GITHUB_TOKEN = { from_env = "BYPASS_GITHUB_TOKEN" }  # bypass github api limits
 
 [dev]

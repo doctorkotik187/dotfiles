@@ -9,3 +9,25 @@ yt-dlp          = "*"  # media downloader, allegedly for archival purposes
 macchina        = "*"  # fast sysinfo fetcher, for when your terminal starts faster than your thoughts
 cpufetch        = "*"  # ascii art for your CPU cache hierarchy and socket pinout
 albafetch       = "*"  # c-based neofetch alternative, because shell scripts took 2 whole milliseconds
+
+[packages.waveterm]
+github        = "wavetermdev/waveterm"
+version       = "*"
+asset_pattern = "*linux-x64*.zip"
+entrypoint    = "waveterm"
+hooks         = { post_install = """
+mkdir -p ~/.local/share/applications
+ICON=$(find "$INSTALL_DIR" -name "wave-logo-dark.png" -o -name "*logo*.png" 2>/dev/null | head -n 1)
+cat << EOF > ~/.local/share/applications/waveterm.desktop
+[Desktop Entry]
+Name=Wave Terminal
+Comment=AI-integrated, cross-platform terminal
+Exec=waveterm %U
+Icon=${ICON:-utilities-terminal}
+Terminal=false
+Type=Application
+Categories=System;TerminalEmulator;
+StartupWMClass=Wave
+EOF
+update-desktop-database ~/.local/share/applications/ 2>/dev/null || true
+""" }

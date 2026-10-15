@@ -83,7 +83,7 @@ use_12hr = true
 
 [username]
 disabled = false
-format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+format = "[](fg:overlay)[ 󰧱 $user ]($style)"
 show_always = true
 style_root = "bg:overlay fg:iris"
 style_user = "bg:overlay fg:iris"
@@ -91,7 +91,7 @@ style_user = "bg:overlay fg:iris"
 [hostname]
 ssh_only = false
 disabled = false
-format = "[](fg:overlay)[ 󰒋 $hostname ]($style)[](fg:overlay) "
+format = "[󰌽 $hostname ]($style)[](fg:overlay) "
 style = "bg:overlay fg:gold"
 
 # Languages

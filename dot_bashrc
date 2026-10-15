@@ -26,10 +26,6 @@ export FZF_DEFAULT_OPTS="
 	--color=spinner:#f6c177,info:#9ccfd8
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa"
 
-if [ ! -f "$HOME/.omp/agent/extensions/herdr-omp-agent-state.ts" ] && command -v herdr >/dev/null 2>&1; then
-  herdr integration install omp >/dev/null 2>&1 || true
-fi
-
 # Aliases #################################################
 alias nv='nvim'
 alias gst='git status'
@@ -40,4 +36,9 @@ alias justg='just --global-justfile'
 alias yt-a='yt-dlp -f 249 -x --audio-format opus --restrict-filenames'
 alias kate='flatpak run org.kde.kate'
 alias vm='smolvm machine start >/dev/null 2>&1; smolvm machine exec -i -t -- bash -l'
+alias wvs='wsh run --cwd . -- bash'
 
+# Local file ##############################################
+if [ -f "$HOME/.bashrc.local" ]; then
+  . "$HOME/.bashrc.local"
+fi
