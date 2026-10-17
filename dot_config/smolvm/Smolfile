@@ -60,6 +60,6 @@ init = [
   "printf '#!/bin/sh\\nif [ \"$(sysctl -n net.ipv4.conf.all.route_localnet 2>/dev/null)\" != \"1\" ]; then\\n    sudo sysctl -w net.ipv4.conf.all.route_localnet=1 >/dev/null 2>&1\\n    sudo nft \"add table ip nat; add chain ip nat PREROUTING { type nat hook prerouting priority dstnat; }; add rule ip nat PREROUTING dnat to 127.0.0.1\" 2>/dev/null || true\\nfi\\n' > /etc/profile.d/99-smolvm-localnet.sh && chmod +x /etc/profile.d/99-smolvm-localnet.sh && sh /etc/profile.d/99-smolvm-localnet.sh",
   "printf '#!/bin/sh\\n[ -S /tmp/ssh-agent.sock ] && sudo chown dk:dk /tmp/ssh-agent.sock 2>/dev/null || true\\n' > /etc/profile.d/99-smolvm-ssh-agent.sh && chmod +x /etc/profile.d/99-smolvm-ssh-agent.sh",
 
-  # User dotfiles & mise toolchains
-  "su - dk -c 'chezmoi init --apply && curl -fsSL https://mise.run | sh'",
+  # User dotfiles & soar bootstrap
+  "su - dk -c 'chezmoi init --apply && curl -fsSL https://raw.githubusercontent.com/pkgforge/soar/main/install.sh | sh && ~/.local/bin/soar sync'",
 ]

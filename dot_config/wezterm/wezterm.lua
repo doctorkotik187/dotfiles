@@ -1,4 +1,4 @@
--- Tool: wezterm (https://wezfurlong.org/wezterm/) — GPU-accelerated terminal emulator and multiplexer
+-- Tool: wezterm (https://wezterm.org) — GPU-accelerated terminal emulator and multiplexer
 
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
@@ -22,13 +22,10 @@ config.keys = {
 	{ key = "Enter", mods = "SHIFT", action = wezterm.action.SendKey({ key = "j", mods = "CTRL" }) },
 }
 
--- Font ###################################################
+-- Visuals ################################################
 config.font = wezterm.font("JetBrainsMono NFM", { weight = "Medium" })
 config.font_size = 9
-
--- Visuals ################################################
 config.color_scheme = "rose-pine"
-config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
 config.window_decorations = "RESIZE"

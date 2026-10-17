@@ -23,8 +23,8 @@ smolvm-rebuild:
 [doc('Update toolchains and dotfiles')]
 update-tools:
     chezmoi apply
+    soar update
     mise upgrade
-    soar upgrade
 
 # Local file ##############################################
 import? "justfile.local"

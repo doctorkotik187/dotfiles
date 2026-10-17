@@ -14,7 +14,7 @@ export IGNOREEOF=9  # Ctrl+D quits only after 9 times
 export COLORTERM="truecolor"
 
 # Tools ###################################################
-export PATH="$HOME/.local/bin:$HOME/.local/share/soar/bin:$PATH"
+export PATH="$HOME/.local/share/soar/bin:$HOME/.local/bin:$PATH"
 eval "$(mise activate bash)"
 export STARSHIP_LOG="error"
 eval "$(starship init bash)"
