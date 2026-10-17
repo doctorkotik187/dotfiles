@@ -1,8 +1,5 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
-[settings]
-auto_update=true
-
 [tools]
 # CLI APPS ################################################
 
@@ -36,7 +33,7 @@ restic                                                        = "latest"  # base
 "aqua:Canop/dysk"                                             = "latest"  # mounted disks and free space with filesystem info
 
 # Git & Version Control ---------------------------------------
-jj                                                            = "latest"  # jujutsu, in case we need to do a risky git operation
+jj                                                            = "latest"  # old friend, in case we need to do a risky git operation
 gh                                                            = "latest"  # github cli, for avoiding the website
 lazygit                                                       = "latest"  # git tui, for avoiding git
 delta                                                         = "latest"  # git diff pager that makes diffs look intentional
@@ -53,7 +50,6 @@ zizmor                                                        = "latest"  # stat
 
 # System & Monitoring ------------------------------------------
 bottom                                                        = "latest"  # system monitor, htop's cooler cousin
-fastfetch                                                     = "latest"  # system info, for flexing your specs in screenshots
 watchexec                                                     = "latest"  # file watcher, runs your command so you don't have to
 hyperfine                                                     = "latest"  # command-line benchmarking tool
 tokei                                                         = "latest"  # code statistics, counts how much technical debt you have
@@ -81,35 +77,55 @@ usql                                                          = "latest"  # univ
 sqlite                                                        = "latest"  # the database, that is just a file
 postgres                                                      = "latest"  # relational database management system
 just                                                          = "latest"  # task runner, make without the whitespace trauma
+"aqua:mfontanini/presenterm"                                  = "latest"  # terminal markdown slideshow presenter with animations
+"github:tectonic-typesetting/tectonic"                        = "latest"  # modern tex/latex engine
+"aqua:jorgerojas26/lazysql"                                   = "latest"  # cross-platform database tui
 
 # Media, network & API -------------------------------------------
-yt-dlp                                                        = "latest"  # media downloader, allegedly for archival purposes
 xh                                                            = "latest"  # friendly and fast tool for sending http requests
 websocat                                                      = "latest"  # netcat for websockets
-ffmpeg                                                        = "latest"  # media swiss army knife
-mpv                                                           = "latest"  # based video player
 oxipng                                                        = "latest"  # multithreaded png optimizer
+vhs                                                           = "latest"  # cli terminal gif recorder from charm
+"cargo:viu"                                                   = "latest"  # terminal image viewer
 "github:Wraient/curd"                                         = "latest"  # uwu
 "github:fathyb/carbonyl"                                      = "latest"  # cli web browser
 
 # Security & Crypto ----------------------------------------------
 age                                                           = "latest"  # file encryption without a PhD requirement
 osv-scanner                                                   = "latest"  # vulnerability scanner using google osv database
+cosign                                                        = "latest"  # container signing and verification using sigstore
 "github:olastor/age-plugin-fido2-hmac"                        = "latest"  # use age with solokey
+"cargo:solo2"                                                 = "latest"  # cli to update and use solo 2 security keys
+"go:sigsum.org/sigsum-go/cmd/sigsum-key"                      = "latest"  # sigsum key management cli
+"go:sigsum.org/sigsum-go/cmd/sigsum-policy"                   = "latest"  # sigsum trust policy cli
+"go:sigsum.org/sigsum-go/cmd/sigsum-submit"                   = "latest"  # sigsum submit signed checksum to log
+"go:sigsum.org/sigsum-go/cmd/sigsum-verify"                   = "latest"  # sigsum proof and signature verification cli
+"go:sigsum.org/sigsum-go/cmd/sigsum-monitor"                  = "latest"  # sigsum transparency log monitor
 
 # AI agents & Isolation -----------------------------------------
 oh-my-pi                                                      = { version = "latest", rename_exe = "omp" }  # pi with batteries included
-"aqua:smol-machines/smolvm"                                   = "latest"  # microvm sandbox runtime
 ollama                                                        = "latest"  # we love lamas!
+"aqua:smol-machines/smolvm"                                   = "latest"  # microvm sandbox runtime
 
-# Misc & Fun ----------------------------------------------------
+# Misc ----------------------------------------------------------
 mermaid-ascii                                                 = "latest"  # diagrams, but make them ascii
 hadolint                                                      = "latest"  # dockerfile linter
 shfmt                                                         = "latest"  # shell script parser and formatter
 typos                                                         = "latest"  # fast source code spell checker for whole repos
-yamllint                                                      = "latest"
-"github:pkgforge/soar"                                        = "latest"  # package manager for packages the package manager doesn't have
-"github:Veirt/weathr"                                         = "latest"  # terminal weather app, because opening a browser is too much effort
+yamllint                                                      = "latest"  # lint yaml lol
+"cargo:weathr"                                                = "latest"  # terminal weather app, because opening a browser is too much effort
+
+# Fun -----------------------------------------------------------
+fastfetch                                                     = "latest"  # system info, for flexing your specs in screenshots
+onefetch                                                      = "latest"  # git repo fetcher, turns project stats into ascii flex
+"aqua:Macchina-CLI/macchina"                                  = "latest"  # fast sysinfo fetcher, for when your terminal starts faster than your thoughts
+"cargo:krabby"                                                = "latest"  # crisp ansi pokemon pixel-art sprites with shinies and stats
+"cargo:pipes-rs"                                              = "latest"  # over-engineered animated 3d pipes screensaver in rust
+"cargo:charasay"                                              = "latest"  # cowsay from 2026: colorful characters, ferris, anime, and cats
+"cargo:ttyper"                                                = "latest"  # terminal typing test with real-time wpm and accuracy charts
+"cargo:lavatr"                                                = "latest"  # terminal lava lamp with metaball physics simulation
+"cargo:artem"                                                 = "latest"  # high-res image-to-ascii converter with 24-bit truecolor
+"aqua:svenstaro/genact"                                       = "latest"  # nonsense activity generator, turns your screen into a hollywood hacker simulation
 
 # "Good Boy" "Agile" "Productivity" tools ------------------------
 "aqua:ankitpokhrel/jira-cli"                                  = "latest"  # lets the ai agent poke at jira
@@ -155,6 +171,10 @@ ktlint                                                        = "latest"  # kotl
 # Android --------------------------------------------------
 android-sdk                                                   = "latest"  # sdkmanager, avdmanager, cmdline-tools
 android-cli                                                   = { version = "latest", bin = "android", version_list_url = "https://dl.google.com/android/cli/latest/debian/dists/stable/main/binary-amd64/Packages", version_regex = '(?m)^Version: (\S+)$', platforms = { linux-x64 = { checksum_url = "https://dl.google.com/android/cli/{{ version }}/linux_x86_64/android.sha256", url = "https://dl.google.com/android/cli/{{ version }}/linux_x86_64/android" }, macos-arm64 = { checksum_url = "https://dl.google.com/android/cli/{{ version }}/darwin_arm64/android.sha256", url = "https://dl.google.com/android/cli/{{ version }}/darwin_arm64/android" }, macos-x64 = { checksum_url = "https://dl.google.com/android/cli/{{ version }}/darwin_x86_64/android.sha256", url = "https://dl.google.com/android/cli/{{ version }}/darwin_x86_64/android" }, windows-arm64 = { bin = "android.exe", checksum_url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe.sha256", url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe" }, windows-x64 = { bin = "android.exe", checksum_url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe.sha256", url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe" } } }
+
+# Flutter --------------------------------------------------
+flutter                                                       = { version = "latest", checksum_expr = '"sha256:" + filter(fromJSON(body).releases, { #.archive endsWith filename })[0].sha256', version_expr = 'fromJSON(body).releases | filter({ #.channel == "stable" }) | map({ replace(#.version, "-stable", "") }) | sortVersions()', version_list_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json", platforms = { linux-x64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{ version | trim_end(pat='-stable') }}-stable.tar.xz" }, macos-x64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_{{ version | trim_end(pat='-stable') }}-stable.zip" }, macos-arm64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_{{ version | trim_end(pat='-stable') }}-stable.zip" }, windows-x64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_windows.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_{{ version | trim_end(pat='-stable') }}-stable.zip" } } }
+fluttergen                                                    = "latest"  # flutter code generator
 
 # TypeScript & Web -----------------------------------------
 biome                                                         = "latest"  # toolchain for web projects (formatter, linter)

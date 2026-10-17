@@ -27,14 +27,14 @@ $time\n  \
 [󱞪](fg:iris) \
 """
 
-palette = "rose-pine-moon"
+palette = "rose-pine"
 
-[palettes.rose-pine-moon]
-overlay = '#393552'
+[palettes.rose-pine]
+overlay = '#26233a'
 love = '#eb6f92'
 gold = '#f6c177'
-rose = '#ea9a97'
-pine = '#3e8fb0'
+rose = '#ebbcba'
+pine = '#31748f'
 foam = '#9ccfd8'
 iris = '#c4a7e7'
 
@@ -83,7 +83,7 @@ use_12hr = true
 
 [username]
 disabled = false
-format = "[](fg:overlay)[ 󰧱 $user ]($style)[](fg:overlay) "
+format = "[](fg:overlay)[ 󰧱 $user ]($style)"
 show_always = true
 style_root = "bg:overlay fg:iris"
 style_user = "bg:overlay fg:iris"
@@ -91,7 +91,7 @@ style_user = "bg:overlay fg:iris"
 [hostname]
 ssh_only = false
 disabled = false
-format = "[](fg:overlay)[ 󰒋 $hostname ]($style)[](fg:overlay) "
+format = "[󰌽 $hostname ]($style)[](fg:overlay) "
 style = "bg:overlay fg:gold"
 
 # Languages

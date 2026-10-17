@@ -1,4 +1,3 @@
-# vim: set ft=toml :
 # Tool: herdr (https://herdr.dev/) — Terminal workspace manager for AI coding agents
 
 onboarding = false
@@ -26,33 +25,27 @@ host_cursor         = "native"
 prompt_new_tab_name = false
 show_agent_labels_on_pane_borders = true
 
-{{- if ne .chezmoi.hostname "smolbaby" }}
-accent              = "#00F0FF"
-{{- else }}
-accent              = "#FF007F"
-{{- end }}
-
 [ui.toast]
 delivery           = "herdr"
 clipboard.position = "top-right"
 
 [keys]
-# Panes
-focus_pane_up      = "alt+up"
-focus_pane_down    = "alt+down"
-focus_pane_left    = "alt+left"
-focus_pane_right   = "alt+right"
+# Panes (WaveTerm: Ctrl+Shift+Arrows / h,j,k,l to move between blocks)
+focus_pane_up      = "ctrl+shift+up"
+focus_pane_down    = "ctrl+shift+down"
+focus_pane_left    = "ctrl+shift+left"
+focus_pane_right   = "ctrl+shift+right"
 
-# Tabs
-previous_tab       = "alt+shift+left"
-next_tab           = "alt+shift+right"
+# Tabs (WaveTerm: Alt+[ / Alt+] to switch tabs, Alt+1..9 to switch tab)
+previous_tab       = "alt+["
+next_tab           = "alt+]"
 switch_tab         = "alt+1..9"
-move_tab_previous  = "alt+i"
-move_tab_next      = "alt+o"
+move_tab_previous  = "alt+shift+["
+move_tab_next      = "alt+shift+]"
 
-# Workspaces
-previous_workspace = "alt+shift+up"
-next_workspace     = "alt+shift+down"
+# Workspaces (WaveTerm: Alt+Ctrl+1..9 / Cmd+Ctrl for workspaces)
+previous_workspace = "alt+ctrl+up"
+next_workspace     = "alt+ctrl+down"
 
 # Worktrees
 open_worktree      = "prefix+shift+o"

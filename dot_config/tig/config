@@ -11,7 +11,7 @@ bind stage  S >sh -c "git diff HEAD -- %(file) --color=always | delta --side-by-
 bind status D >sh -c "git diff HEAD -- %(file) --color=always | delta"
 bind status S >sh -c "git diff HEAD -- %(file) --color=always | delta --side-by-side"
 
-# Rose Pine Moon -----------------------------------------
+# Colors (inherits Rose Pine from terminal ANSI palette) ---
 set git-colors = no
 color   cursor            7 4
 color   search-result     7 5 bold
