@@ -4,7 +4,6 @@
 org.kde.kate
 org.gnome.FileRoller
 io.github.peazip.PeaZip
-com.github.ahrm.sioyek
 org.pwmt.zathura
 org.gnome.Papers
 org.kde.okular
@@ -45,7 +44,6 @@ it.mijorus.smile
 com.github.neithern.g4music
 com.obsproject.Studio
 fr.handbrake.ghb
-io.mpv.Mpv
 org.videolan.VLC
 com.github.geigi.cozy
 

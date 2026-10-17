@@ -15,11 +15,11 @@ secrets-deploy:
     set -eu
     echo "Deploy 'Drop on Disk' group to:"
     echo "     ~/.config/chezmoi/key.txt"
-    echo "     ~/.ssh/dk-sign"
-    echo "     ~/.ssh/dk-sign.pub"
+    echo "     ~/.ssh/dk-git-sign"
+    echo "     ~/.ssh/dk-git-sign.pub"
     printf "Press Enter once done ... "
     read -r _
-    chmod -v 600 ~/.config/chezmoi/key.txt ~/.ssh/dk-sign
+    chmod -v 600 ~/.config/chezmoi/key.txt ~/.ssh/dk-git-sign
     echo "Secrets deployed."
 
 [group('Setup')]
