@@ -96,11 +96,6 @@ osv-scanner                                                   = "latest"  # vuln
 cosign                                                        = "latest"  # container signing and verification using sigstore
 "github:olastor/age-plugin-fido2-hmac"                        = "latest"  # use age with solokey
 "cargo:solo2"                                                 = "latest"  # cli to update and use solo 2 security keys
-"go:sigsum.org/sigsum-go/cmd/sigsum-key"                      = "latest"  # sigsum key management cli
-"go:sigsum.org/sigsum-go/cmd/sigsum-policy"                   = "latest"  # sigsum trust policy cli
-"go:sigsum.org/sigsum-go/cmd/sigsum-submit"                   = "latest"  # sigsum submit signed checksum to log
-"go:sigsum.org/sigsum-go/cmd/sigsum-verify"                   = "latest"  # sigsum proof and signature verification cli
-"go:sigsum.org/sigsum-go/cmd/sigsum-monitor"                  = "latest"  # sigsum transparency log monitor
 
 # AI agents & Isolation -----------------------------------------
 oh-my-pi                                                      = { version = "latest", rename_exe = "omp" }  # pi with batteries included
@@ -113,19 +108,17 @@ hadolint                                                      = "latest"  # dock
 shfmt                                                         = "latest"  # shell script parser and formatter
 typos                                                         = "latest"  # fast source code spell checker for whole repos
 yamllint                                                      = "latest"  # lint yaml lol
-"cargo:weathr"                                                = "latest"  # terminal weather app, because opening a browser is too much effort
+"github:Veirt/weathr"                                         = "latest"  # terminal weather app, because opening a browser is too much effort
 
 # Fun -----------------------------------------------------------
 fastfetch                                                     = "latest"  # system info, for flexing your specs in screenshots
 onefetch                                                      = "latest"  # git repo fetcher, turns project stats into ascii flex
 "aqua:Macchina-CLI/macchina"                                  = "latest"  # fast sysinfo fetcher, for when your terminal starts faster than your thoughts
-"cargo:krabby"                                                = "latest"  # crisp ansi pokemon pixel-art sprites with shinies and stats
-"cargo:pipes-rs"                                              = "latest"  # over-engineered animated 3d pipes screensaver in rust
-"cargo:charasay"                                              = "latest"  # cowsay from 2026: colorful characters, ferris, anime, and cats
-"cargo:ttyper"                                                = "latest"  # terminal typing test with real-time wpm and accuracy charts
-"cargo:lavatr"                                                = "latest"  # terminal lava lamp with metaball physics simulation
-"cargo:artem"                                                 = "latest"  # high-res image-to-ascii converter with 24-bit truecolor
 "aqua:svenstaro/genact"                                       = "latest"  # nonsense activity generator, turns your screen into a hollywood hacker simulation
+"cargo:pipes-rs"                                              = "latest"  # over-engineered animated 3d pipes screensaver in rust
+"cargo:ttyper"                                                = "latest"  # terminal typing test with real-time wpm and accuracy charts
+"cargo:artem"                                                 = "latest"  # high-res image-to-ascii converter with 24-bit truecolor
+"github:yannjor/krabby"                                       = "latest"  # crisp ansi pokemon pixel-art sprites with shinies and stats
 
 # "Good Boy" "Agile" "Productivity" tools ------------------------
 "aqua:ankitpokhrel/jira-cli"                                  = "latest"  # lets the ai agent poke at jira
