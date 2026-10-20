@@ -18,7 +18,7 @@
   "term:shiftenternewline": true,
   "term:theme": "rosepine",
   "web:defaultsearch": "https://noai.duckduckgo.com/?q={query}",
-  "web:defaulturl": "http://localhost:3000",
+  "web:defaulturl": "https://github.com/notifications",
   "widget:showhelp": false,
   "window:nativetitlebar": false,
   "window:reducedmotion": true,

@@ -24,8 +24,8 @@ config.keys = {
 
 -- Visuals ################################################
 config.font = wezterm.font("JetBrainsMono NFM", { weight = "Medium" })
-config.font_size = 9
-config.color_scheme = "rose-pine"
+config.font_size = 10
+config.color_scheme = "Rosé Pine (Gogh)"
 config.hide_tab_bar_if_only_one_tab = true
 config.audible_bell = "Disabled"
 config.window_decorations = "RESIZE"

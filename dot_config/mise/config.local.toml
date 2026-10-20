@@ -1,0 +1,4 @@
+[tools]
+"github:Wraient/curd"                                         = "latest"  # uwu
+"github:olastor/age-plugin-fido2-hmac"                        = "latest"  # use age with solokey
+"cargo:solo2"                                                 = "latest"  # fandeso saifu desu
