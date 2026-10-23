@@ -7,7 +7,7 @@ from pathlib import Path
 
 PERSONAL = Path.home() / "dotfiles/dotfiles.personal"
 WORK = Path.home() / "dotfiles/dotfiles.work"
-JUNK = {".git", ".jj", ".sync.py", "__pycache__"}
+JUNK = {".git", ".jj", ".sync.py", "__pycache__", ".ruff_cache"}
 
 # ANSI colors
 BOLD = "\033[1m"
@@ -34,7 +34,9 @@ def main():
     only_work = sorted(w_files - p_files)
     only_personal = sorted(p_files - w_files)
     shared = sorted(p_files & w_files)
-    modified = [f for f in shared if (PERSONAL / f).read_bytes() != (WORK / f).read_bytes()]
+    modified = [
+        f for f in shared if (PERSONAL / f).read_bytes() != (WORK / f).read_bytes()
+    ]
 
     if only_work:
         print(f"{GREEN}[+] Only in WORK ({len(only_work)}){RESET}")
@@ -64,7 +66,10 @@ def main():
             return
         print(f"{BOLD}Diffs ({len(to_diff)}):{RESET}\n")
         for f in to_diff:
-            subprocess.run(["git", "diff", "--no-index", str(PERSONAL / f), str(WORK / f)], check=False)
+            subprocess.run(
+                ["git", "diff", "--no-index", str(PERSONAL / f), str(WORK / f)],
+                check=False,
+            )
 
 
 if __name__ == "__main__":

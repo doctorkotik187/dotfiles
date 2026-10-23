@@ -1,14 +1,5 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
-[vars]
-secret_cache_ttl = "30s"
-
-[env]
-# Secrets ---------------------------------------------------
-AI_API_TOKEN = "{{ exec(command='secret-tool lookup service AI_API_TOKEN 2>/dev/null || true', cache_duration=vars.secret_cache_ttl) }}"
-GITHUB_TOKEN = "{{ exec(command='secret-tool lookup service GITHUB_TOKEN 2>/dev/null || true', cache_duration=vars.secret_cache_ttl) }}"
-BYPASS_GITHUB_TOKEN = "{{ exec(command='secret-tool lookup service BYPASS_GITHUB_TOKEN 2>/dev/null || true', cache_duration=vars.secret_cache_ttl) }}"
-
 [tools]
 # CLI APPS ################################################
 

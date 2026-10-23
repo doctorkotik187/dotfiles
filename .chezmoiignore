@@ -1,7 +1,21 @@
 README.md
 {{- if eq .chezmoi.hostname "smolbaby" }}
+# Windows & WSL stuff (work only)
+run_windows-wsl-interop.sh
+
+# Linux host environment
 .config/mise/config.local.toml
 .config/just/justfile.local
 .docker/config.json
 .local/bin/smolvm-sync-images
+.ssh/config
+
+# Desktop and GUIs
+.config/systemd
+.config/wezterm
+.config/waveterm
+.logseq
+
+# SmolVM itself
+.config/smolvm
 {{- end }}
