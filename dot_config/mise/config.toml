@@ -1,5 +1,14 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
+[vars]
+secret_cache_ttl = "30s"
+
+[env]
+# Secrets ---------------------------------------------------
+AI_API_TOKEN = "{{ exec(command='secret-tool lookup service AI_API_TOKEN 2>/dev/null || true', cache_duration=vars.secret_cache_ttl) }}"
+GITHUB_TOKEN = "{{ exec(command='secret-tool lookup service GITHUB_TOKEN 2>/dev/null || true', cache_duration=vars.secret_cache_ttl) }}"
+BYPASS_GITHUB_TOKEN = "{{ exec(command='secret-tool lookup service BYPASS_GITHUB_TOKEN 2>/dev/null || true', cache_duration=vars.secret_cache_ttl) }}"
+
 [tools]
 # CLI APPS ################################################
 
@@ -9,11 +18,13 @@ starship                                                      = "latest"  # prom
 zoxide                                                        = "latest"  # cd but it remembers where you live better than you do
 fzf                                                           = "latest"  # fuzzy finder, turns "where did I put that" into a keystroke
 gum                                                           = "latest"  # glamorous shell scripts, because bash deserves better
+shfmt                                                         = "latest"  # shell script parser and formatter
 
 # Editor & Code Intelligence -----------------------------------
 neovim                                                        = "latest"  # extensible modal text editor
 ast-grep                                                      = "latest"  # structural code search and linting
 tree-sitter                                                   = "latest"  # parser generator tool and incremental parsing library
+typos                                                         = "latest"  # fast source code spell checker for whole repos
 
 # Files & Disk -----------------------------------------------
 bat                                                           = "latest"  # cat, but it read a design book
@@ -58,12 +69,14 @@ kubectl                                                       = "latest"  # cli 
 k9s                                                           = "latest"  # tui for k8s, but also reference to a dog, and I like dogs
 "pipx:podman-compose"                                         = "latest"  # compose specification runner for podman
 "github:docker/docker-credential-helpers"                     = { version = "latest", asset_pattern = "*secretservice*linux-amd64", rename_exe = "docker-credential-secretservice" }  # official docker secret-service helper
+hadolint                                                      = "latest"  # dockerfile linter
 
 # Docs, Data & Text --------------------------------------------
 marp-cli                                                      = "latest"  # presentations with markdown
 pandoc                                                        = "latest"  # document converter, the universal translator
 typst                                                         = "latest"  # typesetting without LaTeX's decade-long learning curve
 glow                                                          = "latest"  # markdown reader, for people who read READMEs
+mermaid-ascii                                                 = "latest"  # diagrams, but make them ascii
 jq                                                            = "latest"  # json processor, the duct tape of the terminal
 yq                                                            = "latest"  # yq is jq's yaml-flavored sibling
 hledger                                                       = "latest"  # plain-text accounting, for spreadsheet refugees
@@ -72,6 +85,7 @@ hexyl                                                         = "latest"  # colo
 markdownlint-cli2                                             = "latest"  # markdown linter, enforces formatting rules
 taplo                                                         = "latest"  # toml toolkit, formatter, and linter
 yamlfmt                                                       = "latest"  # extensible yaml formatter
+yamllint                                                      = "latest"  # lint yaml lol
 usql                                                          = "latest"  # universal sql cli client
 sqlite                                                        = "latest"  # the database, that is just a file
 postgres                                                      = "latest"  # relational database management system
@@ -85,8 +99,9 @@ xh                                                            = "latest"  # frie
 websocat                                                      = "latest"  # netcat for websockets
 oxipng                                                        = "latest"  # multithreaded png optimizer
 vhs                                                           = "latest"  # cli terminal gif recorder from charm
-"aqua:asciinema/asciinema"                                     = "latest"  # terminal session recorder, the unix standard
-"github:asciinema/agg"                                         = "latest"  # asciinema gif generator in rust, fast and crisp
+"aqua:asciinema/asciinema"                                    = "latest"  # terminal session recorder, the unix standard
+"github:asciinema/agg"                                        = "latest"  # asciinema gif generator in rust, fast and crisp
+"cargo:artem"                                                 = "latest"  # high-res image-to-ascii converter with 24-bit truecolor
 "cargo:viu"                                                   = "latest"  # terminal image viewer
 "github:fathyb/carbonyl"                                      = "latest"  # cli web browser
 
@@ -100,14 +115,6 @@ oh-my-pi                                                      = { version = "lat
 ollama                                                        = "latest"  # we love lamas!
 "aqua:smol-machines/smolvm"                                   = "latest"  # microvm sandbox runtime
 
-# Misc ----------------------------------------------------------
-mermaid-ascii                                                 = "latest"  # diagrams, but make them ascii
-hadolint                                                      = "latest"  # dockerfile linter
-shfmt                                                         = "latest"  # shell script parser and formatter
-typos                                                         = "latest"  # fast source code spell checker for whole repos
-yamllint                                                      = "latest"  # lint yaml lol
-"github:Veirt/weathr"                                         = "latest"  # terminal weather app, because opening a browser is too much effort
-
 # Fun -----------------------------------------------------------
 fastfetch                                                     = "latest"  # system info, for flexing your specs in screenshots
 onefetch                                                      = "latest"  # git repo fetcher, turns project stats into ascii flex
@@ -115,8 +122,8 @@ onefetch                                                      = "latest"  # git 
 "aqua:svenstaro/genact"                                       = "latest"  # nonsense activity generator, turns your screen into a hollywood hacker simulation
 "cargo:pipes-rs"                                              = "latest"  # over-engineered animated 3d pipes screensaver in rust
 "cargo:ttyper"                                                = "latest"  # terminal typing test with real-time wpm and accuracy charts
-"cargo:artem"                                                 = "latest"  # high-res image-to-ascii converter with 24-bit truecolor
 "github:yannjor/krabby"                                       = "latest"  # crisp ansi pokemon pixel-art sprites with shinies and stats
+"github:Veirt/weathr"                                         = "latest"  # terminal weather app, because opening a browser is too much effort
 
 # "Good Boy" "Agile" "Productivity" tools ------------------------
 "aqua:ankitpokhrel/jira-cli"                                  = "latest"  # lets the ai agent poke at jira
@@ -125,8 +132,9 @@ onefetch                                                      = "latest"  # git 
 # LANGUAGES & ECOSYSTEMS ##################################
 
 # TypeScript & Web -----------------------------------------
-node                                                          = "latest"  # runtime that turned a browser scripting language into a backend
+node                                                          = "lts"     # runtime that turned a browser scripting language into a backend
 pnpm                                                          = "latest"  # fast, disk space efficient package manager
+bun                                                           = "latest"  # started in zig, rewritten in rust, drama farm maxxing
 biome                                                         = "latest"  # toolchain for web projects (formatter, linter)
 oxlint                                                        = "latest"  # fast javascript/typescript linter
 prettier                                                      = "latest"  # opinionated code formatter
@@ -155,7 +163,7 @@ ty                                                            = "latest"  # pyth
 "npm:basedpyright"                                            = "latest"  # python language server
 
 # Java & Kotlin & Android ----------------------------------
-java                                                          = "latest"  # runtime, bring your own 40 lines of boilerplate
+java                                                          = "lts"     # runtime, bring your own 40 lines of boilerplate
 google-java-format                                            = "latest"  # java code formatter
 kotlin                                                        = { version = "latest", asset_pattern = "kotlin-compiler-*.zip", bin_path = "kotlinc/bin" }
 ktlint                                                        = "latest"  # kotlin linter and formatter

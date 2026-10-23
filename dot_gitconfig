@@ -1,5 +1,8 @@
 # vim: set ft=gitconfig :
 
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+
 [gpg]
   format = ssh
 
