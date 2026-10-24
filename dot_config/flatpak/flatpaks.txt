@@ -2,10 +2,8 @@
 
 # Editors & Viewers
 org.kde.kate
-org.gnome.FileRoller
 io.github.peazip.PeaZip
 org.pwmt.zathura
-org.gnome.Papers
 org.kde.okular
 com.github.xournalpp.xournalpp
 org.onlyoffice.desktopeditors
@@ -18,20 +16,11 @@ net.ankiweb.Anki
 io.gitlab.news_flash.NewsFlash
 
 # Utilities & System
-org.gnome.font-viewer
 io.github.getnf.embellish
 org.gnumeric.Gnumeric
 io.github.Qalculate
-org.gnome.Calculator
 com.github.qarmin.czkawka
 org.localsend.localsend_app
-org.gnome.Connections
-org.gnome.Calendar
-org.gnome.clocks
-org.gnome.Weather
-org.gnome.Snapshot
-org.gnome.Firmware
-org.freedesktop.Piper
 io.github.flattool.Warehouse
 com.github.tchx84.Flatseal
 com.mattjakeman.ExtensionManager
@@ -49,7 +38,6 @@ com.github.geigi.cozy
 
 # Graphics & Media Creation
 org.kde.gwenview
-org.gnome.Loupe
 org.gimp.GIMP
 org.kde.digikam
 org.shotcut.Shotcut
@@ -57,7 +45,6 @@ be.alexandervanhee.gradia
 
 # Security & Crypto
 io.github.mhogomchungu.sirikali
-org.gnome.seahorse.Application
 org.keepassxc.KeePassXC
 
 # Communication
@@ -72,3 +59,4 @@ eu.betterbird.Betterbird
 io.gitlab.librewolf-community
 org.chromium.Chromium
 com.valvesoftware.Steam
+org.freedesktop.Piper

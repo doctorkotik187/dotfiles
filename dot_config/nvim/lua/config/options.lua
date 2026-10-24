@@ -4,7 +4,7 @@ vim.opt.relativenumber = false
 -- Python LSP: use basedpyright instead of pyright
 vim.g.lazyvim_python_lsp = "basedpyright"
 
--- WezTerm clipboard (OSC 52): talks directly to WezTerm across WSL, smolvm, SSH, containers
+-- Terminal clipboard (OSC 52)
 local osc52 = require("vim.ui.clipboard.osc52")
 vim.g.clipboard = {
   name = "OSC 52",

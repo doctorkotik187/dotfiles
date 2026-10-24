@@ -1,4 +1,3 @@
-# 😼  DK's Dotfiles
+# 😼 🦔 ⚙️ ⚡ Dotfiles
 
-Personal Dotfiles for glibc GNU/Linux (mainly Fedora Silverblue), managed by [chezmoi](https://github.com/twpayne/chezmoi).
-
+Managed by [chezmoi](https://github.com/twpayne/chezmoi).

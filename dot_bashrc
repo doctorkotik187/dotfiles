@@ -37,9 +37,5 @@ alias ll='eza -al'
 alias justg='just --global-justfile'
 alias yt-a='yt-dlp -f 249 -x --audio-format opus --restrict-filenames'
 alias kate='flatpak run org.kde.kate'
-alias vm='smolvm machine start >/dev/null 2>&1; smolvm machine exec -i -t -- bash -l'
+alias vm='smolvm machine start >/dev/null 2>&1; smolvm machine exec -w "$PWD" -i -t -- bash -l'
 
-# Local file ##############################################
-if [ -f "$HOME/.bashrc.local" ]; then
-  . "$HOME/.bashrc.local"
-fi

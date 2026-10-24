@@ -1,5 +1,8 @@
 # vim: set ft=gitconfig :
 
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+
 [gpg]
   format = ssh
 
@@ -52,6 +55,6 @@
   colorMoved = default
 
 [user]
-  name = {{ .user.name }}
-  email = {{ .user.email }}
-  signingkey = {{ .user.signingkey }}
+  signingkey = ~/.ssh/git-sign.pub
+  name = doctorkotik187
+  email = 217476020+doctorkotik187@users.noreply.github.com
