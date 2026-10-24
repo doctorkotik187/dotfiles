@@ -10,36 +10,16 @@ ffmpeg          = "*"  # swiss army chainsaw for video and audio formats
 yt-dlp          = "*"  # media downloader, allegedly for archival purposes
 cpufetch        = "*"  # ascii art for your CPU cache hierarchy and socket pinout
 
-[packages.waveterm]
-github        = "wavetermdev/waveterm"
-asset_pattern = "*linux-x64*.zip"
-entrypoint    = "waveterm"
-sandbox       = { enabled = false }
-hooks         = { post_extract = """
-cat << 'EOF' > "$INSTALL_DIR/waveterm.desktop"
-[Desktop Entry]
-Name=Wave Terminal
-Comment=AI-integrated, cross-platform terminal
-Exec=waveterm %U
-Icon=wave-logo-256-soar
-Terminal=false
-Type=Application
-Categories=System;TerminalEmulator;
-StartupWMClass=Wave
-EOF
-""" }
-version = "0.14.5"
+waveterm = {
+  github = "wavetermdev/waveterm",
+  asset_pattern = "*x86_64*.AppImage",
+  version = "0.14.5"
+}
 
-[packages.wezterm]
-github             = "wezterm/wezterm"
-tag_pattern        = "nightly"
-include_prerelease = true
-asset_pattern      = "*Ubuntu26.04.tar.xz"
-extract_root       = "wezterm"
-binaries = [
-  { source = "usr/bin/wezterm", link_as = "wezterm" },
-  { source = "usr/bin/wezterm-gui", link_as = "wezterm-gui" },
-  { source = "usr/bin/wezterm-mux-server", link_as = "wezterm-mux-server" },
-  { source = "usr/bin/strip-ansi-escapes", link_as = "strip-ansi-escapes" },
-]
-version = "nightly"
+wezterm = {
+  github = "wezterm/wezterm",
+  asset_pattern = "*Ubuntu26.04.AppImage",
+  tag_pattern = "nightly",
+  include_prerelease = true,
+  version = "nightly"
+}

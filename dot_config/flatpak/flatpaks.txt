@@ -13,7 +13,6 @@ com.calibre_ebook.calibre
 io.github.xiaoyifang.goldendict_ng
 com.logseq.Logseq
 net.ankiweb.Anki
-io.gitlab.news_flash.NewsFlash
 
 # Utilities & System
 io.github.getnf.embellish
