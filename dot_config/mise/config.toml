@@ -84,6 +84,7 @@ just                                                          = "latest"  # task
 "aqua:mfontanini/presenterm"                                  = "latest"  # terminal markdown slideshow presenter with animations
 "github:tectonic-typesetting/tectonic"                        = "latest"  # modern tex/latex engine
 "aqua:jorgerojas26/lazysql"                                   = "latest"  # cross-platform database tui
+"cargo:eilmeldung"                                            = "latest"  # rss reader
 
 # Media, network & API -------------------------------------------
 xh                                                            = "latest"  # friendly and fast tool for sending http requests
