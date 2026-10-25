@@ -1,7 +1,7 @@
 [tools]
-"github:Wraient/curd"                                         = "latest"  # uwu
-"github:olastor/age-plugin-fido2-hmac"                        = "latest"  # use age with solokey
-"cargo:solo2"                                                 = "latest"  # fandeso saifu desu
+"github:pystardust/ani-cli"                               = { version = "latest", asset_pattern = "ani-cli" }
+"github:olastor/age-plugin-fido2-hmac"                    = "latest"  # use age with solokey
+"cargo:solo2"                                             = "latest"  # fandeso saifu desu
 
 [vars]
 secret_cache_ttl = "30s"
