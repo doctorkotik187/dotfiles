@@ -12,7 +12,6 @@
   "term:bellindicator": true,
   "term:bellsound": false,
   "term:cursor": "block",
-  "term:durable": true,
   "term:fontfamily": "JetBrainsMono NFM",
   "term:fontsize": 13,
   "term:shiftenternewline": true,
@@ -21,6 +20,5 @@
   "web:defaulturl": "https://github.com/notifications",
   "widget:showhelp": false,
   "window:nativetitlebar": false,
-  "window:reducedmotion": true,
-  "window:savelastwindow": true
+  "window:reducedmotion": true
 }

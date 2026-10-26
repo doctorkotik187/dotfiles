@@ -1,5 +1,95 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
+[settings]
+jobs             = 6      # parallel downloads and installs
+self_update.auto = true   # automatically keep mise binary up to date
+history.enabled  = false  # intentional manual git commits for dotfiles
+
+# DOTFILES ###################################################
+
+[dotfiles]
+"~/.bashrc/activate" = { block = """
+eval "$("$HOME/.local/bin/mise" activate bash)"
+eval "$(zoxide init bash)"
+eval "$(starship init bash)"
+""" }
+
+[dotfile_groups.main]
+root = "."
+target = "~"
+exclude = [
+  ".git",
+  "_*",
+]
+
+[dotfile_groups.main.entries]
+"~/.omp/agent/config.yml" = { mode = "template" }
+"~/.gitconfig"            = { mode = "template" }
+
+# ENVIRONMENT & PATH #########################################
+
+[env]
+EDITOR              = "nvim"
+IGNOREEOF           = 9
+COLORTERM           = "truecolor"
+STARSHIP_LOG        = "error"
+SMOLVM_MACHINE_NAME = "smolbaby"
+BAT_THEME           = "ansi"
+FZF_DEFAULT_OPTS    = """
+--color=fg:#908caa,bg:#191724,hl:#ebbcba
+--color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+--color=border:#403d52,header:#31748f,gutter:#191724
+--color=spinner:#f6c177,info:#9ccfd8
+--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
+"""
+
+_.path = [
+  "~/.local/bin",
+  "~/.local/share/soar/bin",
+]
+
+# SHELL ALIASES ##############################################
+
+[shell_alias]
+mr   = "mise run"
+nv   = "nvim"
+gst  = "git status"
+lg   = "lazygit"
+ff   = "fastfetch"
+ll   = "eza -al"
+yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
+kate = "flatpak run org.kde.kate"
+omp  = "fnox exec -- omp"
+
+# TASKS ######################################################
+
+[tasks."smolvm:shell"]
+description = "Start and connect to sandbox VM"
+raw = true
+run = """
+smolvm machine start >/dev/null 2>&1 || true
+smolvm machine exec -w "$PWD" -i -t -- bash -l
+"""
+
+[tasks."smolvm:rebuild"]
+description = "Rebuild sandbox machine from ~/.config/smolvm/Smolfile"
+confirm = { message = "Destroy and rebuild SmolVM sandbox machine?", default = "no" }
+run = [
+  "smolvm machine stop 2>/dev/null || true",
+  "smolvm machine delete -f 2>/dev/null || true",
+  "smolvm machine create -s ~/.config/smolvm/Smolfile",
+  "fnox exec -- smolvm machine start",
+]
+
+[tasks."update:tools"]
+description = "Update toolchains and dotfiles"
+hide = true
+run = [
+  "mise dot apply",
+  "soar update",
+  "mise upgrade",
+]
+
 [tools]
 # CLI APPS ################################################
 
@@ -44,7 +134,6 @@ git-cliff                                                     = "latest"  # chan
 git-town                                                      = "latest"  # generic, high-level git workflow engine
 gitleaks                                                      = "latest"  # detect secrets and passwords in git repos
 actionlint                                                    = "latest"  # static checker for github actions workflows
-chezmoi                                                       = "latest"  # dotfiles manager, the reason this file exists
 zizmor                                                        = "latest"  # static analysis tool for github actions
 "aqua:tummychow/git-absorb"                                   = "latest"  # git commit --fixup made easy
 
@@ -58,9 +147,9 @@ lazyssh                                                       = "latest"  # ssh 
 podman-tui                                                    = "latest"  # terminal ui for podman containers and pods
 kubectl                                                       = "latest"  # cli for k8s, because k8s is just always good and totally not complex at all
 k9s                                                           = "latest"  # tui for k8s, but also reference to a dog, and I like dogs
-"pipx:podman-compose"                                         = "latest"  # compose specification runner for podman
-"github:docker/docker-credential-helpers"                     = { version = "latest", asset_pattern = "*secretservice*linux-amd64", rename_exe = "docker-credential-secretservice" }  # official docker secret-service helper
 hadolint                                                      = "latest"  # dockerfile linter
+"pipx:podman-compose"                                         = "latest"  # compose specification runner for podman
+"github:pkgforge/soar"                                        = "latest"  # the appimage goat
 
 # Docs, Data & Text --------------------------------------------
 marp-cli                                                      = "latest"  # presentations with markdown
@@ -80,7 +169,6 @@ yamllint                                                      = "latest"  # lint
 usql                                                          = "latest"  # universal sql cli client
 sqlite                                                        = "latest"  # the database, that is just a file
 postgres                                                      = "latest"  # relational database management system
-just                                                          = "latest"  # task runner, make without the whitespace trauma
 "aqua:mfontanini/presenterm"                                  = "latest"  # terminal markdown slideshow presenter with animations
 "github:tectonic-typesetting/tectonic"                        = "latest"  # modern tex/latex engine
 "aqua:jorgerojas26/lazysql"                                   = "latest"  # cross-platform database tui
@@ -99,6 +187,7 @@ vhs                                                           = "latest"  # cli 
 
 # Security & Crypto ----------------------------------------------
 age                                                           = "latest"  # file encryption without a PhD requirement
+fnox                                                          = "latest"  # secrets manager by jdx, the fort knox companion for mise
 osv-scanner                                                   = "latest"  # vulnerability scanner using google osv database
 cosign                                                        = "latest"  # container signing and verification using sigstore
 
@@ -157,13 +246,12 @@ ty                                                            = "latest"  # pyth
 # Java & Kotlin & Android ----------------------------------
 java                                                          = "lts"     # runtime, bring your own 40 lines of boilerplate
 google-java-format                                            = "latest"  # java code formatter
-kotlin                                                        = { version = "latest", asset_pattern = "kotlin-compiler-*.zip", bin_path = "kotlinc/bin" }
+kotlin                                                        = "latest"
 ktlint                                                        = "latest"  # kotlin linter and formatter
 android-sdk                                                   = "latest"  # sdkmanager, avdmanager, cmdline-tools
-android-cli                                                   = { version = "latest", bin = "android", version_list_url = "https://dl.google.com/android/cli/latest/debian/dists/stable/main/binary-amd64/Packages", version_regex = '(?m)^Version: (\S+)$', platforms = { linux-x64 = { checksum_url = "https://dl.google.com/android/cli/{{ version }}/linux_x86_64/android.sha256", url = "https://dl.google.com/android/cli/{{ version }}/linux_x86_64/android" }, macos-arm64 = { checksum_url = "https://dl.google.com/android/cli/{{ version }}/darwin_arm64/android.sha256", url = "https://dl.google.com/android/cli/{{ version }}/darwin_arm64/android" }, macos-x64 = { checksum_url = "https://dl.google.com/android/cli/{{ version }}/darwin_x86_64/android.sha256", url = "https://dl.google.com/android/cli/{{ version }}/darwin_x86_64/android" }, windows-arm64 = { bin = "android.exe", checksum_url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe.sha256", url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe" }, windows-x64 = { bin = "android.exe", checksum_url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe.sha256", url = "https://dl.google.com/android/cli/{{ version }}/windows_x86_64/android.exe" } } }
 
 # Flutter --------------------------------------------------
-flutter                                                       = { version = "latest", checksum_expr = '"sha256:" + filter(fromJSON(body).releases, { #.archive endsWith filename })[0].sha256', version_expr = 'fromJSON(body).releases | filter({ #.channel == "stable" }) | map({ replace(#.version, "-stable", "") }) | sortVersions()', version_list_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json", platforms = { linux-x64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_linux.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_{{ version | trim_end(pat='-stable') }}-stable.tar.xz" }, macos-x64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_{{ version | trim_end(pat='-stable') }}-stable.zip" }, macos-arm64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_macos.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/macos/flutter_macos_arm64_{{ version | trim_end(pat='-stable') }}-stable.zip" }, windows-x64 = { checksum_url = "https://storage.googleapis.com/flutter_infra_release/releases/releases_windows.json", url = "https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_{{ version | trim_end(pat='-stable') }}-stable.zip" } } }
+flutter                                                       = "latest"
 fluttergen                                                    = "latest"  # flutter code generator
 
 # Clojure --------------------------------------------------

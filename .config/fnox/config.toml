@@ -1,0 +1,14 @@
+# Tool: fnox (https://fnox.jdx.dev/) — Secret manager by jdx, the fort knox companion for mise
+
+import = ["./config.local.toml"]
+
+env = "exec"
+
+[providers.keychain]
+type = "keychain"
+service = "fnox"
+
+[secrets]
+AI_API_TOKEN         = { provider = "keychain", value = "AI_API_TOKEN" }
+GITHUB_TOKEN         = { provider = "keychain", value = "GITHUB_TOKEN" }
+BYPASS_GITHUB_TOKEN  = { provider = "keychain", value = "BYPASS_GITHUB_TOKEN" }

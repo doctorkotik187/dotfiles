@@ -1,8 +1,6 @@
 # Tool: soar (https://github.com/pkgforge/soar) — Package manager for standalone binary packages
 
 [packages]
-soar            = "*"  # package manager that manages itself
-mise            = "*"  # "THE PLUG"
 uad-ng          = "*"  # strips OEM bloatware off android phones, hopefully without bricking them
 streamlink      = "*"  # pipes video streams into mpv, because browser video players are bloat
 mpv             = "*"  # media player for people who hate VLC skins and love keyboard shortcuts

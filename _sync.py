@@ -5,9 +5,9 @@ import subprocess
 import sys
 from pathlib import Path
 
-PERSONAL = Path.home() / "dotfiles/dotfiles.personal"
-WORK = Path.home() / "dotfiles/dotfiles.work"
-JUNK = {".git", ".jj", ".sync.py", "__pycache__", ".ruff_cache"}
+PERSONAL = Path.home() / ".dotfiles.personal"
+WORK = Path.home() / ".dotfiles"
+JUNK = {".git"}
 
 # ANSI colors
 BOLD = "\033[1m"

@@ -1,0 +1,9 @@
+# Tool: fnox (https://fnox.jdx.dev/) — Secret manager by jdx, the fort knox companion for mise
+
+[providers.age]
+type = "age"
+recipients = ["age1j044wrwt390hsp2lygyqee0n3qkjzqn7l5aqkaqqng5uujphly3s86twqv"]
+key_file = "~/.config/fnox/age.txt"
+
+[secrets]
+SSH_CONFIG = { provider = "age", value = "YWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA4aG1lZG12N05qQ1RNZVF0eUtuTS9oZmMwWnVFa290d3lGY2Y0VWVIYm1rCkVMdEgvdFRQdU5RNCtmWEhsRXR5STJmSDRiZHpkYjlzaTZPVzB5bVRNS3MKLS0tIGpmTFVySkY5eEhmcHZvaTkwbnZnVGZyQ0VjeE1IazVkWDhOVER2YVBXN0kKafGPA3Cx1QNV95hEKWobf3kouMZn94L8TX+AWiYysCEsHsJ82Peq553w26r31c3LnQMsJOwTcI/pHAdQLlpEkoe4lHnpCTU7Q0VVXXe+kysF5d5Rgwd6uRxGbeRbHO48u/yPbjMC7o4sKbdXjhAFxN25slks5tR908JR2BpihPV+2pokzpa8zR0fs/sU6PNS9oc301Nq3Ycb8NrxrUsjOscrPBFo8J/+73ejAeI6S17YgJcpaE/jXLfJN3JsCbQ5nEqfQGQJYZGfIX2ybg==" }

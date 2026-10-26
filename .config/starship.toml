@@ -1,5 +1,4 @@
 # Tool: starship (https://starship.rs/) — Fast, customizable cross-shell prompt
-# Note: Log level / warning suppression cannot be set in starship.toml; using STARSHIP_LOG="error" in shell config.
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
