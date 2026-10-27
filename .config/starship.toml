@@ -3,11 +3,14 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 format = """
+$container\
+$sudo\
 $username\
 $hostname\
 $directory\
 $git_branch\
 $git_status\
+$mise\
 $fill\
 $c\
 $elixir\
@@ -171,3 +174,23 @@ style = "bg:overlay fg:pine"
 format = " [](fg:overlay)[ $symbol$environment ]($style)[](fg:overlay)"
 disabled = false
 symbol = '🅒 '
+
+[container]
+disabled = false
+format = "[](fg:overlay)[ $symbol $name ]($style)[](fg:overlay) "
+style = "bg:overlay fg:foam"
+symbol = "󰏖"
+
+[sudo]
+disabled = false
+format = "[](fg:overlay)[ $symbol ]($style)[](fg:overlay) "
+style = "bg:overlay fg:rose"
+symbol = "󰌆"
+
+[mise]
+disabled = false
+format = "[](fg:overlay)[ $symbol$health ]($style)[](fg:overlay) "
+style = "bg:overlay fg:iris"
+symbol = "󰭼"
+healthy_symbol = ""
+unhealthy_symbol = "!"

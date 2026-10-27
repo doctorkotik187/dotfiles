@@ -1,5 +1,8 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
+[settings]
+system_packages.ostree = "layer"  # layer host packages via rpm-ostree on Fedora Silverblue
+
 [vars]
 email    = "217476020+doctorkotik187@users.noreply.github.com"
 git_name = "doctorkotik187"
@@ -7,7 +10,7 @@ dk_root  = "/run/media/dk/MEME-HDD/0-doctorkotik"
 
 # TASKS ######################################################
 
-[tasks."syncthing:conflicts"]
+[tasks."syncthing:check"]
 description = "Check for unresolved Syncthing conflict files"
 run = """
 if [ ! -d "{{ vars.dk_root }}" ]; then
@@ -24,46 +27,10 @@ else
 fi
 """
 
-[tasks.update]
-description = "Update toolchains, dotfiles, rpm-ostree system, and flatpaks"
-raw = true
-run = [
-  { task = "syncthing:conflicts" },
-  { task = "update:tools" },
-  "flatpak update -y",
-  "rpm-ostree upgrade",
-]
-
-[tasks.bootstrap]
-description = "Bootstrap fresh Fedora Silverblue machine from scratch"
-raw = true
-run = [
-  { task = "setup:layer" },
-  { task = "setup:flatpaks" },
-  { task = "setup:ssh-config" },
-  { task = "setup:ssh-fido" },
-]
-
-[tasks."setup:layer"]
-description = "Layer required host packages on Fedora Silverblue via rpm-ostree"
-run = "rpm-ostree install -y fuse fuse-libs gcc make"
-
-[tasks."setup:flatpaks"]
-description = "Install declarative Flatpak applications via mise"
-run = "mise bootstrap packages apply --manager flatpak-user"
-
-[tasks."setup:ssh-fido"]
+[tasks."ssh:import-fido"]
 description = "Import resident SSH keys from a plugged-in FIDO2 key"
 raw = true
 run = "ssh-keygen -K"
-
-[tasks."setup:ssh-config"]
-description = "Deploy personal SSH config from fnox to ~/.ssh/config"
-run = """
-mkdir -p ~/.ssh && chmod 700 ~/.ssh
-fnox get SSH_CONFIG > ~/.ssh/config
-chmod 600 ~/.ssh/config
-"""
 
 [tasks."kagi:decrypt"]
 description = "Decrypt kagi via FIDO2 key to /dev/shm/kagi"
@@ -79,67 +46,4 @@ run = "rm -fv /dev/shm/kagi"
 "github:pystardust/ani-cli"            = { version = "latest", asset_pattern = "ani-cli" }
 "github:olastor/age-plugin-fido2-hmac" = "latest"
 "cargo:solo2"                          = "latest"
-
-# FLATPAKS ###################################################
-
-[bootstrap.packages]
-# Editors & Viewers ------------------------------------------
-"flatpak-user:org.kde.kate"                       = "latest"
-"flatpak-user:io.github.peazip.PeaZip"            = "latest"
-"flatpak-user:org.pwmt.zathura"                   = "latest"
-"flatpak-user:org.kde.okular"                     = "latest"
-"flatpak-user:com.github.xournalpp.xournalpp"     = "latest"
-"flatpak-user:org.onlyoffice.desktopeditors"      = "latest"
-
-# Reading & Knowledge ----------------------------------------
-"flatpak-user:com.calibre_ebook.calibre"          = "latest"
-"flatpak-user:io.github.xiaoyifang.goldendict_ng" = "latest"
-"flatpak-user:com.logseq.Logseq"                  = "latest"
-"flatpak-user:net.ankiweb.Anki"                   = "latest"
-
-# Utilities & System -----------------------------------------
-"flatpak-user:io.github.getnf.embellish"          = "latest"
-"flatpak-user:org.gnumeric.Gnumeric"              = "latest"
-"flatpak-user:io.github.Qalculate"                = "latest"
-"flatpak-user:com.github.qarmin.czkawka"          = "latest"
-"flatpak-user:org.localsend.localsend_app"        = "latest"
-"flatpak-user:io.github.flattool.Warehouse"       = "latest"
-"flatpak-user:com.github.tchx84.Flatseal"         = "latest"
-"flatpak-user:com.mattjakeman.ExtensionManager"   = "latest"
-"flatpak-user:page.tesk.Refine"                   = "latest"
-"flatpak-user:com.ranfdev.DistroShelf"            = "latest"
-"flatpak-user:io.github.flattool.Ignition"        = "latest"
-"flatpak-user:it.mijorus.smile"                   = "latest"
-
-# Audio & Video ----------------------------------------------
-"flatpak-user:com.github.neithern.g4music"        = "latest"
-"flatpak-user:com.obsproject.Studio"              = "latest"
-"flatpak-user:fr.handbrake.ghb"                   = "latest"
-"flatpak-user:org.videolan.VLC"                   = "latest"
-"flatpak-user:com.github.geigi.cozy"              = "latest"
-
-# Graphics & Media Creation ----------------------------------
-"flatpak-user:org.kde.gwenview"                   = "latest"
-"flatpak-user:org.gimp.GIMP"                      = "latest"
-"flatpak-user:org.kde.digikam"                    = "latest"
-"flatpak-user:org.shotcut.Shotcut"                = "latest"
-"flatpak-user:be.alexandervanhee.gradia"          = "latest"
-
-# Security & Crypto ------------------------------------------
-"flatpak-user:io.github.mhogomchungu.sirikali"    = "latest"
-"flatpak-user:org.keepassxc.KeePassXC"            = "latest"
-
-# Communication ----------------------------------------------
-"flatpak-user:com.rtosta.zapzap"                  = "latest"
-"flatpak-user:it.belloworld.mercurygram"          = "latest"
-"flatpak-user:org.signal.Signal"                  = "latest"
-"flatpak-user:dev.vencord.Vesktop"                = "latest"
-"flatpak-user:org.gnome.Fractal"                  = "latest"
-"flatpak-user:eu.betterbird.Betterbird"           = "latest"
-
-# Browsers, Gaming & Hardware --------------------------------
-"flatpak-user:io.gitlab.librewolf-community"      = "latest"
-"flatpak-user:org.chromium.Chromium"              = "latest"
-"flatpak-user:com.valvesoftware.Steam"            = "latest"
-"flatpak-user:org.freedesktop.Piper"              = "latest"
 

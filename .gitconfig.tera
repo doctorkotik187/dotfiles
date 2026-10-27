@@ -28,6 +28,7 @@
 
 [delta "rose-pine"]
   dark = true
+  syntax-theme = none
   file-style = "#9ccfd8" bold ul
   file-decoration-style = "#2a2838"
   commit-decoration-style = "#2a2838"
@@ -39,10 +40,10 @@
   line-numbers-plus-style = "#31748f"
   line-numbers-right-style = "#c4a7e7"
   line-numbers-zero-style = "#6e6a86"
-  minus-emph-style = syntax bold "#82435b"
-  minus-style = syntax "#4e2d40"
-  plus-emph-style = syntax bold "#2e5872"
-  plus-style = syntax "#1f2e3f"
+  minus-style = "#eb6f92" "#2e202f"
+  minus-emph-style = bold "#eb6f92" "#472836"
+  plus-style = "#9ccfd8" "#1b202f"
+  plus-emph-style = bold "#9ccfd8" "#25465a"
   whitespace-error-style = "#2a2538"
 
 [delta "dark"]

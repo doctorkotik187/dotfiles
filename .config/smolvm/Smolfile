@@ -15,7 +15,7 @@ ssh_agent = false
 
 [secrets]
 AI_API_TOKEN = { from_env = "AI_API_TOKEN" }
-GITHUB_TOKEN = { from_env = "BYPASS_GITHUB_TOKEN" }  # bypass github api limits
+GITHUB_TOKEN = { from_env = "GITHUB_TOKEN" }         # bypass github api limits
 
 [dev]
 ports = [
@@ -57,7 +57,7 @@ init = [
 
   # Hostname & user identity
   "ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && echo 'LANG=en_US.UTF-8' > /etc/locale.conf && echo 'smolbaby' > /etc/hostname && (hostname smolbaby 2>/dev/null || true)",
-  "id -u dk >/dev/null 2>&1 || useradd -M -s /bin/bash -u 1000 dk && echo 'dk ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/dk && chown dk:dk /home/dk",
+  "id -u dk >/dev/null 2>&1 || useradd -M -s /bin/bash -u 1000 dk && cp -n /etc/skel/.bash* /home/dk/ 2>/dev/null || true && echo 'dk ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/dk && chown dk:dk /home/dk /home/dk/.bash* 2>/dev/null || true",
 
   # Rootless Podman & network permissions
   "chmod u+s /usr/bin/newuidmap /usr/bin/newgidmap && ([ -c /dev/net/tun ] && chmod 666 /dev/net/tun || true)",
@@ -66,7 +66,7 @@ init = [
   "sysctl -w net.ipv4.conf.all.route_localnet=1 >/dev/null 2>&1 || true && nft 'add table ip nat; add chain ip nat PREROUTING { type nat hook prerouting priority dstnat; }; add rule ip nat PREROUTING dnat to 127.0.0.1' 2>/dev/null || true",
 
   # User dotfiles bootstrap
-  "su - dk -c 'curl -fsSL https://mise.run | sh && ~/.local/bin/mise --yes -C /home/dk/.dotfiles dot apply'",
+  "su - dk -c 'curl -fsSL https://mise.run | sh && MISE_YES=1 ~/.local/bin/mise -C /home/dk/.dotfiles dot apply --yes'",
 
   # Dedicated sandbox Git signing key
   """
