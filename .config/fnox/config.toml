@@ -2,13 +2,15 @@
 
 import = ["./config.local.toml"]
 
-env = "exec"
+[daemon]
+enabled = true
 
 [providers.keychain]
 type = "keychain"
 service = "fnox"
 
 [secrets]
-AI_API_TOKEN = { provider = "keychain", value = "AI_API_TOKEN" }
-GH_TOKEN     = { provider = "keychain", value = "GITHUB_TOKEN" }
-GITHUB_TOKEN = { provider = "keychain", value = "BYPASS_GITHUB_TOKEN", env = true }  # bypass github api limits
+AI_API_TOKEN        = { provider = "keychain", value = "AI_API_TOKEN" }
+GITHUB_TOKEN        = { provider = "keychain", value = "GITHUB_TOKEN" }
+BYPASS_GITHUB_TOKEN = { provider = "keychain", value = "BYPASS_GITHUB_TOKEN" }
+

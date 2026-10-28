@@ -1,9 +1,10 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
 [settings]
-jobs             = 6      # parallel downloads and installs
-self_update.auto = true   # automatically keep mise binary up to date
-history.enabled  = false  # intentional manual git commits for dotfiles
+jobs                = 6        # parallel downloads and installs
+self_update.auto    = true     # automatically keep mise binary up to date
+history.enabled     = false    # intentional manual git commits for dotfiles
+minimum_release_age = "7d"     # quarantine new releases
 
 [vars]
 age_key = "~/.config/age/key.txt"
@@ -38,7 +39,6 @@ IGNOREEOF           = 9
 COLORTERM           = "truecolor"
 STARSHIP_LOG        = "error"
 SMOLVM_MACHINE_NAME = "smolbaby"
-FNOX_SHELL_OUTPUT   = "none"
 BAT_THEME           = "ansi"
 FZF_DEFAULT_OPTS    = """
 --color=fg:#908caa,bg:#191724,hl:#ebbcba
@@ -61,26 +61,32 @@ gst  = "git status"
 lg   = "lazygit"
 ff   = "fastfetch"
 ll   = "eza -al"
-yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
+mdd  = "mise dot diff | delta"
 kate = "flatpak run org.kde.kate"
-omp  = "fnox exec -- omp"
+yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 
 # TASKS ######################################################
 
 [tasks."smolvm:shell"]
 description = "Connect to sandbox VM"
+dir = "{{cwd}}"
 raw = true
-run = 'fnox exec -- smolvm machine exec -w "$PWD" -i -t -- bash -l'
+run = """
+smolvm machine start
+target="$PWD"
+smolvm machine exec -- test -d "$target" 2>/dev/null || target="/home/dk"
+smolvm machine exec -w "$target" -i -t -- bash -l
+"""
 
 [tasks."smolvm:rebuild"]
 description = "Rebuild sandbox machine from ~/.config/smolvm/Smolfile"
 confirm = { message = "Destroy and rebuild SmolVM sandbox machine?", default = "no" }
-run = [
-  "smolvm machine stop 2>/dev/null || true",
-  "smolvm machine delete -f 2>/dev/null || true",
-  "smolvm machine create -s ~/.config/smolvm/Smolfile",
-  "fnox exec -- smolvm machine start",
-]
+run = """
+smolvm machine stop 2>/dev/null || true
+smolvm machine delete -f 2>/dev/null || true
+smolvm machine create -s ~/.config/smolvm/Smolfile
+smolvm machine start
+"""
 
 [tasks."tools:update"]
 description = "Update toolchains and dotfiles"
@@ -336,3 +342,10 @@ clj-kondo                                          = "latest"  # clojure linter
 lua                                                = "latest"  # runtime so small it fits inside a game engine's coat pocket
 lua-language-server                                = "latest"  # lua language server
 stylua                                             = "latest"  # lua code formatter
+
+# Odin -----------------------------------------------------
+odin                                               = "latest"  # the language of the gods
+
+# Zig ------------------------------------------------------
+zig                                                = "latest"  # for those who think the rust is a gov psyop
+
