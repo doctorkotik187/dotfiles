@@ -1,10 +1,10 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
 [settings]
-jobs                = 6        # parallel downloads and installs
-self_update.auto    = true     # automatically keep mise binary up to date
-history.enabled     = false    # intentional manual git commits for dotfiles
-minimum_release_age = "7d"     # quarantine new releases
+jobs = 6                   # parallel downloads and installs
+self_update.auto = true    # automatically keep mise binary up to date
+history.enabled = false    # intentional manual git commits for dotfiles
+minimum_release_age = "7d" # quarantine new releases
 
 [vars]
 age_key = "~/.config/age/key.txt"
@@ -22,25 +22,22 @@ eval "$(starship init bash)"
 [dotfile_groups.main]
 root = "~/.dotfiles"
 target = "~"
-exclude = [
-  ".git",
-  "_*",
-]
+exclude = [".git", "_*"]
 
 [dotfile_groups.main.entries]
 "~/.omp/agent/config.yml" = { mode = "template" }
-"~/.gitconfig"            = { mode = "template" }
+"~/.gitconfig" = { mode = "template" }
 
 # ENVIRONMENT & PATH #########################################
 
 [env]
-EDITOR              = "nvim"
-IGNOREEOF           = 9
-COLORTERM           = "truecolor"
-STARSHIP_LOG        = "error"
+EDITOR = "nvim"
+IGNOREEOF = 9
+COLORTERM = "truecolor"
+STARSHIP_LOG = "error"
 SMOLVM_MACHINE_NAME = "smolbaby"
-BAT_THEME           = "ansi"
-FZF_DEFAULT_OPTS    = """
+BAT_THEME = "ansi"
+FZF_DEFAULT_OPTS = """
 --color=fg:#908caa,bg:#191724,hl:#ebbcba
 --color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
 --color=border:#403d52,header:#31748f,gutter:#191724
@@ -48,24 +45,32 @@ FZF_DEFAULT_OPTS    = """
 --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
 """
 
-_.path = [
-  "~/.local/bin",
-  "~/.local/share/soar/bin",
-]
+_.path = ["~/.local/bin", "~/.local/share/soar/bin"]
 
 # SHELL ALIASES ##############################################
 
 [shell_alias]
-nv   = "nvim"
-gst  = "git status"
-lg   = "lazygit"
-ff   = "fastfetch"
-ll   = "eza -al"
-mdd  = "mise dot diff | delta"
+nv = "nvim"
+gst = "git status"
+lg = "lazygit"
+ghd = "gh-dash"
+ff = "fastfetch"
+ll = "eza -al"
+mdd = "mise dot diff | delta"
 kate = "flatpak run org.kde.kate"
 yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 
 # TASKS ######################################################
+
+[tasks."tools:update"]
+description = "Update toolchains and dotfiles"
+alias = "update"
+run = [
+  "mise dot apply",
+  "mise upgrade",
+  "soar update",
+  "nvim --headless '+Lazy! sync' +qa",
+]
 
 [tasks."smolvm:shell"]
 description = "Connect to sandbox VM"
@@ -88,15 +93,6 @@ smolvm machine create -s ~/.config/smolvm/Smolfile
 smolvm machine start
 """
 
-[tasks."tools:update"]
-description = "Update toolchains and dotfiles"
-alias = "update"
-run = [
-  "mise dot apply",
-  "soar update",
-  "mise upgrade",
-]
-
 [tasks."ssh-config:decrypt"]
 description = "Decrypt ~/.ssh/config.local.age to ~/.ssh/config"
 run = "age -d -i {{ vars.age_key }} -o ~/.ssh/config ~/.ssh/config.local.age && chmod 600 ~/.ssh/config"
@@ -109,243 +105,246 @@ run = "age -a -e -i {{ vars.age_key }} -o ~/.ssh/config.local.age ~/.ssh/config"
 
 [bootstrap.packages]
 # System Packages (dnf) ----------------------------------------
-"dnf:fuse-libs"                                    = "latest"  # libfuse.so.2 runtime for AppImages
-"dnf:qemu-kvm"                                     = "latest"  # QEMU with KVM hardware acceleration
-"dnf:qemu-img"                                     = "latest"  # disk image creation and management
-"dnf:gcc"                                          = "latest"  # C compiler for native compilation
-"dnf:make"                                         = "latest"  # build automation tool
-"dnf:feh"                                          = "latest"  # fast and lightweight image viewer
-"dnf:tig"                                          = "latest"  # text-mode interactive interface for git
+"dnf:fuse-libs" = "latest" # libfuse.so.2 runtime for AppImages
+"dnf:qemu-kvm" = "latest"  # QEMU with KVM hardware acceleration
+"dnf:qemu-img" = "latest"  # disk image creation and management
+"dnf:gcc" = "latest"       # C compiler for native compilation
+"dnf:make" = "latest"      # build automation tool
+"dnf:feh" = "latest"       # fast and lightweight image viewer
+"dnf:tig" = "latest"       # text-mode interactive interface for git
+"dnf:rlwrap" = "latest"    # readline wrapper for command-line utilities
 
 # Desktop Applications (flatpak) -------------------------------
-"flatpak-user:org.kde.kate"                        = "latest"  # advanced text editor with syntax highlighting and lsp
-"flatpak-user:io.github.peazip.PeaZip"             = "latest"  # archive manager and compression utility
-"flatpak-user:org.pwmt.zathura"                    = "latest"  # minimalist document viewer with vi keybindings
-"flatpak-user:org.kde.okular"                      = "latest"  # universal document and pdf reader
-"flatpak-user:com.github.xournalpp.xournalpp"      = "latest"  # handwritten notes and pdf journal annotation
-"flatpak-user:org.onlyoffice.desktopeditors"       = "latest"  # office suite for documents, spreadsheets, and slides
-"flatpak-user:com.calibre_ebook.calibre"           = "latest"  # comprehensive e-book library manager and viewer
-"flatpak-user:io.github.xiaoyifang.goldendict_ng"  = "latest"  # next-generation dictionary lookup tool
-"flatpak-user:com.logseq.Logseq"                   = "latest"  # local-first personal knowledge base and outliner
-"flatpak-user:net.ankiweb.Anki"                    = "latest"  # spaced repetition flashcard study system
-"flatpak-user:io.github.getnf.embellish"           = "latest"  # nerd font downloader and font installer
-"flatpak-user:org.gnumeric.Gnumeric"               = "latest"  # fast and lightweight spreadsheet application
-"flatpak-user:io.github.Qalculate"                 = "latest"  # multi-purpose desktop scientific calculator
-"flatpak-user:com.github.qarmin.czkawka"           = "latest"  # duplicate finder and system storage cleaner
-"flatpak-user:org.localsend.localsend_app"         = "latest"  # local network file transfer between devices
-"flatpak-user:io.github.flattool.Warehouse"        = "latest"  # flatpak package manager and runtime cleaner
-"flatpak-user:com.github.tchx84.Flatseal"          = "latest"  # granular permissions manager for flatpaks
-"flatpak-user:com.mattjakeman.ExtensionManager"    = "latest"  # browse and manage gnome shell extensions
-"flatpak-user:page.tesk.Refine"                    = "latest"  # system tweak tool for libadwaita and font styling
-"flatpak-user:com.ranfdev.DistroShelf"             = "latest"  # launcher for containerized distrobox applications
-"flatpak-user:io.github.flattool.Ignition"         = "latest"  # bootable usb creator and disk flasher
-"flatpak-user:it.mijorus.smile"                    = "latest"  # emoji picker with search and clipboard integration
-"flatpak-user:com.github.neithern.g4music"         = "latest"  # clean and fast local music playback
-"flatpak-user:com.obsproject.Studio"               = "latest"  # screen recording and live streaming studio
-"flatpak-user:fr.handbrake.ghb"                    = "latest"  # multi-platform video transcoder and compressor
-"flatpak-user:org.videolan.VLC"                    = "latest"  # media player capable of playing any format
-"flatpak-user:com.github.geigi.cozy"               = "latest"  # modern audiobook player with chapter navigation
-"flatpak-user:org.kde.gwenview"                    = "latest"  # responsive image viewer and photo browser
-"flatpak-user:org.gimp.GIMP"                       = "latest"  # raster graphics editor and image manipulation program
-"flatpak-user:org.kde.digikam"                     = "latest"  # advanced digital photo management application
-"flatpak-user:org.shotcut.Shotcut"                 = "latest"  # non-linear open-source video editor
-"flatpak-user:be.alexandervanhee.gradia"           = "latest"  # gradient wallpaper generator and visual designer
-"flatpak-user:io.github.mhogomchungu.sirikali"     = "latest"  # gui front-end for encfs, cryfs, and gocryptfs
-"flatpak-user:org.keepassxc.KeePassXC"             = "latest"  # offline encrypted password manager
-"flatpak-user:com.rtosta.zapzap"                   = "latest"  # whatsapp desktop client for linux
-"flatpak-user:it.belloworld.mercurygram"           = "latest"  # native telegram messaging client
-"flatpak-user:org.signal.Signal"                   = "latest"  # private end-to-end encrypted messenger
-"flatpak-user:dev.vencord.Vesktop"                 = "latest"  # discord client with vencord plugin integration
-"flatpak-user:org.gnome.Fractal"                   = "latest"  # matrix chat client designed for gnome
-"flatpak-user:eu.betterbird.Betterbird"            = "latest"  # enhanced and privacy-focused thunderbird fork
-"flatpak-user:io.gitlab.librewolf-community"       = "latest"  # privacy-hardened and telemetry-free browser
-"flatpak-user:org.chromium.Chromium"               = "latest"  # open-source chromium web browser
-"flatpak-user:com.valvesoftware.Steam"             = "latest"  # digital game distribution platform and proton runner
-"flatpak-user:org.freedesktop.Piper"               = "latest"  # graphical mouse configuration utility for libratbag
+"flatpak-user:org.kde.kate" = "latest"                       # advanced text editor with syntax highlighting and lsp
+"flatpak-user:io.github.peazip.PeaZip" = "latest"            # archive manager and compression utility
+"flatpak-user:org.pwmt.zathura" = "latest"                   # minimalist document viewer with vi keybindings
+"flatpak-user:org.kde.okular" = "latest"                     # universal document and pdf reader
+"flatpak-user:com.github.xournalpp.xournalpp" = "latest"     # handwritten notes and pdf journal annotation
+"flatpak-user:org.onlyoffice.desktopeditors" = "latest"      # office suite for documents, spreadsheets, and slides
+"flatpak-user:com.calibre_ebook.calibre" = "latest"          # comprehensive e-book library manager and viewer
+"flatpak-user:io.github.xiaoyifang.goldendict_ng" = "latest" # next-generation dictionary lookup tool
+"flatpak-user:com.logseq.Logseq" = "latest"                  # local-first personal knowledge base and outliner
+"flatpak-user:net.ankiweb.Anki" = "latest"                   # spaced repetition flashcard study system
+"flatpak-user:io.github.getnf.embellish" = "latest"          # nerd font downloader and font installer
+"flatpak-user:org.gnumeric.Gnumeric" = "latest"              # fast and lightweight spreadsheet application
+"flatpak-user:io.github.Qalculate" = "latest"                # multi-purpose desktop scientific calculator
+"flatpak-user:com.github.qarmin.czkawka" = "latest"          # duplicate finder and system storage cleaner
+"flatpak-user:org.localsend.localsend_app" = "latest"        # local network file transfer between devices
+"flatpak-user:io.github.flattool.Warehouse" = "latest"       # flatpak package manager and runtime cleaner
+"flatpak-user:com.github.tchx84.Flatseal" = "latest"         # granular permissions manager for flatpaks
+"flatpak-user:com.mattjakeman.ExtensionManager" = "latest"   # browse and manage gnome shell extensions
+"flatpak-user:page.tesk.Refine" = "latest"                   # system tweak tool for libadwaita and font styling
+"flatpak-user:com.ranfdev.DistroShelf" = "latest"            # launcher for containerized distrobox applications
+"flatpak-user:io.github.flattool.Ignition" = "latest"        # bootable usb creator and disk flasher
+"flatpak-user:it.mijorus.smile" = "latest"                   # emoji picker with search and clipboard integration
+"flatpak-user:com.github.neithern.g4music" = "latest"        # clean and fast local music playback
+"flatpak-user:com.obsproject.Studio" = "latest"              # screen recording and live streaming studio
+"flatpak-user:fr.handbrake.ghb" = "latest"                   # multi-platform video transcoder and compressor
+"flatpak-user:org.videolan.VLC" = "latest"                   # media player capable of playing any format
+"flatpak-user:com.github.geigi.cozy" = "latest"              # modern audiobook player with chapter navigation
+"flatpak-user:org.kde.gwenview" = "latest"                   # responsive image viewer and photo browser
+"flatpak-user:org.gimp.GIMP" = "latest"                      # raster graphics editor and image manipulation program
+"flatpak-user:org.kde.digikam" = "latest"                    # advanced digital photo management application
+"flatpak-user:org.shotcut.Shotcut" = "latest"                # non-linear open-source video editor
+"flatpak-user:be.alexandervanhee.gradia" = "latest"          # gradient wallpaper generator and visual designer
+"flatpak-user:io.github.mhogomchungu.sirikali" = "latest"    # gui front-end for encfs, cryfs, and gocryptfs
+"flatpak-user:org.keepassxc.KeePassXC" = "latest"            # offline encrypted password manager
+"flatpak-user:com.rtosta.zapzap" = "latest"                  # whatsapp desktop client for linux
+"flatpak-user:it.belloworld.mercurygram" = "latest"          # native telegram messaging client
+"flatpak-user:org.signal.Signal" = "latest"                  # private end-to-end encrypted messenger
+"flatpak-user:dev.vencord.Vesktop" = "latest"                # discord client with vencord plugin integration
+"flatpak-user:org.gnome.Fractal" = "latest"                  # matrix chat client designed for gnome
+"flatpak-user:eu.betterbird.Betterbird" = "latest"           # enhanced and privacy-focused thunderbird fork
+"flatpak-user:io.gitlab.librewolf-community" = "latest"      # privacy-hardened and telemetry-free browser
+"flatpak-user:org.chromium.Chromium" = "latest"              # open-source chromium web browser
+"flatpak-user:com.valvesoftware.Steam" = "latest"            # digital game distribution platform and proton runner
+"flatpak-user:org.freedesktop.Piper" = "latest"              # graphical mouse configuration utility for libratbag
 
 [tools]
 # Terminal & Shell ------------------------------------------
-nushell                                            = "latest"  # shell for people who think bash syntax is a personality flaw
-starship                                           = "latest"  # prompt that costs more compute than the shell itself
-zoxide                                             = "latest"  # cd but it remembers where you live better than you do
-fzf                                                = "latest"  # fuzzy finder, turns "where did I put that" into a keystroke
-gum                                                = "latest"  # glamorous shell scripts, because bash deserves better
-shfmt                                              = "latest"  # shell script parser and formatter
+nushell = "latest"  # shell for people who think bash syntax is a personality flaw
+starship = "latest" # prompt that costs more compute than the shell itself
+zoxide = "latest"   # cd but it remembers where you live better than you do
+fzf = "latest"      # fuzzy finder, turns "where did I put that" into a keystroke
+gum = "latest"      # glamorous shell scripts, because bash deserves better
+shfmt = "latest"    # shell script parser and formatter
 
 # Editor & Code Intelligence -----------------------------------
-neovim                                             = "latest"  # extensible modal text editor
-ast-grep                                           = "latest"  # structural code search and linting
-tree-sitter                                        = "latest"  # parser generator tool and incremental parsing library
-typos                                              = "latest"  # fast source code spell checker for whole repos
+neovim = "latest"      # extensible modal text editor
+ast-grep = "latest"    # structural code search and linting
+tree-sitter = "latest" # parser generator tool and incremental parsing library
+typos = "latest"       # fast source code spell checker for whole repos
 
 # Files & Disk -----------------------------------------------
-bat                                                = "latest"  # cat, but it read a design book
-eza                                                = "latest"  # ls, but it went outside once
-fd                                                 = "latest"  # find, minus the incantations
-ripgrep                                            = "latest"  # grep, but it actually respects your time
-ripgrep-all                                        = "latest"  # ripgrep for pdfs and archives, so nothing can hide from you
-sd                                                 = "latest"  # sed without needing a priesthood to decode it
-dust                                               = "latest"  # disk usage analyzer, tells you exactly who's the culprit
-dua                                                = "latest"  # disk usage analyzer, for reclaiming your gigabytes
-yazi                                               = "latest"  # file manager for people allergic to GUIs
-7zip                                               = "latest"  # the one archive tool to rule them all
-gocryptfs                                          = "latest"  # encrypted filesystem, for your trust issues
-restic                                             = "latest"  # based backups
-"aqua:ouch-org/ouch"                               = "latest"  # decompress anything without memorizing 20 flag combos
-"aqua:Canop/dysk"                                  = "latest"  # mounted disks and free space with filesystem info
+bat = "latest"                  # cat, but it read a design book
+eza = "latest"                  # ls, but it went outside once
+fd = "latest"                   # find, minus the incantations
+ripgrep = "latest"              # grep, but it actually respects your time
+ripgrep-all = "latest"          # ripgrep for pdfs and archives, so nothing can hide from you
+sd = "latest"                   # sed without needing a priesthood to decode it
+dust = "latest"                 # disk usage analyzer, tells you exactly who's the culprit
+dua = "latest"                  # disk usage analyzer, for reclaiming your gigabytes
+yazi = "latest"                 # file manager for people allergic to GUIs
+7zip = "latest"                 # the one archive tool to rule them all
+gocryptfs = "latest"            # encrypted filesystem, for your trust issues
+restic = "latest"               # based backups
+"aqua:ouch-org/ouch" = "latest" # decompress anything without memorizing 20 flag combos
+"aqua:Canop/dysk" = "latest"    # mounted disks and free space with filesystem info
 
 # Git & Version Control ---------------------------------------
-jj                                                 = "latest"  # old friend, in case we need to do a risky git operation
-gh                                                 = "latest"  # github cli, for avoiding the website
-lazygit                                            = "latest"  # git tui, for avoiding git
-delta                                              = "latest"  # git diff pager that makes diffs look intentional
-lefthook                                           = "latest"  # fast git hooks manager that actually runs
-pre-commit                                         = "latest"  # some other git hooks manager (just to have all)
-hk                                                 = "latest"  # fast git hooks and linter runner by jdx
-git-cliff                                          = "latest"  # changelog generator from conventional commits
-git-town                                           = "latest"  # generic, high-level git workflow engine
-communique                                         = "latest"  # editorialized release notes powered by AI by jdx
-gitleaks                                           = "latest"  # detect secrets and passwords in git repos
-actionlint                                         = "latest"  # static checker for github actions workflows
-zizmor                                             = "latest"  # static analysis tool for github actions
-"aqua:tummychow/git-absorb"                        = "latest"  # git commit --fixup made easy
+jj = "latest"                          # old friend, in case we need to do a risky git operation
+gh = "latest"                          # github cli, for avoiding the website
+lazygit = "latest"                     # git tui, for avoiding git
+delta = "latest"                       # git diff pager that makes diffs look intentional
+lefthook = "latest"                    # fast git hooks manager that actually runs
+pre-commit = "latest"                  # some other git hooks manager (just to have all)
+hk = "latest"                          # fast git hooks and linter runner by jdx
+git-cliff = "latest"                   # changelog generator from conventional commits
+git-town = "latest"                    # generic, high-level git workflow engine
+communique = "latest"                  # editorialized release notes powered by AI by jdx
+gitleaks = "latest"                    # detect secrets and passwords in git repos
+actionlint = "latest"                  # static checker for github actions workflows
+zizmor = "latest"                      # static analysis tool for github actions
+"aqua:tummychow/git-absorb" = "latest" # git commit --fixup made easy
+"aqua:dlvhdr/gh-dash" = "latest"       # github tui
 
 # System & Monitoring & CI ------------------------------------------
-bottom                                             = "latest"  # system monitor, htop's cooler cousin
-watchexec                                          = "latest"  # file watcher, runs your command so you don't have to
-pitchfork                                          = "latest"  # dev daemons and background service supervisor by jdx
-hyperfine                                          = "latest"  # command-line benchmarking tool
-tokei                                              = "latest"  # code statistics, counts how much technical debt you have
-syncthing                                          = "latest"  # file sync without asking a cloud company nicely
-lazyssh                                            = "latest"  # ssh tui, for people who forgot every hostname
-podman-tui                                         = "latest"  # terminal ui for podman containers and pods
-kubectl                                            = "latest"  # cli for k8s, because k8s is just always good and totally not complex at all
-k9s                                                = "latest"  # tui for k8s, but also reference to a dog, and I like dogs
-hadolint                                           = "latest"  # dockerfile linter
-"pipx:podman-compose"                              = "latest"  # compose specification runner for podman
-"github:pkgforge/soar"                             = "latest"  # the appimage goat
+bottom = "latest"                 # system monitor, htop's cooler cousin
+watchexec = "latest"              # file watcher, runs your command so you don't have to
+pitchfork = "latest"              # dev daemons and background service supervisor by jdx
+hyperfine = "latest"              # command-line benchmarking tool
+tokei = "latest"                  # code statistics, counts how much technical debt you have
+syncthing = "latest"              # file sync without asking a cloud company nicely
+lazyssh = "latest"                # ssh tui, for people who forgot every hostname
+podman-tui = "latest"             # terminal ui for podman containers and pods
+kubectl = "latest"                # cli for k8s, because k8s is just always good and totally not complex at all
+k9s = "latest"                    # tui for k8s, but also reference to a dog, and I like dogs
+hadolint = "latest"               # dockerfile linter
+"pipx:podman-compose" = "latest"  # compose specification runner for podman
+"github:pkgforge/soar" = "latest" # the appimage goat
 
 # Docs, Data & Text --------------------------------------------
-marp-cli                                           = "latest"  # presentations with markdown
-pandoc                                             = "latest"  # document converter, the universal translator
-typst                                              = "latest"  # typesetting without LaTeX's decade-long learning curve
-glow                                               = "latest"  # markdown reader, for people who read READMEs
-mermaid-ascii                                      = "latest"  # diagrams, but make them ascii
-jq                                                 = "latest"  # json processor, the duct tape of the terminal
-yq                                                 = "latest"  # yq is jq's yaml-flavored sibling
-hledger                                            = "latest"  # plain-text accounting, for spreadsheet refugees
-protoc                                             = "latest"  # protocol buffers compiler
-usage                                              = "latest"  # cli specification and completion generator by jdx
-hexyl                                              = "latest"  # colored command-line hex viewer
-markdownlint-cli2                                  = "latest"  # markdown linter, enforces formatting rules
-taplo                                              = "latest"  # toml toolkit, formatter, and linter
-yamlfmt                                            = "latest"  # extensible yaml formatter
-yamllint                                           = "latest"  # lint yaml lol
-usql                                               = "latest"  # universal sql cli client
-sqlite                                             = "latest"  # the database, that is just a file
-postgres                                           = "latest"  # relational database management system
-"aqua:mfontanini/presenterm"                       = "latest"  # terminal markdown slideshow presenter with animations
-"github:tectonic-typesetting/tectonic"             = "latest"  # modern tex/latex engine
-"aqua:jorgerojas26/lazysql"                        = "latest"  # cross-platform database tui
-"cargo:eilmeldung"                                 = "latest"  # rss reader
+marp-cli = "latest"                               # presentations with markdown
+pandoc = "latest"                                 # document converter, the universal translator
+typst = "latest"                                  # typesetting without LaTeX's decade-long learning curve
+glow = "latest"                                   # markdown reader, for people who read READMEs
+mermaid-ascii = "latest"                          # diagrams, but make them ascii
+jq = "latest"                                     # json processor, the duct tape of the terminal
+yq = "latest"                                     # yq is jq's yaml-flavored sibling
+hledger = "latest"                                # plain-text accounting, for spreadsheet refugees
+protoc = "latest"                                 # protocol buffers compiler
+usage = "latest"                                  # cli specification and completion generator by jdx
+hexyl = "latest"                                  # colored command-line hex viewer
+markdownlint-cli2 = "latest"                      # markdown linter, enforces formatting rules
+taplo = "latest"                                  # toml toolkit, formatter, and linter
+yamlfmt = "latest"                                # extensible yaml formatter
+yamllint = "latest"                               # lint yaml lol
+usql = "latest"                                   # universal sql cli client
+sqlite = "latest"                                 # the database, that is just a file
+postgres = "latest"                               # relational database management system
+"aqua:mfontanini/presenterm" = "latest"           # terminal markdown slideshow presenter with animations
+"github:tectonic-typesetting/tectonic" = "latest" # modern tex/latex engine
+"aqua:jorgerojas26/lazysql" = "latest"            # cross-platform database tui
+"cargo:eilmeldung" = "latest"                     # rss reader
 
 # Media, network & API -------------------------------------------
-xh                                                 = "latest"  # friendly and fast tool for sending http requests
-websocat                                           = "latest"  # netcat for websockets
-oxipng                                             = "latest"  # multithreaded png optimizer
-vhs                                                = "latest"  # cli terminal gif recorder from charm
-"aqua:asciinema/asciinema"                         = "latest"  # terminal session recorder, the unix standard
-"github:asciinema/agg"                             = "latest"  # asciinema gif generator in rust, fast and crisp
-"cargo:artem"                                      = "latest"  # high-res image-to-ascii converter with 24-bit truecolor
-"cargo:viu"                                        = "latest"  # terminal image viewer
-"github:fathyb/carbonyl"                           = "latest"  # cli web browser
+xh = "latest"                         # friendly and fast tool for sending http requests
+websocat = "latest"                   # netcat for websockets
+oxipng = "latest"                     # multithreaded png optimizer
+vhs = "latest"                        # cli terminal gif recorder from charm
+"aqua:asciinema/asciinema" = "latest" # terminal session recorder, the unix standard
+"github:asciinema/agg" = "latest"     # asciinema gif generator in rust, fast and crisp
+"cargo:artem" = "latest"              # high-res image-to-ascii converter with 24-bit truecolor
+"cargo:viu" = "latest"                # terminal image viewer
+"github:fathyb/carbonyl" = "latest"   # cli web browser
 
 # Security & Crypto ----------------------------------------------
-age                                                = "latest"  # file encryption without a PhD requirement
-fnox                                               = "latest"  # secrets manager by jdx, the fort knox companion for mise
-packslip                                           = "latest"  # signed release manifest verification cli by jdx
-osv-scanner                                        = "latest"  # vulnerability scanner using google osv database
-cosign                                             = "latest"  # container signing and verification using sigstore
+age = "latest"         # file encryption without a PhD requirement
+fnox = "latest"        # secrets manager by jdx, the fort knox companion for mise
+packslip = "latest"    # signed release manifest verification cli by jdx
+osv-scanner = "latest" # vulnerability scanner using google osv database
+cosign = "latest"      # container signing and verification using sigstore
 
 # AI agents & Isolation -----------------------------------------
-oh-my-pi                                           = { version = "latest", rename_exe = "omp" }  # pi with batteries included
-ollama                                             = "latest"  # we love lamas!
-"aqua:smol-machines/smolvm"                        = "latest"  # microvm sandbox runtime
+oh-my-pi = { version = "latest", rename_exe = "omp" } # pi with batteries included
+ollama = "latest"                                     # we love lamas!
+"aqua:smol-machines/smolvm" = "latest"                # microvm sandbox runtime
 
 # Fun -----------------------------------------------------------
-fastfetch                                          = "latest"  # system info, for flexing your specs in screenshots
-onefetch                                           = "latest"  # git repo fetcher, turns project stats into ascii flex
-"aqua:Macchina-CLI/macchina"                       = "latest"  # fast sysinfo fetcher, for when your terminal starts faster than your thoughts
-"aqua:svenstaro/genact"                            = "latest"  # nonsense activity generator, turns your screen into a hollywood hacker simulation
-"cargo:pipes-rs"                                   = "latest"  # over-engineered animated 3d pipes screensaver in rust
-"cargo:ttyper"                                     = "latest"  # terminal typing test with real-time wpm and accuracy charts
-"github:yannjor/krabby"                            = "latest"  # crisp ansi pokemon pixel-art sprites with shinies and stats
-"github:Veirt/weathr"                              = "latest"  # terminal weather app, because opening a browser is too much effort
+fastfetch = "latest"                    # system info, for flexing your specs in screenshots
+onefetch = "latest"                     # git repo fetcher, turns project stats into ascii flex
+"aqua:Macchina-CLI/macchina" = "latest" # fast sysinfo fetcher, for when your terminal starts faster than your thoughts
+"aqua:svenstaro/genact" = "latest"      # nonsense activity generator, turns your screen into a hollywood hacker simulation
+"cargo:pipes-rs" = "latest"             # over-engineered animated 3d pipes screensaver in rust
+"cargo:ttyper" = "latest"               # terminal typing test with real-time wpm and accuracy charts
+"github:yannjor/krabby" = "latest"      # crisp ansi pokemon pixel-art sprites with shinies and stats
+"github:Veirt/weathr" = "latest"        # terminal weather app, because opening a browser is too much effort
 
 # "Good Boy" "Agile" "Productivity" tools ------------------------
-"aqua:ankitpokhrel/jira-cli"                       = "latest"  # lets the ai agent poke at jira
-"npm:confluence-cli"                               = "latest"  # lets the ai agent poke at confluence
+"aqua:ankitpokhrel/jira-cli" = "latest" # lets the ai agent poke at jira
+"npm:confluence-cli" = "latest"         # lets the ai agent poke at confluence
 
 # LANGUAGES & ECOSYSTEMS ##################################
 
 # TypeScript & Web -----------------------------------------
-node                                               = "lts"     # runtime that turned a browser scripting language into a backend
-pnpm                                               = "latest"  # fast, disk space efficient package manager
-bun                                                = "latest"  # started in zig, rewritten in rust, drama farm maxxing
-biome                                              = "latest"  # toolchain for web projects (formatter, linter)
-oxlint                                             = "latest"  # fast javascript/typescript linter
-prettier                                           = "latest"  # opinionated code formatter
-"npm:typescript"                                   = "latest"  # typescript compiler & tsserver
-"npm:@vtsls/language-server"                       = "latest"  # typescript language server
+node = "lts"                            # runtime that turned a browser scripting language into a backend
+pnpm = "latest"                         # fast, disk space efficient package manager
+bun = "latest"                          # started in zig, rewritten in rust, drama farm maxxing
+biome = "latest"                        # toolchain for web projects (formatter, linter)
+oxlint = "latest"                       # fast javascript/typescript linter
+prettier = "latest"                     # opinionated code formatter
+"npm:typescript" = "latest"             # typescript compiler & tsserver
+"npm:@vtsls/language-server" = "latest" # typescript language server
 
 # Rust -----------------------------------------------------
-rust                                               = "latest"  # runtime where the compiler is also your therapist
-cargo-binstall                                     = "latest"  # let cargo install binaries (just in case)
-rust-analyzer                                      = "latest"  # rust language server
-mr-boxington                                       = "latest"  # shared cargo build cache across worktrees by jdx
+rust = "latest"           # runtime where the compiler is also your therapist
+cargo-binstall = "latest" # let cargo install binaries (just in case)
+rust-analyzer = "latest"  # rust language server
+mr-boxington = "latest"   # shared cargo build cache across worktrees by jdx
 
 # Go -------------------------------------------------------
-go                                                 = "latest"  # runtime with a gopher mascot and opinions about gofmt
-golangci-lint                                      = "latest"  # fast linters runner for go
-golangci-lint-langserver                           = "latest"  # language server for golangci-lint
-gofumpt                                            = "latest"  # stricter gofmt
-gotestsum                                          = "latest"  # go test runner with rich summary output
-"go:golang.org/x/tools/gopls"                      = "latest"  # go language server
-"aqua:go-delve/delve"                              = "latest"  # go debugger
+go = "latest"                            # runtime with a gopher mascot and opinions about gofmt
+golangci-lint = "latest"                 # fast linters runner for go
+golangci-lint-langserver = "latest"      # language server for golangci-lint
+gofumpt = "latest"                       # stricter gofmt
+gotestsum = "latest"                     # go test runner with rich summary output
+"go:golang.org/x/tools/gopls" = "latest" # go language server
+"aqua:go-delve/delve" = "latest"         # go debugger
 
 # Python ---------------------------------------------------
-python                                             = "latest"  # runtime that ships two package managers and still can't pick one
-uv                                                 = "latest"  # fast python package manager
-ruff                                               = "latest"  # python linter and formatter
-ty                                                 = "latest"  # python type checker
-"npm:basedpyright"                                 = "latest"  # python language server
+python = "latest"             # runtime that ships two package managers and still can't pick one
+uv = "latest"                 # fast python package manager
+ruff = "latest"               # python linter and formatter
+ty = "latest"                 # python type checker
+"npm:basedpyright" = "latest" # python language server
 
 # Java & Kotlin & Android ----------------------------------
-java                                               = "lts"     # runtime, bring your own 40 lines of boilerplate
-google-java-format                                 = "latest"  # java code formatter
-kotlin                                             = "latest"  # modern expressive language targeting jvm and android
-ktlint                                             = "latest"  # kotlin linter and formatter
-android-sdk                                        = "latest"  # sdkmanager, avdmanager, cmdline-tools
+java = "lts"                  # runtime, bring your own 40 lines of boilerplate
+google-java-format = "latest" # java code formatter
+kotlin = "latest"             # modern expressive language targeting jvm and android
+ktlint = "latest"             # kotlin linter and formatter
+android-sdk = "latest"        # sdkmanager, avdmanager, cmdline-tools
 
 # Flutter --------------------------------------------------
-flutter                                            = "latest"  # multi-platform ui toolkit by google
-fluttergen                                         = "latest"  # flutter code generator
+flutter = "latest"    # multi-platform ui toolkit by google
+fluttergen = "latest" # flutter code generator
 
 # Clojure --------------------------------------------------
-clojure                                            = "latest"  # lisp that insists parentheses are a feature
-babashka                                           = "latest"  # clojure scripting
-clj-kondo                                          = "latest"  # clojure linter
-"github:clojure-lsp/clojure-lsp"                   = "latest"  # clojure language server
-"github:weavejester/cljfmt"                        = "latest"  # clojure formatter
+clojure = "latest"                                                                                    # lisp that insists parentheses are a feature
+clj-kondo = "latest"                                                                                  # clojure linter
+"github:clojure-lsp/clojure-lsp" = "latest"                                                           # clojure language server
+"github:weavejester/cljfmt" = "latest"                                                                # clojure formatter
+babashka = "latest"                                                                                   # clojure scripting
+"http:neil" = { version = "main", url = "https://raw.githubusercontent.com/babashka/neil/main/neil" } # deps.edn tooling powered by babashka
 
 # Lua ------------------------------------------------------
-lua                                                = "latest"  # runtime so small it fits inside a game engine's coat pocket
-lua-language-server                                = "latest"  # lua language server
-stylua                                             = "latest"  # lua code formatter
+lua = "latest"                 # runtime so small it fits inside a game engine's coat pocket
+lua-language-server = "latest" # lua language server
+stylua = "latest"              # lua code formatter
 
 # Odin -----------------------------------------------------
-odin                                               = "latest"  # the language of the gods
+odin = "latest" # the language of the gods
 
 # Zig ------------------------------------------------------
-zig                                                = "latest"  # for those who think the rust is a gov psyop
+zig = "latest" # for those who think the rust is a gov psyop
 

@@ -1,12 +1,12 @@
 # Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
 
 [settings]
-system_packages.ostree = "layer"  # layer host packages via rpm-ostree on Fedora Silverblue
+system_packages.ostree = "layer" # layer host packages via rpm-ostree on Fedora Silverblue
 
 [vars]
-email    = "217476020+doctorkotik187@users.noreply.github.com"
+email = "217476020+doctorkotik187@users.noreply.github.com"
 git_name = "doctorkotik187"
-dk_root  = "/run/media/dk/MEME-HDD/0-doctorkotik"
+dk_root = "/run/media/dk/MEME-HDD/0-doctorkotik"
 
 # TASKS ######################################################
 
@@ -40,10 +40,10 @@ run = "age -d -j fido2-hmac -o /dev/shm/kagi {{ vars.dk_root }}/3-RESOURCES/prog
 description = "Delete decrypted kagi temp file"
 run = "rm -fv /dev/shm/kagi"
 
-# CLI APPS ###################################################
+# MORE "APPS" ;) ###################################################
 
 [tools]
-"github:pystardust/ani-cli"            = { version = "latest", asset_pattern = "ani-cli" }
+"cargo:solo2" = "latest"
 "github:olastor/age-plugin-fido2-hmac" = "latest"
-"cargo:solo2"                          = "latest"
+"github:pystardust/ani-cli" = { version = "latest", asset_pattern = "ani-cli" }
 

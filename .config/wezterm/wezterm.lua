@@ -23,7 +23,7 @@ config.keys = {
 }
 
 -- Visuals ################################################
-config.font = wezterm.font("JetBrainsMono NFM", { weight = "Medium" })
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Medium" })
 config.font_size = 10
 config.color_scheme = "Rosé Pine (Gogh)"
 config.audible_bell = "Disabled"

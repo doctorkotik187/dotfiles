@@ -16,33 +16,29 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   spec = {
+    -- lazyvim core
     { "LazyVim/LazyVim", import = "lazyvim.plugins" },
+
+    -- language extras
+    { import = "lazyvim.plugins.extras.lang.clojure" },
     { import = "lazyvim.plugins.extras.lang.go" },
-    { import = "lazyvim.plugins.extras.lang.rust" },
     { import = "lazyvim.plugins.extras.lang.kotlin" },
     { import = "lazyvim.plugins.extras.lang.python" },
+    { import = "lazyvim.plugins.extras.lang.rust" },
+
+    -- user plugins & overrides
     { import = "plugins" },
-  },
-  defaults = {
-    lazy = false,
-    version = false,
-  },
-  install = { colorscheme = { "tokyonight", "habamax" } },
-  checker = {
-    enabled = true,
-    notify = false,
   },
   performance = {
     rtp = {
       disabled_plugins = {
-        "gzip",
-        -- "matchit",
-        -- "matchparen",
-        -- "netrwPlugin",
-        "tarPlugin",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
+        "gzip",        -- legacy vim archive unpacker
+        "tarPlugin",   -- legacy tar viewer
+        "tohtml",      -- ancient :TOhtml syntax-to-html converter
+        "tutor",       -- built-in tutorial runner
+        "netrwPlugin", -- legacy vim file browser (LazyVim uses Snacks/Neo-tree)
+        "rplugin",     -- legacy remote plugin provider scanner
+        "spellfile",   -- automated spellfile downloader
       },
     },
   },

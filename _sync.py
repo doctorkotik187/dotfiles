@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Compare personal and work dotfiles."""
+
 
 import subprocess
 import sys
 from pathlib import Path
 
-PERSONAL = Path.home() / ".dotfiles.personal"
-WORK = Path.home() / ".dotfiles"
+P = Path.home() / ".dotfiles-p"
+W = Path.home() / ".dotfiles"
 JUNK = {".git"}
 
 # ANSI colors
@@ -28,25 +28,23 @@ def get_files(root: Path) -> set[Path]:
 
 
 def main():
-    p_files = get_files(PERSONAL)
-    w_files = get_files(WORK)
+    p_files = get_files(P)
+    w_files = get_files(W)
 
-    only_work = sorted(w_files - p_files)
-    only_personal = sorted(p_files - w_files)
+    only_w = sorted(w_files - p_files)
+    only_p = sorted(p_files - w_files)
     shared = sorted(p_files & w_files)
-    modified = [
-        f for f in shared if (PERSONAL / f).read_bytes() != (WORK / f).read_bytes()
-    ]
+    modified = [f for f in shared if (P / f).read_bytes() != (W / f).read_bytes()]
 
-    if only_work:
-        print(f"{GREEN}[+] Only in WORK ({len(only_work)}){RESET}")
-        for f in only_work:
+    if only_w:
+        print(f"{GREEN}[+] Only in W ({len(only_w)}){RESET}")
+        for f in only_w:
             print(f"{GREEN}  + {f}{RESET}")
         print()
 
-    if only_personal:
-        print(f"{RED}[-] Only in PERSONAL ({len(only_personal)}){RESET}")
-        for f in only_personal:
+    if only_p:
+        print(f"{RED}[-] Only in P ({len(only_p)}){RESET}")
+        for f in only_p:
             print(f"{RED}  - {f}{RESET}")
         print()
 
@@ -56,7 +54,7 @@ def main():
             print(f"{YELLOW}  ~ {f}{RESET}")
         print()
 
-    if not (only_work or only_personal or modified):
+    if not (only_w or only_p or modified):
         print(f"{GREEN}[=] In sync{RESET}\n")
 
     if "diff" in sys.argv:
@@ -66,8 +64,8 @@ def main():
             return
         print(f"{BOLD}Diffs ({len(to_diff)}):{RESET}\n")
         for f in to_diff:
-            subprocess.run(
-                ["git", "diff", "--no-index", str(PERSONAL / f), str(WORK / f)],
+            _ = subprocess.run(
+                ["git", "diff", "--no-index", str(P / f), str(W / f)],
                 check=False,
             )
 
