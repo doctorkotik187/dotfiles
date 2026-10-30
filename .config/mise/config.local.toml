@@ -13,23 +13,6 @@ dk_root = "/run/media/dk/MEME-HDD/0-doctorkotik"
 "github:olastor/age-plugin-fido2-hmac" = "latest"
 "github:pystardust/ani-cli" = { version = "latest", asset_pattern = "ani-cli" }
 
-[tasks."syncthing:check"]
-description = "Check for unresolved Syncthing conflict files"
-run = """
-if [ ! -d "{{ vars.dk_root }}" ]; then
-    echo "{{ vars.dk_root }} doesn't exist yet, skipping conflict check."
-    exit 0
-fi
-conflicts=$(fd --hidden --no-ignore --ignore-case "conflict" "{{ vars.dk_root }}")
-if [ -n "$conflicts" ]; then
-    echo "WARNING: syncthing conflict files found:"
-    echo "$conflicts"
-    exit 1
-else
-    echo "=== NO SYNCTHING CONFLICTS FOUND ==="
-fi
-"""
-
 [tasks."ssh:import-fido"]
 description = "Import resident SSH keys from a plugged-in FIDO2 key"
 raw = true
