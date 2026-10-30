@@ -13,7 +13,7 @@ age_key = "~/.config/age/key.txt"
 
 [dotfiles]
 "~/.bashrc/activate" = { block = """
-eval "$("$HOME/.local/bin/mise" activate bash)"
+eval "$(mise activate bash)"
 [ "$HOSTNAME" != "smolbaby" ] && eval "$(fnox activate bash)"
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
@@ -21,7 +21,6 @@ eval "$(starship init bash)"
 
 [dotfile_groups.main]
 root = "~/.dotfiles"
-target = "~"
 exclude = [".git", "_*"]
 
 [dotfile_groups.main.entries]
@@ -45,31 +44,34 @@ FZF_DEFAULT_OPTS = """
 --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa
 """
 
-_.path = ["~/.local/bin", "~/.local/share/soar/bin"]
+_.path = ["~/.local/share/soar/bin"]
 
 # SHELL ALIASES ##############################################
 
 [shell_alias]
+l = "eza -al"
 nv = "nvim"
 gst = "git status"
 lg = "lazygit"
 ghd = "gh-dash"
 ff = "fastfetch"
-ll = "eza -al"
-mdd = "mise dot diff | delta"
 kate = "flatpak run org.kde.kate"
 yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 
 # TASKS ######################################################
 
+[tasks."skills:sync"]
+description = "Sync agent skills globally into ~/.omp/agent/skills"
+run = ["mise skills sync --dir ~/.omp/agent/skills --prune"]
+
 [tasks."tools:update"]
-description = "Update toolchains and dotfiles"
-alias = "update"
+description = "Update programs, dotfiles, and agent skills"
 run = [
-  "mise dot apply",
+  "mise dot apply --prune",
   "mise upgrade",
-  "soar update",
+  { task = "skills:sync" },
   "nvim --headless '+Lazy! sync' +qa",
+  "soar update",
 ]
 
 [tasks."smolvm:shell"]
@@ -250,13 +252,15 @@ postgres = "latest"                               # relational database manageme
 # Media, network & API -------------------------------------------
 xh = "latest"                         # friendly and fast tool for sending http requests
 websocat = "latest"                   # netcat for websockets
+curlie = "latest"                     # curl power with httpie ergonomics
+doggo = "latest"                      # modern dns client for humans with json
+gping = "latest"                      # ping with a real-time terminal graph
 oxipng = "latest"                     # multithreaded png optimizer
 vhs = "latest"                        # cli terminal gif recorder from charm
 "aqua:asciinema/asciinema" = "latest" # terminal session recorder, the unix standard
 "github:asciinema/agg" = "latest"     # asciinema gif generator in rust, fast and crisp
 "cargo:artem" = "latest"              # high-res image-to-ascii converter with 24-bit truecolor
 "cargo:viu" = "latest"                # terminal image viewer
-"github:fathyb/carbonyl" = "latest"   # cli web browser
 
 # Security & Crypto ----------------------------------------------
 age = "latest"         # file encryption without a PhD requirement
@@ -271,18 +275,13 @@ ollama = "latest"                                     # we love lamas!
 "aqua:smol-machines/smolvm" = "latest"                # microvm sandbox runtime
 
 # Fun -----------------------------------------------------------
-fastfetch = "latest"                    # system info, for flexing your specs in screenshots
-onefetch = "latest"                     # git repo fetcher, turns project stats into ascii flex
-"aqua:Macchina-CLI/macchina" = "latest" # fast sysinfo fetcher, for when your terminal starts faster than your thoughts
-"aqua:svenstaro/genact" = "latest"      # nonsense activity generator, turns your screen into a hollywood hacker simulation
-"cargo:pipes-rs" = "latest"             # over-engineered animated 3d pipes screensaver in rust
-"cargo:ttyper" = "latest"               # terminal typing test with real-time wpm and accuracy charts
-"github:yannjor/krabby" = "latest"      # crisp ansi pokemon pixel-art sprites with shinies and stats
-"github:Veirt/weathr" = "latest"        # terminal weather app, because opening a browser is too much effort
-
-# "Good Boy" "Agile" "Productivity" tools ------------------------
-"aqua:ankitpokhrel/jira-cli" = "latest" # lets the ai agent poke at jira
-"npm:confluence-cli" = "latest"         # lets the ai agent poke at confluence
+fastfetch = "latest"               # system info, for flexing your specs in screenshots
+onefetch = "latest"                # git repo fetcher, turns project stats into ascii flex
+"aqua:svenstaro/genact" = "latest" # nonsense activity generator, turns your screen into a hollywood hacker simulation
+"cargo:pipes-rs" = "latest"        # over-engineered animated 3d pipes screensaver in rust
+"cargo:ttyper" = "latest"          # terminal typing test with real-time wpm and accuracy charts
+"github:yannjor/krabby" = "latest" # crisp ansi pokemon pixel-art sprites with shinies and stats
+"github:Veirt/weathr" = "latest"   # terminal weather app, because opening a browser is too much effort
 
 # LANGUAGES & ECOSYSTEMS ##################################
 

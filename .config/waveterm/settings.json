@@ -1,5 +1,5 @@
 {
-  "app:ctrlvpaste": false,
+  "app:ctrlvpaste": true,
   "app:disablectrlshiftdisplay": true,
   "app:hideaibutton": true,
   "app:showoverlayblocknums": false,
@@ -12,7 +12,7 @@
   "term:bellindicator": true,
   "term:bellsound": false,
   "term:cursor": "block",
-  "term:fontfamily": "JetBrainsMono Nerd Font Mono, Twemoji Color Font, Noto Color Emoji, Segoe UI Emoji",
+  "term:fontfamily": "JetBrainsMono Nerd Font Mono",
   "term:fontsize": 13,
   "term:shiftenternewline": true,
   "term:theme": "rosepine",

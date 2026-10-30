@@ -20,6 +20,8 @@ config.keys = {
 	{ key = "L", mods = "CTRL|SHIFT", action = wezterm.action.SendKey({ key = "l", mods = "CTRL" }) },
 	-- shift-enter -> ctrl+j for omp etc.
 	{ key = "Enter", mods = "SHIFT", action = wezterm.action.SendKey({ key = "j", mods = "CTRL" }) },
+	-- ctrl+v -> paste from clipboard
+	{ key = "v", mods = "CTRL", action = wezterm.action.PasteFrom("Clipboard") },
 }
 
 -- Visuals ################################################

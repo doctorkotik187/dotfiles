@@ -6,7 +6,7 @@ import sys
 from pathlib import Path
 
 P = Path.home() / ".dotfiles-p"
-W = Path.home() / ".dotfiles"
+W = Path.home() / ".dotfiles-w"
 JUNK = {".git"}
 
 # ANSI colors

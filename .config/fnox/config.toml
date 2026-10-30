@@ -10,7 +10,7 @@ type = "keychain"
 service = "fnox"
 
 [secrets]
-AI_API_TOKEN        = { provider = "keychain", value = "AI_API_TOKEN" }
-GITHUB_TOKEN        = { provider = "keychain", value = "GITHUB_TOKEN" }
-BYPASS_GITHUB_TOKEN = { provider = "keychain", value = "BYPASS_GITHUB_TOKEN" }
+AI_TOKEN                = { provider = "keychain", value = "AI_TOKEN" }
+GITHUB_TOKEN            = { provider = "keychain", value = "GITHUB_TOKEN" }
+GITHUB_RATE_LIMIT_TOKEN = { provider = "keychain", value = "GITHUB_RATE_LIMIT_TOKEN" }
 

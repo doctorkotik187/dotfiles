@@ -2,15 +2,12 @@
 # Tool: espanso (https://espanso.org) — Privacy-first, cross-platform text expander
 # Docs: https://espanso.org/docs/configuration/basics/
 
-# espanso install all-emojis
+# espanso install actually-all-emojis
 #
 # Linux / Wayland source compilation via mise:
 # "cargo:espanso/espanso" = { version = "latest", crate = "espanso", default-features = false, features = ["vendored-tls", "wayland"] }
 
-backend: Inject
+backend: Clipboard
+preserve_clipboard: false
 toggle_key: OFF
-
-keyboard_layout:
-  layout: "us"
-  variant: "colemak"
 

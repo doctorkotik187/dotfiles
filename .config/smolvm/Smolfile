@@ -14,8 +14,8 @@ block_io = "async"
 ssh_agent = false
 
 [secrets]
-AI_API_TOKEN = { from_env = "AI_API_TOKEN" }
-GITHUB_TOKEN = { from_env = "BYPASS_GITHUB_TOKEN" }  # bypass github api limits
+AI_TOKEN     = { from_env = "AI_TOKEN" }
+GITHUB_TOKEN = { from_env = "GITHUB_RATE_LIMIT_TOKEN" } # Bypass Github API limits
 
 [dev]
 ports = [
@@ -50,8 +50,10 @@ init = [
   dnf install -y \
     clang gcc gcc-c++ make cmake ninja-build pkgconf-pkg-config \
     openssl-devel libffi-devel sqlite-devel readline-devel bzip2-devel xz-devel zlib-ng-compat-devel \
-    podman \
-    git-lfs strace gdb socat nftables \
+    podman shadow-utils socat nmap-ncat nftables \
+    git-lfs patch zstd pv \
+    strace gdb tcpdump bind-utils file tree lsof psmisc iotop-c \
+    tig rlwrap feh \
     && dnf clean all
   """,
 
@@ -65,8 +67,8 @@ init = [
   # Network routing for localhost forwarded ports
   "sysctl -w net.ipv4.conf.all.route_localnet=1 >/dev/null 2>&1 || true && nft 'add table ip nat; add chain ip nat PREROUTING { type nat hook prerouting priority dstnat; }; add rule ip nat PREROUTING dnat to 127.0.0.1' 2>/dev/null || true",
 
-  # User dotfiles bootstrap
-  "su - dk -c 'curl -fsSL https://mise.run | sh && MISE_YES=1 ~/.local/bin/mise -C /home/dk/.dotfiles dot apply --yes'",
+  # Install Mise by JDX (https://mise.jdx.dev/)
+  "su - dk -c 'curl -fsSL https://mise.run | sh'",
 
   # Dedicated sandbox Git signing key
   """
