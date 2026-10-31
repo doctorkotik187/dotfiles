@@ -1,0 +1,61 @@
+# vim: set ft=gitconfig :
+
+[url "git@github.com:"]
+  pushInsteadOf = "https://github.com/"
+
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true
+
+[tag]
+  gpgSign = true
+
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+# Tool: delta (https://github.com/dandavison/delta) — Syntax-highlighting pager for git diffs
+[delta]
+  features = rose-pine
+  true-color = always
+  navigate = true
+  line-numbers = true
+  side-by-side = false
+
+[delta "rose-pine"]
+  dark = true
+  syntax-theme = none
+  file-style = "#9ccfd8" bold ul
+  file-decoration-style = "#2a2838"
+  commit-decoration-style = "#2a2838"
+  hunk-header-decoration-style = "#e0def4" box
+  hunk-header-line-number-style = "#6e6a86"
+  hunk-header-style = line-number syntax bold
+  line-numbers-left-style = "#6e6a86"
+  line-numbers-minus-style = "#eb6f92"
+  line-numbers-plus-style = "#31748f"
+  line-numbers-right-style = "#c4a7e7"
+  line-numbers-zero-style = "#6e6a86"
+  minus-style = "#eb6f92" "#2e202f"
+  minus-emph-style = bold "#eb6f92" "#472836"
+  plus-style = "#9ccfd8" "#1b202f"
+  plus-emph-style = bold "#9ccfd8" "#25465a"
+  whitespace-error-style = "#2a2538"
+
+[delta "dark"]
+  features = rose-pine
+
+[merge]
+  conflictStyle = zdiff3
+
+[diff]
+  colorMoved = default
+
+[user]
+  signingkey = ~/.ssh/git-sign.pub
+  name = {{ vars.git_name }}
+  email = {{ vars.email }}

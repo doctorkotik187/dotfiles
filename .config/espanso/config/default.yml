@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/espanso/espanso/dev/schemas/config.schema.json
+# Tool: espanso (https://espanso.org) — Privacy-first, cross-platform text expander
+# Docs: https://espanso.org/docs/configuration/basics/
+
+# espanso install actually-all-emojis
+#
+# Linux / Wayland source compilation via mise:
+# "cargo:espanso/espanso" = { version = "latest", crate = "espanso", default-features = false, features = ["vendored-tls", "wayland"] }
+
+backend: Clipboard
+preserve_clipboard: false
+toggle_key: OFF
+

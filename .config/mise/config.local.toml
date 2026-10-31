@@ -1,0 +1,28 @@
+# Tool: mise (https://mise.jdx.dev/) — Dev tool version manager and environment organizer
+
+[settings]
+system_packages.ostree = "layer" # layer host packages via rpm-ostree on Fedora Silverblue
+
+[vars]
+email = "217476020+doctorkotik187@users.noreply.github.com"
+git_name = "doctorkotik187"
+dk_root = "/run/media/dk/MEME-HDD/0-doctorkotik"
+
+[tools]
+"cargo:solo2" = "latest"
+"github:olastor/age-plugin-fido2-hmac" = "latest"
+"github:pystardust/ani-cli" = { version = "latest", asset_pattern = "ani-cli" }
+
+[tasks."ssh:import-fido"]
+description = "Import resident SSH keys from a plugged-in FIDO2 key"
+raw = true
+run = "ssh-keygen -K"
+
+[tasks."kagi:decrypt"]
+description = "Decrypt kagi via FIDO2 key to /dev/shm/kagi"
+run = "age -d -j fido2-hmac -o /dev/shm/kagi {{ vars.dk_root }}/3-RESOURCES/program-data/old-places/kagi.age"
+
+[tasks."kagi:remove"]
+description = "Delete decrypted kagi temp file"
+run = "rm -fv /dev/shm/kagi"
+

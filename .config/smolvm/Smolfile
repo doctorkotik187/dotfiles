@@ -1,0 +1,89 @@
+# vim: set ft=toml :
+# Tool: smolvm (https://github.com/smol-machines/smolvm) — MicroVM manager for lightweight Linux sandboxes
+
+image    = "registry.fedoraproject.org/fedora-toolbox:latest"
+user     = "dk"
+workdir  = "/home/dk"
+net      = true
+cpus     = 6
+memory   = 12288
+storage  = 150
+block_io = "async"
+
+[auth]
+ssh_agent = false
+
+[secrets]
+AI_TOKEN     = { from_env = "AI_TOKEN" }
+GITHUB_TOKEN = { from_env = "GITHUB_RATE_LIMIT_TOKEN" } # Bypass Github API limits
+
+[dev]
+ports = [
+  "3000-3015:3000-3015",  # Next.js, Node, local stacks (covers 3000, 3001, 3002)
+  "3306:3306",            # MySQL / MariaDB
+  "3847:3847",            # OMP UI / internal
+  "4200:4200",            # Angular
+  "4321:4321",            # Astro
+  "5000:5000",            # Flask / ASP.NET
+  "5173-5182:5173-5182",  # Vite, SvelteKit
+  "5432:5432",            # PostgreSQL
+  "6006:6006",            # Storybook
+  "6379:6379",            # Redis
+  "7234:7234",            # Keycloak IDP
+  "8000-8009:8000-8009",  # Django, FastAPI
+  "8080-8089:8080-8089",  # Spring Boot, Keycloak default (8080)
+  "8443:8443",            # Dev HTTPS
+  "8888:8888",            # Jupyter
+  "9000-9001:9000-9001",  # MinIO
+  "9090:9090",            # Prometheus
+  "27017:27017",          # MongoDB
+]
+
+volumes = [
+  "/home/dk/.dotfiles:/home/dk/.dotfiles:ro",
+  "/home/dk/GIT:/home/dk/GIT"
+]
+
+init = [
+  # Packages & base tools
+  """
+  dnf install -y \
+    clang gcc gcc-c++ make cmake ninja-build pkgconf-pkg-config \
+    openssl-devel libffi-devel sqlite-devel readline-devel bzip2-devel xz-devel zlib-ng-compat-devel \
+    podman shadow-utils socat nmap-ncat nftables \
+    git-lfs patch zstd pv \
+    strace gdb tcpdump bind-utils file tree lsof psmisc iotop-c \
+    tig rlwrap feh \
+    && dnf clean all
+  """,
+
+  # Hostname & user identity
+  "ln -sf /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && echo 'LANG=en_US.UTF-8' > /etc/locale.conf && echo 'smolbaby' > /etc/hostname && (hostname smolbaby 2>/dev/null || true)",
+  "id -u dk >/dev/null 2>&1 || useradd -M -s /bin/bash -u 1000 dk && cp -n /etc/skel/.bash* /home/dk/ 2>/dev/null || true && echo 'dk ALL=(ALL) NOPASSWD:ALL' > /etc/sudoers.d/dk && chown dk:dk /home/dk /home/dk/.bash* 2>/dev/null || true",
+
+  # Rootless Podman & network permissions
+  "chmod u+s /usr/bin/newuidmap /usr/bin/newgidmap && ([ -c /dev/net/tun ] && chmod 666 /dev/net/tun || true)",
+
+  # Network routing for localhost forwarded ports
+  "sysctl -w net.ipv4.conf.all.route_localnet=1 >/dev/null 2>&1 || true && nft 'add table ip nat; add chain ip nat PREROUTING { type nat hook prerouting priority dstnat; }; add rule ip nat PREROUTING dnat to 127.0.0.1' 2>/dev/null || true",
+
+  # Install Mise by JDX (https://mise.jdx.dev/)
+  "su - dk -c 'curl -fsSL https://mise.run | sh'",
+
+  # Dedicated sandbox Git signing key
+  """
+  su - dk -c '
+    mkdir -p ~/.ssh && chmod 700 ~/.ssh
+    if [ ! -f ~/.ssh/git-sign ]; then
+      ssh-keygen -t ed25519 -N "" -f ~/.ssh/git-sign -C "smolbaby-signing" >/dev/null 2>&1
+    fi
+    echo ""
+    echo "==================== GITHUB SIGNING KEY ===================="
+    echo "Title:  smolbaby-signing"
+    echo "Type:   Signing Key"
+    echo "Key:"
+    cat ~/.ssh/git-sign.pub
+    echo "============================================================"
+  '
+  """
+]
