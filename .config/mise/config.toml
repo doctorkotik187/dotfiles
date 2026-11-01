@@ -12,6 +12,8 @@ git_name = "doctorkotik187"
 email = "217476020+doctorkotik187@users.noreply.github.com"
 
 # OMP
+omp_thinking = "low"
+omp_verbosity = "low"
 omp_model_slow = "ollama/deepseek-r1"
 omp_model_default = "ollama/qwen2.5-coder"
 omp_model_smol = "ollama/llama3.2"
@@ -66,17 +68,12 @@ yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 
 # TASKS ######################################################
 
-[tasks."skills:sync"]
-description = "Sync agent skills globally into ~/.omp/agent/skills"
-run = ["mise skills sync --dir ~/.omp/agent/skills --prune"]
-
-[tasks."tools:update"]
-description = "Update programs, dotfiles, and agent skills"
+[tasks.bootstrap]
+description = "Machine bootstrap post-install hook"
 run = [
-  "mise dot apply --prune",
-  "mise upgrade",
-  { task = "skills:sync" },
+  "mise skills sync --dir ~/.omp/agent/skills --prune",
   "nvim --headless '+Lazy! sync' +qa",
+  "soar apply -y",
   "soar update",
 ]
 

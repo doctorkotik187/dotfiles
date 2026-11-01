@@ -68,8 +68,10 @@ init = [
   # Network routing for localhost forwarded ports
   "sysctl -w net.ipv4.conf.all.route_localnet=1 >/dev/null 2>&1 || true && nft 'add table ip nat; add chain ip nat PREROUTING { type nat hook prerouting priority dstnat; }; add rule ip nat PREROUTING dnat to 127.0.0.1' 2>/dev/null || true",
 
-  # Install Mise by JDX (https://mise.jdx.dev/)
+  # Install Mise by JDX (https://mise.jdx.dev/) and apply dotfiles
   "su - dk -c 'curl -fsSL https://mise.run | sh'",
+  "su - dk -c '~/.local/bin/mise -C /home/dk/.dotfiles dot apply --prune'",
+  "su - dk -c '~/.local/bin/mise -C /home/dk/.dotfiles.local dot apply --prune'",
 
   # Dedicated sandbox Git signing key
   """

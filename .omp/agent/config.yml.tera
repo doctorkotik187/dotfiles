@@ -56,6 +56,8 @@ security:
   enabled: true
 
 # TOOLS & FEATURES ###############################################
+browser:
+  headless: false
 astGrep:
   enabled: true
 bash:
@@ -74,17 +76,16 @@ skills:
     - "communique"
     - "packslip"
 
-# TEMPLATED MODELS & ROLES #########################################
-defaultThinkingLevel: low
-textVerbosity: low
-
+# TEMPLATED CONFIG ################################################
+defaultThinkingLevel: {{ vars.omp_thinking }}
+textVerbosity: {{ vars.omp_verbosity }}
 modelRoles:
   slow: {{ vars.omp_model_slow }}
   default: {{ vars.omp_model_default }}
   smol: {{ vars.omp_model_smol }}
   task: "@smol"
 
-{% if exec(command='hostname') != "smolbaby" %}
+{% if env.HOSTNAME != "smolbaby" %}
 github:
   enabled: true
 tools:

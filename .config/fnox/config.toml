@@ -2,6 +2,7 @@
 # Tool: fnox (https://fnox.jdx.dev/) — Secret manager by jdx, the fort knox companion for mise
 
 import = ["./config.local.toml"]
+default_provider = "keychain"
 env = "exec"
 
 [daemon]
