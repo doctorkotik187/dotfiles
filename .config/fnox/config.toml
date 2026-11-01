@@ -1,7 +1,7 @@
 #:schema https://fnox.jdx.dev/schema.json
 # Tool: fnox (https://fnox.jdx.dev/) — Secret manager by jdx, the fort knox companion for mise
 
-import = ["./config.local.toml"]
+import = ["~/.config/fnox/config.local.toml"]
 
 [daemon]
 enabled = true
