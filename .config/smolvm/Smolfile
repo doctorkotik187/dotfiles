@@ -15,7 +15,7 @@ ssh_agent = false
 
 [secrets]
 AI_TOKEN     = { from_env = "AI_TOKEN" }
-GITHUB_TOKEN = { from_env = "GITHUB_RATE_LIMIT_TOKEN" } # Bypass Github API limits
+GITHUB_TOKEN = { from_env = "GITHUB_TOKEN" } # Dummy read-only token to bypass GitHub API limits
 
 [dev]
 ports = [

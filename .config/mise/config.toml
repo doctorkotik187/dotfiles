@@ -8,9 +8,13 @@ minimum_release_age = "7d"       # quarantine new releases
 system_packages.ostree = "layer" # layer host packages via rpm-ostree on Fedora Silverblue
 
 [vars]
-email = "217476020+doctorkotik187@users.noreply.github.com"
 git_name = "doctorkotik187"
-data_root = "/run/media/dk/MEME-HDD/0-doctorkotik"
+email = "217476020+doctorkotik187@users.noreply.github.com"
+
+# OMP
+omp_model_slow = "ollama/deepseek-r1"
+omp_model_default = "ollama/qwen2.5-coder"
+omp_model_smol = "ollama/llama3.2"
 
 [dotfile_groups.core]
 root = "~/.dotfiles"
@@ -18,10 +22,12 @@ exclude = [".git"]
 
 [dotfile_groups.core.entries]
 "~/.gitconfig" = { mode = "template" }
+"~/.omp/agent/config.yml" = { mode = "template" }
 
 [dotfiles]
 "~/.bashrc/activate" = { block = """
 eval "$(mise activate bash)"
+[ "$HOSTNAME" != "smolbaby" ] && eval "$(fnox activate bash)"
 eval "$(zoxide init bash)"
 eval "$(starship init bash)"
 """ }
@@ -57,7 +63,6 @@ ghd = "gh-dash"
 ff = "fastfetch"
 kate = "flatpak run org.kde.kate"
 yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
-smolvm = 'AI_TOKEN="$(fnox get AI_TOKEN)" GITHUB_RATE_LIMIT_TOKEN="$(fnox get GITHUB_RATE_LIMIT_TOKEN)" command smolvm'
 
 # TASKS ######################################################
 
@@ -79,7 +84,6 @@ run = [
 description = "Connect to sandbox VM"
 dir = "{{cwd}}"
 raw = true
-secrets = ["AI_TOKEN", "GITHUB_RATE_LIMIT_TOKEN"]
 run = """
 smolvm machine start
 target="$PWD"
@@ -90,7 +94,6 @@ smolvm machine exec -w "$target" -i -t -- bash -l
 [tasks."smolvm:rebuild"]
 description = "Rebuild sandbox machine from ~/.config/smolvm/Smolfile"
 confirm = { message = "Destroy and rebuild SmolVM sandbox machine?", default = "no" }
-secrets = ["AI_TOKEN", "GITHUB_RATE_LIMIT_TOKEN"]
 run = """
 smolvm machine stop 2>/dev/null || true
 smolvm machine delete -f 2>/dev/null || true
@@ -104,12 +107,12 @@ raw = true
 run = "ssh-keygen -K"
 
 [tasks."kagi:decrypt"]
-description = "Decrypt kagi via FIDO2 key to /dev/shm/kagi"
-run = "age -d -j fido2-hmac -o /dev/shm/kagi {{ vars.data_root }}/3-RESOURCES/program-data/old-places/kagi.age"
+description = "Decrypt kagi via FIDO2 key to RAM"
+run = 'age -d -j fido2-hmac -o "$XDG_RUNTIME_DIR/kagi" ~/.local/share/kagi/kagi.age && chmod 600 "$XDG_RUNTIME_DIR/kagi"'
 
 [tasks."kagi:remove"]
-description = "Delete decrypted kagi temp file"
-run = "rm -fv /dev/shm/kagi"
+description = "Delete decrypted kagi temp file from RAM"
+run = 'rm -fv "$XDG_RUNTIME_DIR/kagi"'
 
 # SOFTWARE #####################################################
 
@@ -266,28 +269,28 @@ postgres = "latest"                               # relational database manageme
 "cargo:eilmeldung" = "latest"                     # rss reader
 
 # Media, network & API -------------------------------------------
-xh = "latest"                         # friendly and fast tool for sending http requests
-websocat = "latest"                   # netcat for websockets
-curlie = "latest"                     # curl power with httpie ergonomics
-doggo = "latest"                      # modern dns client for humans with json
-gping = "latest"                      # ping with a real-time terminal graph
-oxipng = "latest"                     # multithreaded png optimizer
-vhs = "latest"                        # cli terminal gif recorder from charm
-"aqua:asciinema/asciinema" = "latest" # terminal session recorder, the unix standard
-"github:asciinema/agg" = "latest"     # asciinema gif generator in rust, fast and crisp
-"cargo:artem" = "latest"              # high-res image-to-ascii converter with 24-bit truecolor
-"cargo:viu" = "latest"                # terminal image viewer
+xh = "latest"                                                                   # friendly and fast tool for sending http requests
+websocat = "latest"                                                             # netcat for websockets
+curlie = "latest"                                                               # curl power with httpie ergonomics
+doggo = "latest"                                                                # modern dns client for humans with json
+gping = "latest"                                                                # ping with a real-time terminal graph
+oxipng = "latest"                                                               # multithreaded png optimizer
+vhs = "latest"                                                                  # cli terminal gif recorder from charm
+"aqua:asciinema/asciinema" = "latest"                                           # terminal session recorder, the unix standard
+"github:asciinema/agg" = "latest"                                               # asciinema gif generator in rust, fast and crisp
+"cargo:artem" = "latest"                                                        # high-res image-to-ascii converter with 24-bit truecolor
+"cargo:viu" = "latest"                                                          # terminal image viewer
+"github:pystardust/ani-cli" = { version = "latest", asset_pattern = "ani-cli" } # stream anime from terminal
 
 # Security & Crypto ----------------------------------------------
-age = "latest"         # file encryption without a PhD requirement
-fnox = "latest"        # secrets manager by jdx, the fort knox companion for mise
-packslip = "latest"    # signed release manifest verification cli by jdx
-osv-scanner = "latest" # vulnerability scanner using google osv database
-cosign = "latest"      # container signing and verification using sigstore
+age = "latest"                                    # file encryption without a PhD requirement
+fnox = "latest"                                   # secrets manager by jdx, the fort knox companion for mise
+packslip = "latest"                               # signed release manifest verification cli by jdx
+osv-scanner = "latest"                            # vulnerability scanner using google osv database
+cosign = "latest"                                 # container signing and verification using sigstore
+"cargo:solo2" = "latest"                          # solo2 fido2 security key cli
+"github:olastor/age-plugin-fido2-hmac" = "latest" # age encryption plugin for fido2 hmac
 
-"cargo:solo2" = "latest"
-"github:olastor/age-plugin-fido2-hmac" = "latest"
-"github:pystardust/ani-cli" = { version = "latest", asset_pattern = "ani-cli" }
 # AI agents & Isolation -----------------------------------------
 oh-my-pi = { version = "latest", rename_exe = "omp" } # pi with batteries included
 ollama = "latest"                                     # we love lamas!
@@ -365,4 +368,3 @@ odin = "latest" # the language of the gods
 
 # Zig ------------------------------------------------------
 zig = "latest" # for those who think the rust is a gov psyop
-

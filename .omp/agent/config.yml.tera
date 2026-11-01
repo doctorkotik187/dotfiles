@@ -1,0 +1,94 @@
+# vim: set ft=yaml :
+# Tool: oh-my-pi / omp (https://github.com/can1357/oh-my-pi) — AI coding agent CLI harness
+
+setupVersion: 2
+
+# SYSTEM & STARTUP ###############################################
+power:
+  sleepPrevention: "off"
+startup:
+  quiet: true
+marketplace:
+  autoUpdate: "off"
+dev:
+  autoqa: false
+
+# UI & APPEARANCE ################################################
+theme:
+  dark: dark-rose-pine
+symbolPreset: nerd
+statusLine:
+  preset: full
+composer:
+  tokenRate: true
+  shape: claude
+display:
+  showTokenUsage: true
+  showTurnTime: true
+  cacheMissMarker: true
+spelling:
+  autocomplete: smollm
+doubleEscapeAction: none
+readLineNumbers: true
+error:
+  notify: "on"
+
+# AGENT TASKS & WORKTREE ##########################################
+worktree:
+  base: ~/GIT/.wt
+task:
+  isolation:
+    enabled: true
+  showResolvedModelBadge: true
+  enableLsp: true
+
+# MEMORY & SECRETS ###############################################
+memory:
+  backend: mnemopi
+mnemopi:
+  scoping: per-project-tagged
+  embeddingVariant: en
+autolearn:
+  enabled: true
+secrets:
+  enabled: true
+security:
+  enabled: true
+
+# TOOLS & FEATURES ###############################################
+astGrep:
+  enabled: true
+bash:
+  allowCompoundCommands: true
+branchSummary:
+  enabled: true
+
+# SKILLS ###########################################################
+skills:
+  includeSkills:
+    - "fnox"
+    - "pitchfork"
+    - "usage"
+    - "hk-*"
+    - "mbx"
+    - "communique"
+    - "packslip"
+
+# TEMPLATED MODELS & ROLES #########################################
+defaultThinkingLevel: low
+textVerbosity: low
+
+modelRoles:
+  slow: {{ vars.omp_model_slow }}
+  default: {{ vars.omp_model_default }}
+  smol: {{ vars.omp_model_smol }}
+  task: "@smol"
+
+{% if exec(command='hostname') != "smolbaby" %}
+github:
+  enabled: true
+tools:
+  approvalMode: always-ask
+  approval:
+    task: deny
+{% endif %}
