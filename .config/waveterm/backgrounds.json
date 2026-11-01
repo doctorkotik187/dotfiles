@@ -1,0 +1,10 @@
+{
+  "bg@rosepine": {
+    "display:name": "Rose Pine",
+    "display:order": 1,
+    "bg": "#191724",
+    "bg:opacity": 1.0,
+    "bg:activebordercolor": "#eb6f92",
+    "bg:bordercolor": "#26233a"
+  }
+}

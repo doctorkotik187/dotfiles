@@ -1,0 +1,16 @@
+#:schema https://fnox.jdx.dev/schema.json
+# Tool: fnox (https://fnox.jdx.dev/) — Secret manager by jdx, the fort knox companion for mise
+
+import = ["./config.local.toml"]
+
+[daemon]
+enabled = true
+
+[providers.keychain]
+type = "keychain"
+service = "fnox"
+
+[secrets]
+AI_TOKEN                = { value = "AI_TOKEN" }
+GITHUB_TOKEN            = { value = "GITHUB_TOKEN" }
+GITHUB_RATE_LIMIT_TOKEN = { value = "GITHUB_RATE_LIMIT_TOKEN" }

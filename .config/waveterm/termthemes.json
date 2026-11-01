@@ -1,0 +1,27 @@
+{
+  "rosepine": {
+    "display:name": "Rose Pine",
+    "display:order": 7,
+    "black": "#26233a",
+    "red": "#eb6f92",
+    "green": "#31748f",
+    "yellow": "#f6c177",
+    "blue": "#9ccfd8",
+    "magenta": "#c4a7e7",
+    "cyan": "#ebbcba",
+    "white": "#e0def4",
+    "brightBlack": "#908caa",
+    "brightRed": "#ff8cab",
+    "brightGreen": "#9ccfb0",
+    "brightYellow": "#ffd196",
+    "brightBlue": "#bee6e0",
+    "brightMagenta": "#e2c4ff",
+    "brightCyan": "#ffd1d0",
+    "brightWhite": "#fffaf3",
+    "gray": "#908caa",
+    "cmdtext": "#e0def4",
+    "foreground": "#e0def4",
+    "background": "#191724",
+    "cursor": "#eb6f92"
+  }
+}
