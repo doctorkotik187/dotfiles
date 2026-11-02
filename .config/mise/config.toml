@@ -8,15 +8,11 @@ minimum_release_age = "7d"       # quarantine new releases
 system_packages.ostree = "layer" # layer host packages via rpm-ostree on Fedora Silverblue
 
 [vars]
-git_name = "doctorkotik187"
-email = "217476020+doctorkotik187@users.noreply.github.com"
-
-# OMP
-omp_thinking = "low"
-omp_verbosity = "low"
-omp_model_slow = "ollama/deepseek-r1"
-omp_model_default = "ollama/qwen2.5-coder"
-omp_model_smol = "ollama/llama3.2"
+git_name = { prompt = "Git author name", required = true }
+email = { prompt = "Git email", required = true }
+omp_model_default = { prompt = "OMP default model (e.g. ollama/qwen2.5-coder)", required = true }
+omp_model_smol = { prompt = "OMP smol model (e.g. ollama/llama3.2)", required = true }
+omp_model_slow = { prompt = "OMP slow model (e.g. ollama/deepseek-r1)", required = true }
 
 [dotfile_groups.core]
 root = "~/.dotfiles"
@@ -43,6 +39,9 @@ IGNOREEOF = 9
 COLORTERM = "truecolor"
 STARSHIP_LOG = "error"
 SMOLVM_MACHINE_NAME = "smolbaby"
+
+# Rename tokens
+OPENROUTER_API_KEY = "${AI_TOKEN:-}"
 
 # Theme: Rosé Pine
 BAT_THEME = "ansi"
@@ -71,6 +70,7 @@ yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 [tasks.bootstrap]
 description = "Machine bootstrap post-install hook"
 run = [
+  "touch ~/.config/fnox/config.local.toml",
   "mise skills sync --dir ~/.omp/agent/skills --prune",
   "nvim --headless '+Lazy! sync' +qa",
   "soar apply -y",

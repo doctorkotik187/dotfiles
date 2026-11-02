@@ -77,8 +77,8 @@ skills:
     - "packslip"
 
 # TEMPLATED CONFIG ################################################
-defaultThinkingLevel: {{ vars.omp_thinking }}
-textVerbosity: {{ vars.omp_verbosity }}
+defaultThinkingLevel: low
+textVerbosity: low
 modelRoles:
   slow: {{ vars.omp_model_slow }}
   default: {{ vars.omp_model_default }}
