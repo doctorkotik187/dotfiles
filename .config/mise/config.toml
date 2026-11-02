@@ -71,6 +71,7 @@ yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 description = "Machine bootstrap post-install hook"
 run = [
   "touch ~/.config/fnox/config.local.toml",
+  "getnf -i 'GeistMono,JetBrainsMono'",
   "mise skills sync --dir ~/.omp/agent/skills --prune",
   "nvim --headless '+Lazy! sync' +qa",
   "soar apply -y",
@@ -143,7 +144,6 @@ environment = { OLLAMA_HOST = "127.0.0.1:11434", OLLAMA_KEEP_ALIVE = "5m" }
 "flatpak-user:io.github.xiaoyifang.goldendict_ng" = "latest" # next-generation dictionary lookup tool
 "flatpak-user:com.logseq.Logseq" = "latest"                  # local-first personal knowledge base and outliner
 "flatpak-user:net.ankiweb.Anki" = "latest"                   # spaced repetition flashcard study system
-"flatpak-user:io.github.getnf.embellish" = "latest"          # nerd font downloader and font installer
 "flatpak-user:org.gnumeric.Gnumeric" = "latest"              # fast and lightweight spreadsheet application
 "flatpak-user:io.github.Qalculate" = "latest"                # multi-purpose desktop scientific calculator
 "flatpak-user:com.github.qarmin.czkawka" = "latest"          # duplicate finder and system storage cleaner
@@ -260,6 +260,7 @@ yamllint = "latest"                               # lint yaml lol
 usql = "latest"                                   # universal sql cli client
 sqlite = "latest"                                 # the database, that is just a file
 postgres = "latest"                               # relational database management system
+"github:getnf/getnf" = "latest"                   # nerd fonts installer and manager
 "aqua:mfontanini/presenterm" = "latest"           # terminal markdown slideshow presenter with animations
 "github:tectonic-typesetting/tectonic" = "latest" # modern tex/latex engine
 "aqua:jorgerojas26/lazysql" = "latest"            # cross-platform database tui

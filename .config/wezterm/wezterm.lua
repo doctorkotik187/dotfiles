@@ -5,7 +5,7 @@ local config = wezterm.config_builder()
 
 -- Visuals ################################################
 config.color_scheme = "Rosé Pine (Gogh)"
-config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "DemiBold" })
+config.font = wezterm.font("GeistMono Nerd Font Mono", { weight = "Medium" })
 config.font_size = 10
 config.window_decorations = "RESIZE"
 config.enable_scroll_bar = true
