@@ -177,6 +177,7 @@ environment = { OLLAMA_HOST = "127.0.0.1:11434", OLLAMA_KEEP_ALIVE = "5m" }
 "flatpak-user:org.chromium.Chromium" = "latest"              # open-source chromium web browser
 "flatpak-user:com.valvesoftware.Steam" = "latest"            # digital game distribution platform and proton runner
 "flatpak-user:org.freedesktop.Piper" = "latest"              # graphical mouse configuration utility for libratbag
+"flatpak-user:org.gnome.seahorse.Application" = "latest"     # gnome "passwords and keys" libsecret gui
 
 [tools]
 # Terminal & Shell ------------------------------------------
