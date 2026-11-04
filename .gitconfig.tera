@@ -1,5 +1,8 @@
 # vim: set ft=gitconfig :
 
+[init]
+  defaultBranch = main
+
 [url "git@github.com:"]
   pushInsteadOf = "https://github.com/"
 

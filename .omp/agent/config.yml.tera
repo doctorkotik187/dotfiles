@@ -76,7 +76,7 @@ skills:
     - "communique"
     - "packslip"
 
-# TEMPLATED CONFIG ################################################
+# THINKING & MODELS ################################################
 defaultThinkingLevel: low
 textVerbosity: low
 modelRoles:
@@ -86,6 +86,7 @@ modelRoles:
   task: "@smol"
 
 {% if env.HOSTNAME != "smolbaby" %}
+# HOST OMP ADDITIONS ###############################################
 github:
   enabled: true
 tools:

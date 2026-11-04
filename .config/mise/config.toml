@@ -2,9 +2,10 @@
 
 [settings]
 jobs = 6                         # parallel downloads and installs
+auto_install = false             # never auto install missing tools (mostly for bashrc activate)
 self_update.auto = true          # automatically keep mise binary up to date
 history.enabled = false          # intentional manual git commits for dotfiles
-minimum_release_age = "7d"       # quarantine new releases
+minimum_release_age = "3d"       # quarantine new releases
 system_packages.ostree = "layer" # layer host packages via rpm-ostree on Fedora Silverblue
 
 [vars]
