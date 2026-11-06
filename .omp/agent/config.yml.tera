@@ -87,8 +87,6 @@ modelRoles:
 
 {% if env.HOSTNAME != "smolbaby" %}
 # HOST OMP ADDITIONS ###############################################
-github:
-  enabled: true
 tools:
   approvalMode: always-ask
   approval:
