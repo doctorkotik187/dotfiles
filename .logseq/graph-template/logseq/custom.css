@@ -1,5 +1,5 @@
 :root {
-  --ls-font-family: "Adwaita Sans", "Segoe UI", "Noto Sans CJK JP", sans-serif;
+  --ls-font-family: "Adwaita Sans", "Segoe UI", "Noto Sans JP", "Noto Sans CJK JP", sans-serif;
 }
 
 .CodeMirror, code, pre {

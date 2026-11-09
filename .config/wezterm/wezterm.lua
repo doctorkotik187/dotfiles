@@ -38,13 +38,13 @@ config.keys = {
 	{ key = "n", mods = "ALT", action = wezterm.action.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ key = "d", mods = "ALT|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ key = "n", mods = "ALT|SHIFT", action = wezterm.action.SplitVertical({ domain = "CurrentPaneDomain" }) },
-	{ key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = true }) },
+	{ key = "w", mods = "ALT", action = wezterm.action.CloseCurrentPane({ confirm = false }) },
 	{ key = "m", mods = "ALT", action = wezterm.action.TogglePaneZoomState },
 	{ key = "s", mods = "ALT|SHIFT", action = wezterm.action.PaneSelect({ mode = "SwapWithActiveKeepFocus" }) },
 
 	-- Tabs ---------------------------------------------------
 	{ key = "t", mods = "ALT", action = wezterm.action.SpawnTab("CurrentPaneDomain") },
-	{ key = "w", mods = "ALT|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = true }) },
+	{ key = "w", mods = "ALT|SHIFT", action = wezterm.action.CloseCurrentTab({ confirm = false }) },
 	{ key = "[", mods = "ALT", action = wezterm.action.ActivateTabRelative(-1) },
 	{ key = "]", mods = "ALT", action = wezterm.action.ActivateTabRelative(1) },
 }
