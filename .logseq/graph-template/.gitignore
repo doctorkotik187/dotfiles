@@ -1,0 +1,7 @@
+# Logseq graph gitignore
+logseq/.recycle/
+logseq/bak/
+.clj-kondo/
+.lsp/
+Thumbs.db
+desktop.ini

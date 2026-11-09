@@ -1,0 +1,10 @@
+{
+  "bookmark@github-notifications": {
+    "url": "https://github.com/notifications",
+    "title": "GitHub Notifications"
+  },
+  "bookmark@localhost": {
+    "url": "http://localhost:3000",
+    "title": "Localhost :3000"
+  }
+}

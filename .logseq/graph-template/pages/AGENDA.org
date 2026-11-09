@@ -1,0 +1,100 @@
+#+icon: 📋
+#+tags: GTD
+
+* :PROPERTIES:
+:query-table: false
+:END:
+#+BEGIN_QUERY
+{:title [:h3 "📥 To Process"]
+ :query [:find [(count ?b)]
+         :where
+           [?page :block/name "inbox"]
+           [?b :block/path-refs ?page]
+           [?b :block/page ?bp]
+           [(not= ?bp ?page)]
+           (not [?b :block/refs ?page])
+           [?b :block/content ?content]
+           [(not= ?content "")]]
+ :collapsed? false}
+#+END_QUERY
+* :PROPERTIES:
+:query-table: true
+:query-properties: [:block]
+:END:
+#+BEGIN_QUERY
+{:title [:h3 "🔥 Overdue"]
+ :query [:find (pull ?block [*])
+         :in $ ?today
+         :where
+           [?block :block/deadline ?dl]
+           [(<= ?dl ?today)]
+           (not [?block :block/marker "DONE"])
+           (not [?block :block/marker "CANCELED"])
+           (not [?block :block/marker "CANCELLED"])]
+ :inputs [:today]
+ :collapsed? false}
+#+END_QUERY
+* :PROPERTIES:
+:query-table: true
+:query-properties: [:block]
+:END:
+#+BEGIN_QUERY
+{:title [:h3 "📌 Scheduled"]
+ :query [:find (pull ?block [*])
+         :in $ ?today
+         :where
+           [?block :block/scheduled ?sd]
+           [(<= ?sd ?today)]
+           (not [?block :block/marker "DONE"])
+           (not [?block :block/marker "CANCELED"])
+           (not [?block :block/marker "CANCELLED"])]
+ :inputs [:today]
+ :collapsed? false}
+#+END_QUERY
+* :PROPERTIES:
+:query-table: true
+:query-properties: [:block]
+:END:
+#+BEGIN_QUERY
+{:title [:h3 "📅 Next 5 Days"]
+ :query [:find (pull ?block [*])
+         :in $ ?today ?end
+         :where
+           (or-join [?block ?today ?end]
+             (and [?block :block/scheduled ?sd]
+                  [(> ?sd ?today)]
+                  [(<= ?sd ?end)])
+             (and [?block :block/deadline ?dl]
+                  [(> ?dl ?today)]
+                  [(<= ?dl ?end)]))
+           (not [?block :block/marker "DONE"])
+           (not [?block :block/marker "CANCELED"])
+           (not [?block :block/marker "CANCELLED"])]
+ :inputs [:today :5d-after]
+ :collapsed? false}
+#+END_QUERY
+* :PROPERTIES:
+:query-table: true
+:query-properties: [:block]
+:END:
+#+BEGIN_QUERY
+{:title [:h3 "💪 Next Actions"]
+ :query [:find (pull ?b [*])
+         :where
+         [?b :block/marker ?marker]
+         [(contains? #{"TODO" "DOING"} ?marker)]]
+ :result-transform :sort-by-priority
+ :collapsed? false}
+#+END_QUERY
+* :PROPERTIES:
+:query-table: true
+:query-properties: [:block]
+:END:
+#+BEGIN_QUERY
+{:title [:h3 "🕰️ Waiting"]
+ :query [:find (pull ?b [*])
+         :where
+           [?b :block/marker "WAITING"]]
+ :result-transform :sort-by-priority
+ :collapsed? false}
+#+END_QUERY
