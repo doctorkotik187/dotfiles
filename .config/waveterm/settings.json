@@ -12,6 +12,7 @@
   "term:bellindicator": true,
   "term:bellsound": false,
   "term:cursor": "block",
+  "term:cursorblink": false,
   "term:fontfamily": "JetBrainsMono Nerd Font Mono",
   "term:fontsize": 13,
   "term:shiftenternewline": true,

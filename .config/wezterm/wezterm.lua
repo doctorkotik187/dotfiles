@@ -4,15 +4,16 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 
 -- Visuals ################################################
-config.color_scheme = "Rosé Pine (Gogh)"
 config.font = wezterm.font("GeistMono Nerd Font Mono", { weight = "Medium" })
 config.font_size = 10
-config.window_decorations = "RESIZE"
+config.color_scheme = "Rosé Pine (Gogh)"
 config.enable_scroll_bar = true
-config.audible_bell = "Disabled"
 config.colors = {
 	scrollbar_thumb = "#ebbcba", -- Rosé Pine Rose
 }
+config.audible_bell = "Disabled"
+config.window_decorations = "RESIZE"
+config.default_cursor_style = "SteadyBlock"
 
 -- Mouse ##################################################
 config.mouse_bindings = {
