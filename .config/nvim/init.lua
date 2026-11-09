@@ -46,18 +46,13 @@ require("lazy").setup({
 			"nvim-orgmode/orgmode",
 			event = "VeryLazy",
 			ft = { "org" },
-			opts = {
-				org_agenda_files = "~/org/**/*",
-				org_default_notes_file = "~/org/refile.org",
-			},
+			opts = {},
 		},
 		{
 			"nvim-treesitter/nvim-treesitter",
-			opts = function(_, opts)
-				if type(opts.ensure_installed) == "table" then
-					vim.list_extend(opts.ensure_installed, { "ledger" })
-				end
-			end,
+			opts = {
+				ensure_installed = { "ledger" },
+			},
 		},
 		-- Prefer system/mise tools on PATH over Mason
 		{ "mason-org/mason.nvim", opts = { PATH = "append" } },
