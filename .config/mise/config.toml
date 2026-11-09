@@ -71,13 +71,14 @@ yt-a = "yt-dlp -f 250 -x --audio-format opus --restrict-filenames"
 
 [tasks.bootstrap]
 description = "Machine bootstrap post-install hook"
+ignore_errors = true
 run = [
   "touch ~/.config/fnox/config.local.toml",
-  "getnf -i 'GeistMono,JetBrainsMono'",
   "mise skills sync --dir ~/.omp/agent/skills --prune",
   "nvim --headless '+Lazy! sync' +qa",
   "soar apply -y",
   "soar update",
+  "getnf -i 'GeistMono,JetBrainsMono'",
 ]
 
 [tasks."smolvm:shell"]
