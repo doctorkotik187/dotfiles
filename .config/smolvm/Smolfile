@@ -55,7 +55,7 @@ init = [
     podman shadow-utils socat nmap-ncat nftables \
     patch zstd pv \
     strace gdb tcpdump bind-utils file tree lsof psmisc iotop-c \
-    tig rlwrap feh \
+    tig rlwrap \
     && dnf clean all
   """,
 
