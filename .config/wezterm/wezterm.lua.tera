@@ -54,7 +54,7 @@ config.audible_bell = "Disabled"
 config.window_decorations = "RESIZE"
 config.default_cursor_style = "SteadyBlock"
 config.font = wezterm.font("{{ vars.font }}", { weight = "Medium" })
-config.color_scheme =
-	"{% if vars.theme == 'green' %}Homebrew (Gogh){% elif vars.theme == 'rose-pine' %}Rosé Pine (Gogh){% endif %}"
+-- stylua: ignore
+config.color_scheme = "{% if vars.theme == 'kanagawa' %}Kanagawa (Gogh){% elif vars.theme == 'dark-terminal' %}Homebrew (Gogh){% else %}Rosé Pine (Gogh){% endif %}"
 
 return config

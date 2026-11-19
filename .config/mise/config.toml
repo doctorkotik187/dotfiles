@@ -16,7 +16,7 @@ omp_model_smol = { prompt = "OMP smol model (e.g. ollama/llama3.2)", required = 
 omp_model_slow = { prompt = "OMP slow model (e.g. ollama/deepseek-r1)", required = true }
 
 font = { prompt = "Terminal font", default = "JetBrainsMono Nerd Font Mono" }
-theme = { prompt = "Color theme (rose-pine, green)", default = "rose-pine" }
+theme = { prompt = "Color theme (rose-pine, kanagawa, dark-terminal)", default = "rose-pine" }
 
 [dotfile_groups.core]
 root = "~/.dotfiles"
@@ -64,7 +64,6 @@ l = "eza -al"
 nv = "nvim"
 gst = "git status"
 lg = "lazygit"
-gu = "gitu"
 ghd = "gh-dash"
 ff = "fastfetch"
 kate = "flatpak run org.kde.kate"
@@ -220,7 +219,6 @@ jj = "latest"                          # old friend, in case we need to do a ris
 git-lfs = "latest"                     # git extension for versioning large files
 gh = "latest"                          # github cli, for avoiding the website
 lazygit = "latest"                     # git tui, for avoiding git
-gitu = "latest"                        # magit-style git tui in rust
 delta = "latest"                       # git diff pager that makes diffs look intentional
 lefthook = "latest"                    # fast git hooks manager that actually runs
 pre-commit = "latest"                  # some other git hooks manager (just to have all)

@@ -7,9 +7,17 @@
     "bg:activebordercolor": "#eb6f92",
     "bg:bordercolor": "#26233a"
   },
-  "bg@green": {
-    "display:name": "Green",
+  "bg@kanagawa": {
+    "display:name": "Kanagawa",
     "display:order": 2,
+    "bg": "#1f1f28",
+    "bg:opacity": 1.0,
+    "bg:activebordercolor": "#7e9cd8",
+    "bg:bordercolor": "#2d4f67"
+  },
+  "bg@dark-terminal": {
+    "display:name": "Dark Terminal",
+    "display:order": 3,
     "bg": "#000000",
     "bg:opacity": 1.0,
     "bg:activebordercolor": "#00ff00",

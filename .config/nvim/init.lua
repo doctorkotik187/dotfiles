@@ -31,20 +31,8 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 
 		-- UI & Tools
-		{
-			"rose-pine/neovim",
-			name = "rose-pine",
-			lazy = true,
-			opts = { variant = "main" },
-		},
-		{
-			"rebelot/kanagawa.nvim",
-			lazy = true,
-			priority = 1000,
-			opts = {
-				theme = "dragon",
-			},
-		},
+		{ "rose-pine/neovim", name = "rose-pine", lazy = true },
+		{ "rebelot/kanagawa.nvim", lazy = true },
 		{
 			"folke/snacks.nvim",
 			opts = { picker = { hidden = true, sources = { files = { hidden = true } } } },
@@ -122,8 +110,8 @@ vim.api.nvim_create_user_command("Wa", "wa", {})
 
 -- Theming ------------------------------------------------
 local theme = os.getenv("THEME")
-if theme == "green" then
-	vim.cmd.colorscheme("kanagawa-dragon")
-elseif theme == "rose-pine" then
+if theme == "kanagawa" then
+	vim.cmd.colorscheme("kanagawa")
+else
 	vim.cmd.colorscheme("rose-pine")
 end

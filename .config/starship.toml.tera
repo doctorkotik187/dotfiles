@@ -47,7 +47,15 @@ blue = '#31748f'
 cyan = '#9ccfd8'
 magenta = '#c4a7e7'
 
-[palettes.green]
+[palettes.kanagawa]
+red = '#c34043'
+yellow = '#c0a36e'
+green = '#76946a'
+blue = '#7e9cd8'
+cyan = '#7aa89f'
+magenta = '#957fb8'
+
+[palettes.dark-terminal]
 red = '#ff3333'
 yellow = '#ffff33'
 green = '#00ff00'

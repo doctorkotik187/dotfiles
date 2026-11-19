@@ -8,7 +8,36 @@ git:
 
 gui:
   showFileTree: false
-{% if vars.theme == "green" %}
+{% if vars.theme == "kanagawa" %}
+  theme:
+    activeBorderColor:
+      - "#7e9cd8"
+      - bold
+    inactiveBorderColor:
+      - "#54546d"
+    searchingActiveBorderColor:
+      - "#c0a36e"
+      - bold
+    optionsTextColor:
+      - "#7aa89f"
+    selectedLineBgColor:
+      - "#2d4f67"
+    inactiveViewSelectedLineBgColor:
+      - "#223249"
+      - bold
+    cherryPickedCommitFgColor:
+      - "#1f1f28"
+    cherryPickedCommitBgColor:
+      - "#7e9cd8"
+    markedBaseCommitFgColor:
+      - "#1f1f28"
+    markedBaseCommitBgColor:
+      - "#c0a36e"
+    unstagedChangesColor:
+      - "#c34043"
+    defaultFgColor:
+      - "#dcd7ba"
+{% elif vars.theme == "dark-terminal" %}
   theme:
     activeBorderColor:
       - "#00ff00"
@@ -37,7 +66,7 @@ gui:
       - "#ff3333"
     defaultFgColor:
       - "#00ff00"
-{% elif vars.theme == "rose-pine" %}
+{% else %}
   theme:
     activeBorderColor:
       - "#31748f"

@@ -27,7 +27,27 @@
   plus-emph-style = bold "#9ccfd8" "#25465a"
   whitespace-error-style = "#2a2538"
 
-[delta "green"]
+[delta "kanagawa"]
+  dark = true
+  syntax-theme = none
+  file-style = "#7e9cd8" bold ul
+  file-decoration-style = "#2d4f67"
+  commit-decoration-style = "#2d4f67"
+  hunk-header-decoration-style = "#dcd7ba" box
+  hunk-header-line-number-style = "#727169"
+  hunk-header-style = line-number syntax bold
+  line-numbers-left-style = "#727169"
+  line-numbers-minus-style = "#c34043"
+  line-numbers-plus-style = "#76946a"
+  line-numbers-right-style = "#957fb8"
+  line-numbers-zero-style = "#54546d"
+  minus-style = "#c34043" "#43242b"
+  minus-emph-style = bold "#e82424" "#43242b"
+  plus-style = "#76946a" "#2b3328"
+  plus-emph-style = bold "#98bb6c" "#2b3328"
+  whitespace-error-style = "#2d4f67"
+
+[delta "dark-terminal"]
   dark = true
   syntax-theme = none
   file-style = "#00ff00" bold ul
@@ -49,7 +69,7 @@
 
 # Theming ------------------------------------------------
 [delta]
-  features = {% if vars.theme == 'green' %}green{% elif vars.theme == 'rose-pine' %}rose-pine{% endif %}
+  features = {% if vars.theme == 'kanagawa' %}kanagawa{% elif vars.theme == 'dark-terminal' %}dark-terminal{% else %}rose-pine{% endif %}
 
 [delta "dark"]
-  features = {% if vars.theme == 'green' %}green{% elif vars.theme == 'rose-pine' %}rose-pine{% endif %}
+  features = {% if vars.theme == 'kanagawa' %}kanagawa{% elif vars.theme == 'dark-terminal' %}dark-terminal{% else %}rose-pine{% endif %}
