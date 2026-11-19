@@ -1,0 +1,55 @@
+# vim: set ft=gitconfig :
+# Tool: delta (https://github.com/dandavison/delta) — Syntax-highlighting pager for git diffs
+
+[delta]
+  true-color = always
+  navigate = true
+  line-numbers = true
+  side-by-side = false
+
+[delta "rose-pine"]
+  dark = true
+  syntax-theme = none
+  file-style = "#9ccfd8" bold ul
+  file-decoration-style = "#2a2838"
+  commit-decoration-style = "#2a2838"
+  hunk-header-decoration-style = "#e0def4" box
+  hunk-header-line-number-style = "#6e6a86"
+  hunk-header-style = line-number syntax bold
+  line-numbers-left-style = "#6e6a86"
+  line-numbers-minus-style = "#eb6f92"
+  line-numbers-plus-style = "#31748f"
+  line-numbers-right-style = "#c4a7e7"
+  line-numbers-zero-style = "#6e6a86"
+  minus-style = "#eb6f92" "#2e202f"
+  minus-emph-style = bold "#eb6f92" "#472836"
+  plus-style = "#9ccfd8" "#1b202f"
+  plus-emph-style = bold "#9ccfd8" "#25465a"
+  whitespace-error-style = "#2a2538"
+
+[delta "green"]
+  dark = true
+  syntax-theme = none
+  file-style = "#00ff00" bold ul
+  file-decoration-style = "#002200"
+  commit-decoration-style = "#002200"
+  hunk-header-decoration-style = "#00ff00" box
+  hunk-header-line-number-style = "#008800"
+  hunk-header-style = line-number syntax bold
+  line-numbers-left-style = "#006600"
+  line-numbers-minus-style = "#ff3333"
+  line-numbers-plus-style = "#00ff00"
+  line-numbers-right-style = "#00aa00"
+  line-numbers-zero-style = "#004400"
+  minus-style = "#ff3333" "#220000"
+  minus-emph-style = bold "#ff5555" "#440000"
+  plus-style = "#00ff00" "#002200"
+  plus-emph-style = bold "#33ff33" "#004400"
+  whitespace-error-style = "#220000"
+
+# Theming ------------------------------------------------
+[delta]
+  features = {% if vars.theme == 'green' %}green{% elif vars.theme == 'rose-pine' %}rose-pine{% endif %}
+
+[delta "dark"]
+  features = {% if vars.theme == 'green' %}green{% elif vars.theme == 'rose-pine' %}rose-pine{% endif %}

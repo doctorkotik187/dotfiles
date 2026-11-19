@@ -1,3 +1,4 @@
+-- vim: set ft=lua :
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.uv.fs_stat(lazypath) then
@@ -33,9 +34,15 @@ require("lazy").setup({
 		{
 			"rose-pine/neovim",
 			name = "rose-pine",
+			lazy = true,
+			opts = { variant = "main" },
+		},
+		{
+			"ribru17/bamboo.nvim",
+			lazy = true,
+			priority = 1000,
 			config = function()
-				require("rose-pine").setup({ variant = "main" })
-				vim.cmd("colorscheme rose-pine")
+				require("bamboo").setup({ style = "multiplex" })
 			end,
 		},
 		{
@@ -112,3 +119,13 @@ vim.keymap.set("n", "<A-x>", function()
 	Snacks.picker.commands()
 end, { desc = "Command Palette" })
 vim.api.nvim_create_user_command("Wa", "wa", {})
+
+-- Theming ------------------------------------------------
+local themes = {
+	["green"] = "bamboo",
+	["rose-pine"] = "rose-pine",
+}
+local theme = os.getenv("THEME")
+if themes[theme] then
+	vim.cmd.colorscheme(themes[theme])
+end

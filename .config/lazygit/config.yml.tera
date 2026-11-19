@@ -1,3 +1,4 @@
+# vim: set ft=yaml :
 # Tool: lazygit (https://github.com/jesseduffield/lazygit) — Terminal UI for Git commands
 
 git:
@@ -7,7 +8,36 @@ git:
 
 gui:
   showFileTree: false
-  # Rosé Pine
+{% if vars.theme == "green" %}
+  theme:
+    activeBorderColor:
+      - "#00ff00"
+      - bold
+    inactiveBorderColor:
+      - "#005500"
+    searchingActiveBorderColor:
+      - "#33ff33"
+      - bold
+    optionsTextColor:
+      - "#00dd00"
+    selectedLineBgColor:
+      - "#003300"
+    inactiveViewSelectedLineBgColor:
+      - "#002200"
+      - bold
+    cherryPickedCommitFgColor:
+      - "#001100"
+    cherryPickedCommitBgColor:
+      - "#00ff00"
+    markedBaseCommitFgColor:
+      - "#001100"
+    markedBaseCommitBgColor:
+      - "#00cc00"
+    unstagedChangesColor:
+      - "#ff3333"
+    defaultFgColor:
+      - "#00ff00"
+{% elif vars.theme == "rose-pine" %}
   theme:
     activeBorderColor:
       - "#31748f"
@@ -36,3 +66,4 @@ gui:
       - "#eb6f92"
     defaultFgColor:
       - "#e0def4"
+{% endif %}

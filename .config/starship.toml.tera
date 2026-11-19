@@ -1,0 +1,207 @@
+# vim: set ft=toml :
+# Tool: starship (https://starship.rs/) — Fast, customizable cross-shell prompt
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+$container\
+$sudo\
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$mise\
+$fill\
+$c\
+$elixir\
+$elm\
+$golang\
+$haskell\
+$java\
+$julia\
+$nodejs\
+$nim\
+$rust\
+$scala\
+$conda\
+$python\
+$time\n  \
+[λ](fg:magenta) \
+"""
+
+[directory]
+format = "[](fg:bg_alt)[ $path ]($style)[](fg:bg_alt) "
+style = "bg:bg_alt fg:blue"
+truncation_length = 3
+truncation_symbol = "…/"
+
+[directory.substitutions]
+Documents = "󰈙"
+Downloads = " "
+Music = " "
+Pictures = " "
+
+[fill]
+style = "fg:bg_alt"
+symbol = " "
+
+[git_branch]
+format = "[](fg:bg_alt)[ $symbol $branch ]($style)[](fg:bg_alt) "
+style = "bg:bg_alt fg:cyan"
+symbol = ""
+
+[git_status]
+disabled = false
+style = "bg:bg_alt fg:red"
+format = '[](fg:bg_alt)([$all_status$ahead_behind]($style))[](fg:bg_alt) '
+up_to_date = '[ ✓ ](bg:bg_alt fg:magenta)'
+untracked = '[?\($count\)](bg:bg_alt fg:yellow)'
+stashed = '[\$](bg:bg_alt fg:magenta)'
+modified = '[!\($count\)](bg:bg_alt fg:yellow)'
+renamed = '[»\($count\)](bg:bg_alt fg:magenta)'
+deleted = '[✘\($count\)](style)'
+staged = '[++\($count\)](bg:bg_alt fg:yellow)'
+ahead = '[⇡\(${count}\)](bg:bg_alt fg:cyan)'
+diverged = '⇕[\[](bg:bg_alt fg:magenta)[⇡\(${ahead_count}\)](bg:bg_alt fg:cyan)[⇣\(${behind_count}\)](bg:bg_alt fg:green)[\]](bg:bg_alt fg:magenta)'
+behind = '[⇣\(${count}\)](bg:bg_alt fg:green)'
+
+[time]
+disabled = false
+format = " [](fg:bg_alt)[ $time 󰴈 ]($style)[](fg:bg_alt)"
+style = "bg:bg_alt fg:green"
+time_format = "%I:%M%P"
+use_12hr = true
+
+[username]
+disabled = false
+format = "[](fg:bg_alt)[ 󰧱 $user ]($style)"
+show_always = true
+style_root = "bg:bg_alt fg:magenta"
+style_user = "bg:bg_alt fg:magenta"
+
+[hostname]
+ssh_only = false
+disabled = false
+format = "[󰌽 $hostname ]($style)[](fg:bg_alt) "
+style = "bg:bg_alt fg:yellow"
+
+# Languages
+[c]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[elixir]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[elm]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[golang]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[haskell]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[java]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[julia]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[nodejs]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = "󰎙 "
+
+[nim]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = "󰆥 "
+
+[rust]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[scala]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = " "
+
+[python]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$version ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = ' '
+
+[conda]
+style = "bg:bg_alt fg:blue"
+format = " [](fg:bg_alt)[ $symbol$environment ]($style)[](fg:bg_alt)"
+disabled = false
+symbol = '🅒 '
+
+[container]
+disabled = false
+format = "[](fg:bg_alt)[ $symbol $name ]($style)[](fg:bg_alt) "
+style = "bg:bg_alt fg:cyan"
+symbol = "󰏖"
+
+[sudo]
+disabled = false
+format = "[](fg:bg_alt)[ $symbol ]($style)[](fg:bg_alt) "
+style = "bg:bg_alt fg:green"
+symbol = "󰌆"
+
+[mise]
+disabled = false
+format = "[](fg:bg_alt)[ $symbol$health ]($style)[](fg:bg_alt) "
+style = "bg:bg_alt fg:magenta"
+symbol = "󰭼"
+healthy_symbol = ""
+unhealthy_symbol = "!"
+
+# THEME & VISUALS ##################################################
+palette = "{{ vars.theme }}"
+
+[palettes.rose-pine]
+bg_alt = '#26233a'
+red = '#eb6f92'
+yellow = '#f6c177'
+green = '#ebbcba'
+blue = '#31748f'
+cyan = '#9ccfd8'
+magenta = '#c4a7e7'
+
+[palettes.green]
+bg_alt = '#002200'
+red = '#ff3333'
+yellow = '#ffff33'
+green = '#00ff00'
+blue = '#33ff33'
+cyan = '#00ddaa'
+magenta = '#00aa00'

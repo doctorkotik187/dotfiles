@@ -13,26 +13,6 @@ marketplace:
 dev:
   autoqa: false
 
-# UI & APPEARANCE ################################################
-theme:
-  dark: dark-rose-pine
-symbolPreset: nerd
-statusLine:
-  preset: full
-composer:
-  tokenRate: true
-  shape: claude
-display:
-  showTokenUsage: true
-  showTurnTime: true
-  cacheMissMarker: true
-spelling:
-  autocomplete: smollm
-doubleEscapeAction: none
-readLineNumbers: true
-error:
-  notify: "on"
-
 # AGENT TASKS & WORKTREE ##########################################
 worktree:
   base: ~/GIT/.wt
@@ -85,6 +65,26 @@ modelRoles:
   smol: {{ vars.omp_model_smol }}
   task: "@smol"
 
+# UI & APPEARANCE ################################################
+symbolPreset: nerd
+statusLine:
+  preset: full
+composer:
+  tokenRate: true
+  shape: claude
+display:
+  showTokenUsage: true
+  showTurnTime: true
+  cacheMissMarker: true
+spelling:
+  autocomplete: smollm
+doubleEscapeAction: none
+readLineNumbers: true
+error:
+  notify: "on"
+theme:
+  dark: {% if vars.theme == 'green' %}dark-terminal{% elif vars.theme == 'rose-pine' %}dark-rose-pine{% endif %}
+
 {% if env.HOSTNAME != "smolbaby" %}
 # HOST OMP ADDITIONS ###############################################
 tools:
@@ -92,3 +92,4 @@ tools:
   approval:
     task: deny
 {% endif %}
+

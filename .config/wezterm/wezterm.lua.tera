@@ -1,19 +1,8 @@
+-- vim: set ft=lua :
 -- Tool: wezterm (https://wezterm.org) — GPU-accelerated terminal emulator and multiplexer
 
 local wezterm = require("wezterm")
 local config = wezterm.config_builder()
-
--- Visuals ################################################
-config.font = wezterm.font("GeistMono Nerd Font Mono", { weight = "Medium" })
-config.font_size = 10
-config.color_scheme = "Rosé Pine (Gogh)"
-config.enable_scroll_bar = true
-config.colors = {
-	scrollbar_thumb = "#ebbcba", -- Rosé Pine Rose
-}
-config.audible_bell = "Disabled"
-config.window_decorations = "RESIZE"
-config.default_cursor_style = "SteadyBlock"
 
 -- Mouse ##################################################
 config.mouse_bindings = {
@@ -57,5 +46,15 @@ for i = 1, 9 do
 		action = wezterm.action.ActivateTab(i - 1),
 	})
 end
+
+-- Visuals ################################################
+config.font_size = 10
+config.enable_scroll_bar = true
+config.audible_bell = "Disabled"
+config.window_decorations = "RESIZE"
+config.default_cursor_style = "SteadyBlock"
+config.font = wezterm.font("{{ vars.font }}", { weight = "Medium" })
+config.color_scheme =
+	"{% if vars.theme == 'green' %}Homebrew (Gogh){% elif vars.theme == 'rose-pine' %}Rosé Pine (Gogh){% endif %}"
 
 return config

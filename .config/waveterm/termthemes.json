@@ -23,5 +23,30 @@
     "foreground": "#e0def4",
     "background": "#191724",
     "cursor": "#eb6f92"
+  },
+  "green": {
+    "display:name": "Green",
+    "display:order": 8,
+    "black": "#001100",
+    "red": "#ff3333",
+    "green": "#00ff00",
+    "yellow": "#ffff33",
+    "blue": "#00ddaa",
+    "magenta": "#33ff33",
+    "cyan": "#00ffaa",
+    "white": "#e0ffe0",
+    "brightBlack": "#005500",
+    "brightRed": "#ff5555",
+    "brightGreen": "#33ff33",
+    "brightYellow": "#ffff66",
+    "brightBlue": "#66ffcc",
+    "brightMagenta": "#66ff66",
+    "brightCyan": "#66ffdd",
+    "brightWhite": "#ffffff",
+    "gray": "#00aa00",
+    "cmdtext": "#00ff00",
+    "foreground": "#00ff00",
+    "background": "#000000",
+    "cursor": "#00ff00"
   }
 }

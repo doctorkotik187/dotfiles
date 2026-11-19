@@ -6,5 +6,13 @@
     "bg:opacity": 1.0,
     "bg:activebordercolor": "#eb6f92",
     "bg:bordercolor": "#26233a"
+  },
+  "bg@green": {
+    "display:name": "Green",
+    "display:order": 2,
+    "bg": "#000000",
+    "bg:opacity": 1.0,
+    "bg:activebordercolor": "#00ff00",
+    "bg:bordercolor": "#003300"
   }
 }

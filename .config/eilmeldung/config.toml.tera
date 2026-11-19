@@ -1,0 +1,4 @@
+# vim: set ft=toml :
+# Tool: eilmeldung (https://github.com/christo-auer/eilmeldung) — TUI RSS reader
+[theme]
+base16_theme = "{% if vars.theme == 'green' %}greenscreen{% elif vars.theme == 'rose-pine' %}rose-pine{% endif %}"
