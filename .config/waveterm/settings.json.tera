@@ -16,7 +16,7 @@
   "term:cursor": "block",
   "term:cursorblink": false,
   "term:shiftenternewline": true,
-  "term:fontsize": 13,
+  "term:fontsize": 14,
   "term:fontfamily": "{{ vars.font }}",
   "term:theme": "{% if vars.theme == 'green' %}green{% elif vars.theme == 'rose-pine' %}rosepine{% endif %}",
   "tab:background": "{% if vars.theme == 'green' %}bg@green{% elif vars.theme == 'rose-pine' %}bg@rosepine{% endif %}",
