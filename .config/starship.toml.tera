@@ -68,14 +68,14 @@ behind = '[⇣\(${count}\)](bg:bg_alt fg:green)'
 
 [time]
 disabled = false
-format = " [](fg:bg_alt)[ $time 󰴈 ]($style)[](fg:bg_alt)"
+format = " [](fg:bg_alt)[ $time 󰥔 ]($style)[](fg:bg_alt)"
 style = "bg:bg_alt fg:green"
 time_format = "%I:%M%P"
 use_12hr = true
 
 [username]
 disabled = false
-format = "[](fg:bg_alt)[ 󰧱 $user ]($style)"
+format = "[](fg:bg_alt)[ 󰄛 $user ]($style)"
 show_always = true
 style_root = "bg:bg_alt fg:magenta"
 style_user = "bg:bg_alt fg:magenta"

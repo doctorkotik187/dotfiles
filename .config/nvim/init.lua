@@ -38,12 +38,12 @@ require("lazy").setup({
 			opts = { variant = "main" },
 		},
 		{
-			"ribru17/bamboo.nvim",
+			"rebelot/kanagawa.nvim",
 			lazy = true,
 			priority = 1000,
-			config = function()
-				require("bamboo").setup({ style = "multiplex" })
-			end,
+			opts = {
+				theme = "dragon",
+			},
 		},
 		{
 			"folke/snacks.nvim",
@@ -121,11 +121,9 @@ end, { desc = "Command Palette" })
 vim.api.nvim_create_user_command("Wa", "wa", {})
 
 -- Theming ------------------------------------------------
-local themes = {
-	["green"] = "bamboo",
-	["rose-pine"] = "rose-pine",
-}
 local theme = os.getenv("THEME")
-if themes[theme] then
-	vim.cmd.colorscheme(themes[theme])
+if theme == "green" then
+	vim.cmd.colorscheme("kanagawa-dragon")
+elseif theme == "rose-pine" then
+	vim.cmd.colorscheme("rose-pine")
 end

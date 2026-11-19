@@ -80,7 +80,7 @@ run = [
   "nvim --headless '+Lazy! sync' +qa",
   "mise skills sync --dir ~/.omp/agent/skills --prune",
   "touch ~/.config/fnox/config.local.toml",
-  "getnf -i 'GeistMono,JetBrainsMono,FantasqueSansMono'",
+  "getnf -i 'GeistMono,JetBrainsMono,FantasqueSansMono,DepartureMono'",
 ]
 
 [tasks."smolvm:shell"]
