@@ -8,6 +8,8 @@ power:
   sleepPrevention: "off"
 startup:
   quiet: true
+update:
+  auto: false
 marketplace:
   autoUpdate: "off"
 dev:

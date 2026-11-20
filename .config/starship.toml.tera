@@ -14,16 +14,16 @@ $mise
 
 [username]
 show_always = true
-format = "[󰄛 $user](bold magenta) "
+format = "[ $user](bold magenta) "
 
 [hostname]
 ssh_only = false
-format = "[at](dimmed) [$hostname](bold yellow) "
+format = "[ $hostname](bold yellow) "
 
 [directory]
 truncation_length = 3
 truncation_symbol = "…/"
-format = "[in](dimmed) [$path](bold blue) "
+format = "[$path](bold blue) "
 [git_branch]
 symbol = " "
 format = "[$symbol$branch](bold cyan) "
