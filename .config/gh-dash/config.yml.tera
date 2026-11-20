@@ -2,7 +2,24 @@
 # Tool: gh-dash (https://github.com/dlvhdr/gh-dash) — CLI dashboard for GitHub PRs and issues
 
 # THEME & VISUALS ##################################################
-{% if vars.theme == "kanagawa" %}
+{% if vars.theme == "gruvbox" %}
+theme:
+  colors:
+    text:
+      primary: "#ebdbb2"
+      secondary: "#a89984"
+      inverted: "#282828"
+      faint: "#7c6f64"
+      warning: "#cc241d"
+      success: "#98971a"
+      actor: "#d79921"
+    background:
+      selected: "#3c3836"
+    border:
+      primary: "#d79921"
+      secondary: "#504945"
+      faint: "#3c3836"
+{% elif vars.theme == "kanagawa" %}
 theme:
   colors:
     text:

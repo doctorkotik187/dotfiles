@@ -18,8 +18,8 @@
   "term:shiftenternewline": true,
   "term:fontsize": 14,
   "term:fontfamily": "{{ vars.font }}",
-  "term:theme": "{% if vars.theme == 'kanagawa' %}kanagawa{% elif vars.theme == 'dark-terminal' %}dark-terminal{% else %}rosepine{% endif %}",
-  "tab:background": "{% if vars.theme == 'kanagawa' %}bg@kanagawa{% elif vars.theme == 'dark-terminal' %}bg@dark-terminal{% else %}bg@rosepine{% endif %}",
+  "term:theme": "{% if vars.theme == 'gruvbox' %}gruvbox{% elif vars.theme == 'kanagawa' %}kanagawa{% elif vars.theme == 'dark-terminal' %}dark-terminal{% else %}rosepine{% endif %}",
+  "tab:background": "{% if vars.theme == 'gruvbox' %}bg@gruvbox{% elif vars.theme == 'kanagawa' %}bg@kanagawa{% elif vars.theme == 'dark-terminal' %}bg@dark-terminal{% else %}bg@rosepine{% endif %}",
   "web:defaultsearch": "https://noai.duckduckgo.com/?q={query}",
   "web:defaulturl": "https://github.com/notifications"
 }

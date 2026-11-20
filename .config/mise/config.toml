@@ -16,7 +16,7 @@ omp_model_smol = { prompt = "OMP smol model (e.g. ollama/llama3.2)", required = 
 omp_model_slow = { prompt = "OMP slow model (e.g. ollama/deepseek-r1)", required = true }
 
 font = { prompt = "Terminal font", default = "JetBrainsMono Nerd Font Mono" }
-theme = { prompt = "Color theme (rose-pine, kanagawa, dark-terminal)", default = "rose-pine" }
+theme = { prompt = "Color theme (rose-pine, gruvbox, kanagawa, dark-terminal)", default = "rose-pine" }
 
 [dotfile_groups.core]
 root = "~/.dotfiles"

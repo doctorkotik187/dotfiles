@@ -32,6 +32,7 @@ require("lazy").setup({
 
 		-- UI & Tools
 		{ "rose-pine/neovim", name = "rose-pine", lazy = true },
+		{ "ellisonleao/gruvbox.nvim", lazy = true },
 		{ "rebelot/kanagawa.nvim", lazy = true },
 		{
 			"folke/snacks.nvim",
@@ -112,6 +113,8 @@ vim.api.nvim_create_user_command("Wa", "wa", {})
 local theme = os.getenv("THEME")
 if theme == "kanagawa" then
 	vim.cmd.colorscheme("kanagawa")
+elseif theme == "dark-terminal" or theme == "gruvbox" then
+	vim.cmd.colorscheme("gruvbox")
 else
 	vim.cmd.colorscheme("rose-pine")
 end

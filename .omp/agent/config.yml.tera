@@ -83,7 +83,7 @@ readLineNumbers: true
 error:
   notify: "on"
 theme:
-  dark: "{% if vars.theme == 'kanagawa' %}dark-ocean{% elif vars.theme == 'dark-terminal' %}dark-terminal{% else %}dark-rose-pine{% endif %}"
+  dark: "{% if vars.theme == 'gruvbox' %}dark-gruvbox{% elif vars.theme == 'kanagawa' %}dark-ocean{% elif vars.theme == 'dark-terminal' %}dark-terminal{% else %}dark-rose-pine{% endif %}"
 
 {% if env.HOSTNAME != "smolbaby" %}
 # HOST OMP ADDITIONS ###############################################

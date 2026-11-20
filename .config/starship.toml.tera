@@ -47,6 +47,14 @@ blue = '#31748f'
 cyan = '#9ccfd8'
 magenta = '#c4a7e7'
 
+[palettes.gruvbox]
+red = '#cc241d'
+yellow = '#d79921'
+green = '#98971a'
+blue = '#458588'
+cyan = '#689d6a'
+magenta = '#b16286'
+
 [palettes.kanagawa]
 red = '#c34043'
 yellow = '#c0a36e'

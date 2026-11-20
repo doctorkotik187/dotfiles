@@ -55,6 +55,6 @@ config.window_decorations = "RESIZE"
 config.default_cursor_style = "SteadyBlock"
 config.font = wezterm.font("{{ vars.font }}", { weight = "Medium" })
 -- stylua: ignore
-config.color_scheme = "{% if vars.theme == 'kanagawa' %}Kanagawa (Gogh){% elif vars.theme == 'dark-terminal' %}Homebrew (Gogh){% else %}Rosé Pine (Gogh){% endif %}"
+config.color_scheme = "{% if vars.theme == 'gruvbox' %}Gruvbox Dark (Gogh){% elif vars.theme == 'kanagawa' %}Kanagawa (Gogh){% elif vars.theme == 'dark-terminal' %}Homebrew (Gogh){% else %}Rosé Pine (Gogh){% endif %}"
 
 return config
